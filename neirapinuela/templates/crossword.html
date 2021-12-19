@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block crossword %}
+    <div class="table-responsive">
+        <table class="table table-borderless">
+            {% for row in crossword %}
+                <tr class="ong-crossword">
+                    {% for item in row %}
+                        <td class="{{- item['class'] }} p-0 p-sm-1 p-md-2"
+                                {%- if item.get("link") -%}
+                            onClick="location.href='{{- item.get("link") -}}'"
+                                {%- endif -%}>
+                            {{ item['value'] }}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+
+{% block definitions %}
+    <div class="row g-0">
+        {% for row in crossword %}
+            {% for item in row %}
+                {% if 'definition' in item %}
+                    <div class="card rounded-0 shadow-sm col-md-3 col-lg-2">
+                        <div class="card-body">
+                            {% if "definition_link" in item %}
+                                <a href="{{ item['definition_link'] }}" class="btn btn-success">
+                                    {{ item['definition_title'] }}
+                                    {% if not item['definition_public'] %}
+                                        <i class="bi bi-shield-lock"></i>
+                                    {% endif %}
+                                </a>
+                            {% endif %}
+                            <p class="card-text">{{ item['definition']| safe }}</p>
+                        </div>
+                    </div>
+
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function random_crossword_letters() {
+            let charset = "ABCDEFGHIJKLMNOPSTUW";
+            let letters = document.getElementsByClassName("nonletterData");
+            for (let letter of letters) {
+                letter.innerText = charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            random_crossword_letters();
+        });
+
+    </script>
+
+{% endblock %}

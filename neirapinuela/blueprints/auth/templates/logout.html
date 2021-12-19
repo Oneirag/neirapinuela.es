@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>{{ g.auth_logout_message | safe }}</p>
+
+    <script>
+        let timer = document.getElementById("timer");
+        let start_t = 5;
+        setInterval(function () {
+            timer.innerText = (--start_t).toString();
+        }, 1000);
+        setTimeout(function () {
+           window.location.href = '{{ redirect }}';
+        }, 5000);
+    </script>
+
+{% endblock %}

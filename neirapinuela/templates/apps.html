@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row clearfix">
+        <div class="row">
+            <h1 class="text-center">Apps</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="carouselExampleCaptions" class="carousel carrousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        {% for _ in apps_config %}
+                            <button type="button bg-success" data-bs-target="#carouselExampleCaptions"
+                                    data-bs-slide-to="{{- loop.index - 1 -}}"
+                                    {% if loop.first %}
+                                    class="active"  aria-current="true"
+                                    {% endif %}
+                                    aria-label="Slide {{ loop.index -}}"></button>
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-inner">
+                        {% for elem in apps_config %}
+                            <div class="carousel-item  {% if loop.first %} active {% endif %}">
+                                <img src="{{- elem['app_img'] -}}"
+                                     class="rounded d-block img-fluid"
+                                     alt="{{ elem['name'] }}">
+                                <div class="carousel-caption d-block bg-success bg-opacity-75">
+                                    <h5><a class="btn btn-outline-light" href="{{- elem['link'] -}}">{{ elem['name'] }}</a>
+                                    </h5>
+                                    <p>{{ elem['definition'] | safe }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block css %}
+    {{ super() }}
+    <script src="https://kit.fontawesome.com/660f5974bb.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {{ g.home_about }}
+    </h1>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2">
+        {% for person in about_cfg %}
+            <div class="col">
+                <div class="card text-center shadow-sm g-4 h-100">
+                    <div class="row h-100">
+                        <div class="col-3">
+                            <div class="ong-bg-smoke h-100 position-relative">
+{#                            <i class="bi bi-person-circle fs-1 position-absolute top-50 start-50 translate-middle"></i>#}
+                            <i class="{{ person.icon }} position-absolute top-50 start-50 translate-middle"
+                            style="height: 50% !important;"></i>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ person.title }}</h5>
+                                <p class="card-text">{{ person.subtitle }}</p>
+                                <p>
+                                    {% for icon in person.hobbies_icons %}
+                                        <span data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                              title="{{ icon.tooltip }}">
+                                            <i class="h4 {{ icon.icon_class }}"></i>
+                                        </span>
+                                    {% endfor %}
+                                </p>
+                                <div class="row">
+                                    {% for icon in person.links %}
+                                        <div class="col text-center">
+                                            <a target="_blank" href="{{ icon.link }}"
+                                               class="btn btn-success btn-circle">
+                                                <i class="{{ icon.icon_class }}"></i></a>
+                                            <p class="fs-6 lh-sm">{{ icon.tooltip }}</p>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

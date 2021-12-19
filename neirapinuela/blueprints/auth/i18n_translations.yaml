@@ -1,0 +1,25 @@
+####################################
+# Translations for auth blueprint
+####################################
+
+# Translations for login endpoint
+auth_login_username:
+  en: User name
+  es: Usuario
+auth_login_password:
+  en: Password
+  es: Contraseña
+auth_login_mfa_code:
+  en: Google Authenticator code
+  es: Código de Google Authenticator
+auth_login_invalid_login:
+  en: Invalid user or password
+  es: Usuario o contraseña no válidos
+auth_login_submit:
+  en: Submit
+  es: Enviar
+
+# Translations for logout endpoint
+auth_logout_message:
+  en: Logged out. Redirecting to home page in <span id="timer">5</span> seconds...
+  es: Sesión cerrada. Redirigiendo a la página de inicio en <span id="timer">5</span> segundos...

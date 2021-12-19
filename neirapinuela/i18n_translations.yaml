@@ -1,0 +1,282 @@
+###################################################################
+# Configuration of translations
+# For each field there must be entrances for all required languages
+####################################################################
+
+# Common words
+reset:
+  en: Reset
+  es: Limpiar
+accept:
+  en: Accept
+  es: Aceptar
+cancel:
+  en: Cancel
+  es: Cancelar
+wip:
+  en: Work in progress
+  es: En construcción
+next:
+  en: Next
+  es: Siguiente
+check:
+  en: Check
+  es: Comprobar
+undo:
+  en: Undo
+  es: Deshacer
+close:
+  en: Close
+  es: Cerrar
+back:
+  en: Back
+  es: Volver
+error:
+  en: Error
+  es: Error
+message:
+  en: Message
+  es: Aviso
+
+# Translations for base endpoint
+base_navbar_msg:
+  en: Neirapinuela.es
+  es: Neirapinuela.es
+
+# Translations for gas endpoint
+gas_title:
+  en: Energy unit conversion
+  es: Conversor de unidades de energía
+gas_tab_gas_prices:
+  en: Gas prices
+  es: Precios de gas
+gas_tab_gas_cargoes:
+  en: Gas cargoes
+  es: Cargamentos de gas
+gas_forex_data:
+  en: Forex data
+  es: Tipo de cambio
+gas_forex_dollars:
+  en: Dollars per 1 Euro
+  es: Dólares por 1 Euro
+gas_forex_pounds:
+  en: British Pounds per 1 Euro
+  es: Libras Británicas por 1 Euro
+gas_card_gas_unit_conversion:
+  en: Gas prices conversion
+  es: Conversión de unidades de gas
+
+# Translations for euro coin game endpoint
+euro_coin_game_title:
+  en: Euro Coin Game
+  es: Juego con Euros
+euro_coin_game_ops:
+  en: Ooooooooppssss!!!
+  es: Oooooooooooooh!!!
+euro_coin_game_try_again:
+  en: Try again
+  es: Prueba otra vez
+euro_coin_game_correct_money:
+  en: The amount in Euros is Correct!!!
+  es: ¡¡¡La cantidad de Euros es correcta!!!
+euro_coin_game_very_well:
+  en: Very well
+  es: Muy bien
+
+# Translations for errors endpoint
+error_400_msg:
+  en:
+    - Bad Request
+  es:
+    - Petición inválida
+error_400_desc:
+  en: The page could not be processed
+  es: La página no se pudo procesar
+error_401_msg:
+  en:
+    - Unauthorized
+  es:
+    - Autorización no válida
+error_401_desc:
+  en: Invalid username or password
+  es: Usuario o contraseña inválida
+error_402_msg:
+  en:
+    - Paymet
+    - Required
+  es:
+    - Pago requerido
+error_402_desc:
+  en: It seems you need to pay to access this site. Use contact details to ask administrator how!
+  es: Parece que necesitas pagar para acceder a este sitio. Ve a contacto para preguntarle al administrador como seguir
+error_403_msg:
+  en:
+    - Forbidden
+  es:
+    - Prohibido
+error_403_desc:
+  en: You cannot open this page
+  es: No tiene autorización para abrir esta página
+error_404_msg:
+  en:
+    - Page not found
+  es:
+    - Página no encontrada
+error_404_desc:
+  en: The page selected does not exist
+  es: La página elegida no existe
+error_405_msg:
+  en:
+    - HTTP Method
+    - Not allowed
+  es:
+    - Método HTTP
+    - No permitido
+error_405_desc:
+  en: Use another HTTP method (POST, PUT, DELETE...)
+  es: Pruebe con otro método HTTP (POST, PUT, DELETE...)
+error_406_msg:
+  en:
+    - Not
+    - Acceptable
+  es:
+    - Inaceptable
+error_406_desc:
+  en: The request could not be accepted
+  es: No se pudo aceptar la petición
+error_407_msg:
+  en:
+    - Proxy Authentication
+    - Required
+  es:
+    - Se requiere
+    - Autenticación para el proxy
+error_407_desc:
+  en:
+  es:
+error_408_msg:
+  en:
+    - Request Timeout
+  es:
+    - Tiempo de espera
+    - Agotado
+error_408_desc:
+  en: Try again later
+  es: Agotado el tiempo de espera para la conexión. Inténtelo de nuevo más tarde
+error_500_msg:
+  en:
+    - Internal
+    - Server error
+  es:
+    - Error interno
+    - del servidor
+error_500_desc:
+  en: Try again later
+  es: Inténtelo de nuevo más tarde
+error_501_msg:
+  en:
+    - Not implemented
+  es:
+    - No implementado
+error_501_desc:
+  en: Application address invalid
+  es: Dirección no válida para la aplicación
+error_502_msg:
+  en:
+    - Bad gateway
+  es:
+    - Proceso interno
+    - no respondió
+error_502_desc:
+  en: Internal process is not running. Contact administrator
+  es: El proceso interno no está en ejecución. Contacte con el administrador
+error_503_msg:
+  en:
+    - Service unavailable
+  es:
+    - Servicio indisponible
+error_503_desc:
+  en: Try again later
+  es: Inténtelo de nuevo más tarde
+error_504_msg:
+  en:
+    - Gateway timeout
+  es:
+    - Agotado tiempo
+    - de espera del
+    - proceso interno
+error_504_desc:
+  en: Try again later
+  es: Inténtelo de nuevo más tarde
+
+# Translations for links
+links_crypto_mining_desc:
+  en: Guide to create a linux ethereum mining rig
+  es: Guia para montar un rig de ethereum en linux
+
+# Translations for home links and home endpoint
+home_link_grafana_definition:
+  en: <a href="https://www.grafana.com">Grafana</a> dashboard for local <a href="https://github.com/Oneirag/ong_tsdb">ong_tsdb</a> database
+  es: Tablero de <a href="https://www.grafana.com">Grafana</a> que muestra los datos de la base de datos <a href="https://github.com/Oneirag/ong_tsdb">ong_tsdb</a> local
+home_link_euro_coin_game_definition:
+  en: Simple game to learn how to deal with Euro coins and notes
+  es: Sencillo juego para aprender a manejar billetes y monedas de Euro
+home_link_mirubee_definition:
+  en: Built-in interface for <a href="https://www.mirubee.com">Mirubee</a> real-time power meter
+  es: Interfaz interna de un contandor en tiempo real <a href="https://www.mirubee.com">Mirubee</a>
+home_link_smappee_definition:
+  en: Built-in interface for <a href="https://www.smappee.com">Smappee</a> real-time power meter
+  es: Interfaz interna de un contandor en tiempo real <a href="https://www.smappee.com">Smappee</a>
+home_link_unit_conversion_definition:
+  en: Unit converter for most used gas price units (Eur/MWh, USD/MMBTU and p/th)
+  es: Conversor entre las unidades más usadas de gas (Eur/MWh, USD/MMBTU and p/th)
+home_link_supervisor_definition:
+  en: Local <a href="https://www.supervisord.org">Supervisord</a> process scheduler interface
+  es: Interfaz del programador local de tareas <a href="https://www.supervisord.org">Supervisord</a>
+home_link_links:
+  en: Links
+  es: Enlaces
+home_link_euro_coin_game:
+  en: Euro coin game
+  es: Juego del euro
+home_link_unit_conversion:
+  en: Unit conversion
+  es: Conversor unidades
+home_contact:
+  en: Contact
+  es: Contacto
+home_home:
+  en: Home
+  es: Inicio
+home_about:
+  en: About
+  es: Acerca de
+home_footer:
+  en: Welcome to Neirapinuela.es. <a href="mailto:admin@neirapinuela.es"><i class="bi bi-mailbox"></i> Contact</a>
+  es: Bienvenidos a Neirapinuela.es. <a href="mailto:admin@neirapinuela.es"><i class="bi bi-mailbox"></i> Contacto</a>
+
+# Translations for about page
+about_tooltip_python:
+  en: Python programming
+  es: Programación en python
+about_tooltip_github:
+  en: Github repo
+  es: Repositorio de Github
+about_tooltip_linkedin:
+  en: Linkedin profile
+  es: Perfil de linkedin
+about_tooltip_mail:
+  en: email
+  es: correo electrónico
+about_dad:
+  en: Dad
+  es: Padre
+about_mum:
+  en: Mum
+  es: Madre
+about_son_1:
+  en: Older son
+  es: Hijo mayor
+about_son_2:
+  en: Younger son
+  es: Hijo menor

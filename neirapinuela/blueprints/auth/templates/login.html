@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST" action="{{ url_for('auth.login') }}">
+        {{ form.csrf_token }}
+        {{ form.target }}
+        <div class="mb-3">{{ form.username.label }} {{ form.username(class="form-control") }}</div>
+        <div class="mb-3">{{ form.password.label }} {{ form.password(class="form-control") }}</div>
+        <div class="mb-3">{{ form.mfa_code.label }} {{ form.mfa_code(class="form-control") }}</div>
+        <button type="submit" class="btn btn-primary">{{ g.auth_login_submit }}</button>
+    </form>
+{% endblock %}
