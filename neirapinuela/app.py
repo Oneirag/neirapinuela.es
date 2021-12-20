@@ -12,8 +12,10 @@ from neirapinuela.blueprints.auth.auth import auth
 
 config = OngConfig("neirapinuela").config
 
-
-app = Flask(__name__)
+app = Flask(__name__, subdomain_matching=True)
+app.config['SERVER_NAME'] = config("SERVER_NAME", "neirapinuela.es")
+# app.url_map.default_subdomain = "www"
+app.config['SECRET_KEY'] = config("SECRET_KEY", secrets.token_urlsafe(24))
 # Default translation file
 app.config['I18N_TRANSLATION_FILES'] = [os.path.join(os.path.dirname(__file__), "i18n_translations.yaml")]
 app.register_blueprint(auth)
