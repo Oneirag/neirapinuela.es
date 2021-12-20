@@ -4,3 +4,5 @@ flask-login
 flask-wtf
 python-pam
 ong_utils@git+https://github.com/Oneirag/ong_utils.git
+frozen-flask
+gevent

@@ -2,17 +2,17 @@
 
 {% block favicon %}
     <meta name="theme-color" content="#000000">
-    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.svg") -}}" sizes="any" type="image/svg+xml">
-    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.png") -}}" sizes="any" type="image/x-icon">
-    <link rel="mask-icon" href="{{- url_for("static", filename="neirapinuela.svg") -}}" color="#000000">
-    <link rel="apple-touch-icon" href="{{- url_for("static", filename="neirapinuela.png") -}}">
-    <link rel="manifest" href="{{- url_for("static", filename="manifest.json") -}}">
+    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.svg", _external=True, _scheme="https") -}}" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.png", _external=True, _scheme="https") -}}" sizes="any" type="image/x-icon">
+    <link rel="mask-icon" href="{{- url_for("static", filename="neirapinuela.svg", _external=True, _scheme="https") -}}" color="#000000">
+    <link rel="apple-touch-icon" href="{{- url_for("static", filename="neirapinuela.png", _external=True, _scheme="https") -}}">
+    <link rel="manifest" href="{{- url_for("static", filename="manifest.json", _external=True, _scheme="https") -}}">
 
 {% endblock %}
 
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for("static", filename="neirapinuela.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static", filename="neirapinuela.css", _external=True, _scheme="https") }}">
 {% endblock %}
 
 {% block title %}
@@ -22,7 +22,7 @@
 {% block navbar %}
     <nav class="navbar navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for("home", lang_code=g.lang_code) }}">
+            <a class="navbar-brand" href="{{ url_for("home", lang_code=g.lang_code, _external=True, _scheme="https") }}">
                 <i class="btn btn-success btn-circle bi bi-house-door-fill "></i>
                 <i class="btn btn-success btn-circle bi bi-chevron-left"
                    onclick="window.history.back();return false;"></i>

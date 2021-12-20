@@ -16,6 +16,7 @@ login_manager.session_protection = "strong"
 login_manager.login_view = "auth.login"
 
 auth = Blueprint('auth', __name__,
+                 subdomain="<app>",
                  template_folder='templates')
 auth.csrf_secret_key = secrets.token_bytes(32)
 
@@ -23,7 +24,6 @@ auth.csrf_secret_key = secrets.token_bytes(32)
 @auth.record_once
 def on_load(state):
     login_manager.init_app(state.app)
-    state.app.secret_key = secrets.token_urlsafe(24)
     state.app.config['CSRF_SECRET_KEY'] = state.blueprint.csrf_secret_key
     state.app.config['I18N_TRANSLATION_FILES'] += [os.path.join(os.path.dirname(__file__), "i18n_translations.yaml")]
 
@@ -40,7 +40,7 @@ class LoginForm(Form):
 
     username = StringField('User', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-    mfa_code = PasswordField('Code', render_kw=dict(autocomplete="off"))
+    mfa_code = PasswordField('Code', render_kw=dict(autocomplete="off"), validators=[DataRequired()])
     target = HiddenField('Target', validators=[DataRequired()])
 
 
@@ -78,7 +78,7 @@ def do_logout():
 
 
 @auth.route("/<lang_code>/login", methods=['GET', 'POST'])
-def login():
+def login(app):
     if request.method == 'GET':
         target = request.headers.get('X-Original-URI', request.args.get("next", "/"))
     else:
@@ -91,12 +91,16 @@ def login():
             if mfa_code:
                 password = password + mfa_code
                 kwargs = dict(service="web")
-                # For service to work, a web file must be created in /etc/pam.d/
-
-
+                # For service to work, a web file must be created in /etc/pam.d/ with the following contents:
+                """
+                auth requisite pam_google_authenticator.so forward_pass
+                auth required pam_unix.so use_first_pass  
+                account required pam_unix.so audit
+                account required pam_permit.so
+                """
             else:
                 kwargs = dict()
-            if pam.authenticate(email, password, **kwargs):
+            if pam.authenticate(email, password, **kwargs) and email != "root":
                 user = User()
                 user.id = email
                 db_users[email] = user
@@ -117,11 +121,11 @@ def login():
     form.username.label = g.auth_login_username
     form.password.label = g.auth_login_password
     form.mfa_code.label = g.auth_login_mfa_code
-    return render_template("login.html", form=form)
+    return render_template("login.html", form=form, app=app)
 
 
 @auth.route("/auth")
-def nginx_auth():
+def nginx_auth(app):
     if flask_login.current_user.is_active:
         resp = make_response()
         resp.headers['REMOTE_USER'] = flask_login.current_user.get_id()
@@ -129,17 +133,17 @@ def nginx_auth():
         return resp
     else:
         if flask_login.current_user.is_authenticated:
-            do_logout()     # Authenticated but not active ... do logout
+            do_logout()  # Authenticated but not active ... do logout
         return abort(401)
 
 
 @auth.route("/<lang_code>/test_auth")
-def private():
-    return "esto es privado!" + str(request.headers)
+def private(app):
+    return "Esto es privado!" + str(request.headers)
 
 
 @auth.route('/<lang_code>/logout')
-def logout():
+def logout(app):
     redirect_url = f"https://www.neirapinuela.es/{g.lang_code}/"
     if flask_login.current_user.is_authenticated:
         do_logout()
