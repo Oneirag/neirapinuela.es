@@ -54,10 +54,10 @@ ERROR_CONFIG = {str(code): (i18n_cfg[f"error_{code}_msg"], i18n_cfg[f"error_{cod
 
 
 def home_link_data(g):
-    """Returns config for all links"""
+    """Returns config for all links of home root"""
     return [
         {
-            "name": "Grafana", "letter": "n", "link": "/grafana", "public": False, "class": "",
+            "name": "Grafana", "letter": "n", "link": "https://grafana.neirapinuela.es/", "public": False, "class": "",
             "definition": i18n_cfg['home_link_grafana_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/grafana.png"),
         },
@@ -78,7 +78,7 @@ def home_link_data(g):
             "public": True, "class": "",
         },
         {
-            "name": "Mirubee", "letter": "i", "link": "/mirubee/index.html",
+            "name": "Mirubee", "letter": "i", "link": "https://mirubee.neirapinuela.es/index.html",
             "public": False, "class": "",
             "definition": i18n_cfg['home_link_mirubee_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/mirubee.png"),
@@ -94,7 +94,8 @@ def home_link_data(g):
             "app_img": url_for("static", filename="screenshot/unit_conversion.png"),
         },
         {
-            "name": "Smappee", "letter": "e", "link": "/smappee/smappee.html", "public": False, "class": "",
+            "name": "Smappee", "letter": "e", "link": "https://smappee.neirapinuela.es/smappee.html", "public": False,
+            "class": "",
             "definition": i18n_cfg['home_link_smappee_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/smappee.png"),
         },
@@ -116,7 +117,7 @@ def home_link_data(g):
             "app_img": url_for("static", filename="screenshot/euro_coin_game.png"),
         },
         {
-            "name": "Supervisor", "letter": "s", "link": "/supervisor", "public": False,
+            "name": "Supervisor", "letter": "s", "link": "https://supervisor.neirapinuela.es", "public": False,
             "definition": i18n_cfg['home_link_supervisor_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/supervisor.png"),
         },
@@ -256,7 +257,7 @@ def about():
     class Person:
         title: str  # Name (title of the card)
         subtitle: str  # Subtitle of the card
-        icon: str = "fa-solid fa-person"   # Icon to the left of the card
+        icon: str = "fa-solid fa-person"  # Icon to the left of the card
         hobbies_icons: tuple = ()  # Icons of the hobbies
         links: tuple = ()  # links
 
@@ -339,8 +340,23 @@ def servers_conf():
     return render_template("nginx/servers.conf", default_lang_code="en", upstreams=upstreams)
 
 
+@app.route("/.config/supervisor/neirapinuela.conf")
+def supervisor_conf():
+    """Generates configuration file for supervisor, so backend runs allowing auth"""
+    user = os.environ.get("USER")
+    conda_path = os.environ.get("CONDA_PREFIX")
+    pwd = os.environ.get("PWD")
+    directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    program_name = "neirapinuela.es"
+    return render_template("supervisor/neirapinuela.conf", user=user, directory=directory, conda_path=conda_path,
+                           program_name=program_name)
+
+
 if __name__ == '__main__':
-    app.run(port=config("port", 5000))
-    # Run the development server that generates the static files
-    # using Frozen-Flask
-    # freezer.run(debug=True)
+    gettrace = sys.gettrace()
+    # Check for debugging, if so run debug server
+    if gettrace:
+        app.run(port=config("dev_port", 5000), host="127.0.0.1", debug=False)
+    else:
+        http_server = WSGIServer(('', config("port", 5000)), app)
+        http_server.serve_forever()
