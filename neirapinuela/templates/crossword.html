@@ -1,50 +1,56 @@
 {% extends "base.html" %}
 
-{% block crossword %}
-    <div class="table-responsive">
-        <table class="table table-borderless">
-            {% for row in crossword %}
-                <tr class="ong-crossword">
-                    {% for item in row %}
-                        <td class="{{- item['class'] }} p-0 p-sm-1 p-md-2"
-                                {%- if item.get("link") -%}
-                            onClick="location.href='{{- item.get("link") -}}'"
-                                {%- endif -%}>
-                            {{ item['value'] }}
-                        </td>
+{% block content %}
+    <div class="row">
+        <div class="col col-sm-9">
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    {% for row in crossword %}
+                        <tr class="ong-crossword">
+                            {% for item in row %}
+                                <td class="{{- item['class'] }} p-0 p-sm-1 p-md-2"
+                                        {%- if item.get("link") -%}
+                                    onClick="location.href='{{- item.get("link") -}}'"
+                                        {%- endif -%}>
+                                    {{ item['value'] }}
+                                </td>
+                            {% endfor %}
+                        </tr>
                     {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-{% endblock %}
-
-{% block definitions %}
-    <div class="row g-0">
-        {% for row in crossword %}
-            {% for item in row %}
-                {% if 'definition' in item %}
-                    <div class="card rounded-0 shadow-sm col-md-3 col-lg-2">
-                        <div class="card-body">
-                            {% if "definition_link" in item %}
-                                <a href="{{ item['definition_link'] }}" class="btn btn-success">
-                                    {{ item['definition_title'] }}
-                                    {% if not item['definition_public'] %}
-                                        <i class="bi bi-shield-lock"></i>
-                                    {% endif %}
-                                </a>
-                            {% endif %}
-                            <p class="card-text">{{ item['definition']| safe }}</p>
-                        </div>
-                    </div>
-
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row row-cols-1 g-0">
+                {% for row in crossword %}
+                    {% for item in row %}
+                        {% if 'definition' in item %}
+                            <div class="col">
+                                {#                        <div class="card rounded-0 shadow-sm col-md-3 col-lg-2 m-2">#}
+                                <div class="card rounded-0 shadow-sm m-2">
+                                    <div class="card-body">
+                                        {% if "definition_link" in item %}
+                                            <a href="{{ item['definition_link'] }}" class="btn btn-success">
+                                                {{ item['definition_title'] }}
+                                                {% if not item['definition_public'] %}
+                                                    <i class="bi bi-shield-lock"></i>
+                                                {% endif %}
+                                            </a>
+                                        {% endif %}
+                                        <p class="card-text">{{ item['definition']| safe }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
 
 {% block scripts %}
+    {{ super() }}
     <script>
         function random_crossword_letters() {
             let charset = "ABCDEFGHIJKLMNOPSTUW";

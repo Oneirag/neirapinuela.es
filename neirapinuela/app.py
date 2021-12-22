@@ -4,7 +4,7 @@ import sys
 from dataclasses import dataclass
 
 import yaml
-from flask import Flask, render_template, url_for, g
+from flask import Flask, render_template, url_for, g, request
 from gevent.pywsgi import WSGIServer
 from ong_utils import OngConfig
 
@@ -41,6 +41,7 @@ def add_language_code(endpoint, values):
 
 @app.url_value_preprocessor
 def pull_lang_code(endpoint, values):
+    g._scheme = config("scheme", "http")
     if values:
         g.lang_code = values.pop('lang_code', "en")  # Defaults to english
         for k, v in i18n_cfg.items():
@@ -57,7 +58,9 @@ def home_link_data(g):
     """Returns config for all links of home root"""
     return [
         {
-            "name": "Grafana", "letter": "n", "link": "https://grafana.neirapinuela.es/", "public": False, "class": "",
+            "name": "Grafana", "letter": "n",
+            "link":  url_for("iframe_page", url="https://grafana.neirapinuela.es/", lang_code=g.lang_code),
+            "public": False, "class": "",
             "definition": i18n_cfg['home_link_grafana_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/grafana.png"),
         },
@@ -78,7 +81,8 @@ def home_link_data(g):
             "public": True, "class": "",
         },
         {
-            "name": "Mirubee", "letter": "i", "link": "https://mirubee.neirapinuela.es/index.html",
+            "name": "Mirubee", "letter": "i",
+            "link": url_for("iframe_page", url="https://mirubee.neirapinuela.es/index.html", lang_code=g.lang_code),
             "public": False, "class": "",
             "definition": i18n_cfg['home_link_mirubee_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/mirubee.png"),
@@ -94,7 +98,9 @@ def home_link_data(g):
             "app_img": url_for("static", filename="screenshot/unit_conversion.png"),
         },
         {
-            "name": "Smappee", "letter": "e", "link": "https://smappee.neirapinuela.es/smappee.html", "public": False,
+            "name": "Smappee", "letter": "e",
+            "link": url_for("iframe_page", url="https://smappee.neirapinuela.es/smappee.html", lang_code=g.lang_code),
+            "public": False,
             "class": "",
             "definition": i18n_cfg['home_link_smappee_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/smappee.png"),
@@ -117,7 +123,9 @@ def home_link_data(g):
             "app_img": url_for("static", filename="screenshot/euro_coin_game.png"),
         },
         {
-            "name": "Supervisor", "letter": "s", "link": "https://supervisor.neirapinuela.es", "public": False,
+            "name": "Supervisor", "letter": "s",
+            "link": url_for("iframe_page", url="https://supervisor.neirapinuela.es", lang_code=g.lang_code),
+            "public": False,
             "definition": i18n_cfg['home_link_supervisor_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/supervisor.png"),
         },
@@ -352,11 +360,17 @@ def supervisor_conf():
                            program_name=program_name)
 
 
+@app.route("/<lang_code>/spa/<path:url>")
+def iframe_page(url):
+    src = url
+    return render_template("spa.html", src=src)
+
+
 if __name__ == '__main__':
     gettrace = sys.gettrace()
     # Check for debugging, if so run debug server
     if gettrace:
-        app.run(port=config("dev_port", 5000), host="127.0.0.1", debug=False)
+        app.run(port=config("dev_port", 5000), host="127.0.0.1", debug=True)
     else:
         http_server = WSGIServer(('', config("port", 5000)), app)
         http_server.serve_forever()

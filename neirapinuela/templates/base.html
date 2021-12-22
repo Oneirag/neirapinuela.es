@@ -2,17 +2,20 @@
 
 {% block favicon %}
     <meta name="theme-color" content="#000000">
-    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.svg", _external=True, _scheme="https") -}}" sizes="any" type="image/svg+xml">
-    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.png", _external=True, _scheme="https") -}}" sizes="any" type="image/x-icon">
-    <link rel="mask-icon" href="{{- url_for("static", filename="neirapinuela.svg", _external=True, _scheme="https") -}}" color="#000000">
-    <link rel="apple-touch-icon" href="{{- url_for("static", filename="neirapinuela.png", _external=True, _scheme="https") -}}">
-    <link rel="manifest" href="{{- url_for("static", filename="manifest.json", _external=True, _scheme="https") -}}">
-
+    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.svg", _external=True, _scheme=g._scheme) -}}"
+          sizes="any" type="image/svg+xml">
+    <link rel="icon" href="{{- url_for("static", filename="neirapinuela.png", _external=True, _scheme=g._scheme) -}}"
+          sizes="any" type="image/x-icon">
+    <link rel="mask-icon" href="{{- url_for("static", filename="neirapinuela.svg", _external=True, _scheme=g._scheme) -}}"
+          color="#000000">
+    <link rel="apple-touch-icon"
+          href="{{- url_for("static", filename="neirapinuela.png", _external=True, _scheme="https") -}}">
+    <link rel="manifest" href="{{- url_for("static", filename="manifest.json", _external=True, _scheme=g._scheme) -}}">
 {% endblock %}
 
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for("static", filename="neirapinuela.css", _external=True, _scheme="https") }}">
+    <link rel="stylesheet" href="{{ url_for("static", filename="neirapinuela.css", _external=True, _scheme=g._scheme) }}">
 {% endblock %}
 
 {% block title %}
@@ -20,58 +23,62 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" id="navbar_main">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for("home", lang_code=g.lang_code, _external=True, _scheme="https") }}">
+            <a class="navbar-brand"
+               href="{{ url_for("home", lang_code=g.lang_code, _external=True, _scheme="https") }}">
                 <i class="btn btn-success btn-circle bi bi-house-door-fill "></i>
                 <i class="btn btn-success btn-circle bi bi-chevron-left"
                    onclick="window.history.back();return false;"></i>
-                {{ g.base_navbar_msg }}</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                {{ g.base_navbar_msg }}
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    {% set _dummy = request.view_args.update(dict(lang_code="en" if g.lang_code=="es" else "es")) %}
-                    <a class="nav-link active" href="{{ url_for(request.endpoint, **request.view_args) }}">
-                        {% if g.lang_code=="es" %}
-                            <span class="flag-icon flag-icon-gb"></span>EN
-                        {% else %}
-                            <span class="flag-icon flag-icon-es"></span>ES
-                        {% endif %} </a>
-                    <a class="nav-link active" aria-current="page" href="#">{{ g.home_home }}</a>
-                    <a class="nav-link" href="{{ url_for("apps", lang_code=g.lang_code) }}">Apps</a>
-                    <a class="nav-link" href="{{ url_for("about", lang_code=g.lang_code) }}">{{ g.home_about }}</a>
-                    <a class="nav-link" href="mailto:admin@neirapinuela.es">{{ g.home_contact }}</a>
-                </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-translate"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li>
+                                {% set _dummy = request.view_args.update(dict(lang_code="en" if g.lang_code=="es" else "es")) %}
+                                <a class="dropdown-item" href="{{ url_for(request.endpoint, **request.view_args) }}">
+                                    {% if g.lang_code=="es" %}
+                                        <span class="flag-icon flag-icon-gb"></span> EN
+                                    {% else %}
+                                        <span class="flag-icon flag-icon-es"></span> ES
+                                    {% endif %} </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">{{ g.home_home }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for("apps", lang_code=g.lang_code) }}">Apps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for("about", lang_code=g.lang_code) }}">{{ g.home_about }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:admin@neirapinuela.es">{{ g.home_contact }}</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- Navbar content -->
     </nav>
 {% endblock %}
 
-{% block content %}
-    <div class="row" id="header">
-    </div>
-    <div class="row">
-        {% block crossword %}
-        {% endblock %}
-        <div class="" id="definitions">
-            {% block definitions %}
-            {% endblock %}
-        </div>
-    </div>
-
-{% endblock %}
-
 {% block footer %}
-    <footer class="fixed-bottom ong-bg-smoke text-center text-success">
+    <footer class="fixed-bottom ong-bg-smoke text-center text-success mt-auto" id="footer_main">
         {{ g.home_footer | safe }}
     </footer>
 {% endblock %}
-
 
 {% block scripts %}
     <script>
@@ -81,5 +88,18 @@
             return new bootstrap.Tooltip(tooltipTriggerEl)
         })
     </script>
-
+    <script>
+        // Hide navbar and footer if inside an iframe
+        function inIframe() {
+            try {
+                return window.self !== window.top;
+            } catch (e) {
+                return true;
+            }
+        }
+        if (inIframe()) {
+            document.getElementById("navbar_main").hidden = true;
+            document.getElementById("footer_main").hidden = true;
+        }
+    </script>
 {% endblock %}
