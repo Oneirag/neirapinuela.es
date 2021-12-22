@@ -124,7 +124,7 @@ def home_link_data(g):
         },
         {
             "name": "Supervisor", "letter": "s",
-            "link": url_for("iframe_page", url="https://supervisor.neirapinuela.es", lang_code=g.lang_code),
+            "link": url_for("iframe_page", url="https://supervisor.neirapinuela.es/", lang_code=g.lang_code),
             "public": False,
             "definition": i18n_cfg['home_link_supervisor_definition'][g.lang_code],
             "app_img": url_for("static", filename="screenshot/supervisor.png"),
