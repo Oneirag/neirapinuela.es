@@ -6,7 +6,7 @@ from dataclasses import dataclass
 import yaml
 from flask import Flask, render_template, url_for, g, request
 from gevent.pywsgi import WSGIServer
-from ong_utils import OngConfig
+from ong_utils import OngConfig, is_debugging
 
 from neirapinuela.blueprints.auth.auth import auth
 
@@ -367,10 +367,9 @@ def iframe_page(url):
 
 
 if __name__ == '__main__':
-    gettrace = sys.gettrace()
     # Check for debugging, if so run debug server
-    if gettrace:
-        app.run(port=config("dev_port", 5000), host="127.0.0.1", debug=True)
+    if is_debugging():
+        app.run(port=config("dev_port", 5000), host="127.0.0.1", debug=False)
     else:
         http_server = WSGIServer(('', config("port", 5000)), app)
         http_server.serve_forever()
