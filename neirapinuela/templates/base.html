@@ -57,7 +57,9 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">{{ g.home_home }}</a>
+                        <a class="nav-link active" aria-current="page"
+                           href="{{ url_for("home", lang_code=g.lang_code, _external=True, _scheme="https") }}">
+                            {{ g.home_home }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for("apps", lang_code=g.lang_code) }}">Apps</a>

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 import yaml
 from flask import Flask, render_template, url_for, g, request
 from gevent.pywsgi import WSGIServer
-from ong_utils import OngConfig
+from ong_utils import OngConfig, find_available_port
 
 from neirapinuela.blueprints.auth.auth import auth
 
@@ -356,8 +356,10 @@ def supervisor_conf():
     pwd = os.environ.get("PWD")
     directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     program_name = "neirapinuela.es"
+    import sys
+    python_version = ".".join(map(str, (sys.version_info.major, sys.version_info.minor)))
     return render_template("supervisor/neirapinuela.conf", user=user, directory=directory, conda_path=conda_path,
-                           program_name=program_name)
+                           program_name=program_name, python_version=python_version)
 
 
 @app.route("/<lang_code>/spa/<path:url>")
@@ -370,7 +372,7 @@ if __name__ == '__main__':
     gettrace = sys.gettrace()
     # Check for debugging, if so run debug server
     if gettrace:
-        app.run(port=config("dev_port", 5000), host="127.0.0.1", debug=True)
+        app.run(port=find_available_port(config("dev_port", 5000)), host="127.0.0.1", debug=False)
     else:
-        http_server = WSGIServer(('', config("port", 5000)), app)
+        http_server = WSGIServer(('', find_available_port(config("port", 5000))), app)
         http_server.serve_forever()

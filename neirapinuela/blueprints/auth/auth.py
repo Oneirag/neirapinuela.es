@@ -110,9 +110,9 @@ def login(app):
                 resp = make_response(redirect(request.referrer))
                 resp = make_response(redirect(redirect_target))
                 # Set headers that will be received by the service for this request
-                resp.headers['REMOTE_USER'] = user
-                resp.headers['X-WEBAUTH-USER'] = user
-                resp.headers['X-Forwarded-User'] = user
+                resp.headers['REMOTE_USER'] = user.id
+                resp.headers['X-WEBAUTH-USER'] = user.id
+                resp.headers['X-Forwarded-User'] = user.id
                 return resp
             else:
                 flash(g.auth_login_invalid_login, "danger")
