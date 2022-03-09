@@ -1,3 +1,5 @@
+from typing import Union
+
 from flask import Blueprint, render_template, abort, request, redirect, g, make_response, flash
 import flask_login
 
@@ -77,51 +79,86 @@ def do_logout():
     flask_login.logout_user()
 
 
-@auth.route("/<lang_code>/login", methods=['GET', 'POST'])
-def login(app):
+def make_js_response(msg: str, http_code=200, **kwargs):
+    return dict(msg=msg, http_code=http_code, ok=http_code <= 310, **kwargs), http_code
+
+
+def login_json(app, url):
+    if not request.data or request.method.upper() == "GET":
+        target = request.headers.get('X-Original-URI', request.args.get("next", "/"))
+        form = LoginForm(target=target)
+        form.csrf_token.data = form.csrf_token.current_token
+        return make_js_response(msg="Invalid auth", http_code=407, url=url, form=dict(form.data.items()))
+    else:
+        form = LoginForm(data=request.json)
+        resp = authenticate(login_form=form)
+        if resp is not None:
+            return make_js_response(msg="Log in correct", http_code=200)
+        else:
+            return make_js_response(msg="Invalid user/pwd", http_code=407, **dict(form.data.items()))
+
+
+def authenticate(login_form: LoginForm):
+    """If correctly authenticated, returns Response instance redirecting to target, otherwise returns None"""
+    if not login_form.validate():
+        return None
+    email = login_form.username.data
+    password = login_form.password.data
+    mfa_code = login_form.mfa_code.data
+    if mfa_code:
+        password = password + mfa_code
+        kwargs = dict(service="web")
+        # For service to work, a web file must be created in /etc/pam.d/ with the following contents:
+        """
+        auth requisite pam_google_authenticator.so forward_pass
+        auth required pam_unix.so use_first_pass  
+        account required pam_unix.so audit
+        account required pam_permit.so
+        """
+    else:
+        kwargs = dict()
+    if email is None or password is None:
+        return None
+    if pam.authenticate(email, password, **kwargs) and email != "root":
+        user = User()
+        user.id = email
+        db_users[email] = user
+        flask_login.login_user(user)
+        redirect_target = request.headers.get("Origin", "") + login_form.target.data
+        resp = make_response(redirect(redirect_target))
+        # Set headers that will be received by the service for this request
+        resp.headers['REMOTE_USER'] = user.id
+        resp.headers['X-WEBAUTH-USER'] = user.id
+        resp.headers['X-Forwarded-User'] = user.id
+        return resp
+    else:
+        return None
+
+
+def login_html(app):
     if request.method == 'GET':
         target = request.headers.get('X-Original-URI', request.args.get("next", "/"))
     else:
         login_form = LoginForm(request.form)
-        target = login_form.target.data
-        if login_form.validate():
-            email = login_form.username.data
-            password = login_form.password.data
-            mfa_code = login_form.mfa_code.data
-            if mfa_code:
-                password = password + mfa_code
-                kwargs = dict(service="web")
-                # For service to work, a web file must be created in /etc/pam.d/ with the following contents:
-                """
-                auth requisite pam_google_authenticator.so forward_pass
-                auth required pam_unix.so use_first_pass  
-                account required pam_unix.so audit
-                account required pam_permit.so
-                """
-            else:
-                kwargs = dict()
-            if pam.authenticate(email, password, **kwargs) and email != "root":
-                user = User()
-                user.id = email
-                db_users[email] = user
-                flask_login.login_user(user)
-                redirect_target = request.headers.get("Origin") + target
-                resp = make_response(redirect(target))
-                resp = make_response(redirect(request.referrer))
-                resp = make_response(redirect(redirect_target))
-                # Set headers that will be received by the service for this request
-                resp.headers['REMOTE_USER'] = user.id
-                resp.headers['X-WEBAUTH-USER'] = user.id
-                resp.headers['X-Forwarded-User'] = user.id
-                return resp
-            else:
-                flash(g.auth_login_invalid_login, "danger")
+        resp = authenticate(login_form)
+        if resp is not None:
+            return resp
+        else:
+            flash(g.auth_login_invalid_login, "danger")
     form = LoginForm(target=target)
     # Translate fields
     form.username.label = g.auth_login_username
     form.password.label = g.auth_login_password
     form.mfa_code.label = g.auth_login_mfa_code
     return render_template("login.html", form=form, app=app)
+
+
+@auth.route("/<lang_code>/login", methods=['GET', 'POST'])
+def login(app):
+    if request.content_type and request.content_type.startswith("application/json"):
+        return login_json(app, request.path)
+    else:
+        return login_html(app)
 
 
 @auth.route("/auth")

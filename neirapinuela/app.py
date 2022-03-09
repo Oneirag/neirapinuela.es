@@ -345,7 +345,10 @@ def nginx_conf():
 def servers_conf():
     """Generates configuration files for servers"""
     upstreams = config("upstreams")
-    return render_template("nginx/servers.conf", default_lang_code="en", upstreams=upstreams)
+    dev_upstreams = config('dev_upstreams', None)
+    kwargs = dict(dev_upstreams=dev_upstreams) if dev_upstreams is not None else dict()
+    g.flask_port_dev = config("dev_port", config("port"))
+    return render_template("nginx/servers.conf", default_lang_code="en", upstreams=upstreams, **kwargs)
 
 
 @app.route("/.config/supervisor/neirapinuela.conf")
