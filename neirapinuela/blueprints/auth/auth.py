@@ -156,6 +156,10 @@ def login_html(app):
 @auth.route("/<lang_code>/login", methods=['GET', 'POST'])
 def login(app):
     if request.content_type and request.content_type.startswith("application/json"):
+        # Check ff user is already logged in. If so, it is not flask who is raising the error,
+        # then the error comes from a proxied process: reraise it
+        if flask_login.current_user.is_active:
+            return make_js_response("Internal process authentication error", 401)
         return login_json(app, request.path)
     else:
         return login_html(app)
