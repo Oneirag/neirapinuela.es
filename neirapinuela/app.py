@@ -4,11 +4,12 @@ import sys
 from dataclasses import dataclass
 
 import yaml
-from flask import Flask, render_template, url_for, g, request
+from flask import Flask, render_template, url_for, g, request, abort
 from gevent.pywsgi import WSGIServer
 from ong_utils import OngConfig, is_debugging, find_available_port
 
 from neirapinuela.blueprints.auth.auth import auth
+from neirapinuela.blueprints.measurements.measurements import msrm
 
 config = OngConfig("neirapinuela").config
 
@@ -19,6 +20,7 @@ app.config['SECRET_KEY'] = config("SECRET_KEY", secrets.token_urlsafe(24))
 # Default translation file
 app.config['I18N_TRANSLATION_FILES'] = [os.path.join(os.path.dirname(__file__), "i18n_translations.yaml")]
 app.register_blueprint(auth)
+app.register_blueprint(msrm)
 
 #####################################
 #   Load internationalization support
@@ -47,6 +49,9 @@ def pull_lang_code(endpoint, values):
         for k, v in i18n_cfg.items():
             if g.lang_code in v:
                 setattr(g, k, v[g.lang_code])
+            # If the argument is not a dict, it means that has no language_code and must not be translated
+            elif not isinstance(v, dict):
+                setattr(g, k, v)
             g.flask_port = config("port", 5000)
 
 
@@ -215,7 +220,10 @@ def generate_crossword(cfg: dict) -> list:
 
 @app.route("/<lang_code>/")
 def home():
-    link_data = home_link_data(g)
+    try:
+        link_data = home_link_data(g)
+    except Exception as e:
+        return abort(404)       # return a not found exception
     return render_template("crossword.html",
                            crossword=generate_crossword(translate_list_of_dicts(link_data, g.lang_code)))
     # return render_template("base.html")
@@ -374,7 +382,8 @@ def iframe_page(url):
 if __name__ == '__main__':
     # Check for debugging, if so run debug server
     if is_debugging():
-        app.run(port=find_available_port(config("dev_port", 5000)), host="127.0.0.1", debug=False)
+        # app.run(port=find_available_port(config("dev_port", 5000)), host="127.0.0.1", debug=False)
+        app.run(port=find_available_port(config("dev_port", 5000)), host="0.0.0.0", debug=False)
     else:
         http_server = WSGIServer(('', find_available_port(config("port", 5000))), app)
         http_server.serve_forever()

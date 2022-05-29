@@ -1,0 +1,58 @@
+###########################################
+# Translations for measurements blueprint
+###########################################
+
+measurement_units_longitude:
+    - km
+    - hm
+    - dam
+    - m
+    - dm
+    - cm
+    - mm
+measurement_units_mass:
+    - kg
+    - hg
+    - dag
+    - g
+    - dg
+    - cg
+    - mg
+measurement_units_volume:
+    - kl
+    - hl
+    - dal
+    - l
+    - dl
+    - cl
+    - ml
+
+
+measurements_volume:
+    en: volume
+    es: volumen
+measurements_mass:
+    en: mass
+    es: masa
+measurements_longitude:
+    en: longitude
+    es: longitud
+
+
+measurements_answer:
+    en: Answer
+    es: Respuesta
+
+measurements_question:
+    en: How much is {qty} {orig_unit} in {dest_unit}?
+    es: ¿Cuánto es {qty} {orig_unit} en {dest_unit}?
+
+measurements_decimal_separator:
+    en: "."
+    es: ","
+
+measurements_correct_answer:
+    en: The conversion is correct!
+    es: Conversión correcta!
+
+

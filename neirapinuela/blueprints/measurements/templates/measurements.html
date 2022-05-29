@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-4">
+            Selecciona el tipo de unidades del conversor:
+        </div>
+        <div class="col-4">
+            <select class="form-control measurement_selector"
+                    onchange="if (this.value) window.location.href=this.value">
+                {% for k in kinds %}
+                <option value="{{ url_for(".measurements", lang_code=g.lang_code, kind=k) }}"
+                {% if k == kind %}selected{% endif %}>
+                {{ translate_kinds[k] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+    {% set extra_cols = 2 %}
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                {% for col in range(extra_cols) %}
+                    <th scope="col"></th>
+                {% endfor %}
+                {% for unit in units %}
+                    <th scope="col">{{ unit }}</th>
+                {% endfor %}
+                {% for col in range(extra_cols) %}
+                    <th scope="col"></th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in range(1) %}
+                <tr>
+                    {% for _ in range(units.__len__() + extra_cols * 2) %}
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control unit_selector">
+                                    <option></option>
+                                    {% for option in range(10) %}
+                                        <option>{{ option }}{{- g.measurements_decimal_separator -}}</option>
+                                        <option>{{ option }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <form class="form-inline">
+            <div class="col-4">
+                {{ g.measurements_question.format(qty='
+    <input readonly type="text" class="form-control form-control-inline" id="question">
+            ',
+            orig_unit='    <input readonly type="text" class="form-control form-control-inline" id="orig_unit">',
+            dest_unit='    <input readonly type="text" class="form-control form-control-inline" id="dest_unit1">')
+                    |safe }}
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control form-control-inline" id="answer"
+                       placeholder="{{ g.measurements_answer }}">
+                <input type="text" readonly class="form-control form-control-inline" id="dest_unit2">
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-primary" onclick="javascript:new_conversion()">Nuevo</button>
+                <button type="button" class="btn btn-secondary" onclick="javascript:reset_table()">Resetea</button>
+                <button type="button" class="btn btn-success" onclick="javascript:check_conversion()">Test</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal_ok -->
+    <div class="modal" tabindex="-1" id="modal_ok">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white">{{ g.euro_coin_game_very_well }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ g.measurements_correct_answer }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">{{ g.accept }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_no_ok -->
+    <div class="modal" tabindex="-1" id="modal_no_ok">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title text-white">{{ g.euro_coin_game_ops }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ g.euro_coin_game_try_again }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ g.back }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        console.log("hola");
+        units = {{ units|safe }};
+        new_conversion();
+
+        function reset_table() {
+            const collection = document.getElementsByClassName("unit_selector");
+            for (let i = 0; i < collection.length; i++) {
+                collection[i].selectedIndex = 0;
+            }
+        }
+
+        function new_conversion() {
+            const orig_unit = units[Math.floor(Math.random() * units.length)];
+            const dest_unit = units[Math.floor(Math.random() * units.length)];
+            const question = Math.floor(Math.random() * 10000) / 100;
+            document.getElementById("question").value = question.toString().replace(".",
+                "{{-g.measurements_decimal_separator-}}");
+            document.getElementById("orig_unit").value = orig_unit;
+            document.getElementById("dest_unit1").value = dest_unit;
+            document.getElementById("dest_unit2").value = dest_unit;
+            document.getElementById("answer").value = "";
+            reset_table();
+        }
+
+        function check_conversion() {
+            const orig_unit = document.getElementById("orig_unit").value;
+            const dest_unit = document.getElementById("dest_unit2").value;
+            const question = document.getElementById("question").value.replace("{{-g.measurements_decimal_separator-}}"
+                , ".");
+            const answer = document.getElementById("answer").value.replace("{{-g.measurements_decimal_separator-}}",
+                ".");
+            const conversion = question * 10 ** (units.indexOf(dest_unit) - units.indexOf(orig_unit));
+            const correct = Math.abs(conversion - answer) < 1e-9;
+            if (correct) {
+                let myModal = new bootstrap.Modal(document.getElementById('modal_ok'))
+                myModal.show();
+                new_conversion();
+            } else {
+                let myModal = new bootstrap.Modal(document.getElementById('modal_no_ok'))
+                myModal.show();
+            }
+            {#
+
+                            alert("Correcto");
+                            new_conversion();
+                        } else {
+                            alert("Error");
+                            console.log("Respuesta: " + answer + " real: " + conversion)
+                        }
+            #}
+        }
+    </script>
+{% endblock %}
