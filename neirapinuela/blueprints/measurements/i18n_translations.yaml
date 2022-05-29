@@ -38,6 +38,9 @@ measurements_longitude:
     en: longitude
     es: longitud
 
+measurements_select_units:
+    en: "Select type of units for conversor:"
+    es: "Seleccione el tipo de unidades para el conversor:"
 
 measurements_answer:
     en: Answer
@@ -55,4 +58,14 @@ measurements_correct_answer:
     en: The conversion is correct!
     es: Conversión correcta!
 
+measurements_button_reset:
+    en: Reset
+    es: Restablecer
 
+measurements_button_check:
+    en: Check
+    es: Comprobar
+
+measurements_button_new:
+    en: New
+    es: Nuevo

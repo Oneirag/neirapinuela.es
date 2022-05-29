@@ -13,8 +13,8 @@ def on_load(state):
     state.app.config['I18N_TRANSLATION_FILES'] += [os.path.join(os.path.dirname(__file__), "i18n_translations.yaml")]
 
 
-@msrm.route("/<lang_code>/measurements/<kind>")
-@msrm.route("/<lang_code>/measurements/", defaults={"kind": "longitude"})
+@msrm.route("/<lang_code>/measurements/<kind>.html") #, defaults={"kind": "longitude"})
+#@msrm.route("/<lang_code>/measurements/", defaults={"kind": "longitude"})
 def measurements(kind):
     units = g.get(f"measurement_units_{kind}")
     if units is None:

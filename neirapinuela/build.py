@@ -22,5 +22,12 @@ def i18n_pages():
             yield "error_page", {'error_code': f"error_{code}.html", 'lang_code': lang_code}
 
 
+@freezer.register_generator
+def measurement_pages():
+    for lang_code in LANGUAGES:
+        for kind in "longitude", "mass", "volume":
+            yield "measure.measurements", {'lang_code': lang_code, "kind": kind}
+
+
 if __name__ == '__main__':
     freezer.freeze()

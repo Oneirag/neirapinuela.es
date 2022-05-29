@@ -3,15 +3,15 @@
 
     <div class="row">
         <div class="col-4">
-            Selecciona el tipo de unidades del conversor:
+            {{ g.measurements_select_units }}
         </div>
         <div class="col-4">
             <select class="form-control measurement_selector"
                     onchange="if (this.value) window.location.href=this.value">
                 {% for k in kinds %}
-                <option value="{{ url_for(".measurements", lang_code=g.lang_code, kind=k) }}"
-                {% if k == kind %}selected{% endif %}>
-                {{ translate_kinds[k] }}</option>
+                    <option value="{{ url_for(".measurements", lang_code=g.lang_code, kind=k) }}"
+                            {% if k == kind %}selected{% endif %}>
+                        {{ translate_kinds[k] }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -58,11 +58,10 @@
     <div class="row">
         <form class="form-inline">
             <div class="col-4">
-                {{ g.measurements_question.format(qty='
-    <input readonly type="text" class="form-control form-control-inline" id="question">
-            ',
-            orig_unit='    <input readonly type="text" class="form-control form-control-inline" id="orig_unit">',
-            dest_unit='    <input readonly type="text" class="form-control form-control-inline" id="dest_unit1">')
+                {{ g.measurements_question.format(
+                qty='<input readonly type="text" class="form-control form-control-inline" id="question">',
+                orig_unit='<input readonly type="text" class="form-control form-control-inline" id="orig_unit">',
+                dest_unit='<input readonly type="text" class="form-control form-control-inline" id="dest_unit1">')
                     |safe }}
             </div>
             <div class="col-4">
@@ -71,9 +70,12 @@
                 <input type="text" readonly class="form-control form-control-inline" id="dest_unit2">
             </div>
             <div class="col-4">
-                <button type="button" class="btn btn-primary" onclick="javascript:new_conversion()">Nuevo</button>
-                <button type="button" class="btn btn-secondary" onclick="javascript:reset_table()">Resetea</button>
-                <button type="button" class="btn btn-success" onclick="javascript:check_conversion()">Test</button>
+                <button type="button" class="btn btn-primary" onclick="javascript:new_conversion()">
+                    {{ g.measurements_button_new }}</button>
+                <button type="button" class="btn btn-secondary" onclick="javascript:reset_table()">
+                    {{ g.measurements_button_reset }}</button>
+                <button type="button" class="btn btn-success" onclick="javascript:check_conversion()">
+                    {{ g.measurements_button_check }}</button>
             </div>
         </form>
     </div>
@@ -121,7 +123,6 @@
 {% block scripts %}
     {{ super() }}
     <script>
-        console.log("hola");
         units = {{ units|safe }};
         new_conversion();
 
@@ -130,6 +131,7 @@
             for (let i = 0; i < collection.length; i++) {
                 collection[i].selectedIndex = 0;
             }
+            document.getElementById("answer").value = "";
         }
 
         function new_conversion() {
@@ -141,7 +143,6 @@
             document.getElementById("orig_unit").value = orig_unit;
             document.getElementById("dest_unit1").value = dest_unit;
             document.getElementById("dest_unit2").value = dest_unit;
-            document.getElementById("answer").value = "";
             reset_table();
         }
 
@@ -162,15 +163,6 @@
                 let myModal = new bootstrap.Modal(document.getElementById('modal_no_ok'))
                 myModal.show();
             }
-            {#
-
-                            alert("Correcto");
-                            new_conversion();
-                        } else {
-                            alert("Error");
-                            console.log("Respuesta: " + answer + " real: " + conversion)
-                        }
-            #}
         }
     </script>
 {% endblock %}
