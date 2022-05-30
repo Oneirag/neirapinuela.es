@@ -1,6 +1,9 @@
 ###########################################
 # Translations for measurements blueprint
 ###########################################
+measurements_title:
+    en: Game to learn measurement unit translations
+    es: Juego para aprender a transformar unidades de medida
 
 measurement_units_longitude:
     - km
@@ -48,7 +51,7 @@ measurements_answer:
 
 measurements_question:
     en: How much is {qty} {orig_unit} in {dest_unit}?
-    es: ¿Cuánto es {qty} {orig_unit} en {dest_unit}?
+    es: ¿Cuánto son {qty} {orig_unit} en {dest_unit}?
 
 measurements_decimal_separator:
     en: "."

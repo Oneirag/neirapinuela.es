@@ -1,6 +1,21 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% block title %}
+    {{ g.measurements_title }}
+{% endblock %}
+
+{% block css %}
+    {{ super() }}
+    <style>
+        .measurement-cell {
+            padding: 0;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ g.measurements_title }}</h1>
     <div class="row">
         <div class="col-4">
             {{ g.measurements_select_units }}
@@ -20,14 +35,14 @@
 
     {% set extra_cols = 2 %}
     <div class="row">
-        <table class="table">
+        <table class="table-responsive">
             <thead>
             <tr>
                 {% for col in range(extra_cols) %}
                     <th scope="col"></th>
                 {% endfor %}
                 {% for unit in units %}
-                    <th scope="col">{{ unit }}</th>
+                    <th scope="col measurement-cell">{{ unit }}</th>
                 {% endfor %}
                 {% for col in range(extra_cols) %}
                     <th scope="col"></th>
@@ -40,7 +55,7 @@
                     {% for _ in range(units.__len__() + extra_cols * 2) %}
                         <td>
                             <div class="form-group">
-                                <select class="form-control unit_selector">
+                                <select class="form-control unit_selector measurement-cell">
                                     <option></option>
                                     {% for option in range(10) %}
                                         <option>{{ option }}{{- g.measurements_decimal_separator -}}</option>
@@ -56,28 +71,27 @@
         </table>
     </div>
     <div class="row">
-        <form class="form-inline">
-            <div class="col-4">
-                {{ g.measurements_question.format(
-                qty='<input readonly type="text" class="form-control form-control-inline" id="question">',
-                orig_unit='<input readonly type="text" class="form-control form-control-inline" id="orig_unit">',
-                dest_unit='<input readonly type="text" class="form-control form-control-inline" id="dest_unit1">')
+        <div class="col-4">
+            {{ g.measurements_question.format(
+                qty='<span id="question"></span>',
+                orig_unit='<span id="orig_unit"></span>',
+                dest_unit='<span id="dest_unit1"></span>')
                     |safe }}
-            </div>
-            <div class="col-4">
-                <input type="text" class="form-control form-control-inline" id="answer"
-                       placeholder="{{ g.measurements_answer }}">
-                <input type="text" readonly class="form-control form-control-inline" id="dest_unit2">
-            </div>
-            <div class="col-4">
-                <button type="button" class="btn btn-primary" onclick="javascript:new_conversion()">
-                    {{ g.measurements_button_new }}</button>
-                <button type="button" class="btn btn-secondary" onclick="javascript:reset_table()">
-                    {{ g.measurements_button_reset }}</button>
-                <button type="button" class="btn btn-success" onclick="javascript:check_conversion()">
-                    {{ g.measurements_button_check }}</button>
-            </div>
-        </form>
+        </div>
+        <div class="col-4">
+            <input type="text" class="" id="answer"
+                   placeholder="{{ g.measurements_answer }}">
+            {#                <input type="text" readonly class="form-control form-control-inline" id="dest_unit2">#}
+            <span id="dest_unit2"></span>
+        </div>
+        <div class="col-4">
+            <button type="button" class="btn btn-primary" onclick="javascript:new_conversion()">
+                {{ g.measurements_button_new }}</button>
+            <button type="button" class="btn btn-secondary" onclick="javascript:reset_table()">
+                {{ g.measurements_button_reset }}</button>
+            <button type="button" class="btn btn-success" onclick="javascript:check_conversion()">
+                {{ g.measurements_button_check }}</button>
+        </div>
     </div>
 
     <!-- Modal_ok -->
@@ -138,18 +152,18 @@
             const orig_unit = units[Math.floor(Math.random() * units.length)];
             const dest_unit = units[Math.floor(Math.random() * units.length)];
             const question = Math.floor(Math.random() * 10000) / 100;
-            document.getElementById("question").value = question.toString().replace(".",
+            document.getElementById("question").innerText = question.toString().replace(".",
                 "{{-g.measurements_decimal_separator-}}");
-            document.getElementById("orig_unit").value = orig_unit;
-            document.getElementById("dest_unit1").value = dest_unit;
-            document.getElementById("dest_unit2").value = dest_unit;
+            document.getElementById("orig_unit").innerText = orig_unit;
+            document.getElementById("dest_unit1").innerText = dest_unit;
+            document.getElementById("dest_unit2").innerText = dest_unit;
             reset_table();
         }
 
         function check_conversion() {
-            const orig_unit = document.getElementById("orig_unit").value;
-            const dest_unit = document.getElementById("dest_unit2").value;
-            const question = document.getElementById("question").value.replace("{{-g.measurements_decimal_separator-}}"
+            const orig_unit = document.getElementById("orig_unit").innerText;
+            const dest_unit = document.getElementById("dest_unit2").innerText;
+            const question = document.getElementById("question").innerText.replace("{{-g.measurements_decimal_separator-}}"
                 , ".");
             const answer = document.getElementById("answer").value.replace("{{-g.measurements_decimal_separator-}}",
                 ".");
