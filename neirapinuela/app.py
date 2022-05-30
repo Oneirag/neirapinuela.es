@@ -93,8 +93,13 @@ def home_link_data(g):
             "app_img": url_for("static", filename="screenshot/mirubee.png"),
         },
         {
-            "letter": "n"
+            "name": i18n_cfg["home_link_unit_conversion_game"][g.lang_code], "letter": "n",
+            "link": url_for('measure.measurements', lang_code=g.lang_code, kind="longitude"),
+            "public": True, "class": "",
+            "definition": i18n_cfg['home_link_unit_conversion_game_definition'][g.lang_code],
+            #"app_img": url_for("static", filename="screenshot/unit_conversion.png"),
         },
+
         {
             "name": i18n_cfg["home_link_unit_conversion"][g.lang_code], "letter": "u",
             "link": url_for('gas', lang_code=g.lang_code),

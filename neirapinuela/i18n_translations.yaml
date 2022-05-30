@@ -233,6 +233,9 @@ home_link_unit_conversion_definition:
 home_link_supervisor_definition:
   en: Local <a href="https://www.supervisord.org">Supervisord</a> process scheduler interface
   es: Interfaz del programador local de tareas <a href="https://www.supervisord.org">Supervisord</a>
+home_link_unit_conversion_game_definition:
+  en: Simple game to learn how to translate among different measurement units for mass, volume and longitude
+  es: Sencillo juego para aprender a transformar entre las distintas unidades de masa, volumen y longitud
 home_link_links:
   en: Links
   es: Enlaces
@@ -242,6 +245,9 @@ home_link_euro_coin_game:
 home_link_unit_conversion:
   en: Unit conversion
   es: Conversor unidades
+home_link_unit_conversion_game:
+  en: Unit transform Game
+  es: Juego unidades medida
 home_contact:
   en: Contact
   es: Contacto
