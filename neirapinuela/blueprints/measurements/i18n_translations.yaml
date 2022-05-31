@@ -58,8 +58,17 @@ measurements_decimal_separator:
     es: ","
 
 measurements_correct_answer:
+    en: Well done, keep it up.
+    es: Sigue así, bien hecho.
+measurements_correct_answer_title:
     en: The conversion is correct!
-    es: Conversión correcta!
+    es: ¡Conversión correcta!
+measurements_incorrect_answer:
+    en: Something is wrong, try again!
+    es: Hay algo mal, ¡inténtalo de nuevo!
+measurements_incorrect_answer_title:
+    en: Auch!!!
+    es: Opsss!!
 
 measurements_button_reset:
     en: Reset

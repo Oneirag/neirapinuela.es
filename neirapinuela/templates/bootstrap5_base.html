@@ -29,6 +29,65 @@
 <div class="container-fluid">
     {% block content %}
     {% endblock %}
+
+    {% block modals %}
+    <!-- Modal_ok -->
+    <div class="modal" tabindex="-1" id="modal_ok">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white">
+
+                        {% block modal_ok_title %}
+                        {% endblock %}
+
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+
+                        {% block modal_ok_msg %}
+                        {% endblock %}
+
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">{{ g.accept }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal_no_ok -->
+    <div class="modal" tabindex="-1" id="modal_no_ok">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title text-white">
+
+                        {% block modal_no_ok_title %}
+                        {% endblock %}
+
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+
+                        {% block modal_no_ok_msg %}
+                        {% endblock %}
+
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ g.back }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
 </div>
 
 {% with messages = get_flashed_messages(with_categories=true) %}

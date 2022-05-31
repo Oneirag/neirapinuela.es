@@ -4,7 +4,9 @@ import os
 msrm = Blueprint('measure', __name__,
                  # subdomain="<app>",
                  template_folder='templates',
-                 static_folder="static")
+                 static_folder="static",
+                 static_url_path='/static/measurements'
+                 )
 
 
 @msrm.record_once

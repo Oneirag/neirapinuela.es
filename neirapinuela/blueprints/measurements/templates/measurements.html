@@ -6,12 +6,15 @@
 
 {% block css %}
     {{ super() }}
-    <style>
-        .measurement-cell {
-            padding: 0;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet"
+          href="{{ url_for(".static", filename="measurements.css", _external=True, _scheme=g._scheme) }}">
+
+    {#    <style>#}
+    {#        .measurement-cell {#}
+    {#            padding: 0;#}
+    {#            text-align: center !important;#}
+    {#        }#}
+    {#    </style>#}
 {% endblock %}
 
 {% block content %}
@@ -35,104 +38,80 @@
 
     {% set extra_cols = 2 %}
     <div class="row">
-        <table class="table-responsive">
-            <thead>
-            <tr>
-                {% for col in range(extra_cols) %}
-                    <th scope="col"></th>
-                {% endfor %}
-                {% for unit in units %}
-                    <th scope="col measurement-cell">{{ unit }}</th>
-                {% endfor %}
-                {% for col in range(extra_cols) %}
-                    <th scope="col"></th>
-                {% endfor %}
-            </tr>
-            </thead>
-            <tbody>
-            {% for row in range(1) %}
+            <table class="table table-sm">
+                <thead>
                 <tr>
-                    {% for _ in range(units.__len__() + extra_cols * 2) %}
-                        <td>
-                            <div class="form-group">
-                                <select class="form-control unit_selector measurement-cell">
-                                    <option></option>
-                                    {% for option in range(10) %}
-                                        <option>{{ option }}{{- g.measurements_decimal_separator -}}</option>
-                                        <option>{{ option }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </td>
+                    {% for col in range(extra_cols) %}
+                        <th scope="col"></th>
+                    {% endfor %}
+                    {% for unit in units %}
+                        <th scope="col measurement-cell">{{ unit }}</th>
+                    {% endfor %}
+                    {% for col in range(extra_cols) %}
+                        <th scope="col"></th>
                     {% endfor %}
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for row in range(1) %}
+                    <tr>
+                        {% for _ in range(units.__len__() + extra_cols * 2) %}
+                            <td>
+                                <div class="form-group">
+                                    <select class="form-control unit_selector measurement-cell">
+                                        <option></option>
+                                        {% for option in range(10) %}
+                                            <option>{{ option }}{{- g.measurements_decimal_separator -}}</option>
+                                            <option>{{ option }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col">
             {{ g.measurements_question.format(
                 qty='<span id="question"></span>',
                 orig_unit='<span id="orig_unit"></span>',
                 dest_unit='<span id="dest_unit1"></span>')
                     |safe }}
         </div>
-        <div class="col-4">
+        <div class="col">
             <input type="text" class="" id="answer"
                    placeholder="{{ g.measurements_answer }}">
             {#                <input type="text" readonly class="form-control form-control-inline" id="dest_unit2">#}
             <span id="dest_unit2"></span>
         </div>
-        <div class="col-4">
-            <button type="button" class="btn btn-primary" onclick="javascript:new_conversion()">
-                {{ g.measurements_button_new }}</button>
-            <button type="button" class="btn btn-secondary" onclick="javascript:reset_table()">
-                {{ g.measurements_button_reset }}</button>
-            <button type="button" class="btn btn-success" onclick="javascript:check_conversion()">
-                {{ g.measurements_button_check }}</button>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-success btn-block" onclick="javascript:new_conversion()">
+                <i class="bi bi-plus-circle-fill"></i>
+                {{ g.measurements_button_new }}
+            </button>
+            <button type="button" class="btn btn-danger btn-block" onclick="javascript:reset_table()">
+                <i class="bi bi-arrow-clockwise"></i>
+                {{ g.measurements_button_reset }}
+            </button>
+            <button type="button" class="btn btn-primary btn-block" onclick="javascript:check_conversion()">
+                <i class="bi bi-calculator-fill"></i>
+                {{ g.measurements_button_check }}
+            </button>
         </div>
     </div>
-
-    <!-- Modal_ok -->
-    <div class="modal" tabindex="-1" id="modal_ok">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h5 class="modal-title text-white">{{ g.euro_coin_game_very_well }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ g.measurements_correct_answer }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">{{ g.accept }}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal_no_ok -->
-    <div class="modal" tabindex="-1" id="modal_no_ok">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger">
-                    <h5 class="modal-title text-white">{{ g.euro_coin_game_ops }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ g.euro_coin_game_try_again }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ g.back }}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 
 {% endblock %}
+
+{% block modal_ok_title %}{{ g.measurements_correct_answer_title }}{% endblock %}
+{% block modal_ok_msg %}{{ g.measurements_correct_answer }}{% endblock %}
+{% block modal_no_ok_title %}{{ g.measurements_incorrect_answer_title }}{% endblock %}
+{% block modal_no_ok_msg %}{{ g.measurements_incorrect_answer }}{% endblock %}
+
 
 {% block scripts %}
     {{ super() }}

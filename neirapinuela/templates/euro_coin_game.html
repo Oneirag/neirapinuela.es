@@ -106,44 +106,13 @@
     </div>
 #}
 
-    <!-- Modal_ok -->
-    <div class="modal" tabindex="-1" id="modal_ok">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h5 class="modal-title text-white">{{ g.euro_coin_game_very_well }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ g.euro_coin_game_correct_money}}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">{{ g.accept }}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal_no_ok -->
-    <div class="modal" tabindex="-1" id="modal_no_ok">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger">
-                    <h5 class="modal-title text-white">{{ g.euro_coin_game_ops }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ g.euro_coin_game_try_again}}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ g.back }}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 {% endblock %}
+
+{% block modal_ok_title %}{{ g.euro_coin_game_very_well }}{% endblock %}
+{% block modal_ok_msg %}{{ g.euro_coin_game_correct_money}}{% endblock %}
+{% block modal_no_ok_title %}{{ g.euro_coin_game_ops }}{% endblock %}
+{% block modal_no_ok_msg %}{{ g.euro_coin_game_try_again}}{% endblock %}
+
 {% block scripts %}
 <script src="{{- url_for('static', filename='euro_coin_game/coin_game.js') -}}"></script>
     {#<script>
