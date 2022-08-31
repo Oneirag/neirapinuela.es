@@ -145,6 +145,7 @@ def login_html(app):
             return resp
         else:
             flash(g.auth_login_invalid_login, "danger")
+            target = login_form.target._value()
     form = LoginForm(target=target)
     # Translate fields
     form.username.label = g.auth_login_username

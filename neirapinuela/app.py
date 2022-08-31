@@ -48,6 +48,10 @@ def pull_lang_code(endpoint, values):
     g._scheme = config("scheme", "http")
     if values:
         g.lang_code = values.pop('lang_code', "en")  # Defaults to english
+        uri = request.headers.get("X-Original-Uri")
+        if uri:       # For proxy-pass
+            if uri.find("lang_code=") >= 0:
+                g.lang_code = uri.split("lang_code=")[1][:2]
         for k, v in i18n_cfg.items():
             if g.lang_code in v:
                 setattr(g, k, v[g.lang_code])
@@ -387,7 +391,7 @@ def supervisor_conf():
 @app.route("/<lang_code>/spa/<path:url>")
 def iframe_page(url):
     src = url
-    return render_template("spa.html", src=src)
+    return render_template("spa.html", src=src + f"?lang_code={g.lang_code}")
 
 
 if __name__ == '__main__':
