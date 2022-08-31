@@ -1,0 +1,15 @@
+.ok{
+    background: green !important;
+}
+.no_ok{
+    background: red !important;
+}
+.pse_pse{
+    background: yellow !important;
+}
+
+.multiplication_table {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+}

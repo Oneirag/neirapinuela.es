@@ -10,6 +10,7 @@ from ong_utils import OngConfig, is_debugging, find_available_port
 
 from neirapinuela.blueprints.auth.auth import auth
 from neirapinuela.blueprints.measurements.measurements import msrm
+from neirapinuela.blueprints.multiplications.multiplications import mult
 
 config = OngConfig("neirapinuela").config
 
@@ -21,6 +22,7 @@ app.config['SECRET_KEY'] = config("SECRET_KEY", secrets.token_urlsafe(24))
 app.config['I18N_TRANSLATION_FILES'] = [os.path.join(os.path.dirname(__file__), "i18n_translations.yaml")]
 app.register_blueprint(auth)
 app.register_blueprint(msrm)
+app.register_blueprint(mult)
 
 #####################################
 #   Load internationalization support
@@ -73,7 +75,10 @@ def home_link_data(g):
             "name": "Eva", "letter": "e",
         },
         {
-            "letter": "i",
+            "name": "Multiplication", "letter": "i",
+            "link": url_for('multiplications.multiplications', lang_code=g.lang_code, max_value="9"),
+            "app_img": url_for("static", filename="screenshot/multiplications.png"),
+            "definition": i18n_cfg['home_link_multiplications_definition'][g.lang_code],
         },
         {
             "name": "Oscar", "letter": "r",
@@ -84,6 +89,7 @@ def home_link_data(g):
         {
             "name": "Pablo", "letter": "p", "link": url_for('euro_coin_game', lang_code=g.lang_code),
             "public": True, "class": "",
+            "app_img": url_for("static", filename="screenshot/euro_coin_game.png"),
         },
         {
             "name": "Mirubee", "letter": "i",
@@ -97,7 +103,7 @@ def home_link_data(g):
             "link": url_for('measure.measurements', lang_code=g.lang_code, kind="longitude"),
             "public": True, "class": "",
             "definition": i18n_cfg['home_link_unit_conversion_game_definition'][g.lang_code],
-            #"app_img": url_for("static", filename="screenshot/unit_conversion.png"),
+            "app_img": url_for("static", filename="screenshot/unit_conversion_game.png"),
         },
 
         {

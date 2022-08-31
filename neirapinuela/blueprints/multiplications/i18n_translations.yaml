@@ -1,0 +1,42 @@
+###########################################
+# Translations for multiplications blueprint
+###########################################
+mult_title:
+    en: Game to learn multiplication tables
+    es: Juego para aprender las tablas de multiplicar
+
+mult_result:
+    en: Result
+    es: Resultado
+
+mult_question:
+    en: How much is <span id="a"></span>x<span id="b"></span>?
+    es: ¿Cuánto es <span id="a"></span>x<span id="b"></span>?
+
+mult_button_check:
+    en: Check
+    es: Comprobar
+
+mult_score:
+    en: Score
+    es: Puntuación
+
+mult_score_detail:
+    en: You have <span id="result"></span> right answered questions out of <span id="total"></span>.<br>Last answer in <span id="time_last"></span> seconds, average time <span id="time_avg"></span> seconds
+    es: Llevas <span id="result"></span> acertadas de <span id="total"></span>.<br>Última respuesta en <span id="time_last"></span> segundos, tiempo medio <span id="time_avg"></span> segundos
+
+mult_correct_answer:
+    en: Well done, keep it up.
+    es: Sigue así, bien hecho.
+mult_slow_answer:
+    en: "Warning : your answer was too slow!"
+    es: "Cuidado: ¡Tu respuesta ha sido muy lenta!"
+mult_correct_answer_title:
+    en: The operation is correct!
+    es: ¡Resultado correcto!
+mult_incorrect_answer:
+    en: Something is wrong, try again!
+    es: Hay algo mal, ¡inténtalo de nuevo!
+mult_incorrect_answer_title:
+    en: Auch!!!
+    es: Opsss!!

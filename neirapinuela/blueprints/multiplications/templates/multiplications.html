@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ g.multiplications_title }}
+{% endblock %}
+
+{% block css %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="{{ url_for(".static", filename="multiplications.css", _external=True, _scheme=g._scheme) }}">
+{% endblock %}
+
+{% block content %}
+    <h1>{{ g.multiplications_title }}</h1>
+
+    <div class="row">
+        <div class="col-4">
+            <table class="table table-sm multiplication_table" id="tabla">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    {% for j in range (2, max_value + 1) %}
+                        <th scope="col" {% if loop.first %} id="min_num" {% endif %}>{{ j }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in range(2, max_value + 1) %}
+                    <tr>
+                        <th scope="row">{{ i }}</th>
+                        {% for j in range(2, max_value + 1) %}
+                            <td>{{ i }}x{{ j }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4">
+            <!-- quiz area -->
+            <div class="row">
+                <h3>{{ g.mult_question | safe }} </h3>
+            </div>
+            <div class="row mt-2">
+                <input type="text" class="" id="answer"
+                       placeholder="{{ g.mult_result }}">
+            </div>
+            <div class="row mt-2">
+                <button type="button" class="btn btn-primary btn-block" id="check" onclick="javascript:check_result()">
+                    <i class="bi bi-calculator-fill"></i>
+                    {{ g.mult_button_check }}
+                </button>
+
+            </div>
+        </div>
+        <div class="col-4">
+            <h3>{{ g.mult_score }}</h3>
+            {{ g.mult_score_detail | safe }}
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block modal_ok_title %}{{ g.mult_correct_answer_title }}{% endblock %}
+{% block modal_ok_msg %}{{ g.mult_correct_answer }}{% endblock %}
+{% block modal_no_ok_title %}{{ g.mult_incorrect_answer_title }}{% endblock %}
+{% block modal_no_ok_msg %}{{ g.mult_incorrect_answer }}{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        function createMatrix(min_num, max_num) {
+            let result = [];
+            for (let i = min_num; i <= max_num; i++) {
+                for (let j = min_num; j <= max_num; j++) {
+                    result.push({data: [i, j], status: ""});
+                }
+            }
+            return result;
+        }
+
+        function get_from_storage(item_name, default_value){
+            return localStorage.getItem(item_name) === null ? default_value :
+                JSON.parse(localStorage.getItem(item_name))
+        }
+
+        function put_to_storage(item_name, value){
+            localStorage.setItem(item_name, JSON.stringify(value));
+        }
+
+        let result = get_from_storage("mult_result",  0);
+        let total = get_from_storage("mult_total", 0);
+        let items = get_from_storage("mult_items", createMatrix(2, 9));
+        let weights = get_from_storage("mult_weights", new Array(items.length).fill(1));
+        let last_ts = Date.now();
+        let time_last = get_from_storage("mult_time_last", null);
+        let time_avg = get_from_storage("mult_time_avg", null);
+
+
+        for(let j=0; j< items.length; j++){
+            let status = items[j].status;
+            let a = items[j].data[0];
+            let b = items[j].data[1];
+            if (a <= {{ max_value }} && b <= {{ max_value }}) { //ignore cells not being shown
+                if (status == "pse_pse") {
+                    highlight_result_table(items[j].data[0], items[j].data[1], false);
+                    highlight_result_table(items[j].data[0], items[j].data[1], true);
+                } else if (status == "ok") {
+                    highlight_result_table(items[j].data[0], items[j].data[1], true);
+                } else if (status == "no_ok") {
+                    highlight_result_table(items[j].data[0], items[j].data[1], false);
+                } else {
+                    //do nothing
+                }
+            }
+        }
+
+        new_game();
+
+        function weighted_random(items, wgts) {
+            let i;
+            for (i = 0; i < wgts.length; i++)
+                wgts[i] += wgts[i - 1] || 0;
+            let random = Math.random() * wgts[wgts.length - 1];
+            for (i = 0; i < wgts.length; i++)
+                if (wgts[i] > random)
+                    break;
+            return items[i].data;
+        }
+
+        function check_answer_time(correct){
+            if (!correct){
+                // If answer is not correct it should not be taken into account
+                return false;
+            }
+            // Checks answer time, refreshes average
+            time_last = (Date.now() - last_ts) / 1e3;     //in seconds
+            last_ts = Date.now();
+            if (time_avg == null){
+                time_avg = time_last;
+            }else{
+                time_avg = (time_last + time_avg * result) / (result + 1);
+            }
+            put_to_storage("mult_time_last", time_last);
+            put_to_storage("mult_time_avg", time_avg);
+            if (result > 5){
+                if (time_last > time_avg * 1.5){
+                    // Returns false when the time for solving this number was well above the average
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function new_game() {
+            last_ts = Date.now();
+            document.getElementById("total").innerText = total.toString();
+            document.getElementById("result").innerText = result.toString();
+            if (time_avg != null) {
+                document.getElementById("time_avg").innerText = time_avg.toFixed(2);
+                document.getElementById("time_last").innerText = time_last.toFixed(2);
+            }
+            let choice, a, b;
+            // Avoid selecting numbers above the maximum, by repeating...not cool but effective
+            do {
+                choice = weighted_random(items, [...weights]);
+                //console.log(choice);
+                a = choice[0];
+                b = choice[1];
+            } while (a > {{ max_value }} && b > {{ max_value }});
+            document.getElementById("a").innerText = a.toString();
+            document.getElementById("b").innerText = b.toString();
+        }
+
+        function update_weights(a, b, correct) {
+            for (let i = 0; i < items.length; i++){
+                if ((items[i].data[0] == a) && (items[i].data[1] == b)) {
+                    if (correct){
+                        weights[i] = weights[i] * 0.75;
+                    } else {
+                        weights[i] = weights[i] * 2;
+                    }
+                    break;
+                }
+            }
+            put_to_storage("mult_weights", weights);
+        }
+
+        function check_result() {
+            total++;
+            const a = document.getElementById("a").innerText;
+            const b = document.getElementById("b").innerText;
+            const answer = document.getElementById("answer").value;
+            const correct = (a * b == answer);
+            highlight_result_table(a, b, correct);
+            // highlight_result_table(b, a, correct);
+            let time_correct = check_answer_time(correct);
+            update_weights(a, b, correct && time_correct);
+            update_weights(b, a, correct && time_correct);
+            if (correct) {
+                let myModal = new bootstrap.Modal(document.getElementById('modal_ok'));
+                let slow_answer = document.getElementById('mult_slow_answer');
+                if (!time_correct){
+                    // Add message only if needed
+                    if (slow_answer == null) {
+                        document.getElementById('modal_ok').getElementsByClassName("modal-body")[0].innerHTML +=
+                            "<p id='mult_slow_answer'>{{ g.mult_slow_answer | safe }}</p>";
+                    }
+                }else{
+                    // Remove message of slowness if existed previously
+                    if (slow_answer != null){
+                        slow_answer.remove();
+                    }
+                }
+                document.getElementById("answer").value = "";
+                myModal.show();
+                result++;
+                new_game();
+            } else {
+                let myModal = new bootstrap.Modal(document.getElementById('modal_no_ok'));
+                myModal.show();
+            }
+            put_to_storage("mult_result", result);
+            put_to_storage("mult_total", total);
+        }
+
+        function highlight_result_table(a, b, correct) {
+            // Plots result in table, highlighting the correct or incorrect results
+            let tbody = document.getElementById("tabla").getElementsByTagName(
+                "tbody")[0]
+            let min_num = parseInt(document.getElementById("min_num").innerText)
+            let num_a = parseInt(a) - min_num
+            let num_b = parseInt(b) - min_num
+            let element = tbody.getElementsByTagName("tr")[num_a].getElementsByTagName("td")[num_b];
+            let new_class = "";
+            let old_class = "";
+            if (correct) {
+                new_class = "ok";
+                old_class = "no_ok";
+            } else {
+                new_class = "no_ok";
+                old_class = "ok";
+            }
+            if (element.classList.contains("no_ok") && new_class == "ok") {
+                new_class = "pse_pse";
+            }
+            element.classList.remove(old_class);
+            element.classList.add(new_class);
+            let idx = (parseInt(a) - min_num) * Math.round(Math.sqrt(items.length)) + parseInt(b) - min_num;
+            items[idx].status = new_class;
+            put_to_storage("mult_items", items);
+        }
+
+        let input = document.getElementById("answer");
+
+        // Execute a function when the user presses a key on the keyboard
+        input.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                document.getElementById("check").click();
+            }
+        });
+
+
+        // Find modals and close them on enter
+        for (let modal_id of ['modal_ok', "modal_no_ok"]){
+            let modal = document.getElementById(modal_id);
+            // Execute a function when the user presses a key on the keyboard
+            modal.addEventListener("keypress", function (event) {
+                // If the user presses the "Enter" key on the keyboard
+                if (event.key === "Enter") {
+                    // Cancel the default action, if needed
+                    event.preventDefault();
+                    // Trigger the button element with a click
+                    modal.getElementsByClassName("btn-close")[0].click();
+                    input.focus();
+                }
+            });
+        }
+
+
+
+    </script>
+{% endblock %}
