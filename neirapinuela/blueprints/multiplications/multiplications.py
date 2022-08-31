@@ -15,7 +15,7 @@ def on_load(state):
     state.app.config['I18N_TRANSLATION_FILES'] += [os.path.join(os.path.dirname(__file__), "i18n_translations.yaml")]
 
 
-@mult.route("/<lang_code>/multiplications/<int:max_value>")
 @mult.route("/<lang_code>/mult/", defaults={"max_value": 9})
+@mult.route("/<lang_code>/multiplications/<int:max_value>/")
 def multiplications(max_value):
     return render_template("multiplications.html", max_value=max_value)
