@@ -14,7 +14,7 @@
     <h1>{{ g.multiplications_title }}</h1>
 
     <div class="row">
-        <div class="col-4">
+        <div class="col">
             <table class="table table-sm multiplication_table" id="tabla">
                 <thead>
                 <tr>
@@ -36,7 +36,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-4">
+        <div class="col">
             <!-- quiz area -->
             <div class="row">
                 <h3>{{ g.mult_question | safe }} </h3>
@@ -53,7 +53,7 @@
 
             </div>
         </div>
-        <div class="col-4">
+        <div class="col">
             <h3>{{ g.mult_score }}</h3>
             {{ g.mult_score_detail | safe }}
         </div>
