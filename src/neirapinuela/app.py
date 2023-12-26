@@ -79,7 +79,7 @@ def home_link_data(g):
             "name": "Eva", "letter": "e",
         },
         {
-            "name": "Multiplication", "letter": "i",
+            "name": i18n_cfg["home_link_multiplication"][g.lang_code], "letter": "i",
             "link": url_for('multiplications.multiplications', lang_code=g.lang_code, max_value="9"),
             "app_img": url_for("static", filename="screenshot/multiplications.png"),
             "definition": i18n_cfg['home_link_multiplications_definition'][g.lang_code],
@@ -391,7 +391,8 @@ def supervisor_conf():
 @app.route("/<lang_code>/spa/<path:url>")
 def iframe_page(url):
     src = url
-    return render_template("spa.html", src=src + f"?lang_code={g.lang_code}")
+    return render_template("spa.html", src=src)
+    # return render_template("spa.html", src=src + f"?lang_code={g.lang_code}")
 
 
 if __name__ == '__main__':
@@ -400,5 +401,9 @@ if __name__ == '__main__':
         # app.run(port=find_available_port(config("dev_port", 5000)), host="127.0.0.1", debug=False)
         app.run(port=find_available_port(config("dev_port", 5000)), host="0.0.0.0", debug=False)
     else:
+        port = config("port")
+        print(port)
+        port = find_available_port(port)
+        print(port)
         http_server = WSGIServer(('', find_available_port(config("port", 5000))), app)
         http_server.serve_forever()

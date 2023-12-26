@@ -106,6 +106,7 @@ def authenticate(login_form: LoginForm):
     password = login_form.password.data
     mfa_code = login_form.mfa_code.data
     if mfa_code:
+        # Comment the next line to disable MFA. In order to work with users different to current one must be run as root
         password = password + mfa_code
         kwargs = dict(service="web")
         # For service to work, a web file must be created in /etc/pam.d/ with the following contents:

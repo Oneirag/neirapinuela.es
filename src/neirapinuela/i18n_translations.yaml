@@ -246,6 +246,9 @@ home_link_links:
 home_link_euro_coin_game:
   en: Euro coin game
   es: Juego del euro
+home_link_multiplication:
+  en: Multiplication
+  es: Multiplicacion
 home_link_unit_conversion:
   en: Translate Units
   es: Conversor unidades
