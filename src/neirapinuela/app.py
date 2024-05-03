@@ -86,6 +86,10 @@ def home_link_data(g):
         },
         {
             "name": "Oscar", "letter": "r",
+                "link": url_for("iframe_page", url="https://llm.neirapinuela.es/", lang_code=g.lang_code),
+                "public": False, "class": "",
+                "definition": i18n_cfg['home_link_oscar_definition'][g.lang_code],
+                # "app_img": url_for("static", filename="screenshot/mirubee.png"),
         },
         {
             "name": "Carlitos", "letter": "a",

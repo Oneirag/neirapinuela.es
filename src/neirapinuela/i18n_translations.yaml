@@ -239,6 +239,10 @@ home_link_unit_conversion_game_definition:
 home_link_multiplications_definition:
   en: Simple game to review multiplication tables
   es: Sencillo juego para repasar la tabla de multiplicar
+home_link_oscar_definition:
+  en: Acceder a Ollama Open Web UI
+  es: Access to Ollama Open Web UI
+
 
 home_link_links:
   en: Links
