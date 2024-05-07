@@ -3,7 +3,7 @@ from typing import Union
 from flask import Blueprint, render_template, abort, request, redirect, g, make_response, flash
 import flask_login
 
-import pam
+from .pam_client import check_password
 import secrets
 import os
 import time
@@ -105,24 +105,28 @@ def authenticate(login_form: LoginForm):
     email = login_form.username.data
     password = login_form.password.data
     mfa_code = login_form.mfa_code.data
-    if mfa_code:
-        # Comment the next line to disable MFA. In order to work with users different to current one must be run as root
-        password = password + mfa_code
-        kwargs = dict(service="web")
-        # For service to work, a web file must be created in /etc/pam.d/ with the following contents:
-        """
-        auth requisite pam_google_authenticator.so forward_pass
-        auth required pam_unix.so use_first_pass  
-        account required pam_unix.so audit
-        account required pam_permit.so
-        """
-    else:
-        kwargs = dict()
-    if email is None or password is None:
+    # MFA is mandatory
+    if not mfa_code:
         return None
-    if pam.authenticate(email, password, **kwargs) and email != "root":
+    # Comment the next line to disable MFA. In order to work with users different to current one must be run as root
+    password = password + mfa_code
+    kwargs = dict(service="web")
+    # For service to work, a web file must be created in /etc/pam.d/ with the following contents:
+    """
+    auth requisite pam_google_authenticator.so forward_pass
+    auth required pam_unix.so use_first_pass  
+    account required pam_unix.so audit
+    account required pam_permit.so
+    """
+    if email is None or password is None or email == "root":
+        return None
+    orig_email = email
+    email = email.split("@")[0]
+
+    if check_password(email, password, **kwargs):
         user = User()
         user.id = email
+        user.orig_email = orig_email
         db_users[email] = user
         flask_login.login_user(user)
         redirect_target = request.headers.get("Origin", "") + login_form.target.data
@@ -131,6 +135,8 @@ def authenticate(login_form: LoginForm):
         resp.headers['REMOTE_USER'] = user.id
         resp.headers['X-WEBAUTH-USER'] = user.id
         resp.headers['X-Forwarded-User'] = user.id
+        # For ollama webui
+        resp.headers['X-User-Email'] = user.orig_email
         return resp
     else:
         return None
@@ -167,12 +173,13 @@ def login(app):
         return login_html(app)
 
 
-@auth.route("/auth")
+@auth.route("/proxy_auth")
 def nginx_auth(app):
     if flask_login.current_user.is_active:
         resp = make_response()
         resp.headers['REMOTE_USER'] = flask_login.current_user.get_id()
         resp.headers['X-WEBAUTH-USER'] = flask_login.current_user.get_id()
+        resp.headers['X-User-Email'] = flask_login.current_user.orig_email
         return resp
     else:
         if flask_login.current_user.is_authenticated:
