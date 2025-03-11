@@ -1,0 +1,511 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Quiz Educativo - ¡Aprende jugando!
+{% endblock %}
+
+{% block content %}
+<div class="row mt-4 justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="text-center mb-0"><i class="bi bi-mortarboard-fill me-2"></i>Quiz Educativo</h2>
+            </div>
+            <div class="card-body">
+                <div id="quiz-intro">
+                    <h3 class="text-center">¡Vamos a practicar para tu examen!</h3>
+                    <p class="text-center">Responde correctamente para ganar puntos y mejorar tus conocimientos.</p>
+                    
+                    <div class="text-center mb-4">
+                        <button id="start-quiz" class="btn btn-success btn-lg">
+                            <i class="bi bi-play-fill me-2"></i>¡Comenzar!
+                        </button>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <h5><i class="bi bi-info-circle-fill me-2"></i>Instrucciones:</h5>
+                        <p>1. Te mostraré un elemento y deberás completar los datos asociados.</p>
+                        <p>2. Escribe tu respuesta y pulsa "Comprobar".</p>
+                        <p>3. ¡Prácticaremos más los temas que te resulten difíciles!</p>
+                    </div>
+                </div>
+
+                <div id="quiz-game" style="display: none;">
+                    <div class="progress mb-4">
+                        <div id="score-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%">0%</div>
+                    </div>
+                    
+                    <div class="row stats mb-3">
+                        <div class="col text-center">
+                            <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i>Aciertos: <span id="correct-count">0</span></span>
+                        </div>
+                        <div class="col text-center">
+                            <span class="badge bg-danger"><i class="bi bi-x-circle me-1"></i>Fallos: <span id="wrong-count">0</span></span>
+                        </div>
+                        <div class="col text-center">
+                            <span class="badge bg-primary"><i class="bi bi-question-circle me-1"></i>Preguntas: <span id="question-count">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question p-4 mb-4 text-center bg-light rounded">
+                        <h3 id="question-prompt" class="mb-3"></h3>
+                        <div id="input-fields" class="mb-3">
+                            <!-- Campos de entrada generados dinámicamente -->
+                        </div>
+                    </div>
+                    
+                    <div id="feedback" class="alert d-none mb-4">
+                        <!-- Feedback dinámico -->
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <button id="check-answer" class="btn btn-primary">
+                            <i class="bi bi-check-lg me-2"></i>Comprobar
+                        </button>
+                        <button id="next-question" class="btn btn-success" style="display: none;">
+                            <i class="bi bi-arrow-right me-2"></i>Siguiente
+                        </button>
+                        <button id="end-quiz" class="btn btn-warning">
+                            <i class="bi bi-flag-fill me-2"></i>Terminar
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="quiz-results" style="display: none;">
+                    <h3 class="text-center mb-4"><i class="bi bi-trophy-fill me-2"></i>¡Has completado el quiz!</h3>
+                    
+                    <div class="result-summary mb-4">
+                        <div class="text-center mb-3">
+                            <span class="display-4" id="final-score">0%</span>
+                            <p>Puntuación final</p>
+                        </div>
+                        <div class="progress mb-3" style="height: 30px;">
+                            <div id="final-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%">0%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card border-success mb-3">
+                                <div class="card-header bg-success text-white">
+                                    <i class="bi bi-check-circle me-2"></i>Lo que sabes bien
+                                </div>
+                                <div class="card-body">
+                                    <ul id="correct-list" class="list-group">
+                                        <!-- Lista de respuestas correctas -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-danger mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    <i class="bi bi-exclamation-triangle me-2"></i>Lo que debes practicar más
+                                </div>
+                                <div class="card-body">
+                                    <ul id="wrong-list" class="list-group">
+                                        <!-- Lista de respuestas incorrectas -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button id="restart-quiz" class="btn btn-primary btn-lg">
+                            <i class="bi bi-arrow-repeat me-2"></i>Jugar de nuevo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    // Datos de ejemplo (En producción se cargarían desde tu backend)
+    const quizData = {
+        "País": ["Albania", "Alemania", "Andorra", "Armenia", "Austria", "Azerbaiyán", "Bélgica", "Bielorrusia", "Bosnia y Herzegovina", "Bulgaria", "Chipre", "Ciudad del Vaticano", "Croacia", "Dinamarca", "Eslovaquia", "Eslovenia", "España", "Estonia", "Finlandia", "Francia", "Georgia", "Grecia", "Hungría", "Irlanda", "Islandia", "Italia", "Kazajistán", "Letonia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Malta", "Moldavia", "Mónaco", "Montenegro", "Noruega", "Países Bajos", "Polonia", "Portugal", "Reino Unido", "República Checa", "Rumanía", "Rusia", "San Marino", "Serbia", "Suecia", "Suiza", "Turquía", "Ucrania"],
+        "Capital": ["Tirana", "Berlín", "Andorra la Vieja", "Ereván", "Viena", "Bakú", "Bruselas", "Minsk", "Sarajevo", "Sofía", "Nicosia", "Ciudad del Vaticano", "Zagreb", "Copenhague", "Bratislava", "Liubliana", "Madrid", "Tallín", "Helsinki", "París", "Tiflis", "Atenas", "Budapest", "Dublín", "Reikiavik", "Roma", "Nursultán", "Riga", "Vaduz", "Vilna", "Luxemburgo", "Skopie", "La Valeta", "Chisinau", "Mónaco", "Podgorica", "Oslo", "Ámsterdam", "Varsovia", "Lisboa", "Londres", "Praga", "Bucarest", "Moscú", "San Marino", "Belgrado", "Estocolmo", "Berna", "Ankara", "Kiev"],
+    };
+    
+    // Variables de estado
+    let currentIndex = 0;
+    let score = {
+        correct: 0,
+        wrong: 0,
+        total: 0
+    };
+    let attemptHistory = {};
+    
+    // Inicializar el historial de intentos
+    function initAttemptHistory() {
+        // Intentar cargar del sessionStorage
+        const savedHistory = sessionStorage.getItem('quizAttemptHistory');
+        if (savedHistory) {
+            attemptHistory = JSON.parse(savedHistory);
+        } else {
+            // Inicializar con todos los elementos
+            const firstKey = Object.keys(quizData)[0];
+            quizData[firstKey].forEach((item, index) => {
+                attemptHistory[index] = {
+                    item: item,
+                    correct: 0,
+                    wrong: 0,
+                    weight: 1 // Peso inicial para la selección aleatoria
+                };
+            });
+        }
+    }
+    
+    // Guardar historial en sessionStorage
+    function saveAttemptHistory() {
+        sessionStorage.setItem('quizAttemptHistory', JSON.stringify(attemptHistory));
+    }
+    
+    // Seleccionar siguiente pregunta con mayor probabilidad para elementos fallados
+    function selectNextQuestion() {
+        // Convertir los pesos a un array para selección ponderada
+        const weights = Object.values(attemptHistory).map(item => item.weight);
+        const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+        
+        // Generar un número aleatorio entre 0 y el peso total
+        let random = Math.random() * totalWeight;
+        let cumulativeWeight = 0;
+        
+        // Encontrar el índice correspondiente al peso aleatorio
+        for (let i = 0; i < weights.length; i++) {
+            cumulativeWeight += weights[i];
+            if (random <= cumulativeWeight) {
+                return i;
+            }
+        }
+        
+        // Por si acaso, devolver un índice aleatorio
+        return Math.floor(Math.random() * Object.keys(attemptHistory).length);
+    }
+    
+    // Actualizar los pesos basados en aciertos/fallos
+    function updateWeights(index, isCorrect) {
+        if (isCorrect) {
+            attemptHistory[index].correct++;
+            // Reducir peso para elementos acertados (menos probable que aparezcan)
+            attemptHistory[index].weight = Math.max(0.5, attemptHistory[index].weight - 0.5);
+        } else {
+            attemptHistory[index].wrong++;
+            // Aumentar peso para elementos fallados (más probable que aparezcan)
+            attemptHistory[index].weight += 1;
+        }
+        saveAttemptHistory();
+    }
+    
+    // Mostrar pregunta actual
+    function showQuestion() {
+        const keys = Object.keys(quizData);
+        const firstKey = keys[0];
+        const item = quizData[firstKey][currentIndex];
+        
+        // Actualizar el prompt de la pregunta
+        document.getElementById('question-prompt').innerHTML = `
+            <span class="badge bg-primary">${firstKey}</span>
+            <span class="display-5">${item}</span>
+        `;
+        
+        // Generar campos de entrada para las otras claves
+        const inputFieldsContainer = document.getElementById('input-fields');
+        inputFieldsContainer.innerHTML = '';
+        
+        for (let i = 1; i < keys.length; i++) {
+            const key = keys[i];
+            const inputGroup = document.createElement('div');
+            inputGroup.className = 'input-group mb-2';
+            
+            const inputGroupText = document.createElement('span');
+            inputGroupText.className = 'input-group-text';
+            inputGroupText.textContent = key;
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'form-control answer-input';
+            input.placeholder = `Escribe la ${key} de ${item}...`;
+            input.dataset.key = key;
+            
+            inputGroup.appendChild(inputGroupText);
+            inputGroup.appendChild(input);
+            inputFieldsContainer.appendChild(inputGroup);
+        }
+        
+        // Resetear elementos UI
+        document.getElementById('feedback').className = 'alert d-none';
+        document.getElementById('check-answer').style.display = 'block';
+        document.getElementById('next-question').style.display = 'none';
+        
+        // Enfocar el primer campo de entrada
+        const firstInput = document.querySelector('.answer-input');
+        if (firstInput) firstInput.focus();
+    }
+    
+    // Comprobar respuesta
+    function checkAnswer() {
+        const keys = Object.keys(quizData);
+        const firstKey = keys[0];
+        const item = quizData[firstKey][currentIndex];
+        let allCorrect = true;
+        let feedback = '';
+        
+        // Comprobar cada campo de respuesta
+        document.querySelectorAll('.answer-input').forEach((input, i) => {
+            const key = input.dataset.key;
+            const expectedValue = quizData[key][currentIndex];
+            const userValue = input.value.trim();
+            
+            // Comprobar si la respuesta es correcta (ignorando mayúsculas/minúsculas)
+            const isCorrect = userValue.toLowerCase() === expectedValue.toLowerCase();
+            
+            // Marcar visualmente como correcto/incorrecto
+            input.classList.remove('is-valid', 'is-invalid');
+            input.classList.add(isCorrect ? 'is-valid' : 'is-invalid');
+            
+            // Acumular feedback
+            if (!isCorrect) {
+                allCorrect = false;
+                feedback += `<p>La ${key} de ${item} es <strong>${expectedValue}</strong>.</p>`;
+            }
+        });
+        
+        // Actualizar feedback y puntuación
+        const feedbackElement = document.getElementById('feedback');
+        feedbackElement.className = allCorrect ? 'alert alert-success' : 'alert alert-danger';
+        feedbackElement.innerHTML = allCorrect 
+            ? `<i class="bi bi-emoji-smile me-2"></i>¡Correcto! ¡Muy bien!` 
+            : `<i class="bi bi-emoji-frown me-2"></i>¡Casi! ${feedback}`;
+        
+        // Actualizar estadísticas
+        score.total++;
+        if (allCorrect) {
+            score.correct++;
+            // Reproducir sonido de éxito
+            const successSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAA');
+            successSound.volume = 0.5;
+            successSound.play().catch(e => console.log('No se pudo reproducir el sonido'));
+        } else {
+            score.wrong++;
+            // Reproducir sonido de error
+            const errorSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAA');
+            errorSound.volume = 0.5;
+            errorSound.play().catch(e => console.log('No se pudo reproducir el sonido'));
+        }
+        
+        // Actualizar historial de intentos y pesos
+        updateWeights(currentIndex, allCorrect);
+        
+        // Actualizar UI
+        updateStats();
+        document.getElementById('check-answer').style.display = 'none';
+        document.getElementById('next-question').style.display = 'block';
+    }
+    
+    // Actualizar estadísticas en la UI
+    function updateStats() {
+        document.getElementById('correct-count').textContent = score.correct;
+        document.getElementById('wrong-count').textContent = score.wrong;
+        document.getElementById('question-count').textContent = score.total;
+        
+        const percentage = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
+        const scoreBar = document.getElementById('score-bar');
+        scoreBar.style.width = `${percentage}%`;
+        scoreBar.textContent = `${percentage}%`;
+    }
+    
+    // Siguiente pregunta
+    function nextQuestion() {
+        currentIndex = selectNextQuestion();
+        showQuestion();
+    }
+    
+    // Mostrar resultados finales
+    function showResults() {
+        // Ocultar el juego y mostrar resultados
+        document.getElementById('quiz-game').style.display = 'none';
+        document.getElementById('quiz-results').style.display = 'block';
+        
+        // Calcular puntuación final
+        const percentage = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
+        document.getElementById('final-score').textContent = `${percentage}%`;
+        
+        const finalProgressBar = document.getElementById('final-progress');
+        finalProgressBar.style.width = `${percentage}%`;
+        finalProgressBar.textContent = `${percentage}%`;
+        
+        // Personalizar mensaje según puntuación
+        let emoji = '😐';
+        if (percentage >= 90) emoji = '🥇';
+        else if (percentage >= 70) emoji = '🎓';
+        else if (percentage >= 50) emoji = '😊';
+        else if (percentage < 30) emoji = '😢';
+        
+        // Generar listas de aciertos y fallos
+        const correctList = document.getElementById('correct-list');
+        const wrongList = document.getElementById('wrong-list');
+        correctList.innerHTML = '';
+        wrongList.innerHTML = '';
+        
+        // Ordenar intentos por rendimiento (primero los peores)
+        const sortedAttempts = Object.entries(attemptHistory).sort((a, b) => {
+            const aSuccessRate = a[1].correct / (a[1].correct + a[1].wrong || 1);
+            const bSuccessRate = b[1].correct / (b[1].correct + b[1].wrong || 1);
+            return aSuccessRate - bSuccessRate;
+        });
+        
+        // Generar listas
+        const keys = Object.keys(quizData);
+        sortedAttempts.forEach(([index, data]) => {
+            if (data.correct === 0 && data.wrong === 0) return; // Saltar elementos no intentados
+            
+            const item = quizData[keys[0]][index];
+            const answers = keys.slice(1).map(key => quizData[key][index]);
+            
+            // Calcular tasa de éxito
+            const total = data.correct + data.wrong;
+            const successRate = Math.round((data.correct / total) * 100);
+            
+            // Crear elemento de lista
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+            
+            // Contenido de la lista
+            listItem.innerHTML = `
+                <div>
+                    <strong>${item}</strong>
+                    <div>
+                        ${keys.slice(1).map((key, i) => `${key}: <span class="text-primary">${answers[i]}</span>`).join(', ')}
+                    </div>
+                </div>
+                <span class="badge ${successRate >= 50 ? 'bg-success' : 'bg-warning'} rounded-pill">
+                    ${successRate}%
+                </span>
+            `;
+            
+            // Añadir a la lista correspondiente
+            if (successRate >= 50) {
+                correctList.appendChild(listItem);
+            } else {
+                wrongList.appendChild(listItem);
+            }
+        });
+        
+        // Mensaje si las listas están vacías
+        if (correctList.childElementCount === 0) {
+            correctList.innerHTML = '<li class="list-group-item text-center text-muted">No hay elementos en esta categoría</li>';
+        }
+        if (wrongList.childElementCount === 0) {
+            wrongList.innerHTML = '<li class="list-group-item text-center text-muted">No hay elementos en esta categoría</li>';
+        }
+    }
+    
+    // Iniciar el quiz
+    function startQuiz() {
+        // Ocultar intro y mostrar el juego
+        document.getElementById('quiz-intro').style.display = 'none';
+        document.getElementById('quiz-game').style.display = 'block';
+        document.getElementById('quiz-results').style.display = 'none';
+        
+        // Reiniciar puntuación
+        score = {
+            correct: 0,
+            wrong: 0,
+            total: 0
+        };
+        
+        // Inicializar historial o cargarlo de sesión
+        initAttemptHistory();
+        
+        // Actualizar UI
+        updateStats();
+        
+        // Mostrar primera pregunta
+        nextQuestion();
+    }
+    
+    // Reiniciar el quiz
+    function restartQuiz() {
+        startQuiz();
+    }
+    
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        // Botones principales
+        document.getElementById('start-quiz').addEventListener('click', startQuiz);
+        document.getElementById('check-answer').addEventListener('click', checkAnswer);
+        document.getElementById('next-question').addEventListener('click', nextQuestion);
+        document.getElementById('end-quiz').addEventListener('click', showResults);
+        document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
+        
+        // Permitir presionar Enter para comprobar respuesta
+        document.body.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && document.getElementById('quiz-game').style.display !== 'none') {
+                if (document.getElementById('check-answer').style.display !== 'none') {
+                    checkAnswer();
+                } else if (document.getElementById('next-question').style.display !== 'none') {
+                    nextQuestion();
+                }
+            }
+        });
+        
+        // Permitir cargar datos desde JSON externo
+        // Aquí puedes agregar código para cargar datos desde tu backend
+    });
+    
+    // Funciones para animar respuestas correctas (efectos visuales divertidos para niños)
+    function celebrateCorrectAnswer() {
+        // Crear confeti o animaciones divertidas cuando el niño acierte
+        // Implementación simplificada
+    }
+</script>
+
+<style>
+    /* Estilos adicionales para hacer la UI más divertida para niños */
+    .quiz-question {
+        border: 3px solid #4e73df;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .quiz-question:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    
+    .btn {
+        border-radius: 10px;
+        transition: all 0.2s;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .result-summary {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Animaciones para feedback */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+        40% {transform: translateY(-20px);}
+        60% {transform: translateY(-10px);}
+    }
+    
+    .alert-success {
+        animation: bounce 1s;
+    }
+</style>
+{% endblock %}

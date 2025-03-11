@@ -15,7 +15,9 @@ from neirapinuela.blueprints.multiplications.multiplications import mult
 config = OngConfig("neirapinuela").config
 
 app = Flask(__name__, subdomain_matching=True)
-app.config['SERVER_NAME'] = config("SERVER_NAME", "neirapinuela.es")
+
+if not is_debugging():
+    app.config['SERVER_NAME'] = config("SERVER_NAME", "neirapinuela.es")
 # app.url_map.default_subdomain = "www"
 app.config['SECRET_KEY'] = config("SECRET_KEY", secrets.token_urlsafe(24))
 # Default translation file
@@ -137,8 +139,12 @@ def home_link_data(g):
             "name": 'apps', "letter": "a", 'link': url_for('apps')
         },
         {
-            "letter": "."
-        },
+                "name": i18n_cfg["home_link_quiz"][g.lang_code], "letter": ".",
+                "link": url_for('quiz', lang_code=g.lang_code),
+                "public": True, "class": "",
+                "definition": i18n_cfg['home_link_quiz'][g.lang_code],
+                "app_img": url_for("static", filename="screenshot/quiz.png"),
+            },
         {
             "name": i18n_cfg["home_link_euro_coin_game"][g.lang_code], "letter": "e",
             "link": url_for('euro_coin_game', lang_code=g.lang_code),
@@ -250,7 +256,13 @@ def home():
 
 @app.route("/<lang_code>/gas.html")
 def gas():
+#    return render_template("quiz.html")
     return render_template("gas.html")
+
+
+@app.route("/<lang_code>/quiz.html")
+def quiz():
+    return render_template("quiz.html")
 
 
 @app.route("/<lang_code>/euro_coin_game/euro_coin_game.html")
