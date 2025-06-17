@@ -71,9 +71,11 @@ Configura las siguientes variables:
 ```bash
 SECRET_KEY=tu-clave-secreta-muy-segura-aqui
 FLASK_ENV=production
-FLASK_HOST=0.0.0.0
+FLASK_HOST=127.0.0.1
 FLASK_PORT=5000
 ```
+
+**Nota:** `FLASK_HOST` y `FLASK_PORT` se usan tanto para el servidor de desarrollo como para la configuración de Gunicorn en producción.
 
 ## 6. Compilar Traducciones
 
@@ -87,26 +89,7 @@ python update_translations.py
 
 ## 7. Configurar Gunicorn
 
-Crear archivo de configuración para producción:
-
-```bash
-nano gunicorn_prod.py
-```
-
-Contenido:
-```python
-import multiprocessing
-
-bind = "127.0.0.1:5000"
-workers = multiprocessing.cpu_count() * 2 + 1
-worker_class = "gevent"
-worker_connections = 1000
-max_requests = 1000
-max_requests_jitter = 50
-preload_app = True
-timeout = 30
-keepalive = 2
-```
+El archivo `src/gunicorn_prod.py` ya está incluido en el repositorio con la configuración de producción optimizada.
 
 ## 8. Configurar Supervisor
 
@@ -119,8 +102,8 @@ sudo nano /etc/supervisor/conf.d/neirapinuela.conf
 Contenido:
 ```ini
 [program:neirapinuela]
-command=/home/neirapinuela/neirapinuela-app/.venv/bin/gunicorn -c gunicorn_prod.py src.neirapinuela.wsgi:application
-directory=/home/neirapinuela/neirapinuela-app
+command=/home/neirapinuela/neirapinuela-app/.venv/bin/gunicorn -c gunicorn_prod.py neirapinuela.wsgi:application
+directory=/home/neirapinuela/neirapinuela-app/src
 user=neirapinuela
 autostart=true
 autorestart=true
@@ -128,6 +111,8 @@ redirect_stderr=true
 stdout_logfile=/var/log/neirapinuela.log
 environment=PATH="/home/neirapinuela/neirapinuela-app/.venv/bin"
 ```
+
+**Importante:** El comando se ejecuta desde `directory=/home/neirapinuela/neirapinuela-app/src`, por eso usamos `-c gunicorn_prod.py` (sin la ruta `src/`) ya que el archivo está en la carpeta de trabajo.
 
 ## 9. Configurar Nginx
 
@@ -314,17 +299,24 @@ source .venv/bin/activate
 python run_server.py
 ```
 
+### Probar Gunicorn manualmente:
+```bash
+cd /home/neirapinuela/neirapinuela-app/src
+source ../.venv/bin/activate
+gunicorn -c gunicorn_prod.py neirapinuela.wsgi:application
+```
+
 ## 16. Estructura Final del Proyecto
 
 ```
 /home/neirapinuela/
 ├── neirapinuela-app/
 │   ├── src/
+│   │   ├── neirapinuela/
+│   │   └── gunicorn_prod.py
 │   ├── .venv/
 │   ├── requirements.txt
 │   ├── nginx.conf
-│   ├── gunicorn_config.py
-│   ├── gunicorn_prod.py
 │   └── .env
 ├── backups/
 └── backup.sh
