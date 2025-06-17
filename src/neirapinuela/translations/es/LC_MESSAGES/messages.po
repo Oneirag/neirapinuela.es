@@ -599,3 +599,15 @@ msgstr "Prueba otras aplicaciones"
 msgid "Contact us if the problem persists"
 msgstr "Contáctanos si el problema persiste"
 
+#: src/neirapinuela/templates/index.html:71
+msgid "Access Granted"
+msgstr "Acceso Concedido"
+
+#: src/neirapinuela/templates/index.html:76
+msgid "Public Access"
+msgstr "Acceso Público"
+
+#: src/neirapinuela/templates/index.html:82
+msgid "Login to Access"
+msgstr "Iniciar sesión para Acceder"
+

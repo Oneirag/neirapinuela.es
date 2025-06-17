@@ -55,30 +55,40 @@
             <h2 class="text-center mb-4">{{ _('Featured Applications') }}</h2>
             <div class="row">
                 {% for app_id, app_config in APPLICATIONS.items() %}
-                    {% if not app_config.requires_login or (current_user.is_authenticated and current_user.username in app_config.members) %}
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card app-card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">{{ app_config.name }}</h5>
-                                    <p class="card-text">{{ app_config.description }}</p>
-                                    <div class="mb-2">
-                                        <small class="text-muted">{{ _('Available to:') }}</small>
-                                        {% for member in app_config.members %}
-                                            <span class="badge bg-primary ms-1">{{ FAMILY_MEMBERS[member].name }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% if app_config.requires_login %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card app-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">{{ app_config.name }}</h5>
+                                <p class="card-text">{{ app_config.description }}</p>
+                                <div class="mb-2">
+                                    <small class="text-muted">{{ _('Available to:') }}</small>
+                                    {% for member in app_config.members %}
+                                        <span class="badge bg-primary ms-1">{{ FAMILY_MEMBERS[member].name }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% if app_config.requires_login %}
+                                    {% if current_user.is_authenticated and current_user.username in app_config.members %}
+                                        <span class="badge bg-success">{{ _('Access Granted') }}</span>
+                                    {% else %}
                                         <span class="badge bg-secondary">{{ _('Login Required') }}</span>
                                     {% endif %}
-                                </div>
-                                <div class="card-footer">
+                                {% else %}
+                                    <span class="badge bg-info">{{ _('Public Access') }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="card-footer">
+                                {% if app_config.requires_login and not (current_user.is_authenticated and current_user.username in app_config.members) %}
+                                    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary btn-sm">
+                                        {{ _('Login to Access') }}
+                                    </a>
+                                {% else %}
                                     <a href="{{ app_config.url }}" class="btn btn-outline-primary btn-sm">
                                         {{ _('Open App') }}
                                     </a>
-                                </div>
+                                {% endif %}
                             </div>
                         </div>
-                    {% endif %}
+                    </div>
                 {% endfor %}
             </div>
         </div>
