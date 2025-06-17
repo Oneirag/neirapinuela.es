@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Applications') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-primary">{{ _('Applications') }}</h1>
+        <p class="lead">{{ _('Our collection of family applications') }}</p>
+    </div>
+    
+    {% if apps %}
+        <div class="row">
+            {% for app in apps %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card app-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{ app.name }}</h5>
+                            <p class="card-text">{{ app.description }}</p>
+                            
+                            <div class="mb-3">
+                                <small class="text-muted">{{ _('Available to:') }}</small><br>
+                                {% for member in app.members %}
+                                    <span class="badge bg-primary me-1">{{ FAMILY_MEMBERS[member].name }}</span>
+                                {% endfor %}
+                            </div>
+                            
+                            {% if app.requires_login %}
+                                <span class="badge bg-secondary mb-2">{{ _('Login Required') }}</span>
+                            {% else %}
+                                <span class="badge bg-success mb-2">{{ _('Public Access') }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ app.url }}" class="btn btn-primary">
+                                {{ _('Open Application') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-muted">{{ _('No applications available') }}</h3>
+                    <p>{{ _('Please log in to see more applications or check back later.') }}</p>
+                    {% if not current_user.is_authenticated %}
+                        <a href="{{ url_for('auth.login') }}" class="btn btn-primary">{{ _('Login') }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

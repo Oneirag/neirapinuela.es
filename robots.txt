@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /static/
+
+# Allow indexing of public applications
+Allow: /apps/mecanografia
+
+# Disallow authentication pages
+Disallow: /auth/
+Disallow: /apps/grafana
+
+# Sitemap
+Sitemap: https://neirapinuela.es/sitemap.xml

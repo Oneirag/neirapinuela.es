@@ -1,0 +1,926 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Typing Practice') }} - neirapinuela.es{% endblock %}
+
+{% block head %}
+<style>
+:root {
+    --primary-color: #198754;
+    --primary-dark: #146c43;
+    --text-color: #000000;
+    --background-color: #ffffff;
+    --border-color: #dee2e6;
+}
+
+.lesson-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+}
+
+.lesson-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.lesson-card.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.lesson-card.completed {
+    border-color: var(--primary-color);
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+.virtual-keyboard {
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.key {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    margin: 0.2rem;
+    display: inline-block;
+    min-width: 3rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.key:hover {
+    background-color: #f8f9fa;
+}
+
+.key.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.key.correct {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.key.incorrect {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.typing-area {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    line-height: 2;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    border: 2px solid var(--border-color);
+    min-height: 200px;
+    word-wrap: break-word;
+}
+
+.typing-input {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.typing-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.lesson-progress {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-progress-bar {
+    background-color: var(--primary-color);
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    transition: width 0.3s ease;
+}
+
+.word-display {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+.word-current {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.word-completed {
+    background-color: rgba(25, 135, 84, 0.2);
+    color: var(--primary-color);
+}
+
+.word-pending {
+    background-color: #f8f9fa;
+    color: var(--text-color);
+}
+
+.achievement-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    z-index: 1050;
+    transition: transform 0.3s ease;
+    text-align: center;
+    min-width: 300px;
+}
+
+.achievement-toast.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.tip-card {
+    background-color: rgba(25, 135, 84, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .typing-area {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    
+    .typing-input {
+        font-size: 1.2rem;
+    }
+    
+    .key {
+        min-width: 2.5rem;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+        margin: 0.1rem;
+    }
+    
+    .achievement-toast {
+        min-width: 250px;
+        padding: 1.5rem;
+    }
+}
+
+.correct-char {
+    background-color: rgba(25, 135, 84, 0.3);
+    color: var(--text-color);
+}
+
+.incorrect-char {
+    background-color: rgba(220, 53, 69, 0.3);
+    color: var(--text-color);
+}
+
+.current-char {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.completion-celebration {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: #ffffff;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.game-container {
+    display: none;
+}
+
+.game-container.active {
+    display: block;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-primary">{{ _('Typing Practice') }}</h1>
+        <p class="lead">{{ _('Improve your typing skills with Pablo and Carlitos!') }}</p>
+    </div>
+
+    <!-- Lesson Selection -->
+    <div id="lesson-selection" class="mb-5">
+        <h2 class="text-center mb-4">{{ _('Select a Lesson') }}</h2>
+        <div class="lesson-grid" id="lesson-grid">
+            <!-- Lessons will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container" class="game-container">
+        <!-- Stats -->
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="accuracy">100%</div>
+                <div class="stat-label">{{ _('Accuracy') }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="speed">0</div>
+                <div class="stat-label">{{ _('WPM') }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="errors">0</div>
+                <div class="stat-label">{{ _('Errors') }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="time">0:00</div>
+                <div class="stat-label">{{ _('Time') }}</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="lesson-progress">
+            <div class="lesson-progress-bar" id="progress-bar" style="width: 0%"></div>
+        </div>
+
+        <!-- Typing Area -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div id="text-display" class="typing-area">
+                    <!-- Words will be displayed here -->
+                </div>
+                <div class="mt-3">
+                    <input type="text" id="typing-input" class="form-control typing-input" 
+                           placeholder="{{ _('Start typing here...') }}" autocomplete="off">
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Keyboard -->
+        <div class="virtual-keyboard" id="virtual-keyboard">
+            <!-- Keyboard will be generated by JavaScript -->
+        </div>
+
+        <!-- Controls -->
+        <div class="text-center mb-4">
+            <button id="restart-btn" class="btn btn-outline-primary me-2">{{ _('Restart') }}</button>
+            <button id="back-btn" class="btn btn-secondary">{{ _('Back to Lessons') }}</button>
+        </div>
+
+        <!-- Tips -->
+        <div id="tips-container">
+            <!-- Tips will be shown here -->
+        </div>
+    </div>
+
+    <!-- Completion Screen -->
+    <div id="completion-screen" class="completion-celebration" style="display: none;">
+        <h2>{{ _('Lesson Completed!') }}</h2>
+        <p id="completion-stats"></p>
+        <button id="next-lesson-btn" class="btn btn-outline-light me-2">{{ _('Next Lesson') }}</button>
+        <button id="retry-lesson-btn" class="btn btn-outline-light">{{ _('Retry Lesson') }}</button>
+    </div>
+</div>
+
+<!-- Achievement Toast -->
+<div id="achievement-toast" class="achievement-toast" style="display: none;">
+    <strong>{{ _('Achievement Unlocked!') }}</strong>
+    <div id="achievement-text"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Game State
+let currentLesson = 0;
+let currentWordIndex = 0;
+let currentWord = '';
+let startTime = null;
+let totalErrors = 0;
+let totalTyped = 0;
+let isLessonActive = false;
+let lessons = [];
+let gameStats = {
+    completedLessons: JSON.parse(localStorage.getItem('typingCompletedLessons') || '[]'),
+    achievements: JSON.parse(localStorage.getItem('typingAchievements') || '[]'),
+    bestStats: JSON.parse(localStorage.getItem('typingBestStats') || '{}')
+};
+
+// Lesson Configuration
+const lessonConfig = [
+    // FASE 1: FILA BASE - MANO IZQUIERDA
+    {
+        title: "Fila Base 1: ASDF",
+        description: "Mano izquierda - Teclas básicas",
+        keys: ['a', 's', 'd', 'f'],
+        words: ['a', 'a', 'a', 's', 's', 's', 'd', 'd', 'd', 'f', 'f', 'f', 'a', 's', 'd', 'f', 'a', 's', 'd', 'f', 'a', 's', 'd', 'f', 'a', 's', 'd', 'f', 'a', 's']
+    },
+    {
+        title: "Fila Base 2: JKLÑ",
+        description: "Mano derecha - Teclas básicas",
+        keys: ['j', 'k', 'l', 'ñ'],
+        words: ['j', 'j', 'j', 'k', 'k', 'k', 'l', 'l', 'l', 'ñ', 'ñ', 'ñ', 'j', 'k', 'l', 'ñ', 'j', 'k', 'l', 'ñ', 'j', 'k', 'l', 'ñ', 'j', 'k', 'l', 'ñ', 'j', 'k']
+    },
+    {
+        title: "Fila Base 3: GH",
+        description: "Índices - Teclas centrales",
+        keys: ['g', 'h'],
+        words: ['g', 'g', 'g', 'h', 'h', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h', 'g', 'h']
+    },
+    {
+        title: "Fila Base 4: Combinaciones",
+        description: "Todas las teclas de la fila base",
+        keys: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ'],
+        words: ['as', 'la', 'ha', 'al', 'da', 'fa', 'ja', 'ka', 'ga', 'ña', 'ad', 'sd', 'fd', 'gd', 'hd', 'jd', 'kd', 'ld', 'ag', 'sg', 'dg', 'fg', 'ah', 'sh', 'dh', 'fh', 'gh', 'jh', 'kh', 'lh']
+    },
+    
+    // FASE 2: FILA SUPERIOR - MANO IZQUIERDA
+    {
+        title: "Fila Superior 1: QWERT",
+        description: "Mano izquierda - Fila superior",
+        keys: ['q', 'w', 'e', 'r', 't'],
+        words: ['q', 'q', 'w', 'w', 'e', 'e', 'r', 'r', 't', 't', 'qw', 'we', 'er', 'rt', 'qe', 'wr', 'et', 'qr', 'wt', 'qt', 'qwer', 'wert', 'qwert', 'eq', 'rw', 'te', 'tr', 'ew', 'rq', 'tw']
+    },
+    {
+        title: "Fila Superior 2: YUIOP",
+        description: "Mano derecha - Fila superior",
+        keys: ['y', 'u', 'i', 'o', 'p'],
+        words: ['y', 'y', 'u', 'u', 'i', 'i', 'o', 'o', 'p', 'p', 'yu', 'ui', 'io', 'op', 'yi', 'uo', 'ip', 'yo', 'up', 'yp', 'yuio', 'uiop', 'yuiop', 'iy', 'ou', 'pi', 'po', 'iu', 'oy', 'py']
+    },
+    {
+        title: "Fila Superior 3: Mezcla Sup+Base",
+        description: "Combina fila superior con base",
+        keys: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ'],
+        words: ['que', 'uso', 'peso', 'rey', 'tipo', 'país', 'queso', 'hueso', 'frase', 'pasta', 'lago', 'tarde', 'donde', 'poder', 'reyes', 'usada', 'pesar', 'grados', 'puerta', 'quitar']
+    },
+    
+    // FASE 3: FILA INFERIOR - MANO IZQUIERDA
+    {
+        title: "Fila Inferior 1: ZXCV",
+        description: "Mano izquierda - Fila inferior",
+        keys: ['z', 'x', 'c', 'v'],
+        words: ['z', 'z', 'x', 'x', 'c', 'c', 'v', 'v', 'zx', 'xc', 'cv', 'zc', 'xv', 'zv', 'zxc', 'xcv', 'zxcv', 'cz', 'vx', 'vc', 'vz', 'cx', 'xz', 'czx', 'vcx', 'vzx']
+    },
+    {
+        title: "Fila Inferior 2: BNM",
+        description: "Mano derecha - Fila inferior",
+        keys: ['b', 'n', 'm'],
+        words: ['b', 'b', 'n', 'n', 'm', 'm', 'bn', 'nm', 'bm', 'nb', 'mn', 'mb', 'bnm', 'nmb', 'mnb', 'bmn', 'nbm', 'mbn', 'bn', 'nm', 'bm', 'nb', 'mn', 'mb', 'bnm', 'nmb', 'mnb', 'bmn', 'nbm', 'mbn']
+    },
+    {
+        title: "Fila Inferior 3: Todas las filas",
+        description: "Superior + Base + Inferior",
+        keys: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ', 'z', 'x', 'c', 'v', 'b', 'n', 'm'],
+        words: ['mesa', 'vida', 'coma', 'zinc', 'vaca', 'boca', 'nube', 'zona', 'campo', 'vez', 'con', 'van', 'bien', 'nueva', 'mano', 'cinco', 'cambio', 'nombre', 'cebra', 'banco']
+    },
+    
+    // FASE 4: PALABRAS SIMPLES
+    {
+        title: "Palabras 1: Dos letras",
+        description: "Palabras de 2 letras",
+        keys: [],
+        words: ['la', 'el', 'en', 'es', 'un', 'se', 'no', 'te', 'lo', 'le', 'da', 'su', 'tu', 'mi', 'me', 'si', 'ya', 'he', 'ha', 'al', 'de', 'or', 'ir', 'os', 'as', 'oh', 'yo', 'va', 've', 'vi']
+    },
+    {
+        title: "Palabras 2: Tres letras",
+        description: "Palabras de 3 letras",
+        keys: [],
+        words: ['que', 'con', 'una', 'por', 'son', 'las', 'del', 'los', 'ese', 'más', 'sus', 'muy', 'vez', 'día', 'año', 'dos', 'así', 'hoy', 'fue', 'paz', 'luz', 'fin', 'red', 'mar', 'sol', 'pan', 'gol', 'rey', 'ley', 'top']
+    },
+    {
+        title: "Palabras 3: Cuatro letras",
+        description: "Palabras de 4 letras",
+        keys: [],
+        words: ['casa', 'vida', 'mesa', 'agua', 'hijo', 'pasa', 'peso', 'boca', 'mano', 'cosa', 'tema', 'hora', 'zona', 'tipo', 'dato', 'este', 'otro', 'lado', 'modo', 'alto', 'bajo', 'poco', 'todo', 'solo', 'cada', 'algo', 'nada', 'obra', 'forma', 'idea']
+    },
+    
+    // FASE 5: NÚMEROS Y SÍMBOLOS
+    {
+        title: "Números 1: 1-5",
+        description: "Números con mano izquierda",
+        keys: ['1', '2', '3', '4', '5'],
+        words: ['1', '2', '3', '4', '5', '12', '23', '34', '45', '123', '234', '345', '1234', '2345', '12345', '15', '24', '35', '14', '25', '13', '124', '135', '145', '235', '1235', '1245', '1345', '2345', '12345']
+    },
+    {
+        title: "Números 2: 6-0",
+        description: "Números con mano derecha",
+        keys: ['6', '7', '8', '9', '0'],
+        words: ['6', '7', '8', '9', '0', '67', '78', '89', '90', '678', '789', '890', '6789', '7890', '67890', '60', '79', '80', '69', '70', '68', '679', '680', '690', '780', '6780', '6790', '6890', '7890', '67890']
+    },
+    {
+        title: "Números 3: Todos",
+        description: "Todos los números",
+        keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+        words: ['10', '20', '30', '100', '365', '2024', '1975', '12', '24', '60', '90', '45', '67', '89', '123', '456', '789', '1000', '2000', '2010', '2015', '2020', '2025', '1234', '5678', '9012', '3456', '7890', '1357', '2468']
+    },
+    
+    // FASE 6: SÍMBOLOS
+    {
+        title: "Símbolos 1: Básicos",
+        description: "Puntuación básica",
+        keys: ['.', ',', ';', ':'],
+        words: ['hola.', 'bien,', 'casa;', 'agua:', 'final.', 'lista,', 'punto;', 'hora:', 'texto.', 'frase,', 'dato;', 'tema:', 'idea.', 'cosa,', 'modo;', 'tipo:', 'vida.', 'mesa,', 'zona;', 'peso:']
+    },
+    {
+        title: "Símbolos 2: Interrogación",
+        description: "Signos de interrogación",
+        keys: ['?', '¿', '!', '¡'],
+        words: ['¿qué?', '¡bien!', '¿cómo?', '¡hola!', '¿dónde?', '¡perfecto!', '¿cuándo?', '¡genial!', '¿quién?', '¡excelente!', '¿por qué?', '¡increíble!', '¿verdad?', '¡fantástico!', '¿seguro?', '¡maravilloso!', '¿cierto?', '¡estupendo!', '¿entonces?', '¡magnífico!']
+    },
+    
+    // FASE 7: PALABRAS COMPLEJAS
+    {
+        title: "Palabras Complejas 1",
+        description: "Palabras largas frecuentes",
+        keys: [],
+        words: ['teclado', 'escribir', 'rápido', 'lento', 'práctica', 'dedos', 'manos', 'lección', 'perfecto', 'velocidad', 'precisión', 'mecanografía', 'entrenamiento', 'habilidad', 'coordinación', 'ejercicio', 'repetición', 'constancia', 'mejora', 'progreso']
+    },
+    {
+        title: "Palabras Españolas",
+        description: "Palabras con ñ y acentos",
+        keys: ['ñ', 'á', 'é', 'í', 'ó', 'ú'],
+        words: ['niño', 'año', 'mañana', 'español', 'señor', 'pequeño', 'sueño', 'baño', 'montaña', 'otoño', 'más', 'está', 'será', 'mamá', 'papá', 'café', 'médico', 'teléfono', 'bebé', 'después', 'fácil', 'difícil', 'música', 'película', 'día', 'corazón', 'canción', 'atención', 'nación', 'educación']
+    },
+    
+    // FASE 8: ORACIONES
+    {
+        title: "Oraciones Simples",
+        description: "Frases cortas",
+        keys: [],
+        words: ['La casa es grande.', 'El agua está fría.', 'Mi hijo come pan.', 'Tu mesa es nueva.', 'Esta vida es buena.', 'Cada día es único.', 'Todo pasa rápido.', 'Algo bueno viene.', 'Nada es perfecto.', 'Solo práctica ayuda.']
+    },
+    {
+        title: "Oraciones Complejas",
+        description: "Frases largas",
+        keys: [],
+        words: ['La práctica hace al maestro.', 'Escribir rápido es muy útil.', 'Usa todos los dedos correctamente.', 'La velocidad viene con el tiempo.', 'Pablo y Carlitos practican mucho.', 'La familia es muy importante.', 'Cada día es una nueva oportunidad.', 'El esfuerzo siempre da buenos resultados.', 'La paciencia es la clave del éxito.', 'Siempre se puede mejorar más.']
+    },
+    
+    // FASE 9: NIVEL AVANZADO
+    {
+        title: "Tecnología",
+        description: "Vocabulario técnico",
+        keys: [],
+        words: ['programación', 'javascript', 'desarrollo', 'tecnología', 'algoritmo', 'framework', 'aplicación', 'ordenador', 'internet', 'navegador', 'base de datos', 'sistema', 'software', 'hardware', 'red', 'servidor', 'cliente', 'protocolo', 'interfaz', 'usuario', 'diseño', 'arquitectura', 'optimización']
+    },
+    {
+        title: "Nivel Maestro",
+        description: "Desafío final",
+        keys: [],
+        words: ['felicitaciones', 'extraordinario', 'logro', 'fenomenal', 'sobresaliente', 'magnífico', 'excelente', 'impresionante', 'espectacular', 'increíble', 'maravilloso', 'excepcional', 'fantástico', 'admirable', 'notable', 'sensacional', 'formidable', 'estupendo', 'brillante', 'genial', 'perfeccionamiento', 'profesional', 'especialización', 'competencia']
+    }
+];
+
+// Tips for motivation
+const tips = [
+    "{{ _('Keep your wrists straight and fingers curved.') }}",
+    "{{ _('Look at the screen, not at your fingers.') }}",
+    "{{ _('Use all ten fingers, not just your index fingers.') }}",
+    "{{ _('Practice regularly for better results.') }}",
+    "{{ _('Accuracy is more important than speed.') }}",
+    "{{ _('Take breaks to avoid fatigue.') }}",
+    "{{ _('Maintain good posture while typing.') }}"
+];
+
+// Initialize the application
+function initApp() {
+    renderLessonSelection();
+    generateKeyboard();
+    bindEvents();
+    showRandomTip();
+}
+
+// Render lesson selection
+function renderLessonSelection() {
+    const grid = document.getElementById('lesson-grid');
+    grid.innerHTML = '';
+    
+    lessonConfig.forEach((lesson, index) => {
+        const isCompleted = gameStats.completedLessons.includes(index);
+        const isLocked = index > 0 && !gameStats.completedLessons.includes(index - 1) && index !== 0;
+        
+        const card = document.createElement('div');
+        card.className = `card lesson-card ${isCompleted ? 'completed' : ''} ${isLocked ? 'locked' : ''}`;
+        card.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title text-primary">
+                    ${lesson.title}
+                    ${isCompleted ? '<span class="badge bg-success ms-2">✓</span>' : ''}
+                    ${isLocked ? '<span class="badge bg-secondary ms-2">🔒</span>' : ''}
+                </h5>
+                <p class="card-text">${lesson.description}</p>
+                <div class="small text-muted">
+                    {{ _('Words:') }} ${lesson.words.length}
+                    ${lesson.keys.length > 0 ? ` | {{ _('Keys:') }} ${lesson.keys.join(', ')}` : ''}
+                </div>
+            </div>
+        `;
+        
+        if (!isLocked) {
+            card.addEventListener('click', () => startLesson(index));
+        }
+        
+        grid.appendChild(card);
+    });
+}
+
+// Start a lesson
+function startLesson(lessonIndex) {
+    currentLesson = lessonIndex;
+    lessons = [...lessonConfig[lessonIndex].words];
+    currentWordIndex = 0;
+    totalErrors = 0;
+    totalTyped = 0;
+    startTime = null;
+    isLessonActive = true;
+    
+    document.getElementById('lesson-selection').style.display = 'none';
+    document.getElementById('game-container').classList.add('active');
+    document.getElementById('completion-screen').style.display = 'none';
+    
+    displayCurrentWords();
+    document.getElementById('typing-input').focus();
+    updateStats();
+}
+
+// Display current words
+function displayCurrentWords() {
+    const display = document.getElementById('text-display');
+    display.innerHTML = '';
+    
+    lessons.forEach((word, index) => {
+        const wordElement = document.createElement('span');
+        wordElement.className = 'word-display';
+        wordElement.textContent = word;
+        
+        if (index < currentWordIndex) {
+            wordElement.classList.add('word-completed');
+        } else if (index === currentWordIndex) {
+            wordElement.classList.add('word-current');
+        } else {
+            wordElement.classList.add('word-pending');
+        }
+        
+        display.appendChild(wordElement);
+    });
+    
+    currentWord = lessons[currentWordIndex] || '';
+    updateProgress();
+}
+
+// Update progress bar
+function updateProgress() {
+    const progress = (currentWordIndex / lessons.length) * 100;
+    document.getElementById('progress-bar').style.width = `${progress}%`;
+}
+
+// Update statistics
+function updateStats() {
+    if (!startTime) return;
+    
+    const now = new Date();
+    const timeElapsed = (now - startTime) / 1000;
+    const minutes = timeElapsed / 60;
+    
+    // Time
+    const mins = Math.floor(timeElapsed / 60);
+    const secs = Math.floor(timeElapsed % 60);
+    document.getElementById('time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+    
+    // Speed (WPM)
+    const wordsTyped = currentWordIndex;
+    const wpm = Math.round(wordsTyped / Math.max(minutes, 0.1));
+    document.getElementById('speed').textContent = wpm;
+    
+    // Accuracy
+    const accuracy = totalTyped > 0 ? Math.round(((totalTyped - totalErrors) / totalTyped) * 100) : 100;
+    document.getElementById('accuracy').textContent = `${accuracy}%`;
+    
+    // Errors
+    document.getElementById('errors').textContent = totalErrors;
+}
+
+// Generate virtual keyboard
+function generateKeyboard() {
+    const keyboard = document.getElementById('virtual-keyboard');
+    const rows = [
+        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ'],
+        ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+        ['.', ',', '!', '?', ';', ':']
+    ];
+    
+    keyboard.innerHTML = '';
+    rows.forEach((row, rowIndex) => {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'mb-2 d-flex justify-content-center';
+        row.forEach(key => {
+            const keyElement = document.createElement('span');
+            keyElement.className = 'key';
+            keyElement.textContent = key.toUpperCase();
+            keyElement.dataset.key = key.toLowerCase();
+            rowDiv.appendChild(keyElement);
+        });
+        keyboard.appendChild(rowDiv);
+    });
+    
+    // Add space bar row separately
+    const spaceRow = document.createElement('div');
+    spaceRow.className = 'mb-2 d-flex justify-content-center';
+    const spaceKey = document.createElement('span');
+    spaceKey.className = 'key';
+    spaceKey.textContent = 'ESPACIO';
+    spaceKey.dataset.key = ' ';
+    spaceKey.style.minWidth = '300px';
+    spaceRow.appendChild(spaceKey);
+    keyboard.appendChild(spaceRow);
+}
+
+// Handle typing input
+function handleTyping(event) {
+    if (!isLessonActive || currentWordIndex >= lessons.length) return;
+    
+    const input = event.target;
+    const typed = input.value.trim();
+    
+    if (!startTime) {
+        startTime = new Date();
+    }
+    
+    // Check for exact match after each keystroke
+    if (event.type === 'input') {
+        if (typed === currentWord) {
+            // Correct word - advance automatically
+            currentWordIndex++;
+            
+            // Small delay for visual feedback
+            setTimeout(() => {
+                input.value = '';
+                
+                if (currentWordIndex >= lessons.length) {
+                    completeLesson();
+                } else {
+                    displayCurrentWords();
+                }
+            }, 200);
+            
+            totalTyped++;
+            updateStats();
+            return;
+        }
+    }
+    
+    // Handle manual advancement with Enter or Space (optional)
+    if (event.type === 'keydown' && (event.key === 'Enter' || event.key === ' ')) {
+        event.preventDefault();
+        
+        if (typed === currentWord) {
+            // Correct word
+            currentWordIndex++;
+            input.value = '';
+            
+            if (currentWordIndex >= lessons.length) {
+                completeLesson();
+            } else {
+                displayCurrentWords();
+            }
+        } else {
+            // Incorrect word
+            totalErrors++;
+            highlightKey(null, 'incorrect');
+            setTimeout(() => {
+                input.select();
+            }, 100);
+        }
+        
+        totalTyped++;
+        updateStats();
+        return;
+    }
+    
+    // Real-time feedback
+    if (typed.length > 0) {
+        const isCorrect = currentWord.startsWith(typed);
+        const nextChar = currentWord[typed.length];
+        
+        if (!isCorrect && event.type === 'input') {
+            totalErrors++;
+        }
+        
+        if (nextChar) {
+            highlightKey(nextChar, isCorrect ? 'correct' : 'incorrect');
+        }
+    }
+    
+    if (event.type === 'input') {
+        totalTyped++;
+        updateStats();
+    }
+}
+
+// Highlight keyboard key
+function highlightKey(key, status) {
+    // Clear previous highlights
+    document.querySelectorAll('.key').forEach(k => {
+        k.classList.remove('active', 'correct', 'incorrect');
+    });
+    
+    if (key) {
+        const keyElement = document.querySelector(`[data-key="${key.toLowerCase()}"]`);
+        if (keyElement) {
+            keyElement.classList.add('active');
+            if (status) {
+                keyElement.classList.add(status);
+            }
+        }
+    }
+}
+
+// Complete lesson
+function completeLesson() {
+    isLessonActive = false;
+    
+    // Save completion
+    if (!gameStats.completedLessons.includes(currentLesson)) {
+        gameStats.completedLessons.push(currentLesson);
+        localStorage.setItem('typingCompletedLessons', JSON.stringify(gameStats.completedLessons));
+        showAchievement(`{{ _('Lesson') }} ${currentLesson + 1} {{ _('completed!') }}`);
+    }
+    
+    // Show completion screen
+    const completionStats = `
+        {{ _('Accuracy:') }} ${document.getElementById('accuracy').textContent} | 
+        {{ _('Speed:') }} ${document.getElementById('speed').textContent} WPM | 
+        {{ _('Time:') }} ${document.getElementById('time').textContent}
+    `;
+    
+    document.getElementById('completion-stats').textContent = completionStats;
+    document.getElementById('completion-screen').style.display = 'block';
+    
+    // Check for achievements
+    checkAchievements();
+}
+
+// Show achievement
+function showAchievement(text) {
+    const toast = document.getElementById('achievement-toast');
+    document.getElementById('achievement-text').textContent = text;
+    
+    // Show and animate
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10);
+    
+    // Hide after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 300);
+    }, 3000);
+}
+
+// Check for achievements
+function checkAchievements() {
+    const accuracy = parseInt(document.getElementById('accuracy').textContent);
+    const speed = parseInt(document.getElementById('speed').textContent);
+    
+    if (accuracy === 100 && !gameStats.achievements.includes('perfect')) {
+        gameStats.achievements.push('perfect');
+        showAchievement('{{ _("Perfect accuracy!") }}');
+    }
+    
+    if (speed >= 40 && !gameStats.achievements.includes('speed40')) {
+        gameStats.achievements.push('speed40');
+        showAchievement('{{ _("Speed demon! 40+ WPM") }}');
+    }
+    
+    if (gameStats.completedLessons.length >= 5 && !gameStats.achievements.includes('persistent')) {
+        gameStats.achievements.push('persistent');
+        showAchievement('{{ _("Persistent learner!") }}');
+    }
+    
+    localStorage.setItem('typingAchievements', JSON.stringify(gameStats.achievements));
+}
+
+// Show random tip
+function showRandomTip() {
+    const tipsContainer = document.getElementById('tips-container');
+    const randomTip = tips[Math.floor(Math.random() * tips.length)];
+    
+    tipsContainer.innerHTML = `
+        <div class="tip-card">
+            <strong>💡 {{ _('Tip:') }}</strong> ${randomTip}
+        </div>
+    `;
+}
+
+// Bind events
+function bindEvents() {
+    const typingInput = document.getElementById('typing-input');
+    typingInput.addEventListener('input', handleTyping);
+    typingInput.addEventListener('keydown', handleTyping);
+    
+    document.getElementById('restart-btn').addEventListener('click', () => {
+        if (currentLesson !== null) {
+            startLesson(currentLesson);
+        }
+    });
+    
+    document.getElementById('back-btn').addEventListener('click', () => {
+        document.getElementById('lesson-selection').style.display = 'block';
+        document.getElementById('game-container').classList.remove('active');
+        document.getElementById('completion-screen').style.display = 'none';
+        renderLessonSelection();
+    });
+    
+    document.getElementById('next-lesson-btn').addEventListener('click', () => {
+        if (currentLesson + 1 < lessonConfig.length) {
+            startLesson(currentLesson + 1);
+        } else {
+            document.getElementById('back-btn').click();
+        }
+    });
+    
+    document.getElementById('retry-lesson-btn').addEventListener('click', () => {
+        startLesson(currentLesson);
+    });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', initApp);
+</script>
+{% endblock %}

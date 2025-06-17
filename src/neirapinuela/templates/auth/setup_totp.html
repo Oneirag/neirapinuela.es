@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('TOTP Setup') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>{{ _('Setup Two-Factor Authentication') }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <p>{{ _('Scan this QR code with your authenticator app:') }}</p>
+                        <img src="data:image/png;base64,{{ qr_code_data }}" alt="QR Code" class="img-fluid">
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <strong>{{ _('Manual entry:') }}</strong><br>
+                        <code>{{ secret }}</code>
+                    </div>
+                    
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="mb-3">
+                            {{ form.totp_token.label(class="form-label") }}
+                            {{ form.totp_token(class="form-control text-center", placeholder="123456", style="font-size: 1.5rem; letter-spacing: 0.5rem;") }}
+                            {% if form.totp_token.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.totp_token.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <small class="form-text text-muted">
+                                {{ _('Enter the 6-digit code from your authenticator app') }}
+                            </small>
+                        </div>
+                        
+                        <div class="d-grid">
+                            {{ form.submit(class="btn btn-primary") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

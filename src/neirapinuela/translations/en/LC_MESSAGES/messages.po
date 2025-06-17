@@ -1,0 +1,583 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-06-17 05:11+0200\n"
+"PO-Revision-Date: 2025-06-17 04:29+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: src/neirapinuela/auth.py:17
+msgid "Username"
+msgstr ""
+
+#: src/neirapinuela/auth.py:18
+msgid "Password"
+msgstr ""
+
+#: src/neirapinuela/auth.py:19 src/neirapinuela/auth.py:24
+msgid "TOTP Token"
+msgstr ""
+
+#: src/neirapinuela/auth.py:20 src/neirapinuela/templates/auth/login.html:11
+msgid "Sign In"
+msgstr ""
+
+#: src/neirapinuela/auth.py:25
+msgid "Verify"
+msgstr ""
+
+#: src/neirapinuela/auth.py:47 src/neirapinuela/auth.py:81
+msgid "Invalid TOTP token"
+msgstr ""
+
+#: src/neirapinuela/auth.py:49
+msgid "Invalid username or password"
+msgstr ""
+
+#: src/neirapinuela/auth.py:78
+msgid "TOTP setup completed successfully"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:3
+#: src/neirapinuela/templates/base.html:36
+#: src/neirapinuela/templates/index.html:42
+msgid "About"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:9
+msgid "About neirapinuela.es"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:13
+msgid "Our Website"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:15
+msgid ""
+"Welcome to the Neira Pinuela family website! This is our personal space "
+"on the internet where we share our projects, applications, and family "
+"moments."
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:22
+msgid "Technology Stack"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:36
+msgid "Family Applications"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:38
+msgid ""
+"Our website hosts various applications that different family members have"
+" created or use. Some are public and accessible to everyone, while others"
+" require authentication for security."
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:48
+msgid "Used by:"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:62
+msgid "Contact"
+msgstr ""
+
+#: src/neirapinuela/templates/about.html:64
+msgid ""
+"This website is maintained by the Neira Pinuela family. Built with love "
+"and modern web technologies."
+msgstr ""
+
+#: src/neirapinuela/templates/base.html:27
+msgid "Home"
+msgstr ""
+
+#: src/neirapinuela/templates/base.html:30
+#: src/neirapinuela/templates/family.html:3
+#: src/neirapinuela/templates/index.html:16
+msgid "Family"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:3
+#: src/neirapinuela/templates/apps/index.html:8
+#: src/neirapinuela/templates/base.html:33
+#: src/neirapinuela/templates/index.html:29
+msgid "Applications"
+msgstr ""
+
+#: src/neirapinuela/templates/base.html:48
+msgid "Logout"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:50
+#: src/neirapinuela/templates/auth/login.html:3
+#: src/neirapinuela/templates/base.html:53
+#: src/neirapinuela/templates/errors/403.html:32
+msgid "Login"
+msgstr ""
+
+#: src/neirapinuela/templates/base.html:101
+msgid "Made with"
+msgstr ""
+
+#: src/neirapinuela/templates/base.html:101
+msgid "by the Neira Pinuela family"
+msgstr ""
+
+#: src/neirapinuela/templates/family.html:8
+msgid "The Neira Pinuela Family"
+msgstr ""
+
+#: src/neirapinuela/templates/family.html:9
+msgid "Meet our family members"
+msgstr ""
+
+#: src/neirapinuela/templates/family.html:23
+msgid "Applications:"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:7
+msgid "Welcome to our family website"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:17
+msgid "Meet the Neira Pinuela family"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:30
+msgid "Explore our collection of apps"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:43
+msgid "Learn more about this website"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:55
+msgid "Featured Applications"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:22
+#: src/neirapinuela/templates/index.html:65
+msgid "Available to:"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:29
+#: src/neirapinuela/templates/index.html:71
+msgid "Login Required"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:76
+msgid "Open App"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:9
+msgid "Our collection of family applications"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:31
+msgid "Public Access"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:36
+msgid "Open Application"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:47
+msgid "No applications available"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:48
+msgid "Please log in to see more applications or check back later."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:3
+#: src/neirapinuela/templates/apps/mecanografia.html:278
+msgid "Typing Practice"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:279
+msgid "Improve your typing skills with Pablo and Carlitos!"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:284
+msgid "Select a Lesson"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:296
+msgid "Accuracy"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:300
+msgid "WPM"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:304
+msgid "Errors"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:308
+msgid "Time"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:325
+msgid "Start typing here..."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:337
+msgid "Restart"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:338
+msgid "Back to Lessons"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:349
+msgid "Lesson Completed!"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:351
+msgid "Next Lesson"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:352
+msgid "Retry Lesson"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:358
+msgid "Achievement Unlocked!"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:383
+#: src/neirapinuela/templates/apps/mecanografia.html:389
+#: src/neirapinuela/templates/apps/mecanografia.html:395
+#: src/neirapinuela/templates/apps/mecanografia.html:401
+msgid "Basic Keys"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:384
+#: src/neirapinuela/templates/apps/mecanografia.html:390
+msgid "Learn the home row keys"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:384
+msgid "Single letters"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:390
+msgid "More letters"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:396
+msgid "Combine home row keys"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:396
+msgid "Simple combinations"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:402
+msgid "First words with home row"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:407
+msgid "Upper Row"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:408
+msgid "Add upper row keys"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:413
+msgid "Lower Row"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:414
+msgid "Add lower row keys"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:419
+msgid "Numbers"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:420
+msgid "Practice with numbers"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:425
+msgid "Symbols"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:426
+msgid "Common symbols"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:431
+msgid "Mixed Practice"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:432
+msgid "Combine everything"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:437
+msgid "Spanish Words"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:438
+msgid "Practice Spanish"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:443
+msgid "Sentences"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:444
+msgid "Full sentences"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:449
+msgid "Advanced"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:450
+msgid "Complex combinations"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:455
+msgid "Master Level"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:456
+msgid "Ultimate challenge"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:464
+msgid "Keep your wrists straight and fingers curved."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:465
+msgid "Look at the screen, not at your fingers."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:466
+msgid "Use all ten fingers, not just your index fingers."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:467
+msgid "Practice regularly for better results."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:468
+msgid "Accuracy is more important than speed."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:469
+msgid "Take breaks to avoid fatigue."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:470
+msgid "Maintain good posture while typing."
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:501
+msgid "Words:"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:502
+msgid "Keys:"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:711
+msgid "Lesson"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:711
+msgid "completed!"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:716
+msgid "Accuracy:"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:717
+msgid "Speed:"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:718
+msgid "Time:"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:755
+msgid "Perfect accuracy!"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:760
+msgid "Speed demon! 40+ WPM"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:765
+msgid "Persistent learner!"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:778
+msgid "Tip:"
+msgstr ""
+
+#: src/neirapinuela/templates/auth/setup_totp.html:3
+msgid "TOTP Setup"
+msgstr ""
+
+#: src/neirapinuela/templates/auth/setup_totp.html:11
+msgid "Setup Two-Factor Authentication"
+msgstr ""
+
+#: src/neirapinuela/templates/auth/setup_totp.html:15
+msgid "Scan this QR code with your authenticator app:"
+msgstr ""
+
+#: src/neirapinuela/templates/auth/setup_totp.html:20
+msgid "Manual entry:"
+msgstr ""
+
+#: src/neirapinuela/templates/auth/setup_totp.html:38
+msgid "Enter the 6-digit code from your authenticator app"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:3
+#: src/neirapinuela/templates/errors/403.html:11
+msgid "Access Forbidden"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:13
+msgid ""
+"You don't have permission to access this resource. This application is "
+"restricted to specific family members."
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:18
+msgid "Access Restricted"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:19
+msgid ""
+"This application is only available to certain family members. Please log "
+"in with an authorized account."
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:25
+#: src/neirapinuela/templates/errors/403.html:35
+#: src/neirapinuela/templates/errors/404.html:19
+#: src/neirapinuela/templates/errors/500.html:24
+msgid "Go Home"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:28
+msgid "Switch Account"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:42
+msgid "Available Options"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:46
+msgid "Log in with your account"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:50
+msgid "See available applications"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:54
+msgid "Learn about our family"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/403.html:58
+#: src/neirapinuela/templates/errors/500.html:41
+msgid "Return to homepage"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:3
+#: src/neirapinuela/templates/errors/404.html:11
+msgid "Page Not Found"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:13
+msgid ""
+"The page you are looking for might have been removed, had its name "
+"changed, or is temporarily unavailable."
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:22
+msgid "Go Back"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:28
+#: src/neirapinuela/templates/errors/500.html:33
+msgid "What can you do?"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:32
+msgid "Visit our homepage"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:36
+msgid "Meet our family"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:40
+msgid "Explore our applications"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/404.html:44
+msgid "Learn about this website"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:3
+#: src/neirapinuela/templates/errors/500.html:11
+msgid "Internal Server Error"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:13
+msgid ""
+"Something went wrong on our end. We apologize for the inconvenience and "
+"are working to fix the issue."
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:18
+msgid "What happened?"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:19
+msgid ""
+"Our server encountered an unexpected error while processing your request."
+" The issue has been logged and our team will investigate it."
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:27
+msgid "Try Again"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:37
+msgid "Wait a few minutes and try again"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:45
+msgid "Try other applications"
+msgstr ""
+
+#: src/neirapinuela/templates/errors/500.html:49
+msgid "Contact us if the problem persists"
+msgstr ""
+

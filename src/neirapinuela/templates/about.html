@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('About') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4 text-primary text-center mb-5">{{ _('About neirapinuela.es') }}</h1>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Our Website') }}</h3>
+                    <p class="card-text">
+                        {{ _('Welcome to the Neira Pinuela family website! This is our personal space on the internet where we share our projects, applications, and family moments.') }}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Technology Stack') }}</h3>
+                    <ul class="list-unstyled">
+                        <li><strong>Backend:</strong> Flask (Python)</li>
+                        <li><strong>Frontend:</strong> Bootstrap 5</li>
+                        <li><strong>Authentication:</strong> Google Authenticator (TOTP)</li>
+                        <li><strong>Server:</strong> Gunicorn with Gevent</li>
+                        <li><strong>Web Server:</strong> Nginx</li>
+                        <li><strong>Languages:</strong> Spanish & English</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Family Applications') }}</h3>
+                    <p class="card-text">
+                        {{ _('Our website hosts various applications that different family members have created or use. Some are public and accessible to everyone, while others require authentication for security.') }}
+                    </p>
+                    
+                    <div class="row mt-3">
+                        {% for app_id, app_config in APPLICATIONS.items() %}
+                            <div class="col-md-6 mb-3">
+                                <div class="border rounded p-3">
+                                    <h5 class="text-primary">{{ app_config.name }}</h5>
+                                    <p class="small">{{ app_config.description }}</p>
+                                    <div>
+                                        <small class="text-muted">{{ _('Used by:') }}</small>
+                                        {% for member in app_config.members %}
+                                            <span class="badge bg-primary ms-1">{{ FAMILY_MEMBERS[member].name }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-primary">{{ _('Contact') }}</h3>
+                    <p class="card-text">
+                        {{ _('This website is maintained by the Neira Pinuela family. Built with love and modern web technologies.') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

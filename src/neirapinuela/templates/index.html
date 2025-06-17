@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">neirapinuela.es</h1>
+        <p class="hero-subtitle">{{ _('Welcome to our family website') }}</p>
+        <div class="row mt-5">
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('main.family') }}" class="text-decoration-none">
+                    <div class="card app-card h-100">
+                        <div class="card-body text-center">
+                            <div class="family-member-avatar mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2rem;">
+                                👨‍👩‍👧‍👦
+                            </div>
+                            <h5 class="card-title text-primary">{{ _('Family') }}</h5>
+                            <p class="card-text">{{ _('Meet the Neira Pinuela family') }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('apps.apps_index') }}" class="text-decoration-none">
+                    <div class="card app-card h-100">
+                        <div class="card-body text-center">
+                            <div class="family-member-avatar mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2rem;">
+                                🚀
+                            </div>
+                            <h5 class="card-title text-primary">{{ _('Applications') }}</h5>
+                            <p class="card-text">{{ _('Explore our collection of apps') }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ url_for('main.about') }}" class="text-decoration-none">
+                    <div class="card app-card h-100">
+                        <div class="card-body text-center">
+                            <div class="family-member-avatar mx-auto mb-3" style="width: 80px; height: 80px; font-size: 2rem;">
+                                ℹ️
+                            </div>
+                            <h5 class="card-title text-primary">{{ _('About') }}</h5>
+                            <p class="card-text">{{ _('Learn more about this website') }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center mb-4">{{ _('Featured Applications') }}</h2>
+            <div class="row">
+                {% for app_id, app_config in APPLICATIONS.items() %}
+                    {% if not app_config.requires_login or (current_user.is_authenticated and current_user.username in app_config.members) %}
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card app-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">{{ app_config.name }}</h5>
+                                    <p class="card-text">{{ app_config.description }}</p>
+                                    <div class="mb-2">
+                                        <small class="text-muted">{{ _('Available to:') }}</small>
+                                        {% for member in app_config.members %}
+                                            <span class="badge bg-primary ms-1">{{ FAMILY_MEMBERS[member].name }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% if app_config.requires_login %}
+                                        <span class="badge bg-secondary">{{ _('Login Required') }}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="card-footer">
+                                    <a href="{{ app_config.url }}" class="btn btn-outline-primary btn-sm">
+                                        {{ _('Open App') }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

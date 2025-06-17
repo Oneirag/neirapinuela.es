@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Internal Server Error') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <div class="mb-4">
+                <h1 class="display-1 text-primary">500</h1>
+                <h2 class="mb-3">{{ _('Internal Server Error') }}</h2>
+                <p class="lead text-muted">
+                    {{ _('Something went wrong on our end. We apologize for the inconvenience and are working to fix the issue.') }}
+                </p>
+            </div>
+            
+            <div class="alert alert-warning">
+                <strong>{{ _('What happened?') }}</strong><br>
+                {{ _('Our server encountered an unexpected error while processing your request. The issue has been logged and our team will investigate it.') }}
+            </div>
+            
+            <div class="mb-4">
+                <a href="{{ url_for('main.index') }}" class="btn btn-primary me-2">
+                    {{ _('Go Home') }}
+                </a>
+                <a href="javascript:location.reload()" class="btn btn-outline-primary">
+                    {{ _('Try Again') }}
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ _('What can you do?') }}</h5>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2">
+                            <i class="text-primary">🔄</i> 
+                            {{ _('Wait a few minutes and try again') }}
+                        </li>
+                        <li class="mb-2">
+                            <i class="text-primary">🏠</i> 
+                            <a href="{{ url_for('main.index') }}" class="text-decoration-none">{{ _('Return to homepage') }}</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="text-primary">🚀</i> 
+                            <a href="{{ url_for('apps.apps_index') }}" class="text-decoration-none">{{ _('Try other applications') }}</a>
+                        </li>
+                        <li>
+                            <i class="text-primary">📧</i> 
+                            {{ _('Contact us if the problem persists') }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
