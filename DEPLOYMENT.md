@@ -53,8 +53,8 @@ cd neirapinuela-app
 git checkout feature/claude
 
 # Crear entorno virtual
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 
 # Instalar dependencias
 pip install -r requirements.txt
@@ -79,7 +79,7 @@ FLASK_PORT=5000
 
 ```bash
 # Activar entorno virtual si no está activo
-source venv/bin/activate
+source .venv/bin/activate
 
 # Compilar traducciones
 python update_translations.py
@@ -119,14 +119,14 @@ sudo nano /etc/supervisor/conf.d/neirapinuela.conf
 Contenido:
 ```ini
 [program:neirapinuela]
-command=/home/neirapinuela/neirapinuela-app/venv/bin/gunicorn -c gunicorn_prod.py src.neirapinuela.wsgi:application
+command=/home/neirapinuela/neirapinuela-app/.venv/bin/gunicorn -c gunicorn_prod.py src.neirapinuela.wsgi:application
 directory=/home/neirapinuela/neirapinuela-app
 user=neirapinuela
 autostart=true
 autorestart=true
 redirect_stderr=true
 stdout_logfile=/var/log/neirapinuela.log
-environment=PATH="/home/neirapinuela/neirapinuela-app/venv/bin"
+environment=PATH="/home/neirapinuela/neirapinuela-app/.venv/bin"
 ```
 
 ## 9. Configurar Nginx
@@ -235,7 +235,7 @@ sudo tail -f /var/log/nginx/error.log
 ```bash
 cd /home/neirapinuela/neirapinuela-app
 git pull origin feature/claude
-source venv/bin/activate
+source .venv/bin/activate
 pip install -r requirements.txt
 python update_translations.py
 sudo supervisorctl restart neirapinuela
@@ -310,7 +310,7 @@ sudo netstat -tlnp | grep :5000
 ### Probar la aplicación directamente:
 ```bash
 cd /home/neirapinuela/neirapinuela-app
-source venv/bin/activate
+source .venv/bin/activate
 python run_server.py
 ```
 
@@ -320,7 +320,7 @@ python run_server.py
 /home/neirapinuela/
 ├── neirapinuela-app/
 │   ├── src/
-│   ├── venv/
+│   ├── .venv/
 │   ├── requirements.txt
 │   ├── nginx.conf
 │   ├── gunicorn_config.py

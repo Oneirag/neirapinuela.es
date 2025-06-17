@@ -24,9 +24,9 @@ MANIFEST
 
 # Virtual Environment
 venv/
+.venv/
 env/
 ENV/
-.venv/
 .env/
 
 # Flask
