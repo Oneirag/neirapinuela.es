@@ -9,4 +9,4 @@ application = create_app(config_class)
 app = application
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=os.getenv("FLASK_PORT", 5000))
