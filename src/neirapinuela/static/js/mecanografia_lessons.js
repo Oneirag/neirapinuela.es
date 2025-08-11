@@ -79,7 +79,7 @@ const lessonConfig = [
             'ededede', 'ddededd', 'eeeedddd', 'eded',
             'edde', 'deed', 'eeedd', 'ddddde', 
             'edeede', 'deeddd', 'eddede', 'ddeed',
-            'eddeded', 'deeded', 'edede', 'deeeds',
+            'eddeded', 'deeded', 'edede', 'deeed',
             'eddeed', 'dededd', 'eededde', 'dddee'
         ]
     },
@@ -131,9 +131,9 @@ const lessonConfig = [
         words: [
             'ñp', 'pñ', 'ññp', 'pññ', 'ññññ', 'pppp',
             'ñpñp', 'ppññ', 'ñññp', 'pñpp', 
-            'ñpññ', 'pñnp', 'ñpññp', 'pñññp',
+            'ñpññ', 'pññp', 'ñpññp', 'pñññp',
             'ññññ', 'ppppñ', 'ñpñññ', 'pñpññ',
-            'ñpñpp', 'pñnpñ', 'ññpññ', 'pññññ'
+            'ñpñpp', 'pññpñ', 'ññpññ', 'pññññ'
         ]
     },
 {
@@ -143,9 +143,9 @@ const lessonConfig = [
         words: [
             'ol', 'lo', 'oll', 'lol', 'oooo', 'llll',
             'ollo', 'lloo', 'olll', 'lool', 
-            'ollp', 'lpoo', 'ollop', 'lplol',
-            'oolll', 'llloo', 'ollloo', 'polol',
-            'olloo', 'lploo', 'ololo', 'lllol'
+            'oll', 'loo', 'ollo', 'llol',
+            'oolll', 'llloo', 'ollloo', 'olol',
+            'olloo', 'lloo', 'ololo', 'lllol'
         ]
     },
         {
@@ -155,9 +155,9 @@ const lessonConfig = [
         words: [
             'ik', 'ki', 'ikk', 'kii', 'iii', 'kkkk',
             'iki', 'kii', 'ikki', 'kik', 
-            'ikp', 'kipk', 'ikki', 'kpik',
-            'iikk', 'kkii', 'ikki', 'pkik',
-            'ikii', 'kpii', 'ikko', 'kkil'
+            'ikk', 'kik', 'ikki', 'kik',
+            'iikk', 'kkii', 'ikki', 'kik',
+            'ikii', 'kii', 'ikki', 'kki'
         ]
     },
         {
@@ -168,7 +168,7 @@ const lessonConfig = [
             'uy', 'yu', 'uuh', 'hyu', 'uuu', 'yyyy',
             'uj', 'ju', 'ujj', 'juy', 
             'uyh', 'hyu', 'uyjh', 'juyh',
-            'uuuh', 'yyyu', 'uyyhu', 'pyuy',
+            'uuuh', 'yyyu', 'uyyhu', 'yuy',
             'uyyu', 'hyuu', 'uyjj', 'yyju'
         ]
     },
