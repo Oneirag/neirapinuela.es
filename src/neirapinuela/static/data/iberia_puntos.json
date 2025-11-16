@@ -1,0 +1,45 @@
+{
+  "map": "iberia",
+  "set": "puntos",
+  "items": [
+    {
+      "id": "aneto",
+      "num": 1,
+      "name": "Aneto (Pirineos)",
+      "type": "montaña",
+      "solution": { "xPct": 64.5, "yPct": 18.2 },
+      "tol": 3.0
+    },
+    {
+      "id": "teide",
+      "num": 2,
+      "name": "Teide (Tenerife)",
+      "type": "montaña",
+      "solution": { "xPct": 12.0, "yPct": 72.0 },
+      "tol": 4.0
+    },
+    {
+      "id": "cabo-finisterre",
+      "num": 3,
+      "name": "Cabo Finisterre",
+      "type": "cabo",
+      "solution": { "xPct": 12.5, "yPct": 30.0 },
+      "tol": 3.0
+    },
+    {
+      "id": "guadalquivir-sevilla",
+      "num": 4,
+      "name": "Guadalquivir (entorno Sevilla)",
+      "type": "río",
+      "solution": { "xPct": 36.5, "yPct": 56.0 },
+      "tol": 4.0
+    },
+    {
+      "id": "ebro-zaragoza",
+      "num": 5,
+      "name": "Ebro (entorno Zaragoza)",
+      "type": "río",
+      "solution": { "xPct": 60.0, "yPct": 34.0 },
+      "tol": 4.0
+    }
+  ]

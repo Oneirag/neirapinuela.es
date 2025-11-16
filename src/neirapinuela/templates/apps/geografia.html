@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block title %}Geo Trainer · neirapinuela.es{% endblock %}
+
+{% block head %}
+<style>
+  .geo-app {
+    --stage-bg: #f8f9fa;
+    --label-bg: #0d6efd;
+    --label-color: #fff;
+    --dropzone-border: #dee2e6;
+  }
+  #map-stage {
+    background: var(--stage-bg);
+    border: 1px solid var(--dropzone-border);
+    border-radius: .5rem;
+    position: relative;
+  /*  aspect-ratio: 16 / 10;  */
+    width: 100%;
+    min-height: 600px; /* Añade una altura fija o usa min-height */
+    overflow: hidden;
+  }
+  #svg-holder, #overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+#svg-holder svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+  .draggable-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px; height: 25px;
+    border-radius: 50%;
+    background: var(--label-bg);
+    color: var(--label-color);
+    font-weight: 700;
+    cursor: grab;
+    user-select: none;
+  }
+  .draggable-label:active { cursor: grabbing; }
+  .item-name {
+    font-size: .9rem; color: #555; margin-left: .5rem;
+  }
+  .placed { opacity: .6; }
+  .marker {
+    cursor: pointer;
+  }
+  .marker circle {
+    fill: #0d6efd;
+    stroke: #fff;
+    stroke-width: 2;
+  }
+  .marker text {
+    fill: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+  }
+  .marker.correct circle { fill: #198754; }
+  .marker.wrong circle { fill: #dc3545; }
+  .solution circle { fill: #198754; opacity: .85; }
+  .link-line { stroke: #6c757d; stroke-width: 2; stroke-dasharray: 4 4; }
+  .controls .form-select, .controls .form-check { margin-bottom: .5rem; }
+  .score-badge { font-size: 1rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4 geo-app">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h3 mb-0">Juego de Geografía</h1>
+    <div class="d-flex gap-2">
+      <button id="btn-reset" class="btn btn-outline-secondary btn-sm">Reiniciar</button>
+      <button id="btn-check" class="btn btn-primary btn-sm">Comprobar</button>
+      <button id="btn-show-sol" class="btn btn-success btn-sm">Mostrar soluciones</button>
+      <button id="btn-download" class="btn btn-outline-primary btn-sm">Descargar PNG</button>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <!-- Columna izquierda: mapa -->
+    <div class="col-12 col-lg-8">
+      <div id="map-stage" class="rounded">
+        <div id="svg-holder" aria-label="mapa"></div>
+        <!-- Capa SVG para marcadores y soluciones -->
+        <svg id="overlay" viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid meet">
+          <!-- Marcadores del alumno -->
+          <g id="markers"></g>
+          <!-- Conexiones entre respuesta y solución -->
+          <g id="links"></g>
+          <!-- Soluciones -->
+          <g id="solutions"></g>
+        </svg>
+      </div>
+<div class="small text-muted mt-2">
+  <strong>Modo autor:</strong> <kbd>Shift+Click</kbd> para capturar un punto | 
+  <kbd id="multi-key">Ctrl</kbd>+<kbd>Shift+Click</kbd> para múltiples puntos (ríos, cordilleras)
+</div>
+
+<script>
+  // Detectar si es Mac y actualizar el texto de ayuda
+  if (navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
+    const keyEl = document.getElementById('multi-key');
+    if (keyEl) keyEl.textContent = '⌘';
+  }
+</script>    </div>
+
+    <!-- Columna derecha: controles e items -->
+    <div class="col-12 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="controls">
+            <label class="form-label">Mapa</label>
+            <select id="map-select" class="form-select form-select-sm">
+              <!--<option value="iberia">Península Ibérica</option> -->
+              <option value="europe">Europa</option>
+              <!--<option value="world">Mundo</option> -->
+            </select>
+
+            <label class="form-label mt-2">Conjunto</label>
+            <select id="set-select" class="form-select form-select-sm">
+              <option value="puntos">1 ESO</option>
+              <!-- Puedes añadir más conjuntos: rios, cordilleras, etc. -->
+            </select>
+
+            <div class="form-check mt-2">
+              <input class="form-check-input" type="checkbox" id="toggle-names">
+              <label class="form-check-label" for="toggle-names">Ocultar nombres</label>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <span class="badge bg-secondary score-badge">
+                Aciertos: <span id="score-correct">0</span>/<span id="score-total">0</span>
+              </span>
+            </div>
+            <button id="btn-clear-placed" class="btn btn-outline-danger btn-sm">Quitar marcadores</button>
+          </div>
+
+          <div class="mt-3">
+            <h2 class="h6">Elementos</h2>
+            <div id="items-list" class="d-flex flex-wrap"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- html2canvas para exportar a PNG -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/geografia.js') }}"></script>
+
+<!--<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha384-K8Fek0p9DhfY9W+uR3i2JxEG9y5o0dQ+QxnsJ9fKqI6v8c1Fq5f7Qq2jJ8p8h7nJ"Loaded', () => {
+  -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  GeoApp.init({
+      maps: {
+        iberia: "{{ url_for('static', filename='maps/iberia.svg') }}",
+        europe: "{{ url_for('static', filename='maps/europe.svg') }}",
+        world:  "{{ url_for('static', filename='maps/world.svg') }}"
+      },
+      dataByMapAndSet: {
+        iberia: {
+          puntos: "{{ url_for('static', filename='data/iberia_puntos.json') }}"
+        },
+        europe: {
+          puntos: "{{ url_for('static', filename='data/europe_puntos.json') }}"
+        },
+        world: {
+          puntos: "{{ url_for('static', filename='data/world_puntos.json') }}"
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

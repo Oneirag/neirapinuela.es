@@ -41,6 +41,13 @@ class Config:
             'members': ['pablo', 'carlitos'],
             'description': 'Aplicación para practicar mecanografía'
         },
+        'geografia': {
+            'name': 'Geografía',
+            'url': '/apps/geografia',
+            'requires_login': False,
+            'members': ['pablo', 'carlitos'],
+            'description': 'Aplicación para practicar geografia'
+        },
         'grafana': {
             'name': 'Grafana',
             'url': 'https://grafana.neirapinuela.es',

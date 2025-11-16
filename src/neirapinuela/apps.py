@@ -9,6 +9,10 @@ bp = Blueprint('apps', __name__)
 def mecanografia():
     return render_template('apps/mecanografia.html')
 
+@bp.route('/geografia')
+def geografia():
+    return render_template('apps/geografia.html')
+
 
 @bp.route('/grafana')
 @login_required
