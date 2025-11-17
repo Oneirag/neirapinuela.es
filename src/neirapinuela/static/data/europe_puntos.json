@@ -279,7 +279,7 @@
         "num": 84,
         "name": "Po",
         "type": "rios y lagos",
-        "solution": [{"xPct":40.16,"yPct":74.08},{"xPct":38.73,"yPct":74.25},{"xPct":36.87,"yPct":74.25},{"xPct":35.15,"yPct":73.92},{"xPct":33.15,"yPct":73.75}], "tol": 3.0,"tol": 3.0 
+        "solution": [{"xPct":40.16,"yPct":74.08},{"xPct":38.73,"yPct":74.25},{"xPct":36.87,"yPct":74.25},{"xPct":35.15,"yPct":73.92},{"xPct":33.15,"yPct":73.75}], "tol": 3.0 
     },
     {
         "id": "danubio",
