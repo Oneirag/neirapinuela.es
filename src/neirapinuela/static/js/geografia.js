@@ -375,14 +375,14 @@ const GeoApp = (() => {
         const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         c.setAttribute('cx', x);
         c.setAttribute('cy', y);
-        c.setAttribute('r', 12);
+        c.setAttribute('r', 14);
 
         const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         t.setAttribute('x', x);
         t.setAttribute('y', y + 1);
         // Si hay múltiples puntos, mostrar número con sufijo
-        t.textContent = solutions.length > 1 ? `${it.num}.${idx + 1}` : (it.num ?? '?');
-        t.setAttribute('font-size', '12');
+        // t.textContent = solutions.length > 1 ? `${it.num}.${idx + 1}` : (it.num ?? '?');
+        t.textContent = (it.num ?? '?');
 
         g.appendChild(c);
         g.appendChild(t);
