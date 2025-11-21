@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Repaso de Geografía · neirapinuela.es{% endblock %}
+{% block title %}{{_('Repaso de Geografía · neirapinuela.es')}}{% endblock %}
 
 {% block head %}
 <style>
@@ -128,12 +128,12 @@
 {% block content %}
 <div class="container py-4 geo-app">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h1 class="h3 mb-0">Repaso de Geografía</h1>
+    <h1 class="h3 mb-0">{{_('Repaso de Geografía')}}</h1>
     <div class="d-flex gap-2">
-      <button id="btn-reset" class="btn btn-outline-secondary btn-sm">Reiniciar</button>
-      <button id="btn-check" class="btn btn-primary btn-sm">Comprobar</button>
-      <button id="btn-show-sol" class="btn btn-success btn-sm">Mostrar soluciones</button>
-      <button id="btn-download" class="btn btn-outline-primary btn-sm">Descargar PNG</button>
+      <button id="btn-reset" class="btn btn-outline-secondary btn-sm">{{_('Reiniciar')}}</button>
+      <button id="btn-check" class="btn btn-primary btn-sm">{{_('Comprobar')}}</button>
+      <button id="btn-show-sol" class="btn btn-success btn-sm">{{_('Mostrar soluciones')}}</button>
+      <button id="btn-download" class="btn btn-outline-primary btn-sm">{{_('Descargar PNG')}}</button>
     </div>
   </div>
 
@@ -171,14 +171,14 @@
       <div class="card">
         <div class="card-body">
           <div class="controls">
-            <label class="form-label">Mapa</label>
+            <label class="form-label">{{_('Mapa')}}</label>
             <select id="map-select" class="form-select form-select-sm">
               <!--<option value="iberia">Península Ibérica</option> -->
-              <option value="europe">Europa</option>
+              <option value="europe">{{_('Europa')}}</option>
               <!--<option value="world">Mundo</option> -->
             </select>
 
-            <label class="form-label mt-2">Conjunto</label>
+            <label class="form-label mt-2">{{_('Conjunto')}}</label>
             <select id="set-select" class="form-select form-select-sm">
               <option value="puntos">1 ESO</option>
               <!-- Puedes añadir más conjuntos: rios, cordilleras, etc. -->

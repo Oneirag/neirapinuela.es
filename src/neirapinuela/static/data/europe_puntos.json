@@ -53,7 +53,7 @@
     },
     {
       "id": "mar_caspio",
-      "num": 15,
+      "num": 16,
       "name": "Mar Caspio",
       "type": "océanos,mares",
 "solution": [{"xPct":98.71,"yPct":49.17},{"xPct":97.14,"yPct":54.18},{"xPct":97.14,"yPct":54.18},{"xPct":96.42,"yPct":56.86},{"xPct":98.85,"yPct":60.54},{"xPct":101.86,"yPct":59.7},{"xPct":105,"yPct":67.56},{"xPct":107.29,"yPct":60.87}], "tol": 3.0

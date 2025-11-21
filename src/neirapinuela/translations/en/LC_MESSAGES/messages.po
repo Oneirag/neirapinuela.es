@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-17 05:11+0200\n"
+"POT-Creation-Date: 2025-11-21 07:08+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,26 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
-
-#: src/neirapinuela/auth.py:17
-msgid "Username"
-msgstr ""
-
-#: src/neirapinuela/auth.py:18
-msgid "Password"
-msgstr ""
-
-#: src/neirapinuela/auth.py:19 src/neirapinuela/auth.py:24
-msgid "TOTP Token"
-msgstr ""
-
-#: src/neirapinuela/auth.py:20 src/neirapinuela/templates/auth/login.html:11
-msgid "Sign In"
-msgstr ""
-
-#: src/neirapinuela/auth.py:25
-msgid "Verify"
-msgstr ""
 
 #: src/neirapinuela/auth.py:47 src/neirapinuela/auth.py:81
 msgid "Invalid TOTP token"
@@ -169,25 +149,70 @@ msgid "Featured Applications"
 msgstr ""
 
 #: src/neirapinuela/templates/apps/index.html:22
-#: src/neirapinuela/templates/index.html:65
+#: src/neirapinuela/templates/index.html:64
 msgid "Available to:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:29
 #: src/neirapinuela/templates/index.html:71
+msgid "Access Granted"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/index.html:29
+#: src/neirapinuela/templates/index.html:73
 msgid "Login Required"
 msgstr ""
 
+#: src/neirapinuela/templates/apps/index.html:31
 #: src/neirapinuela/templates/index.html:76
+msgid "Public Access"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:82
+msgid "Login to Access"
+msgstr ""
+
+#: src/neirapinuela/templates/index.html:86
 msgid "Open App"
 msgstr ""
 
+#: src/neirapinuela/templates/apps/geografia.html:3
+msgid "Repaso de Geografía · neirapinuela.es"
+msgstr "Geography review · neirapinuela.es"
+
+#: src/neirapinuela/templates/apps/geografia.html:131
+msgid "Repaso de Geografía"
+msgstr "Geography review"
+
+#: src/neirapinuela/templates/apps/geografia.html:133
+msgid "Reiniciar"
+msgstr "Restart"
+
+#: src/neirapinuela/templates/apps/geografia.html:134
+msgid "Comprobar"
+msgstr "Check"
+
+#: src/neirapinuela/templates/apps/geografia.html:135
+msgid "Mostrar soluciones"
+msgstr "Show answers"
+
+#: src/neirapinuela/templates/apps/geografia.html:136
+msgid "Descargar PNG"
+msgstr "Download PNG"
+
+#: src/neirapinuela/templates/apps/geografia.html:174
+msgid "Mapa"
+msgstr "Map"
+
+#: src/neirapinuela/templates/apps/geografia.html:177
+msgid "Europa"
+msgstr "Europe"
+
+#: src/neirapinuela/templates/apps/geografia.html:181
+msgid "Conjunto"
+msgstr "Set"
+
 #: src/neirapinuela/templates/apps/index.html:9
 msgid "Our collection of family applications"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/index.html:31
-msgid "Public Access"
 msgstr ""
 
 #: src/neirapinuela/templates/apps/index.html:36
@@ -259,180 +284,80 @@ msgstr ""
 msgid "Achievement Unlocked!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:383
-#: src/neirapinuela/templates/apps/mecanografia.html:389
-#: src/neirapinuela/templates/apps/mecanografia.html:395
-#: src/neirapinuela/templates/apps/mecanografia.html:401
-msgid "Basic Keys"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:384
-#: src/neirapinuela/templates/apps/mecanografia.html:390
-msgid "Learn the home row keys"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:384
-msgid "Single letters"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:390
-msgid "More letters"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:396
-msgid "Combine home row keys"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:396
-msgid "Simple combinations"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:402
-msgid "First words with home row"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:407
-msgid "Upper Row"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:408
-msgid "Add upper row keys"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:413
-msgid "Lower Row"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:414
-msgid "Add lower row keys"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:419
-msgid "Numbers"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:420
-msgid "Practice with numbers"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:425
-msgid "Symbols"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:426
-msgid "Common symbols"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:431
-msgid "Mixed Practice"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:432
-msgid "Combine everything"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:437
-msgid "Spanish Words"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:438
-msgid "Practice Spanish"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:443
-msgid "Sentences"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:444
-msgid "Full sentences"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:449
-msgid "Advanced"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:450
-msgid "Complex combinations"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:455
-msgid "Master Level"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:456
-msgid "Ultimate challenge"
-msgstr ""
-
-#: src/neirapinuela/templates/apps/mecanografia.html:464
+#: src/neirapinuela/templates/apps/mecanografia.html:386
 msgid "Keep your wrists straight and fingers curved."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:465
+#: src/neirapinuela/templates/apps/mecanografia.html:387
 msgid "Look at the screen, not at your fingers."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:466
+#: src/neirapinuela/templates/apps/mecanografia.html:388
 msgid "Use all ten fingers, not just your index fingers."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:467
+#: src/neirapinuela/templates/apps/mecanografia.html:389
 msgid "Practice regularly for better results."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:468
+#: src/neirapinuela/templates/apps/mecanografia.html:390
 msgid "Accuracy is more important than speed."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:469
+#: src/neirapinuela/templates/apps/mecanografia.html:391
 msgid "Take breaks to avoid fatigue."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:470
+#: src/neirapinuela/templates/apps/mecanografia.html:392
 msgid "Maintain good posture while typing."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:501
+#: src/neirapinuela/templates/apps/mecanografia.html:423
 msgid "Words:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:502
+#: src/neirapinuela/templates/apps/mecanografia.html:424
 msgid "Keys:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:711
+#: src/neirapinuela/templates/apps/mecanografia.html:658
 msgid "Lesson"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:711
+#: src/neirapinuela/templates/apps/mecanografia.html:658
 msgid "completed!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:716
+#: src/neirapinuela/templates/apps/mecanografia.html:663
 msgid "Accuracy:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:717
+#: src/neirapinuela/templates/apps/mecanografia.html:664
 msgid "Speed:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:718
+#: src/neirapinuela/templates/apps/mecanografia.html:665
 msgid "Time:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:755
+#: src/neirapinuela/templates/apps/mecanografia.html:702
 msgid "Perfect accuracy!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:760
+#: src/neirapinuela/templates/apps/mecanografia.html:707
 msgid "Speed demon! 40+ WPM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:765
+#: src/neirapinuela/templates/apps/mecanografia.html:712
 msgid "Persistent learner!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:778
+#: src/neirapinuela/templates/apps/mecanografia.html:725
 msgid "Tip:"
+msgstr ""
+
+#: src/neirapinuela/templates/auth/login.html:11
+msgid "Sign In"
 msgstr ""
 
 #: src/neirapinuela/templates/auth/setup_totp.html:3
@@ -580,4 +505,91 @@ msgstr ""
 #: src/neirapinuela/templates/errors/500.html:49
 msgid "Contact us if the problem persists"
 msgstr ""
+
+#~ msgid "Username"
+#~ msgstr ""
+
+#~ msgid "Password"
+#~ msgstr ""
+
+#~ msgid "TOTP Token"
+#~ msgstr ""
+
+#~ msgid "Verify"
+#~ msgstr ""
+
+#~ msgid "Basic Keys"
+#~ msgstr ""
+
+#~ msgid "Learn the home row keys"
+#~ msgstr ""
+
+#~ msgid "Single letters"
+#~ msgstr ""
+
+#~ msgid "More letters"
+#~ msgstr ""
+
+#~ msgid "Combine home row keys"
+#~ msgstr ""
+
+#~ msgid "Simple combinations"
+#~ msgstr ""
+
+#~ msgid "First words with home row"
+#~ msgstr ""
+
+#~ msgid "Upper Row"
+#~ msgstr ""
+
+#~ msgid "Add upper row keys"
+#~ msgstr ""
+
+#~ msgid "Lower Row"
+#~ msgstr ""
+
+#~ msgid "Add lower row keys"
+#~ msgstr ""
+
+#~ msgid "Numbers"
+#~ msgstr ""
+
+#~ msgid "Practice with numbers"
+#~ msgstr ""
+
+#~ msgid "Symbols"
+#~ msgstr ""
+
+#~ msgid "Common symbols"
+#~ msgstr ""
+
+#~ msgid "Mixed Practice"
+#~ msgstr ""
+
+#~ msgid "Combine everything"
+#~ msgstr ""
+
+#~ msgid "Spanish Words"
+#~ msgstr ""
+
+#~ msgid "Practice Spanish"
+#~ msgstr ""
+
+#~ msgid "Sentences"
+#~ msgstr ""
+
+#~ msgid "Full sentences"
+#~ msgstr ""
+
+#~ msgid "Advanced"
+#~ msgstr ""
+
+#~ msgid "Complex combinations"
+#~ msgstr ""
+
+#~ msgid "Master Level"
+#~ msgstr ""
+
+#~ msgid "Ultimate challenge"
+#~ msgstr ""
 
