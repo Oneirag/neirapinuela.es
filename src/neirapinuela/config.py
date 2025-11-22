@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from flask_babel import lazy_gettext as _l
 
 load_dotenv()
 
@@ -13,47 +14,47 @@ class Config:
     FAMILY_MEMBERS = {
         'oscar': {
             'name': 'Oscar',
-            'role': 'padre',
+            'role': _l('padre'),
             'color': '#198754'
         },
         'eva': {
             'name': 'Eva',
-            'role': 'madre',
+            'role': _l('madre'),
             'color': '#198754'
         },
         'pablo': {
             'name': 'Pablo',
-            'role': 'hijo',
+            'role': _l('hijo'),
             'color': '#198754'
         },
         'carlitos': {
             'name': 'Carlitos',
-            'role': 'hijo',
+            'role': _l('hijo'),
             'color': '#198754'
         }
     }
     
     APPLICATIONS = {
         'mecanografia': {
-            'name': 'Mecanografía',
+            'name': _l('Mecanografía'),
             'url': '/apps/mecanografia',
             'requires_login': False,
             'members': ['pablo', 'carlitos'],
-            'description': 'Aplicación para practicar mecanografía'
+            'description': _l('Aplicación para practicar mecanografía')
         },
         'geografia': {
-            'name': 'Geografía',
+            'name': _l('Geografía'),
             'url': '/apps/geografia',
             'requires_login': False,
             'members': ['pablo', 'carlitos'],
-            'description': 'Aplicación para practicar geografia'
+            'description': _l('Aplicación para practicar geografia')
         },
         'grafana': {
             'name': 'Grafana',
             'url': 'https://grafana.neirapinuela.es',
             'requires_login': True,
             'members': ['oscar'],
-            'description': 'Panel de monitorización y métricas'
+            'description': _l('Panel de monitorización y métricas')
         }
     }
 

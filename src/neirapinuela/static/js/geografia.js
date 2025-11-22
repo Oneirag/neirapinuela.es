@@ -142,7 +142,15 @@ const GeoApp = (() => {
 
       const name = document.createElement('span');
       name.className = 'item-name';
-      name.textContent = it.name;
+
+      // Handle localized names
+      let displayName = it.name;
+      if (typeof it.name === 'object' && it.name !== null) {
+        const lang = window.currentLanguage || 'es';
+        displayName = it.name[lang] || it.name['es'] || '';
+      }
+
+      name.textContent = displayName;
       name.style.display = state.showNames ? '' : 'none';
 
       wrap.appendChild(name);
@@ -426,7 +434,7 @@ const GeoApp = (() => {
 
         // Feedback visual
         const toast = document.createElement('div');
-        toast.textContent = `Punto ${multiPointMode.length} añadido. Total: ${multiPointMode.length}`;
+        toast.textContent = `${window.translations.pointAdded} ${multiPointMode.length}. ${window.translations.total}: ${multiPointMode.length}`;
         toast.style.position = 'absolute';
         const rect = state.stageEl.getBoundingClientRect();
         toast.style.left = `${e.clientX - rect.left}px`;
@@ -447,7 +455,7 @@ const GeoApp = (() => {
 
         // Feedback visual
         const toast = document.createElement('div');
-        toast.textContent = `Copiado: ${text}`;
+        toast.textContent = `${window.translations.copied}: ${text}`;
         toast.style.position = 'absolute';
         const rect = state.stageEl.getBoundingClientRect();
         toast.style.left = `${e.clientX - rect.left}px`;

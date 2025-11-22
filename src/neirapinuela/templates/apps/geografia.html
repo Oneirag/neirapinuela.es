@@ -153,19 +153,21 @@
         </svg>
       </div>
       <div class="small text-muted mt-2">
-        <strong>Modo autor:</strong> <kbd>Shift+Click</kbd> para capturar un punto |
-        <kbd id="multi-key">Ctrl</kbd>+<kbd>Shift+Click</kbd> para múltiples puntos (ríos, cordilleras)
+        <div class="small text-muted mt-2">
+          <strong>{{_('Modo autor:')}}</strong> <kbd>Shift+Click</kbd> {{_('para capturar un punto')}} |
+          <kbd id="multi-key">Ctrl</kbd>+<kbd>Shift+Click</kbd> {{_('para múltiples puntos (ríos, cordilleras)')}}
+        </div>
+
+        <script>
+          // Detectar si es Mac y actualizar el texto de ayuda
+          if (navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
+            const keyEl = document.getElementById('multi-key');
+            if (keyEl) keyEl.textContent = '⌘';
+          }
+        </script>
       </div>
 
-      <script>
-        // Detectar si es Mac y actualizar el texto de ayuda
-        if (navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
-          const keyEl = document.getElementById('multi-key');
-          if (keyEl) keyEl.textContent = '⌘';
-        }
-      </script>
     </div>
-
     <!-- Columna derecha: controles e items -->
     <div class="col-12 col-lg-3">
       <div class="card">
@@ -186,7 +188,7 @@
 
             <div class="form-check mt-2">
               <input class="form-check-input" type="checkbox" id="toggle-names">
-              <label class="form-check-label" for="toggle-names">Ocultar nombres</label>
+              <label class="form-check-label" for="toggle-names">{{_('Ocultar nombres')}}</label>
             </div>
           </div>
 
@@ -195,14 +197,14 @@
           <div class="d-flex align-items-center justify-content-between">
             <div>
               <span class="badge bg-secondary score-badge">
-                Aciertos: <span id="score-correct">0</span>/<span id="score-total">0</span>
+                {{_('Aciertos:')}} <span id="score-correct">0</span>/<span id="score-total">0</span>
               </span>
             </div>
-            <button id="btn-clear-placed" class="btn btn-outline-danger btn-sm">Quitar marcadores</button>
+            <button id="btn-clear-placed" class="btn btn-outline-danger btn-sm">{{_('Quitar marcadores')}}</button>
           </div>
 
           <div class="mt-3">
-            <h2 class="h6">Elementos</h2>
+            <h2 class="h6">{{_('Elementos')}}</h2>
             <div id="items-list" class="d-flex flex-wrap"></div>
           </div>
 
@@ -210,37 +212,44 @@
       </div>
     </div>
   </div>
-</div>
-{% endblock %}
+  {% endblock %}
 
-{% block scripts %}
-<!-- html2canvas para exportar a PNG -->
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
-  integrity="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H" crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='js/geografia.js') }}"></script>
+  {% block scripts %}
+  <!-- html2canvas para exportar a PNG -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
+    integrity="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H"
+    crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/geografia.js') }}"></script>
 
-<!--<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha384-K8Fek0p9DhfY9W+uR3i2JxEG9y5o0dQ+QxnsJ9fKqI6v8c1Fq5f7Qq2jJ8p8h7nJ"Loaded', () => {
+  <!--<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha384-K8Fek0p9DhfY9W+uR3i2JxEG9y5o0dQ+QxnsJ9fKqI6v8c1Fq5f7Qq2jJ8p8h7nJ"Loaded', () => {
   -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    GeoApp.init({
-      maps: {
-        iberia: "{{ url_for('static', filename='maps/iberia.svg') }}",
-        europe: "{{ url_for('static', filename='maps/europe.svg') }}",
-        world: "{{ url_for('static', filename='maps/world.svg') }}"
-      },
-      dataByMapAndSet: {
-        iberia: {
-          puntos: "{{ url_for('static', filename='data/iberia_puntos.json') }}"
+  <script>
+    window.currentLanguage = "{{ session.get('language', 'es') }}";
+    window.translations = {
+      pointAdded: "{{ _('Punto añadido') }}",
+      total: "{{ _('Total') }}",
+      copied: "{{ _('Copiado') }}"
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      GeoApp.init({
+        maps: {
+          iberia: "{{ url_for('static', filename='maps/iberia.svg') }}",
+          europe: "{{ url_for('static', filename='maps/europe.svg') }}",
+          world: "{{ url_for('static', filename='maps/world.svg') }}"
         },
-        europe: {
-          puntos: "{{ url_for('static', filename='data/europe_puntos.json') }}"
-        },
-        world: {
-          puntos: "{{ url_for('static', filename='data/world_puntos.json') }}"
+        dataByMapAndSet: {
+          iberia: {
+            puntos: "{{ url_for('static', filename='data/iberia_puntos.json') }}"
+          },
+          europe: {
+            puntos: "{{ url_for('static', filename='data/europe_puntos.json') }}"
+          },
+          world: {
+            puntos: "{{ url_for('static', filename='data/world_puntos.json') }}"
+          }
         }
-      }
+      });
     });
-  });
-</script>
-{% endblock %}
+  </script>
+  {% endblock %}
