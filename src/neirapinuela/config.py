@@ -69,6 +69,13 @@ class Config:
             'requires_login': False,
             'members': ['oscar'],
             'description': _l('Conversor de unidades de gas')
+        },
+        'euro_coin_game': {
+            'name': _l('Euro Coin Game'),
+            'url': '/apps/euro_coin_game',
+            'requires_login': False,
+            'members': ['pablo', 'carlitos'],
+            'description': _l('Aprende a usar las monedas de euro')
         }
     }
 

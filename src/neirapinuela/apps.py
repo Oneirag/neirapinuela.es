@@ -24,6 +24,11 @@ def gas():
     return render_template('apps/gas.html')
 
 
+@bp.route('/euro_coin_game')
+def euro_coin_game():
+    return render_template('apps/euro_coin_game.html')
+
+
 @bp.route('/grafana')
 @login_required
 def grafana():

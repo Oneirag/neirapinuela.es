@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-23 08:51+0100\n"
+"POT-Creation-Date: 2025-11-23 09:22+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -97,6 +97,14 @@ msgstr ""
 #: config.py:71
 msgid "Conversor de unidades de gas"
 msgstr "Gas unit converter"
+
+#: config.py:74
+msgid "Euro Coin Game"
+msgstr ""
+
+#: config.py:78
+msgid "Aprende a usar las monedas de euro"
+msgstr "Learn the use of euro coins and banknotes"
 
 #: templates/about.html:3 templates/base.html:36 templates/index.html:42
 msgid "About"
@@ -232,6 +240,43 @@ msgstr ""
 msgid "Open App"
 msgstr ""
 
+#: templates/apps/euro_coin_game.html:4 templates/apps/euro_coin_game.html:8
+msgid "Juego de Monedas Euro"
+msgstr "Euro Coin Game"
+
+#: templates/apps/euro_coin_game.html:40
+msgid "Siguiente"
+msgstr "Next"
+
+#: templates/apps/euro_coin_game.html:52 templates/apps/geografia.html:134
+msgid "Comprobar"
+msgstr "Check"
+
+#: templates/apps/euro_coin_game.html:62
+msgid "Deshacer"
+msgstr "Undo"
+
+#: templates/apps/euro_coin_game.html:74 templates/apps/gas.html:45
+#: templates/apps/geografia.html:133
+msgid "Reiniciar"
+msgstr "Restart"
+
+#: templates/apps/euro_coin_game.html:117
+msgid "¡Muy bien!"
+msgstr "Very well!"
+
+#: templates/apps/euro_coin_game.html:118
+msgid "Cantidad correcta"
+msgstr "Correct amount"
+
+#: templates/apps/euro_coin_game.html:119
+msgid "¡Ops!"
+msgstr "Ops!"
+
+#: templates/apps/euro_coin_game.html:120
+msgid "Inténtalo de nuevo"
+msgstr "Try again"
+
 #: templates/apps/gas.html:4
 msgid "Conversor de Gas"
 msgstr "Gas Converter"
@@ -256,10 +301,6 @@ msgstr "Dollars"
 msgid "Libras"
 msgstr "Pounds"
 
-#: templates/apps/gas.html:45 templates/apps/geografia.html:133
-msgid "Reiniciar"
-msgstr "Restart"
-
 #: templates/apps/gas.html:46
 msgid "Conversión de Unidades de Gas"
 msgstr "Gas Unit Conversion"
@@ -275,10 +316,6 @@ msgstr "Geography review · neirapinuela.es"
 #: templates/apps/geografia.html:131
 msgid "Repaso de Geografía"
 msgstr "Geography review"
-
-#: templates/apps/geografia.html:134
-msgid "Comprobar"
-msgstr "Check"
 
 #: templates/apps/geografia.html:135
 msgid "Mostrar soluciones"

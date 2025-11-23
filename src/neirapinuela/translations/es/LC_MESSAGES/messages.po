@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-23 08:51+0100\n"
+"POT-Creation-Date: 2025-11-23 09:22+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -97,6 +97,14 @@ msgstr ""
 
 #: config.py:71
 msgid "Conversor de unidades de gas"
+msgstr ""
+
+#: config.py:74
+msgid "Euro Coin Game"
+msgstr ""
+
+#: config.py:78
+msgid "Aprende a usar las monedas de euro"
 msgstr ""
 
 #: templates/about.html:3 templates/base.html:36 templates/index.html:42
@@ -241,6 +249,43 @@ msgstr "Iniciar sesión para Acceder"
 msgid "Open App"
 msgstr "Abrir Aplicación"
 
+#: templates/apps/euro_coin_game.html:4 templates/apps/euro_coin_game.html:8
+msgid "Juego de Monedas Euro"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:40
+msgid "Siguiente"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:52 templates/apps/geografia.html:134
+msgid "Comprobar"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:62
+msgid "Deshacer"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:74 templates/apps/gas.html:45
+#: templates/apps/geografia.html:133
+msgid "Reiniciar"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:117
+msgid "¡Muy bien!"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:118
+msgid "Cantidad correcta"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:119
+msgid "¡Ops!"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:120
+msgid "Inténtalo de nuevo"
+msgstr ""
+
 #: templates/apps/gas.html:4
 msgid "Conversor de Gas"
 msgstr ""
@@ -265,10 +310,6 @@ msgstr ""
 msgid "Libras"
 msgstr ""
 
-#: templates/apps/gas.html:45 templates/apps/geografia.html:133
-msgid "Reiniciar"
-msgstr ""
-
 #: templates/apps/gas.html:46
 msgid "Conversión de Unidades de Gas"
 msgstr ""
@@ -284,10 +325,6 @@ msgstr "Acerca de neirapinuela.es"
 
 #: templates/apps/geografia.html:131
 msgid "Repaso de Geografía"
-msgstr ""
-
-#: templates/apps/geografia.html:134
-msgid "Comprobar"
 msgstr ""
 
 #: templates/apps/geografia.html:135
