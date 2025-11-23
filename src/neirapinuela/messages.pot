@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-23 09:22+0100\n"
+"POT-Creation-Date: 2025-11-23 09:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: apps.py:39
+msgid "Longitud"
+msgstr ""
+
+#: apps.py:40
+msgid "Masa"
+msgstr ""
+
+#: apps.py:41
+msgid "Capacidad"
+msgstr ""
 
 #: auth.py:17
 msgid "Username"
@@ -103,6 +115,15 @@ msgstr ""
 
 #: config.py:78
 msgid "Aprende a usar las monedas de euro"
+msgstr ""
+
+#: config.py:81 templates/apps/measurements.html:4
+#: templates/apps/measurements.html:8
+msgid "Conversor de Unidades"
+msgstr ""
+
+#: config.py:85
+msgid "Practica la conversión de unidades"
 msgstr ""
 
 #: templates/about.html:3 templates/base.html:36 templates/index.html:42
@@ -248,6 +269,7 @@ msgid "Siguiente"
 msgstr ""
 
 #: templates/apps/euro_coin_game.html:52 templates/apps/geografia.html:134
+#: templates/apps/measurements.html:107
 msgid "Comprobar"
 msgstr ""
 
@@ -390,6 +412,43 @@ msgstr ""
 
 #: templates/apps/index.html:48
 msgid "Please log in to see more applications or check back later."
+msgstr ""
+
+#: templates/apps/measurements.html:12
+msgid "Selecciona el tipo de unidad:"
+msgstr ""
+
+#: templates/apps/measurements.html:61
+#, python-format
+msgid "Convierte %(qty)s %(orig_unit)s a %(dest_unit)s"
+msgstr ""
+
+#: templates/apps/measurements.html:72
+msgid "Tu respuesta"
+msgstr ""
+
+#: templates/apps/measurements.html:86
+msgid "Nueva conversión"
+msgstr ""
+
+#: templates/apps/measurements.html:97
+msgid "Reiniciar tabla"
+msgstr ""
+
+#: templates/apps/measurements.html:136
+msgid "¡Respuesta Correcta!"
+msgstr ""
+
+#: templates/apps/measurements.html:137
+msgid "¡Muy bien! Has realizado la conversión correctamente."
+msgstr ""
+
+#: templates/apps/measurements.html:138
+msgid "Respuesta Incorrecta"
+msgstr ""
+
+#: templates/apps/measurements.html:139
+msgid "La respuesta no es correcta. Inténtalo de nuevo."
 msgstr ""
 
 #: templates/apps/mecanografia.html:3 templates/apps/mecanografia.html:286

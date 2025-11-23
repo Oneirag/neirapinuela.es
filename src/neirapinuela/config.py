@@ -76,6 +76,13 @@ class Config:
             'requires_login': False,
             'members': ['pablo', 'carlitos'],
             'description': _l('Aprende a usar las monedas de euro')
+        },
+        'measurements': {
+            'name': _l('Conversor de Unidades'),
+            'url': '/apps/measurements',
+            'requires_login': False,
+            'members': ['pablo', 'carlitos'],
+            'description': _l('Practica la conversión de unidades')
         }
     }
 

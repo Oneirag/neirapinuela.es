@@ -29,6 +29,34 @@ def euro_coin_game():
     return render_template('apps/euro_coin_game.html')
 
 
+@bp.route('/measurements')
+@bp.route('/measurements/<kind>')
+def measurements(kind='length'):
+    from flask_babel import _
+    
+    kinds = ['length', 'mass', 'capacity']
+    translate_kinds = {
+        'length': _('Longitud'),
+        'mass': _('Masa'),
+        'capacity': _('Capacidad')
+    }
+    
+    if kind not in kinds:
+        kind = 'length'
+        
+    units_data = {
+        'length': ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'],
+        'mass': ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'],
+        'capacity': ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml']
+    }
+    
+    return render_template('apps/measurements.html',
+                         kind=kind,
+                         kinds=kinds,
+                         translate_kinds=translate_kinds,
+                         units=units_data[kind])
+
+
 @bp.route('/grafana')
 @login_required
 def grafana():
