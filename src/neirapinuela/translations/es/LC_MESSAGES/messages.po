@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-22 05:18+0100\n"
+"POT-Creation-Date: 2025-11-22 06:32+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -81,6 +81,14 @@ msgstr ""
 
 #: config.py:57
 msgid "Panel de monitorización y métricas"
+msgstr ""
+
+#: config.py:60 templates/apps/quiz.html:6
+msgid "Quiz"
+msgstr ""
+
+#: config.py:64
+msgid "Repaso de capitales, verbos y más"
 msgstr ""
 
 #: templates/about.html:3 templates/base.html:36 templates/index.html:42
@@ -338,7 +346,7 @@ msgstr "Precisión"
 msgid "WPM"
 msgstr "PPM"
 
-#: templates/apps/mecanografia.html:312
+#: templates/apps/mecanografia.html:312 templates/apps/quiz.html:29
 msgid "Errors"
 msgstr "Errores"
 
@@ -775,6 +783,66 @@ msgstr "¡Aprendiz persistente!"
 msgid "Tip:"
 msgstr "Consejo:"
 
+#: templates/apps/quiz.html:9
+msgid "European Capitals"
+msgstr "Capitales Europeas"
+
+#: templates/apps/quiz.html:10
+msgid "Irregular Verbs"
+msgstr "Verbos Irregulares"
+
+#: templates/apps/quiz.html:13 templates/apps/quiz.html:84
+msgid "Random"
+msgstr "Aleatorio"
+
+#: templates/apps/quiz.html:26
+msgid "Score"
+msgstr "Puntuación"
+
+#: templates/apps/quiz.html:46 templates/apps/quiz.html:74
+msgid "Check"
+msgstr "Comprobar"
+
+#: templates/apps/quiz.html:47 templates/apps/quiz.html:75
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/apps/quiz.html:56
+msgid "Activity Log"
+msgstr "Registro de Actividad"
+
+#: templates/apps/quiz.html:72
+msgid "Correct!"
+msgstr "¡Correcto!"
+
+#: templates/apps/quiz.html:73
+msgid "Incorrect. The answer was:"
+msgstr "Incorrecto. La respuesta era:"
+
+#: templates/apps/quiz.html:77
+msgid "Country"
+msgstr "País"
+
+#: templates/apps/quiz.html:78
+msgid "Capital"
+msgstr "Capital"
+
+#: templates/apps/quiz.html:79
+msgid "Infinitive"
+msgstr "Infinitivo"
+
+#: templates/apps/quiz.html:80
+msgid "Past"
+msgstr "Pasado"
+
+#: templates/apps/quiz.html:81
+msgid "Participle"
+msgstr "Participio"
+
+#: templates/apps/quiz.html:82
+msgid "Definition"
+msgstr "Definición"
+
 #: templates/auth/setup_totp.html:3
 msgid "TOTP Setup"
 msgstr "Configuración TOTP"
@@ -1010,4 +1078,7 @@ msgstr "Contáctanos si el problema persiste"
 
 #~ msgid "Ultimate challenge"
 #~ msgstr "Desafío definitivo"
+
+#~ msgid "Recent Errors"
+#~ msgstr ""
 

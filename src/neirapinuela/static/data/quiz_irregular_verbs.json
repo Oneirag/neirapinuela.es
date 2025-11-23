@@ -1,0 +1,41 @@
+{
+    "type": "multi_field",
+    "fields": [
+        "infinitive",
+        "past",
+        "participle",
+        "definition"
+    ],
+    "items": [
+        {
+            "infinitive": "be",
+            "past": "was/were",
+            "participle": "been",
+            "definition": "ser/estar"
+        },
+        {
+            "infinitive": "become",
+            "past": "became",
+            "participle": "become",
+            "definition": "convertirse"
+        },
+        {
+            "infinitive": "begin",
+            "past": "began",
+            "participle": "begun",
+            "definition": "empezar"
+        },
+        {
+            "infinitive": "break",
+            "past": "broke",
+            "participle": "broken",
+            "definition": "romper"
+        },
+        {
+            "infinitive": "bring",
+            "past": "brought",
+            "participle": "brought",
+            "definition": "traer"
+        }
+    ]
+}

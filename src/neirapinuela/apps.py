@@ -14,6 +14,11 @@ def geografia():
     return render_template('apps/geografia.html')
 
 
+@bp.route('/quiz')
+def quiz():
+    return render_template('apps/quiz.html')
+
+
 @bp.route('/grafana')
 @login_required
 def grafana():

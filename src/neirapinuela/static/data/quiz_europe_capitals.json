@@ -1,0 +1,469 @@
+{
+    "type": "multi_field",
+    "fields": [
+        "country",
+        "capital"
+    ],
+    "items": [
+        {
+            "country": {
+                "es": "Albania",
+                "en": "Albania"
+            },
+            "capital": {
+                "es": "Tirana",
+                "en": "Tirana"
+            }
+        },
+        {
+            "country": {
+                "es": "Alemania",
+                "en": "Germany"
+            },
+            "capital": {
+                "es": "Berlín",
+                "en": "Berlin"
+            }
+        },
+        {
+            "country": {
+                "es": "Andorra",
+                "en": "Andorra"
+            },
+            "capital": {
+                "es": "Andorra la Vella",
+                "en": "Andorra la Vella"
+            }
+        },
+        {
+            "country": {
+                "es": "Austria",
+                "en": "Austria"
+            },
+            "capital": {
+                "es": "Viena",
+                "en": "Vienna"
+            }
+        },
+        {
+            "country": {
+                "es": "Bélgica",
+                "en": "Belgium"
+            },
+            "capital": {
+                "es": "Bruselas",
+                "en": "Brussels"
+            }
+        },
+        {
+            "country": {
+                "es": "Bielorrusia",
+                "en": "Belarus"
+            },
+            "capital": {
+                "es": "Minsk",
+                "en": "Minsk"
+            }
+        },
+        {
+            "country": {
+                "es": "Bosnia y Herzegovina",
+                "en": "Bosnia and Herzegovina"
+            },
+            "capital": {
+                "es": "Sarajevo",
+                "en": "Sarajevo"
+            }
+        },
+        {
+            "country": {
+                "es": "Bulgaria",
+                "en": "Bulgaria"
+            },
+            "capital": {
+                "es": "Sofía",
+                "en": "Sofia"
+            }
+        },
+        {
+            "country": {
+                "es": "Chipre",
+                "en": "Cyprus"
+            },
+            "capital": {
+                "es": "Nicosia",
+                "en": "Nicosia"
+            }
+        },
+        {
+            "country": {
+                "es": "Croacia",
+                "en": "Croatia"
+            },
+            "capital": {
+                "es": "Zagreb",
+                "en": "Zagreb"
+            }
+        },
+        {
+            "country": {
+                "es": "Dinamarca",
+                "en": "Denmark"
+            },
+            "capital": {
+                "es": "Copenhague",
+                "en": "Copenhagen"
+            }
+        },
+        {
+            "country": {
+                "es": "Eslovaquia",
+                "en": "Slovakia"
+            },
+            "capital": {
+                "es": "Bratislava",
+                "en": "Bratislava"
+            }
+        },
+        {
+            "country": {
+                "es": "Eslovenia",
+                "en": "Slovenia"
+            },
+            "capital": {
+                "es": "Liubliana",
+                "en": "Ljubljana"
+            }
+        },
+        {
+            "country": {
+                "es": "España",
+                "en": "Spain"
+            },
+            "capital": {
+                "es": "Madrid",
+                "en": "Madrid"
+            }
+        },
+        {
+            "country": {
+                "es": "Estonia",
+                "en": "Estonia"
+            },
+            "capital": {
+                "es": "Tallin",
+                "en": "Tallinn"
+            }
+        },
+        {
+            "country": {
+                "es": "Finlandia",
+                "en": "Finland"
+            },
+            "capital": {
+                "es": "Helsinki",
+                "en": "Helsinki"
+            }
+        },
+        {
+            "country": {
+                "es": "Francia",
+                "en": "France"
+            },
+            "capital": {
+                "es": "París",
+                "en": "Paris"
+            }
+        },
+        {
+            "country": {
+                "es": "Grecia",
+                "en": "Greece"
+            },
+            "capital": {
+                "es": "Atenas",
+                "en": "Athens"
+            }
+        },
+        {
+            "country": {
+                "es": "Hungría",
+                "en": "Hungary"
+            },
+            "capital": {
+                "es": "Budapest",
+                "en": "Budapest"
+            }
+        },
+        {
+            "country": {
+                "es": "Irlanda",
+                "en": "Ireland"
+            },
+            "capital": {
+                "es": "Dublín",
+                "en": "Dublin"
+            }
+        },
+        {
+            "country": {
+                "es": "Islandia",
+                "en": "Iceland"
+            },
+            "capital": {
+                "es": "Reikiavik",
+                "en": "Reykjavik"
+            }
+        },
+        {
+            "country": {
+                "es": "Italia",
+                "en": "Italy"
+            },
+            "capital": {
+                "es": "Roma",
+                "en": "Rome"
+            }
+        },
+        {
+            "country": {
+                "es": "Kosovo",
+                "en": "Kosovo"
+            },
+            "capital": {
+                "es": "Pristina",
+                "en": "Pristina"
+            }
+        },
+        {
+            "country": {
+                "es": "Letonia",
+                "en": "Latvia"
+            },
+            "capital": {
+                "es": "Riga",
+                "en": "Riga"
+            }
+        },
+        {
+            "country": {
+                "es": "Liechtenstein",
+                "en": "Liechtenstein"
+            },
+            "capital": {
+                "es": "Vaduz",
+                "en": "Vaduz"
+            }
+        },
+        {
+            "country": {
+                "es": "Lituania",
+                "en": "Lithuania"
+            },
+            "capital": {
+                "es": "Vilna",
+                "en": "Vilnius"
+            }
+        },
+        {
+            "country": {
+                "es": "Luxemburgo",
+                "en": "Luxembourg"
+            },
+            "capital": {
+                "es": "Luxemburgo",
+                "en": "Luxembourg"
+            }
+        },
+        {
+            "country": {
+                "es": "Malta",
+                "en": "Malta"
+            },
+            "capital": {
+                "es": "La Valeta",
+                "en": "Valletta"
+            }
+        },
+        {
+            "country": {
+                "es": "Moldavia",
+                "en": "Moldova"
+            },
+            "capital": {
+                "es": "Chisináu",
+                "en": "Chisinau"
+            }
+        },
+        {
+            "country": {
+                "es": "Mónaco",
+                "en": "Monaco"
+            },
+            "capital": {
+                "es": "Mónaco",
+                "en": "Monaco"
+            }
+        },
+        {
+            "country": {
+                "es": "Montenegro",
+                "en": "Montenegro"
+            },
+            "capital": {
+                "es": "Podgorica",
+                "en": "Podgorica"
+            }
+        },
+        {
+            "country": {
+                "es": "Noruega",
+                "en": "Norway"
+            },
+            "capital": {
+                "es": "Oslo",
+                "en": "Oslo"
+            }
+        },
+        {
+            "country": {
+                "es": "Países Bajos",
+                "en": "Netherlands"
+            },
+            "capital": {
+                "es": "Ámsterdam",
+                "en": "Amsterdam"
+            }
+        },
+        {
+            "country": {
+                "es": "Polonia",
+                "en": "Poland"
+            },
+            "capital": {
+                "es": "Varsovia",
+                "en": "Warsaw"
+            }
+        },
+        {
+            "country": {
+                "es": "Portugal",
+                "en": "Portugal"
+            },
+            "capital": {
+                "es": "Lisboa",
+                "en": "Lisbon"
+            }
+        },
+        {
+            "country": {
+                "es": "Reino Unido",
+                "en": "United Kingdom"
+            },
+            "capital": {
+                "es": "Londres",
+                "en": "London"
+            }
+        },
+        {
+            "country": {
+                "es": "República Checa",
+                "en": "Czech Republic"
+            },
+            "capital": {
+                "es": "Praga",
+                "en": "Prague"
+            }
+        },
+        {
+            "country": {
+                "es": "Macedonia del Norte",
+                "en": "North Macedonia"
+            },
+            "capital": {
+                "es": "Skopie",
+                "en": "Skopje"
+            }
+        },
+        {
+            "country": {
+                "es": "Rumanía",
+                "en": "Romania"
+            },
+            "capital": {
+                "es": "Bucarest",
+                "en": "Bucharest"
+            }
+        },
+        {
+            "country": {
+                "es": "Rusia",
+                "en": "Russia"
+            },
+            "capital": {
+                "es": "Moscú",
+                "en": "Moscow"
+            }
+        },
+        {
+            "country": {
+                "es": "San Marino",
+                "en": "San Marino"
+            },
+            "capital": {
+                "es": "San Marino",
+                "en": "San Marino"
+            }
+        },
+        {
+            "country": {
+                "es": "Serbia",
+                "en": "Serbia"
+            },
+            "capital": {
+                "es": "Belgrado",
+                "en": "Belgrade"
+            }
+        },
+        {
+            "country": {
+                "es": "Suecia",
+                "en": "Sweden"
+            },
+            "capital": {
+                "es": "Estocolmo",
+                "en": "Stockholm"
+            }
+        },
+        {
+            "country": {
+                "es": "Suiza",
+                "en": "Switzerland"
+            },
+            "capital": {
+                "es": "Berna",
+                "en": "Bern"
+            }
+        },
+        {
+            "country": {
+                "es": "Ucrania",
+                "en": "Ukraine"
+            },
+            "capital": {
+                "es": "Kiev",
+                "en": "Kyiv"
+            }
+        },
+        {
+            "country": {
+                "es": "Vaticano",
+                "en": "Vatican City"
+            },
+            "capital": {
+                "es": "Ciudad del Vaticano",
+                "en": "Vatican City"
+            }
+        }
+    ]
+}

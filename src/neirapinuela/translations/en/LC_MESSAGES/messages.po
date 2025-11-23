@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-22 05:18+0100\n"
+"POT-Creation-Date: 2025-11-22 06:32+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -81,6 +81,14 @@ msgstr "Application to practice geography"
 #: config.py:57
 msgid "Panel de monitorización y métricas"
 msgstr "Monitoring and metrics dashboard"
+
+#: config.py:60 templates/apps/quiz.html:6
+msgid "Quiz"
+msgstr "Quiz"
+
+#: config.py:64
+msgid "Repaso de capitales, verbos y más"
+msgstr "Review capitals, verbs and more"
 
 #: templates/about.html:3 templates/base.html:36 templates/index.html:42
 msgid "About"
@@ -328,9 +336,9 @@ msgstr ""
 msgid "WPM"
 msgstr ""
 
-#: templates/apps/mecanografia.html:312
+#: templates/apps/mecanografia.html:312 templates/apps/quiz.html:29
 msgid "Errors"
-msgstr ""
+msgstr "Errors"
 
 #: templates/apps/mecanografia.html:316
 msgid "Time"
@@ -764,6 +772,66 @@ msgstr ""
 msgid "Tip:"
 msgstr ""
 
+#: templates/apps/quiz.html:9
+msgid "European Capitals"
+msgstr "European Capitals"
+
+#: templates/apps/quiz.html:10
+msgid "Irregular Verbs"
+msgstr "Irregular Verbs"
+
+#: templates/apps/quiz.html:13 templates/apps/quiz.html:84
+msgid "Random"
+msgstr "Random"
+
+#: templates/apps/quiz.html:26
+msgid "Score"
+msgstr "Score"
+
+#: templates/apps/quiz.html:46 templates/apps/quiz.html:74
+msgid "Check"
+msgstr "Check"
+
+#: templates/apps/quiz.html:47 templates/apps/quiz.html:75
+msgid "Next"
+msgstr "Next"
+
+#: templates/apps/quiz.html:56
+msgid "Activity Log"
+msgstr "Activity Log"
+
+#: templates/apps/quiz.html:72
+msgid "Correct!"
+msgstr "Correct!"
+
+#: templates/apps/quiz.html:73
+msgid "Incorrect. The answer was:"
+msgstr "Incorrect. The answer was:"
+
+#: templates/apps/quiz.html:77
+msgid "Country"
+msgstr "Country"
+
+#: templates/apps/quiz.html:78
+msgid "Capital"
+msgstr "Capital"
+
+#: templates/apps/quiz.html:79
+msgid "Infinitive"
+msgstr "Infinitive"
+
+#: templates/apps/quiz.html:80
+msgid "Past"
+msgstr "Past"
+
+#: templates/apps/quiz.html:81
+msgid "Participle"
+msgstr "Participle"
+
+#: templates/apps/quiz.html:82
+msgid "Definition"
+msgstr "Definition"
+
 #: templates/auth/setup_totp.html:3
 msgid "TOTP Setup"
 msgstr ""
@@ -989,4 +1057,7 @@ msgstr ""
 
 #~ msgid "Ultimate challenge"
 #~ msgstr ""
+
+#~ msgid "Recent Errors"
+#~ msgstr "Recent Errors"
 

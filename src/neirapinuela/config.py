@@ -55,6 +55,13 @@ class Config:
             'requires_login': True,
             'members': ['oscar'],
             'description': _l('Panel de monitorización y métricas')
+        },
+        'quiz': {
+            'name': _l('Quiz'),
+            'url': '/apps/quiz',
+            'requires_login': False,
+            'members': ['pablo', 'carlitos'],
+            'description': _l('Repaso de capitales, verbos y más')
         }
     }
 

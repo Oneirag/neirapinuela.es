@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-22 05:18+0100\n"
+"POT-Creation-Date: 2025-11-22 06:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,6 +79,14 @@ msgstr ""
 
 #: config.py:57
 msgid "Panel de monitorización y métricas"
+msgstr ""
+
+#: config.py:60 templates/apps/quiz.html:6
+msgid "Quiz"
+msgstr ""
+
+#: config.py:64
+msgid "Repaso de capitales, verbos y más"
 msgstr ""
 
 #: templates/about.html:3 templates/base.html:36 templates/index.html:42
@@ -327,7 +335,7 @@ msgstr ""
 msgid "WPM"
 msgstr ""
 
-#: templates/apps/mecanografia.html:312
+#: templates/apps/mecanografia.html:312 templates/apps/quiz.html:29
 msgid "Errors"
 msgstr ""
 
@@ -761,6 +769,66 @@ msgstr ""
 
 #: templates/apps/mecanografia.html:1150
 msgid "Tip:"
+msgstr ""
+
+#: templates/apps/quiz.html:9
+msgid "European Capitals"
+msgstr ""
+
+#: templates/apps/quiz.html:10
+msgid "Irregular Verbs"
+msgstr ""
+
+#: templates/apps/quiz.html:13 templates/apps/quiz.html:84
+msgid "Random"
+msgstr ""
+
+#: templates/apps/quiz.html:26
+msgid "Score"
+msgstr ""
+
+#: templates/apps/quiz.html:46 templates/apps/quiz.html:74
+msgid "Check"
+msgstr ""
+
+#: templates/apps/quiz.html:47 templates/apps/quiz.html:75
+msgid "Next"
+msgstr ""
+
+#: templates/apps/quiz.html:56
+msgid "Activity Log"
+msgstr ""
+
+#: templates/apps/quiz.html:72
+msgid "Correct!"
+msgstr ""
+
+#: templates/apps/quiz.html:73
+msgid "Incorrect. The answer was:"
+msgstr ""
+
+#: templates/apps/quiz.html:77
+msgid "Country"
+msgstr ""
+
+#: templates/apps/quiz.html:78
+msgid "Capital"
+msgstr ""
+
+#: templates/apps/quiz.html:79
+msgid "Infinitive"
+msgstr ""
+
+#: templates/apps/quiz.html:80
+msgid "Past"
+msgstr ""
+
+#: templates/apps/quiz.html:81
+msgid "Participle"
+msgstr ""
+
+#: templates/apps/quiz.html:82
+msgid "Definition"
 msgstr ""
 
 #: templates/auth/setup_totp.html:3

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0">{{ _('Quiz') }}</h1>
+        <div class="d-flex gap-2">
+            <select id="quiz-selector" class="form-select w-auto">
+                <option value="europe_capitals">{{ _('European Capitals') }}</option>
+                <option value="irregular_verbs">{{ _('Irregular Verbs') }}</option>
+            </select>
+            <select id="prompt-selector" class="form-select w-auto" disabled>
+                <option value="random">{{ _('Random') }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center p-5">
+
+                    <!-- Score -->
+                    <div class="mb-4">
+                        <span class="badge bg-light text-dark border me-2">
+                            {{ _('Score') }}: <span id="score-val">0</span> / <span id="total-val">0</span>
+                        </span>
+                        <span class="badge bg-light text-danger border">
+                            {{ _('Errors') }}: <span id="errors-val">0</span>
+                        </span>
+                    </div>
+
+                    <!-- Question Area -->
+                    <div id="question-area" class="mb-4">
+                        <h2 class="h4 mb-3" id="question-text">...</h2>
+                        <div id="inputs-area" class="d-flex flex-column gap-3">
+                            <!-- Dynamic inputs will be injected here -->
+                        </div>
+                    </div>
+
+                    <!-- Feedback -->
+                    <div id="feedback" class="alert d-none mb-4"></div>
+
+                    <!-- Controls -->
+                    <div class="d-flex justify-content-center gap-2">
+                        <button id="btn-check" class="btn btn-primary">{{ _('Check') }}</button>
+                        <button id="btn-next" class="btn btn-secondary d-none">{{ _('Next') }}</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Activity Log -->
+            <div id="activity-log-container" class="card shadow-sm mt-4 d-none">
+                <div class="card-header bg-light">
+                    <h5 class="h6 mb-0">{{ _('Activity Log') }}</h5>
+                </div>
+                <div id="activity-log" class="card-body d-flex flex-wrap gap-2">
+                    <!-- Activity badges injected here -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    window.currentLanguage = "{{ session.get('language', 'es') }}";
+    window.translations = {
+        correct: "{{ _('Correct!') }}",
+        incorrect: "{{ _('Incorrect. The answer was:') }}",
+        check: "{{ _('Check') }}",
+        next: "{{ _('Next') }}",
+        fields: {
+            country: "{{ _('Country') }}",
+            capital: "{{ _('Capital') }}",
+            infinitive: "{{ _('Infinitive') }}",
+            past: "{{ _('Past') }}",
+            participle: "{{ _('Participle') }}",
+            definition: "{{ _('Definition') }}"
+        },
+        random: "{{ _('Random') }}"
+    };
+    window.quizDataUrls = {
+        europe_capitals: "{{ url_for('static', filename='data/quiz_europe_capitals.json') }}",
+        irregular_verbs: "{{ url_for('static', filename='data/quiz_irregular_verbs.json') }}"
+    };
+</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}
