@@ -12,7 +12,7 @@
         <label class="form-label">{{ _('Selecciona el tipo de unidad:') }}</label>
         <select class="form-select measurement_selector" onchange="if (this.value) window.location.href=this.value">
             {% for k in kinds %}
-            <option value="{{ url_for("apps.measurements", kind=k) }}" {% if k==kind %}selected{% endif %}>
+            <option value="{{ url_for('apps.measurements', kind=k) }}" {% if k==kind %}selected{% endif %}>
                 {{ translate_kinds[k] }}</option>
             {% endfor %}
         </select>
@@ -101,7 +101,7 @@
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator-fill me-2" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
-                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 12a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM10.5 12a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z" />
+                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM10.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM10.5 12a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z" />
             </svg>
             {{ _('Comprobar') }}
         </button>
@@ -139,6 +139,7 @@
     };
 
     const units = {{ units| tojson }};
+    const extraCols = 2;  // Number of extra columns before and after unit columns
 
     document.addEventListener('DOMContentLoaded', function () {
         new_conversion();
@@ -152,6 +153,25 @@
         document.getElementById("answer").value = "";
     }
 
+    function update_selectors(dest_unit) {
+        const collection = document.getElementsByClassName("unit_selector");
+        const dest_index = extraCols + units.indexOf(dest_unit);
+
+        for (let i = 0; i < collection.length; i++) {
+            let options = '<option></option>';
+            if (i === dest_index) {
+                for (let j = 0; j <= 9; j++) {
+                    options += `<option value="${j},">${j},</option>`;
+                }
+            } else {
+                for (let j = 0; j <= 9; j++) {
+                    options += `<option value="${j}">${j}</option>`;
+                }
+            }
+            collection[i].innerHTML = options;
+        }
+    }
+
     function new_conversion() {
         const orig_unit = units[Math.floor(Math.random() * units.length)];
         const dest_unit = units[Math.floor(Math.random() * units.length)];
@@ -162,6 +182,8 @@
         document.getElementById("orig_unit").innerText = orig_unit;
         document.getElementById("dest_unit1").innerText = dest_unit;
         document.getElementById("dest_unit2").innerText = dest_unit;
+
+        update_selectors(dest_unit);
         reset_table();
     }
 
