@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ _('Conversor de Gas') }}
+{% endblock %}
+
+{% block content %}
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#gas_prices" type="button"
+            role="tab" aria-controls="home" aria-selected="true"> {{ _('Precios del Gas') }}
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#gas_cargoes" type="button"
+            role="tab" aria-controls="profile" aria-selected="false"> {{ _('Cargamentos de Gas') }}
+        </button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="gas_prices" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row">
+            <div class="col-md-3 col-xs-6">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        {{ _('Datos Forex') }}
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <label for="USD" class="form-label">{{ _('Dólares') }}</label>
+                            <input type="text" class="form-control" id="USD" placeholder="1">
+                            <label for="GBP" class="form-label">{{ _('Libras') }}</label>
+                            <input type="text" class="form-control" id="GBP" placeholder="1">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <form>
+                        <div class="card-header">
+                            <input type="reset" class="btn btn-primary btn-sm" value="{{ _('Reiniciar') }}">
+                            {{ _('Conversión de Unidades de Gas') }}
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 col-xs-6 form-floating">
+                                    <input type="text" class="form-control gas_price" id="EURMWH" placeholder="EURMWH">
+                                    <label for="EURMWH">EUR/MWh</label>
+                                </div>
+                                <div class="col-md-3 col-xs-6 form-floating">
+                                    <input type="text" class="form-control gas_price" id="USDMMBTU"
+                                        placeholder="USDMMBTU">
+                                    <label for="USDMMBTU">USD/MMBTU</label>
+                                </div>
+                                <div class="col-md-3 col-xs-6 form-floating">
+                                    <input type="text" class="form-control gas_price" id="PTH" placeholder="PTH">
+                                    <label for="PTH">p/th</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="gas_cargoes" role="tabpanel" aria-labelledby="profile-tab">
+        <i class="bi bi-cone-striped"></i>
+        {{ _('En construcción') }}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    // Updated to use frankfurter.app for ECB reference rates
+    $.getJSON("https://api.frankfurter.app/latest?from=EUR&to=USD,GBP", function (json) {
+        console.log("USD: " + json.rates.USD);
+        console.log("GBP: " + json.rates.GBP);
+        $("#USD")[0].value = json.rates.USD;
+        $("#GBP")[0].value = json.rates.GBP;
+    }).fail(function (d, textStatus, error) {
+        console.error("getJSON failed, status: " + textStatus + ", error: " + error)
+        $("#USD")[0].value = 1;
+        $("#GBP")[0].value = 1;
+    });
+
+    $(".gas_price").on('keyup paste', gas_prices_callback);
+
+    function gas_prices_callback(event) {
+        console.log(this.id + ": " + this.value);
+        if ($.isNumeric(this.value) || this.value == "") {
+            switch (this.id) {
+                case "EURMWH":
+                    $("#USDMMBTU")[0].value = $("#EURMWH")[0].value * Eur_MWh_to_USD_MMBTU();
+                    $("#PTH")[0].value = $("#EURMWH")[0].value * Eur_MWh_to_pTH();
+                    break;
+                case "USDMMBTU":
+                    $("#EURMWH")[0].value = $("#USDMMBTU")[0].value / Eur_MWh_to_USD_MMBTU();
+                    $("#PTH")[0].value = $("#EURMWH")[0].value * Eur_MWh_to_pTH();
+                    break;
+                case "PTH":
+                    $("#EURMWH")[0].value = $("#PTH")[0].value / Eur_MWh_to_pTH();
+                    $("#USDMMBTU")[0].value = $("#EURMWH")[0].value * Eur_MWh_to_USD_MMBTU();
+                    break;
+            }
+        }
+    }
+
+
+    function Eur_MWh_to_USD_MMBTU() {
+        return $("#USD")[0].value * 0.29307107017222;
+    }
+
+    function Eur_MWh_to_pTH() {
+        return $("#GBP")[0].value * 100 * 0.029307107;
+    }
+
+    function BCM_to_TWh() {
+        return $("#USD")[0].value * 0.29307107017222;
+    }
+
+    function BCM_to_BCF() {
+        return $("#GBP")[0].value * 100 * 0.029307107;
+    }
+
+
+</script>
+{% endblock %}

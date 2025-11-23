@@ -62,6 +62,13 @@ class Config:
             'requires_login': False,
             'members': ['pablo', 'carlitos'],
             'description': _l('Repaso de capitales, verbos y más')
+        },
+        'gas': {
+            'name': _l('Gas'),
+            'url': '/apps/gas',
+            'requires_login': False,
+            'members': ['oscar'],
+            'description': _l('Conversor de unidades de gas')
         }
     }
 

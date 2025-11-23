@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-22 06:32+0100\n"
+"POT-Creation-Date: 2025-11-23 08:51+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -89,6 +89,14 @@ msgstr "Quiz"
 #: config.py:64
 msgid "Repaso de capitales, verbos y más"
 msgstr "Review capitals, verbs and more"
+
+#: config.py:67
+msgid "Gas"
+msgstr ""
+
+#: config.py:71
+msgid "Conversor de unidades de gas"
+msgstr "Gas unit converter"
 
 #: templates/about.html:3 templates/base.html:36 templates/index.html:42
 msgid "About"
@@ -224,6 +232,42 @@ msgstr ""
 msgid "Open App"
 msgstr ""
 
+#: templates/apps/gas.html:4
+msgid "Conversor de Gas"
+msgstr "Gas Converter"
+
+#: templates/apps/gas.html:11
+msgid "Precios del Gas"
+msgstr "Gas Prices"
+
+#: templates/apps/gas.html:16
+msgid "Cargamentos de Gas"
+msgstr "Gas Cargoes"
+
+#: templates/apps/gas.html:26
+msgid "Datos Forex"
+msgstr "Forex Data"
+
+#: templates/apps/gas.html:30
+msgid "Dólares"
+msgstr "Dollars"
+
+#: templates/apps/gas.html:32
+msgid "Libras"
+msgstr "Pounds"
+
+#: templates/apps/gas.html:45 templates/apps/geografia.html:133
+msgid "Reiniciar"
+msgstr "Restart"
+
+#: templates/apps/gas.html:46
+msgid "Conversión de Unidades de Gas"
+msgstr "Gas Unit Conversion"
+
+#: templates/apps/gas.html:72
+msgid "En construcción"
+msgstr "Work in Progress"
+
 #: templates/apps/geografia.html:3
 msgid "Repaso de Geografía · neirapinuela.es"
 msgstr "Geography review · neirapinuela.es"
@@ -231,10 +275,6 @@ msgstr "Geography review · neirapinuela.es"
 #: templates/apps/geografia.html:131
 msgid "Repaso de Geografía"
 msgstr "Geography review"
-
-#: templates/apps/geografia.html:133
-msgid "Reiniciar"
-msgstr "Restart"
 
 #: templates/apps/geografia.html:134
 msgid "Comprobar"

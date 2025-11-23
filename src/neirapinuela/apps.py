@@ -19,6 +19,11 @@ def quiz():
     return render_template('apps/quiz.html')
 
 
+@bp.route('/gas')
+def gas():
+    return render_template('apps/gas.html')
+
+
 @bp.route('/grafana')
 @login_required
 def grafana():
