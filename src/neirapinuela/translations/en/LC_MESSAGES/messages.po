@@ -299,6 +299,27 @@ msgstr "Ops!"
 msgid "Inténtalo de nuevo"
 msgstr "Try again"
 
+#: templates/apps/euro_coin_game.html:90
+msgid "Aprende a contar dinero con Pablo y Carlitos!"
+msgstr "Learn to count money with Pablo and Carlitos!"
+
+#: templates/apps/euro_coin_game.html:100
+msgid "Cantidad objetivo"
+msgstr "Target amount"
+
+#: templates/apps/euro_coin_game.html:105
+msgid "Rango de cantidades"
+msgstr "Amount range"
+
+#: templates/apps/euro_coin_game.html:170
+msgid "Monedas"
+msgstr "Coins"
+
+#: templates/apps/euro_coin_game.html:180
+msgid "Billetes"
+msgstr "Banknotes"
+
+
 #: templates/apps/gas.html:4
 msgid "Conversor de Gas"
 msgstr "Gas Converter"

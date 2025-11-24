@@ -22,7 +22,10 @@ function create_coin_notes() {
 function refresh_plot() {
     let coins_html = "";
     coins.forEach(function (coin) {
-        coins_html += "<img src='" + base_url + coin + ".jpg' width='100'>";
+        // Banknotes (500 and above) are larger than coins
+        const coinValue = parseInt(coin);
+        const width = coinValue >= 500 ? '120' : '80';
+        coins_html += "<img src='" + base_url + coin + ".jpg' width='" + width + "'>";
     });
     document.getElementById("coin_canvas").innerHTML = coins_html;
 }
@@ -62,20 +65,28 @@ function check_coins() {
     console.log("La suma es " + String(sum) + "€ y el objetivo era: " + String(target_value));
 
     const modalEl = document.getElementById('messageModal');
+    const modalContent = modalEl.querySelector('.modal-content');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
     const myModal = new bootstrap.Modal(modalEl);
 
+    // Remove previous classes
+    modalContent.classList.remove('modal-success', 'modal-error');
+
     if (target_value == Number(sum).toFixed(2) + "€") {
+        // Success styling
+        modalContent.classList.add('modal-success');
         modalTitle.textContent = window.translations.veryWell;
         modalBody.textContent = window.translations.correctMoney;
         myModal.show();
 
-        // Reset coins after modal is closed (optional, or keep existing behavior)
+        // Reset coins after modal is closed
         modalEl.addEventListener('hidden.bs.modal', function () {
             reset_coins();
         }, { once: true });
     } else {
+        // Error styling
+        modalContent.classList.add('modal-error');
         modalTitle.textContent = window.translations.ops;
         modalBody.textContent = window.translations.tryAgain;
         myModal.show();
