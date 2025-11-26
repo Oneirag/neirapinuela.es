@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-23 09:33+0100\n"
+"POT-Creation-Date: 2025-11-24 22:02+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
 
-#: apps.py:39
+#: apps.py:46
 msgid "Longitud"
 msgstr ""
 
-#: apps.py:40
+#: apps.py:47
 msgid "Masa"
 msgstr ""
 
-#: apps.py:41
+#: apps.py:48
 msgid "Capacidad"
 msgstr ""
 
@@ -75,9 +75,8 @@ msgid "hijo"
 msgstr ""
 
 #: config.py:39
-#, fuzzy
 msgid "Mecanografía"
-msgstr "Stack Tecnológico"
+msgstr "Mecanografía"
 
 #: config.py:43
 msgid "Aplicación para practicar mecanografía"
@@ -270,41 +269,61 @@ msgstr "Iniciar sesión para Acceder"
 msgid "Open App"
 msgstr "Abrir Aplicación"
 
-#: templates/apps/euro_coin_game.html:4 templates/apps/euro_coin_game.html:8
+#: templates/apps/euro_coin_game.html:3 templates/apps/euro_coin_game.html:111
 msgid "Juego de Monedas Euro"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:40
+#: templates/apps/euro_coin_game.html:112
+msgid "Aprende a contar dinero con Pablo y Carlitos!"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:127
+msgid "Cantidad objetivo"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:131
+msgid "Rango de cantidades"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:151
 msgid "Siguiente"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:52 templates/apps/geografia.html:134
-#: templates/apps/measurements.html:107
+#: templates/apps/euro_coin_game.html:160 templates/apps/geografia.html:134
+#: templates/apps/measurements.html:106
 msgid "Comprobar"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:62
+#: templates/apps/euro_coin_game.html:169
 msgid "Deshacer"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:74 templates/apps/gas.html:45
+#: templates/apps/euro_coin_game.html:181 templates/apps/gas.html:45
 #: templates/apps/geografia.html:133
 msgid "Reiniciar"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:117
+#: templates/apps/euro_coin_game.html:188
+msgid "Monedas"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:199
+msgid "Billetes"
+msgstr ""
+
+#: templates/apps/euro_coin_game.html:233
 msgid "¡Muy bien!"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:118
+#: templates/apps/euro_coin_game.html:234
 msgid "Cantidad correcta"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:119
+#: templates/apps/euro_coin_game.html:235
 msgid "¡Ops!"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:120
+#: templates/apps/euro_coin_game.html:236
 msgid "Inténtalo de nuevo"
 msgstr ""
 
@@ -341,9 +360,8 @@ msgid "En construcción"
 msgstr ""
 
 #: templates/apps/geografia.html:3
-#, fuzzy
 msgid "Repaso de Geografía · neirapinuela.es"
-msgstr "Acerca de neirapinuela.es"
+msgstr "Repaso de Geografía · neirapinuela.es"
 
 #: templates/apps/geografia.html:131
 msgid "Repaso de Geografía"
@@ -401,7 +419,7 @@ msgstr ""
 msgid "Punto añadido"
 msgstr ""
 
-#: templates/apps/geografia.html:230
+#: templates/apps/geografia.html:230 templates/apps/multiplications.html:174
 msgid "Total"
 msgstr ""
 
@@ -429,36 +447,36 @@ msgstr "Por favor inicia sesión para ver más aplicaciones o vuelve más tarde.
 msgid "Selecciona el tipo de unidad:"
 msgstr ""
 
-#: templates/apps/measurements.html:61
+#: templates/apps/measurements.html:60
 #, python-format
 msgid "Convierte %(qty)s %(orig_unit)s a %(dest_unit)s"
 msgstr ""
 
-#: templates/apps/measurements.html:72
+#: templates/apps/measurements.html:71
 msgid "Tu respuesta"
 msgstr ""
 
-#: templates/apps/measurements.html:86
+#: templates/apps/measurements.html:85
 msgid "Nueva conversión"
 msgstr ""
 
-#: templates/apps/measurements.html:97
+#: templates/apps/measurements.html:96
 msgid "Reiniciar tabla"
 msgstr ""
 
-#: templates/apps/measurements.html:136
+#: templates/apps/measurements.html:135
 msgid "¡Respuesta Correcta!"
 msgstr ""
 
-#: templates/apps/measurements.html:137
+#: templates/apps/measurements.html:136
 msgid "¡Muy bien! Has realizado la conversión correctamente."
 msgstr ""
 
-#: templates/apps/measurements.html:138
+#: templates/apps/measurements.html:137
 msgid "Respuesta Incorrecta"
 msgstr ""
 
-#: templates/apps/measurements.html:139
+#: templates/apps/measurements.html:138
 msgid "La respuesta no es correcta. Inténtalo de nuevo."
 msgstr ""
 
@@ -831,9 +849,8 @@ msgid "Frases largas"
 msgstr ""
 
 #: templates/apps/mecanografia.html:795
-#, fuzzy
 msgid "Tecnología"
-msgstr "Stack Tecnológico"
+msgstr "Tecnología"
 
 #: templates/apps/mecanografia.html:796
 msgid "Vocabulario técnico"
@@ -919,6 +936,64 @@ msgstr "¡Aprendiz persistente!"
 msgid "Tip:"
 msgstr "Consejo:"
 
+#: templates/apps/multiplications.html:3
+#: templates/apps/multiplications.html:116
+msgid "Multiplications"
+msgstr "Multiplicaciones"
+
+#: templates/apps/multiplications.html:117
+msgid "Practice your multiplication tables!"
+msgstr "¡Practica tus tablas de multiplicar!"
+
+#: templates/apps/multiplications.html:125
+msgid "Progress Grid"
+msgstr "Tabla de Multiplicar"
+
+#: templates/apps/multiplications.html:164
+msgid "Check Answer"
+msgstr "Comprobar Respuesta"
+
+#: templates/apps/multiplications.html:170
+msgid "Correct"
+msgstr "Correcto"
+
+#: templates/apps/multiplications.html:179
+msgid "Avg Time"
+msgstr "Tiempo Medio"
+
+#: templates/apps/multiplications.html:180
+msgid "Last Time"
+msgstr "Último Tiempo"
+
+#: templates/apps/multiplications.html:192 templates/apps/quiz.html:72
+msgid "Correct!"
+msgstr "¡Correcto!"
+
+#: templates/apps/multiplications.html:198
+msgid "Great job! Keep going!"
+msgstr "¡Buen trabajo! ¡Sigue así!"
+
+#: templates/apps/multiplications.html:200
+msgid "Correct, but try to be faster!"
+msgstr "Correcto, ¡pero intenta ser más rápido!"
+
+#: templates/apps/multiplications.html:204 templates/apps/quiz.html:47
+#: templates/apps/quiz.html:75
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/apps/multiplications.html:214
+msgid "Incorrect"
+msgstr "Incorrecto"
+
+#: templates/apps/multiplications.html:220
+msgid "Don't worry, try again!"
+msgstr "¡No te preocupes, inténtalo de nuevo!"
+
+#: templates/apps/multiplications.html:223 templates/errors/500.html:27
+msgid "Try Again"
+msgstr "Intentar de Nuevo"
+
 #: templates/apps/quiz.html:9
 msgid "European Capitals"
 msgstr "Capitales Europeas"
@@ -939,17 +1014,9 @@ msgstr "Puntuación"
 msgid "Check"
 msgstr "Comprobar"
 
-#: templates/apps/quiz.html:47 templates/apps/quiz.html:75
-msgid "Next"
-msgstr "Siguiente"
-
 #: templates/apps/quiz.html:56
 msgid "Activity Log"
 msgstr "Registro de Actividad"
-
-#: templates/apps/quiz.html:72
-msgid "Correct!"
-msgstr "¡Correcto!"
 
 #: templates/apps/quiz.html:73
 msgid "Incorrect. The answer was:"
@@ -1111,10 +1178,6 @@ msgid ""
 msgstr ""
 "Nuestro servidor encontró un error inesperado al procesar tu solicitud. "
 "El problema ha sido registrado y nuestro equipo lo investigará."
-
-#: templates/errors/500.html:27
-msgid "Try Again"
-msgstr "Intentar de Nuevo"
 
 #: templates/errors/500.html:37
 msgid "Wait a few minutes and try again"

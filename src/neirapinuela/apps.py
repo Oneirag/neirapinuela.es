@@ -24,9 +24,16 @@ def gas():
     return render_template('apps/gas.html')
 
 
+
 @bp.route('/euro_coin_game')
 def euro_coin_game():
     return render_template('apps/euro_coin_game.html')
+
+
+@bp.route('/multiplications')
+@bp.route('/multiplications/<int:max_value>')
+def multiplications(max_value=9):
+    return render_template('apps/multiplications.html', max_value=max_value)
 
 
 @bp.route('/measurements')

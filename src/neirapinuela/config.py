@@ -83,6 +83,13 @@ class Config:
             'requires_login': False,
             'members': ['pablo', 'carlitos'],
             'description': _l('Practica la conversión de unidades')
+        },
+        'multiplications': {
+            'name': _l('Multiplicaciones'),
+            'url': '/apps/multiplications',
+            'requires_login': False,
+            'members': ['pablo', 'carlitos'],
+            'description': _l('Practica las tablas de multiplicar')
         }
     }
 

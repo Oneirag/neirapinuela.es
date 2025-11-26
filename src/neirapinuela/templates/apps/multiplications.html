@@ -1,0 +1,541 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Multiplications') }} - neirapinuela.es{% endblock %}
+
+{% block head %}
+<style>
+    :root {
+        --primary-color: #198754;
+        --primary-dark: #146c43;
+        --text-color: #000000;
+        --background-color: #ffffff;
+        --border-color: #dee2e6;
+    }
+
+    .game-card {
+        transition: all 0.3s ease;
+        border: 2px solid var(--border-color);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        background-color: #f8f9fa;
+    }
+
+    .game-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary-color);
+    }
+
+    .multiplication-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+    }
+
+    .multiplication-table th,
+    .multiplication-table td {
+        border: 1px solid var(--border-color);
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .multiplication-table th {
+        background-color: var(--primary-color);
+        color: #ffffff;
+    }
+
+    .multiplication-table td.ok {
+        background-color: rgba(25, 135, 84, 0.2);
+        color: var(--primary-dark);
+        font-weight: bold;
+    }
+
+    .multiplication-table td.no_ok {
+        background-color: rgba(220, 53, 69, 0.5);
+        color: #a71d2a;
+        font-weight: bold;
+    }
+
+    .multiplication-table td.pse_pse {
+        background-color: rgba(255, 193, 7, 0.5);
+        color: #664d03;
+    }
+
+    .question-display {
+        font-size: 3rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .answer-input {
+        font-size: 2rem;
+        text-align: center;
+        border: 2px solid var(--primary-color);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        width: 150px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .answer-input:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+    }
+
+    .stats-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .stat-label {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-primary">{{ _('Multiplications') }}</h1>
+        <p class="lead">{{ _('Practice your multiplication tables!') }}</p>
+    </div>
+
+    <div class="row">
+        <!-- Multiplication Table Grid -->
+        <div class="col-lg-7 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">{{ _('Progress Grid') }}</h3>
+                    <div class="table-responsive">
+                        <table class="multiplication-table" id="tabla">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    {% for j in range (2, max_value + 1) %}
+                                    <th scope="col" {% if loop.first %} id="min_num" {% endif %}>{{ j }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in range(2, max_value + 1) %}
+                                <tr>
+                                    <th scope="row">{{ i }}</th>
+                                    {% for j in range(2, max_value + 1) %}
+                                    <td data-a="{{ i }}" data-b="{{ j }}">{{ i }}x{{ j }}</td>
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div class="col-lg-5">
+            <div class="game-card text-center">
+                <div class="question-display">
+                    <span id="a">?</span> × <span id="b">?</span> =
+                </div>
+
+                <div class="mb-4">
+                    <input type="number" class="answer-input" id="answer" autocomplete="off" placeholder="?">
+                </div>
+
+                <button type="button" class="btn btn-primary btn-lg w-100 mb-3" id="check" onclick="check_result()">
+                    <i class="bi bi-check-lg me-2"></i>{{ _('Check Answer') }}
+                </button>
+
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-value" id="result">0</div>
+                        <div class="stat-label">{{ _('Correct') }}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="total">0</div>
+                        <div class="stat-label">{{ _('Total') }}</div>
+                    </div>
+                </div>
+
+                <div class="mt-3 text-muted small" id="time-stats" style="display: none;">
+                    <div>{{ _('Avg Time') }}: <span id="time_avg">0.00</span>s</div>
+                    <div>{{ _('Last Time') }}: <span id="time_last">0.00</span>s</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Feedback Modals -->
+<div class="modal fade" id="modal_ok" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-success">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">{{ _('Correct!') }}</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <i class="bi bi-check-circle-fill text-success display-1 mb-3"></i>
+                <p class="lead mb-0">{{ _('Great job! Keep going!') }}</p>
+                <div id="slow_answer_msg" class="text-warning mt-2" style="display: none;">
+                    <i class="bi bi-hourglass-split"></i> {{ _('Correct, but try to be faster!') }}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">{{ _('Next') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_no_ok" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-danger">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">{{ _('Incorrect') }}</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <i class="bi bi-x-circle-fill text-danger display-1 mb-3"></i>
+                <p class="lead mb-0">{{ _('Don\'t worry, try again!') }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ _('Try Again') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    const MAX_VALUE = {{ max_value }};
+
+    function createMatrix(min_num, max_num) {
+        let result = [];
+        for (let i = min_num; i <= max_num; i++) {
+            for (let j = min_num; j <= max_num; j++) {
+                result.push({ data: [i, j], status: "" });
+            }
+        }
+        return result;
+    }
+
+    function get_from_storage(item_name, default_value) {
+        try {
+            const val = localStorage.getItem(item_name);
+            return val === null ? default_value : JSON.parse(val);
+        } catch (e) {
+            console.error("Error reading from storage", e);
+            return default_value;
+        }
+    }
+
+    function put_to_storage(item_name, value) {
+        try {
+            localStorage.setItem(item_name, JSON.stringify(value));
+        } catch (e) {
+            console.error("Error writing to storage", e);
+        }
+    }
+
+    // State Management
+    let result = get_from_storage("mult_result", 0);
+    let total = get_from_storage("mult_total", 0);
+    let items = get_from_storage("mult_items", null);
+    let weights = get_from_storage("mult_weights", null);
+    let last_ts = Date.now();
+    let time_last = get_from_storage("mult_time_last", null);
+    let time_avg = get_from_storage("mult_time_avg", null);
+
+    // Validate and Initialize State
+    function initState() {
+        const expectedLength = (MAX_VALUE - 1) * (MAX_VALUE - 1); // (max-2+1)^2 ? No, 2 to max is max-1 numbers.
+        // Actually, createMatrix(2, MAX_VALUE) creates (MAX_VALUE - 1)^2 items.
+        // If stored items don't match current MAX_VALUE configuration, reset.
+
+        // We also reset if weights are invalid or mismatch items
+        if (!items || !weights || items.length !== weights.length || items.length === 0) {
+            console.log("Resetting state due to mismatch or empty storage");
+            resetProgress();
+            return;
+        }
+
+        // Check if items match the current MAX_VALUE range roughly (by checking last item)
+        // This is a heuristic. If user switches from 12 to 9, we should probably reset or filter.
+        // For now, if the last item's components are > MAX_VALUE, we definitely need to reset or handle it.
+        // But the user might want to keep progress for 1-9 even if they went to 12.
+        // However, the simplest fix for "logic does not work" is to ensure consistency.
+        // Let's reset if the max value in items doesn't match MAX_VALUE.
+        let maxInItems = 0;
+        items.forEach(item => {
+            maxInItems = Math.max(maxInItems, item.data[0], item.data[1]);
+        });
+
+        if (maxInItems !== MAX_VALUE) {
+            console.log("Resetting state due to MAX_VALUE change");
+            resetProgress();
+        }
+    }
+
+    function resetProgress() {
+        items = createMatrix(2, MAX_VALUE);
+        weights = new Array(items.length).fill(1);
+        result = 0;
+        total = 0;
+        time_avg = null;
+        time_last = null;
+
+        put_to_storage("mult_items", items);
+        put_to_storage("mult_weights", weights);
+        put_to_storage("mult_result", result);
+        put_to_storage("mult_total", total);
+        put_to_storage("mult_time_avg", time_avg);
+        put_to_storage("mult_time_last", time_last);
+    }
+
+    // Initialize grid state
+    function initGrid() {
+        // Clear all first
+        document.querySelectorAll('.multiplication-table td').forEach(td => {
+            td.classList.remove('ok', 'no_ok', 'pse_pse');
+        });
+
+        for (let j = 0; j < items.length; j++) {
+            let status = items[j].status;
+            let a = items[j].data[0];
+            let b = items[j].data[1];
+
+            if (a <= MAX_VALUE && b <= MAX_VALUE) {
+                if (status == "pse_pse") {
+                    highlight_result_table(a, b, false); // clear first
+                    highlight_result_table(a, b, true);
+                } else if (status == "ok") {
+                    highlight_result_table(a, b, true);
+                } else if (status == "no_ok") {
+                    highlight_result_table(a, b, false);
+                }
+            }
+        }
+    }
+
+    function weighted_random(items, wgts) {
+        if (!wgts || wgts.length === 0) return items[0].data;
+
+        let i;
+        for (i = 0; i < wgts.length; i++)
+            wgts[i] += wgts[i - 1] || 0;
+
+        let max_weight = wgts[wgts.length - 1];
+        if (isNaN(max_weight) || max_weight <= 0) max_weight = 1;
+
+        let random = Math.random() * max_weight;
+
+        for (i = 0; i < wgts.length; i++)
+            if (wgts[i] > random)
+                break;
+
+        // Safety fallback
+        if (i >= items.length) i = items.length - 1;
+
+        return items[i].data;
+    }
+
+    function check_answer_time(correct) {
+        if (!correct) return false;
+
+        time_last = (Date.now() - last_ts) / 1e3;
+        last_ts = Date.now();
+
+        if (time_avg == null) {
+            time_avg = time_last;
+        } else {
+            time_avg = (time_last + time_avg * result) / (result + 1);
+        }
+
+        put_to_storage("mult_time_last", time_last);
+        put_to_storage("mult_time_avg", time_avg);
+
+        if (result > 5 && time_last > time_avg * 1.5) {
+            return false;
+        }
+        return true;
+    }
+
+    function new_game() {
+        last_ts = Date.now();
+        document.getElementById("total").innerText = total.toString();
+        document.getElementById("result").innerText = result.toString();
+
+        if (time_avg != null) {
+            document.getElementById("time-stats").style.display = "block";
+            document.getElementById("time_avg").innerText = time_avg.toFixed(2);
+            document.getElementById("time_last").innerText = time_last.toFixed(2);
+        }
+
+        let choice, a, b;
+        let attempts = 0;
+        do {
+            choice = weighted_random(items, [...weights]);
+            a = choice[0];
+            b = choice[1];
+            attempts++;
+        } while ((a > MAX_VALUE || b > MAX_VALUE) && attempts < 100);
+
+        if (attempts >= 100) {
+            // Fallback if something is wrong
+            a = 2; b = 2;
+        }
+
+        document.getElementById("a").innerText = a.toString();
+        document.getElementById("b").innerText = b.toString();
+        document.getElementById("answer").value = "";
+        document.getElementById("answer").focus();
+    }
+
+    function update_weights(a, b, correct) {
+        for (let i = 0; i < items.length; i++) {
+            if ((items[i].data[0] == a) && (items[i].data[1] == b)) {
+                if (correct) {
+                    weights[i] = weights[i] * 0.75;
+                    // Prevent weight from becoming too small (effectively 0)
+                    if (weights[i] < 0.01) weights[i] = 0.01;
+                } else {
+                    weights[i] = weights[i] * 2;
+                    // Cap weight to prevent overflow/dominance
+                    if (weights[i] > 100) weights[i] = 100;
+                }
+                break;
+            }
+        }
+        put_to_storage("mult_weights", weights);
+    }
+
+    function highlight_result_table(a, b, correct) {
+        // Find the specific cell using data attributes
+        const cell = document.querySelector(`td[data-a="${a}"][data-b="${b}"]`);
+        if (!cell) return;
+
+        let new_class = correct ? "ok" : "no_ok";
+        let old_class = correct ? "no_ok" : "ok";
+
+        if (cell.classList.contains("no_ok") && new_class == "ok") {
+            new_class = "pse_pse";
+        }
+
+        cell.classList.remove(old_class);
+        cell.classList.add(new_class);
+
+        // Update items status
+        const min_num = 2; // Hardcoded base as per loop
+        // let idx = (parseInt(a) - min_num) * Math.round(Math.sqrt(items.length)) + parseInt(b) - min_num;
+
+        // Better way to find index to avoid math errors if matrix shape changes
+        // But for now, let's search linearly if we are unsure, or rely on the fact we reset on mismatch.
+        // Actually, let's use the loop to be safe.
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].data[0] == a && items[i].data[1] == b) {
+                items[i].status = new_class;
+                break;
+            }
+        }
+        put_to_storage("mult_items", items);
+    }
+
+    function check_result() {
+        total++;
+        const a = parseInt(document.getElementById("a").innerText);
+        const b = parseInt(document.getElementById("b").innerText);
+        const answer = parseInt(document.getElementById("answer").value);
+
+        const correct = (a * b === answer);
+
+        highlight_result_table(a, b, correct);
+
+        let time_correct = check_answer_time(correct);
+        update_weights(a, b, correct && time_correct);
+        update_weights(b, a, correct && time_correct); // Symmetric update
+
+        if (correct) {
+            const modalEl = document.getElementById('modal_ok');
+            const modal = new bootstrap.Modal(modalEl);
+            const slowMsg = document.getElementById('slow_answer_msg');
+
+            if (!time_correct) {
+                slowMsg.style.display = 'block';
+            } else {
+                slowMsg.style.display = 'none';
+            }
+
+            modal.show();
+            result++;
+
+            // Setup next game when modal closes
+            modalEl.addEventListener('hidden.bs.modal', function () {
+                new_game();
+            }, { once: true });
+
+        } else {
+            const modal = new bootstrap.Modal(document.getElementById('modal_no_ok'));
+            modal.show();
+        }
+
+        put_to_storage("mult_result", result);
+        put_to_storage("mult_total", total);
+    }
+
+    // Event Listeners
+    document.getElementById("answer").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("check").click();
+        }
+    });
+
+    // Remove placeholder on focus to avoid cursor visual issue
+    const answerInput = document.getElementById("answer");
+    answerInput.addEventListener("focus", function () {
+        this.setAttribute("placeholder", "");
+    });
+    answerInput.addEventListener("blur", function () {
+        this.setAttribute("placeholder", "?");
+    });
+
+    // Handle Enter in modals
+    ['modal_ok', 'modal_no_ok'].forEach(id => {
+        document.getElementById(id).addEventListener('keypress', function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                bootstrap.Modal.getInstance(document.getElementById(id)).hide();
+            }
+        });
+    });
+
+    // Initialize
+    initState();
+    initGrid();
+    new_game();
+
+</script>
+{% endblock %}
