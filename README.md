@@ -16,7 +16,7 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
 ## Estructura del Proyecto
 
 ```
-├── src/neirapinuela.es/          # Código fuente de la aplicación
+├── src/neirapinuela/             # Código fuente de la aplicación
 │   ├── __init__.py               # Factory de la aplicación Flask
 │   ├── config.py                 # Configuración de la aplicación
 │   ├── models.py                 # Modelos de usuario
@@ -43,7 +43,7 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Oneirag/neirapinuela.es
    cd neirapinuela.es
    ```
 
@@ -76,7 +76,7 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
 6. **Compilar traducciones:**
    ```bash
    source venv/bin/activate
-   pybabel compile -d src/neirapinuela.es/translations
+   pybabel compile -d src/neirapinuela/translations
    ```
 
 ## Ejecución
@@ -113,6 +113,12 @@ gunicorn -c gunicorn_config.py src.neirapinuela.wsgi:app
 
 ### Aplicaciones Actuales
 - **Mecanografía** (`/apps/mecanografia`) - Aplicación pública para práctica de escritura
+- **Geografía** (`/apps/geografia`) - Aplicación para practicar geografía
+- **Quiz** (`/apps/quiz`) - Repaso de capitales, verbos y más
+- **Gas** (`/apps/gas`) - Conversor de unidades de gas
+- **Euro Coin Game** (`/apps/euro_coin_game`) - Aprende a usar las monedas de euro
+- **Conversor de Unidades** (`/apps/measurements`) - Practica la conversión de unidades
+- **Multiplicaciones** (`/apps/multiplications`) - Practica las tablas de multiplicar
 - **Grafana** (`https://grafana.neirapinuela.es`) - Panel de monitorización (requiere login)
 
 ## Autenticación MFA
@@ -130,8 +136,8 @@ El sitio soporta español e inglés:
 
 - **Añadir nuevas cadenas:** Usar `{{ _('Texto') }}` en plantillas y `_('Texto')` en Python
 - **Extraer cadenas:** `pybabel extract -F babel.cfg -k _l -o messages.pot src/`
-- **Actualizar traducciones:** `pybabel update -i messages.pot -d src/neirapinuela.es/translations`
-- **Compilar:** `pybabel compile -d src/neirapinuela.es/translations`
+- **Actualizar traducciones:** `pybabel update -i messages.pot -d src/neirapinuela/translations`
+- **Compilar:** `pybabel compile -d src/neirapinuela/translations`
 
 ## Añadir Nuevas Aplicaciones
 

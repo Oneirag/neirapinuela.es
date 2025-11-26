@@ -46,7 +46,7 @@ sudo su - neirapinuela
 
 ```bash
 # Clonar el repositorio
-git clone <tu-repositorio-url> neirapinuela-app
+git clone https://github.com/Oneirag/neirapinuela.es neirapinuela-app
 cd neirapinuela-app
 
 # Cambiar a la rama feature/claude
