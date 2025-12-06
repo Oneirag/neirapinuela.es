@@ -1,0 +1,48 @@
+{
+    "map": "north_america",
+    "set": "geografia 1 eso",
+    "items": [
+        {
+            "id": "rocky_mountains",
+            "num": 1,
+            "name": {
+                "es": "Montañas Rocosas",
+                "en": "Rocky Mountains"
+            },
+            "type": "relieve",
+            "solution": {
+                "xPct": 30.0,
+                "yPct": 40.0
+            },
+            "tol": 5.0
+        },
+        {
+            "id": "appalachian_mountains",
+            "num": 2,
+            "name": {
+                "es": "Montes Apalaches",
+                "en": "Appalachian Mountains"
+            },
+            "type": "relieve",
+            "solution": {
+                "xPct": 70.0,
+                "yPct": 50.0
+            },
+            "tol": 5.0
+        },
+        {
+            "id": "mississippi_river",
+            "num": 3,
+            "name": {
+                "es": "Río Misisipi",
+                "en": "Mississippi River"
+            },
+            "type": "rio",
+            "solution": {
+                "xPct": 55.0,
+                "yPct": 60.0
+            },
+            "tol": 5.0
+        }
+    ]
+}

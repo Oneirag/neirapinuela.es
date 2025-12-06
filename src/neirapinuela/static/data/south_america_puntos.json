@@ -1,0 +1,34 @@
+{
+    "map": "south_america",
+    "set": "geografia 1 eso",
+    "items": [
+        {
+            "id": "andes_mountains",
+            "num": 1,
+            "name": {
+                "es": "Cordillera de los Andes",
+                "en": "Andes Mountains"
+            },
+            "type": "relieve",
+            "solution": {
+                "xPct": 30.0,
+                "yPct": 50.0
+            },
+            "tol": 5.0
+        },
+        {
+            "id": "amazon_river",
+            "num": 2,
+            "name": {
+                "es": "Río Amazonas",
+                "en": "Amazon River"
+            },
+            "type": "rio",
+            "solution": {
+                "xPct": 60.0,
+                "yPct": 30.0
+            },
+            "tol": 5.0
+        }
+    ]
+}

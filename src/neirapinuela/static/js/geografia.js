@@ -12,10 +12,12 @@ const GeoApp = (() => {
     linksLayer: null,
     solutionsLayer: null,
     stageEl: null,
+    mapContentEl: null, // Wrapper for zoom/pan
     svgHolder: null,
     itemsListEl: null,
     score: { correct: 0, total: 0 },
-    showNames: true
+    showNames: true,
+    transform: { k: 1, x: 0, y: 0 } // Zoom/Pan state
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -28,6 +30,7 @@ const GeoApp = (() => {
     state.linksLayer = $('#links');
     state.solutionsLayer = $('#solutions');
     state.stageEl = $('#map-stage');
+    state.mapContentEl = $('#map-content');
     state.svgHolder = $('#svg-holder');
     state.itemsListEl = $('#items-list');
 
@@ -50,6 +53,9 @@ const GeoApp = (() => {
     $('#btn-show-sol').addEventListener('click', toggleSolutions);
     $('#btn-download').addEventListener('click', downloadPNG);
 
+    // Zoom controls
+    setupZoomPan();
+
     // Stage: drag-drop y modo autor (Shift+click para capturar coords)
     setupDragAndDrop();
     setupAuthoringAid();
@@ -63,21 +69,52 @@ const GeoApp = (() => {
     const mapUrl = state.config.maps[state.currentMapKey];
     const dataUrl = state.config.dataByMapAndSet[state.currentMapKey]?.[state.currentSetKey];
 
-    // Cargar mapa (SVG)
-    const svgText = await fetch(mapUrl).then(r => r.text());
-    state.mapSvgRaw = svgText;
-    state.svgHolder.innerHTML = svgText;
+    // Determine if it's an image or an SVG based on extension
+    const isImage = /\.(jpg|jpeg|png)$/i.test(mapUrl);
 
-    // Ajustar aspect ratio del contenedor según el viewBox del SVG
-    const svgEl = state.svgHolder.querySelector('svg');
-    if (svgEl) {
-      const viewBox = svgEl.getAttribute('viewBox');
-      if (viewBox) {
-        const [vbX, vbY, vbW, vbH] = viewBox.split(/\s+/).map(Number);
+    if (isImage) {
+      // Load image to get dimensions
+      const dim = await new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+        img.onerror = () => resolve({ w: 1000, h: 625 }); // Fallback
+        img.src = mapUrl;
+      });
 
-        // Calcular y aplicar aspect ratio real del mapa
-        const aspectRatio = vbW / vbH;
-        state.stageEl.style.aspectRatio = aspectRatio.toString();
+      // Construct SVG wrapper
+      const svg = `
+        <svg viewBox="0 0 ${dim.w} ${dim.h}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <image href="${mapUrl}" width="${dim.w}" height="${dim.h}" />
+        </svg>
+      `;
+      state.mapSvgRaw = svg;
+      state.svgHolder.innerHTML = svg;
+
+      // Set aspect ratio
+      const aspectRatio = dim.w / dim.h;
+      state.stageEl.style.aspectRatio = aspectRatio.toString();
+
+    } else {
+      // Existing SVG text logic
+      // Cargar mapa (SVG)
+      try {
+        const svgText = await fetch(mapUrl).then(r => r.text());
+        state.mapSvgRaw = svgText;
+        state.svgHolder.innerHTML = svgText;
+
+        // Ajustar aspect ratio del contenedor según el viewBox del SVG
+        const svgEl = state.svgHolder.querySelector('svg');
+        if (svgEl) {
+          const viewBox = svgEl.getAttribute('viewBox');
+          if (viewBox) {
+            const [vbX, vbY, vbW, vbH] = viewBox.split(/\s+/).map(Number);
+            // Calcular y aplicar aspect ratio real del mapa
+            const aspectRatio = vbW / vbH;
+            state.stageEl.style.aspectRatio = aspectRatio.toString();
+          }
+        }
+      } catch (e) {
+        console.error("Error loading SVG map:", e);
       }
     }
 
@@ -92,6 +129,10 @@ const GeoApp = (() => {
     state.score.total = state.items.length;
     $('#score-total').textContent = state.score.total.toString();
     $('#score-correct').textContent = '0';
+
+    // Reset zoom on map change
+    state.transform = { k: 1, x: 0, y: 0 };
+    updateTransform();
 
     renderItems();
   }
@@ -284,10 +325,46 @@ const GeoApp = (() => {
   }
 
   function clientToSvg(clientX, clientY) {
-    const pt = state.overlay.createSVGPoint();
-    pt.x = clientX; pt.y = clientY;
-    const m = state.overlay.getScreenCTM().inverse();
-    return pt.matrixTransform(m);
+    // 1. Get mouse position relative to the stage viewport
+    const rect = state.stageEl.getBoundingClientRect();
+    const rx = clientX - rect.left;
+    const ry = clientY - rect.top;
+
+    // 2. Remove Pan & Zoom (Inverse CSS transform)
+    // visual_x = (content_x * k) + transform_x
+    // content_x = (visual_x - transform_x) / k
+    const { x: tx, y: ty, k } = state.transform;
+    const cx = (rx - tx) / k;
+    const cy = (ry - ty) / k;
+
+    // 3. Map content-pixels to SVG ViewBox coordinates
+    // We must emulate 'preserveAspectRatio="xMidYMid meet"' calculation
+    const vb = state.overlay.viewBox.baseVal;
+
+    // The viewport for the SVG is the full size of the content wrapper (unzoomed stage size)
+    const vpW = rect.width;
+    const vpH = rect.height;
+
+    // Calculate scales
+    const scaleX = vpW / vb.width;
+    const scaleY = vpH / vb.height;
+
+    // 'meet' uses the smaller scale to fit the image
+    const scale = Math.min(scaleX, scaleY);
+
+    // Calculate the dimensions of the drawn SVG within the viewport
+    const drawW = vb.width * scale;
+    const drawH = vb.height * scale;
+
+    // Calculate offsets (centering)
+    const offX = (vpW - drawW) / 2;
+    const offY = (vpH - drawH) / 2;
+
+    // 4. Final mapping: (content_coord - offset) / scale + viewBox_origin
+    const svgX = vb.x + (cx - offX) / scale;
+    const svgY = vb.y + (cy - offY) / scale;
+
+    return { x: svgX, y: svgY };
   }
 
   function clearPlaced() {
@@ -303,6 +380,9 @@ const GeoApp = (() => {
   function resetAll() {
     clearPlaced();
     state.solutionsLayer.innerHTML = '';
+    // Reset zoom
+    state.transform = { k: 1, x: 0, y: 0 };
+    updateTransform();
   }
 
   function distancePct(a, b) {
@@ -408,6 +488,90 @@ const GeoApp = (() => {
     link.download = `geografia_${state.currentMapKey}_${state.currentSetKey}.png`;
     link.href = canvas.toDataURL('image/png');
     link.click();
+  }
+
+  function setupZoomPan() {
+    // Zoom Buttons
+    $('#btn-zoom-in').addEventListener('click', () => zoomBy(1.2));
+    $('#btn-zoom-out').addEventListener('click', () => zoomBy(1 / 1.2));
+    $('#btn-zoom-reset').addEventListener('click', () => {
+      state.transform = { k: 1, x: 0, y: 0 };
+      updateTransform();
+    });
+
+    // Mouse Wheel Zoom
+    state.stageEl.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = state.stageEl.getBoundingClientRect();
+      const dx = e.clientX - rect.left;
+      const dy = e.clientY - rect.top;
+
+      const factor = e.deltaY < 0 ? 1.1 : 0.9;
+      const newK = Math.max(0.5, Math.min(5, state.transform.k * factor));
+
+      // Zoom towards mouse pointer
+      // x' = x - (dx/k - dx/newK) * newK? No, standar formula:
+      // Translate to origin (dx, dy), scale, translate back
+      // Easier: x_new = x_old + (dx - x_old) * (1 - factor)
+
+      const k = state.transform.k;
+      state.transform.x -= (dx - state.transform.x) * (newK / k - 1);
+      state.transform.y -= (dy - state.transform.y) * (newK / k - 1);
+      state.transform.k = newK;
+
+      updateTransform();
+    }, { passive: false });
+
+    // Pan (Drag)
+    let isPanning = false;
+    let start = { x: 0, y: 0 };
+    let startTrans = { x: 0, y: 0 };
+
+    state.stageEl.addEventListener('mousedown', (e) => {
+      // Avoid panning when dragging a marker or label
+      if (e.target.closest('.draggable-label') || e.target.closest('.marker')) return;
+
+      isPanning = true;
+      state.stageEl.style.cursor = 'grabbing';
+      start = { x: e.clientX, y: e.clientY };
+      startTrans = { ...state.transform };
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isPanning) return;
+      e.preventDefault();
+      const dx = e.clientX - start.x;
+      const dy = e.clientY - start.y;
+      state.transform.x = startTrans.x + dx;
+      state.transform.y = startTrans.y + dy;
+      updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isPanning) {
+        isPanning = false;
+        state.stageEl.style.cursor = '';
+      }
+    });
+  }
+
+  function zoomBy(factor) {
+    const rect = state.stageEl.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+
+    const newK = Math.max(0.5, Math.min(5, state.transform.k * factor));
+    const k = state.transform.k;
+
+    state.transform.x -= (cx - state.transform.x) * (newK / k - 1);
+    state.transform.y -= (cy - state.transform.y) * (newK / k - 1);
+    state.transform.k = newK;
+    updateTransform();
+  }
+
+  function updateTransform() {
+    const { x, y, k } = state.transform;
+    state.mapContentEl.style.transform = `translate(${x}px, ${y}px) scale(${k})`;
   }
 
   function setupAuthoringAid() {

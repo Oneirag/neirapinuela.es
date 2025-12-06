@@ -31,6 +31,28 @@
     height: 100%;
   }
 
+  #map-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    /* Will be transformed by JS */
+  }
+
+  .zoom-controls {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+  }
+
+  .zoom-controls .btn {
+    border: 1px solid #dee2e6;
+  }
+
   #svg-holder svg {
     display: block;
     width: 100% !important;
@@ -141,16 +163,25 @@
     <!-- Columna izquierda: mapa -->
     <div class="col-12 col-lg-9">
       <div id="map-stage" class="rounded">
-        <div id="svg-holder" aria-label="mapa"></div>
-        <!-- Capa SVG para marcadores y soluciones -->
-        <svg id="overlay" viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid meet">
-          <!-- Conexiones entre respuesta y solución -->
-          <g id="links"></g>
-          <!-- Marcadores del alumno -->
-          <g id="markers"></g>
-          <!-- Soluciones -->
-          <g id="solutions"></g>
-        </svg>
+        <div id="map-content">
+          <div id="svg-holder" aria-label="mapa"></div>
+          <!-- Capa SVG para marcadores y soluciones -->
+          <svg id="overlay" viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid meet">
+            <!-- Conexiones entre respuesta y solución -->
+            <g id="links"></g>
+            <!-- Marcadores del alumno -->
+            <g id="markers"></g>
+            <!-- Soluciones -->
+            <g id="solutions"></g>
+          </svg>
+        </div>
+
+        <!-- Controles de Zoom -->
+        <div class="zoom-controls btn-group-vertical">
+          <button id="btn-zoom-in" class="btn btn-light btn-sm" title="{{_('Acercar')}}">+</button>
+          <button id="btn-zoom-reset" class="btn btn-light btn-sm" title="{{_('Restablecer vista')}}">⟲</button>
+          <button id="btn-zoom-out" class="btn btn-light btn-sm" title="{{_('Alejar')}}">-</button>
+        </div>
       </div>
       <div class="small text-muted mt-2">
         <div class="small text-muted mt-2">
@@ -177,6 +208,8 @@
             <select id="map-select" class="form-select form-select-sm">
               <!--<option value="iberia">Península Ibérica</option> -->
               <option value="europe">{{_('Europa')}}</option>
+              <option value="north_america">{{_('América del Norte')}}</option>
+              <option value="south_america">{{_('América del Sur')}}</option>
               <!--<option value="world">Mundo</option> -->
             </select>
 
@@ -236,6 +269,8 @@
         maps: {
           iberia: "{{ url_for('static', filename='maps/iberia.svg') }}",
           europe: "{{ url_for('static', filename='maps/europe.svg') }}",
+          north_america: "{{ url_for('static', filename='maps/north_america.jpg') }}",
+          south_america: "{{ url_for('static', filename='maps/south_america.jpg') }}",
           world: "{{ url_for('static', filename='maps/world.svg') }}"
         },
         dataByMapAndSet: {
@@ -244,6 +279,12 @@
           },
           europe: {
             puntos: "{{ url_for('static', filename='data/europe_puntos.json') }}"
+          },
+          north_america: {
+            puntos: "{{ url_for('static', filename='data/north_america_puntos.json') }}"
+          },
+          south_america: {
+            puntos: "{{ url_for('static', filename='data/south_america_puntos.json') }}"
           },
           world: {
             puntos: "{{ url_for('static', filename='data/world_puntos.json') }}"
