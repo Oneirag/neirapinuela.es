@@ -45,7 +45,8 @@ def create_app(config_class=Config):
             'LANGUAGES': current_app.config['LANGUAGES'],
             'CURRENT_LANGUAGE': str(get_locale()),
             'FAMILY_MEMBERS': current_app.config['FAMILY_MEMBERS'],
-            'APPLICATIONS': current_app.config['APPLICATIONS']
+            'APPLICATIONS': current_app.config['APPLICATIONS'],
+            'IS_PRODUCTION': not current_app.debug
         }
     
     # Error handlers
@@ -58,6 +59,21 @@ def create_app(config_class=Config):
     def internal_error(error):
         from flask import render_template
         return render_template('errors/500.html'), 500
+
+    @app.errorhandler(502)
+    def bad_gateway_error(error):
+        from flask import render_template
+        return render_template('errors/502.html'), 502
+
+    @app.errorhandler(503)
+    def service_unavailable_error(error):
+        from flask import render_template
+        return render_template('errors/503.html'), 503
+
+    @app.errorhandler(504)
+    def gateway_timeout_error(error):
+        from flask import render_template
+        return render_template('errors/504.html'), 504
     
     @app.errorhandler(403)
     def forbidden_error(error):

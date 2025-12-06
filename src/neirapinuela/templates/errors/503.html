@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Service Unavailable') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <div class="mb-4">
+                <h1 class="display-1 text-primary">{{ _('Error') }} 503</h1>
+                <h2 class="mb-3">{{ _('Service Unavailable') }}</h2>
+                <p class="lead text-muted">
+                    {{ _('The server is temporarily unable to handle your request due to maintenance or capacity issues.
+                    Please try again later.') }}
+                </p>
+                <p class="text-muted">
+                    {{ _('We apologize for the inconvenience.') }}
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <a href="javascript:history.back()" class="btn btn-primary me-2">
+                    {{ _('Go Back') }}
+                </a>
+                <a href="javascript:location.reload()" class="btn btn-outline-primary">
+                    {{ _('Refresh') }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

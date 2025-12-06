@@ -1281,3 +1281,87 @@ msgstr "Contáctanos si el problema persiste"
 #~ msgid "Recent Errors"
 #~ msgstr ""
 
+
+#: templates/errors/500.html:3 templates/errors/500.html:11
+msgid "Internal Server Error"
+msgstr "Error Interno del Servidor"
+
+#: templates/errors/500.html:13
+msgid "Something went wrong on our end. We apologize for the inconvenience and are working to fix the issue."
+msgstr "Algo salió mal por nuestra parte. Pedimos disculpas por las molestias y estamos trabajando para solucionar el problema."
+
+#: templates/errors/500.html:18
+msgid "What happened?"
+msgstr "¿Qué ha pasado?"
+
+#: templates/errors/500.html:19
+msgid "Our server encountered an unexpected error while processing your request. The issue has been logged and our team will investigate it."
+msgstr "Nuestro servidor encontró un error inesperado al procesar su solicitud. El problema ha sido registrado y nuestro equipo lo investigará."
+
+#: templates/errors/500.html:24 templates/errors/502.html:19
+#: templates/errors/503.html:19 templates/errors/504.html:19
+msgid "Go Back"
+msgstr "Volver atrás"
+
+#: templates/errors/500.html:27 templates/errors/502.html:22
+#: templates/errors/503.html:22 templates/errors/504.html:22
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: templates/errors/500.html:33
+msgid "What can you do?"
+msgstr "¿Qué puedes hacer?"
+
+#: templates/errors/500.html:37
+msgid "Wait a few minutes and try again"
+msgstr "Espere unos minutos e inténtelo de nuevo"
+
+#: templates/errors/500.html:41
+msgid "Return to homepage"
+msgstr "Volver a la página de inicio"
+
+#: templates/errors/500.html:45
+msgid "Try other applications"
+msgstr "Probar otras aplicaciones"
+
+#: templates/errors/500.html:49
+msgid "Contact us if the problem persists"
+msgstr "Contáctenos si el problema persiste"
+
+#: templates/errors/502.html:3 templates/errors/502.html:11
+msgid "Bad Gateway"
+msgstr "Puerta de enlace incorrecta"
+
+#: templates/errors/502.html:13
+msgid "The server received an invalid response from the upstream server."
+msgstr "El servidor recibió una respuesta inválida del servidor original."
+
+#: templates/errors/502.html:15
+msgid "It is possible that the service is not started."
+msgstr "Es posible que el servicio no esté arrancado."
+
+#: templates/errors/503.html:3 templates/errors/503.html:11
+msgid "Service Unavailable"
+msgstr "Servicio no disponible"
+
+#: templates/errors/503.html:13
+msgid "The server is temporarily unable to handle your request due to maintenance or capacity issues. Please try again later."
+msgstr "El servidor no puede atender su solicitud temporalmente debido a mantenimiento o problemas de capacidad. Por favor, inténtelo de nuevo más tarde."
+
+#: templates/errors/504.html:3 templates/errors/504.html:11
+msgid "Gateway Timeout"
+msgstr "Tiempo de espera de la puerta de enlace agotado"
+
+#: templates/errors/504.html:13
+msgid "The server did not receive a timely response from the upstream server."
+msgstr "El servidor no recibió una respuesta a tiempo del servidor original."
+
+#: templates/errors/500.html:10 templates/errors/502.html:10
+#: templates/errors/503.html:10 templates/errors/504.html:10
+msgid "Error"
+msgstr "Error"
+
+#: templates/errors/502.html:18 templates/errors/503.html:16
+#: templates/errors/504.html:16
+msgid "We apologize for the inconvenience."
+msgstr "Pedimos disculpas por las molestias."

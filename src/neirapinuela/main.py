@@ -5,6 +5,14 @@ from flask_login import current_user
 bp = Blueprint('main', __name__)
 
 
+@bp.route('/error/<int:code>.html')
+def error_test(code):
+    from flask import abort
+    if code in [403, 404, 500, 502, 503, 504]:
+        return render_template(f'errors/{code}.html'), 200
+        # return render_template(f'errors/{code}.html'), code
+    return abort(404)
+
 @bp.route('/')
 def index():
     return render_template('index.html')
