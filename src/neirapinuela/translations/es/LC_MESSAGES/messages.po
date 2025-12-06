@@ -1365,3 +1365,11 @@ msgstr "Error"
 #: templates/errors/504.html:16
 msgid "We apologize for the inconvenience."
 msgstr "Pedimos disculpas por las molestias."
+
+#: templates/errors/401.html:3 templates/errors/401.html:11
+msgid "Unauthorized"
+msgstr "No autorizado"
+
+#: templates/errors/401.html:13
+msgid "You must be logged in to access this resource."
+msgstr "Debe iniciar sesión para acceder a este recurso."

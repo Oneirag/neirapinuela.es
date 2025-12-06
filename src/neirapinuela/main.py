@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, session, redirect, url_for, request
 from flask_babel import _, get_locale
 from flask_login import current_user
+from . import render_error
 
 bp = Blueprint('main', __name__)
 
@@ -8,8 +9,9 @@ bp = Blueprint('main', __name__)
 @bp.route('/error/<int:code>.html')
 def error_test(code):
     from flask import abort
-    if code in [403, 404, 500, 502, 503, 504]:
-        return render_template(f'errors/{code}.html'), 200
+    if code in [401, 403, 404, 500, 502, 503, 504]:
+        return render_error(code, return_code=200)
+       # return render_template(f'errors/{code}.html'), 200
         # return render_template(f'errors/{code}.html'), code
     return abort(404)
 

@@ -3,6 +3,18 @@ from flask_babel import Babel
 from flask_login import LoginManager
 from .config import Config
 
+def render_error(error_code, message=None, template=None, return_code=None):
+    from flask import request, jsonify, render_template
+    
+    if request.accept_mimetypes.best_match(['application/json', 'text/html']) != 'text/html':
+        response = {
+            'error': message or 'Error',
+            'code': error_code
+        }
+        return jsonify(response), return_code or error_code
+        
+    template = template or f'errors/{error_code}.html'
+    return render_template(template), return_code or error_code
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -49,35 +61,35 @@ def create_app(config_class=Config):
             'IS_PRODUCTION': not current_app.debug
         }
     
+
+
     # Error handlers
+    @app.errorhandler(401)
+    def unauthorized_error(error):
+        return render_error(401, 'Unauthorized')
+
+    @app.errorhandler(403)
+    def forbidden_error(error):
+        return render_error(403, 'Forbidden')
+
     @app.errorhandler(404)
     def not_found_error(error):
-        from flask import render_template
-        return render_template('errors/404.html'), 404
+        return render_error(404, 'Not Found')
     
     @app.errorhandler(500)
     def internal_error(error):
-        from flask import render_template
-        return render_template('errors/500.html'), 500
+        return render_error(500, 'Internal Server Error')
 
     @app.errorhandler(502)
     def bad_gateway_error(error):
-        from flask import render_template
-        return render_template('errors/502.html'), 502
+        return render_error(502, 'Bad Gateway')
 
     @app.errorhandler(503)
     def service_unavailable_error(error):
-        from flask import render_template
-        return render_template('errors/503.html'), 503
+        return render_error(503, 'Service Unavailable')
 
     @app.errorhandler(504)
     def gateway_timeout_error(error):
-        from flask import render_template
-        return render_template('errors/504.html'), 504
-    
-    @app.errorhandler(403)
-    def forbidden_error(error):
-        from flask import render_template
-        return render_template('errors/403.html'), 403
+        return render_error(504, 'Gateway Timeout')
     
     return app
