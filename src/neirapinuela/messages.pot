@@ -8,1300 +8,1297 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-06 14:11+0100\n"
+"POT-Creation-Date: 2025-12-07 08:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.10.3\n"
 
-#: src/neirapinuela/apps.py:46
+#: apps.py:46
 msgid "Longitud"
 msgstr ""
 
-#: src/neirapinuela/apps.py:47
+#: apps.py:47
 msgid "Masa"
 msgstr ""
 
-#: src/neirapinuela/apps.py:48
+#: apps.py:48
 msgid "Capacidad"
 msgstr ""
 
-#: src/neirapinuela/auth.py:17
+#: auth.py:17
 msgid "Username"
 msgstr ""
 
-#: src/neirapinuela/auth.py:18
+#: auth.py:18
 msgid "Password"
 msgstr ""
 
-#: src/neirapinuela/auth.py:19 src/neirapinuela/auth.py:24
+#: auth.py:19 auth.py:24
 msgid "TOTP Token"
 msgstr ""
 
-#: src/neirapinuela/auth.py:20 src/neirapinuela/templates/auth/login.html:11
+#: auth.py:20 templates/auth/login.html:11
 msgid "Sign In"
 msgstr ""
 
-#: src/neirapinuela/auth.py:25
+#: auth.py:25
 msgid "Verify"
 msgstr ""
 
-#: src/neirapinuela/auth.py:47 src/neirapinuela/auth.py:81
+#: auth.py:47 auth.py:81
 msgid "Invalid TOTP token"
 msgstr ""
 
-#: src/neirapinuela/auth.py:49
+#: auth.py:49
 msgid "Invalid username or password"
 msgstr ""
 
-#: src/neirapinuela/auth.py:78
+#: auth.py:78
 msgid "TOTP setup completed successfully"
 msgstr ""
 
-#: src/neirapinuela/config.py:17
+#: config.py:17
 msgid "padre"
 msgstr ""
 
-#: src/neirapinuela/config.py:22
+#: config.py:22
 msgid "madre"
 msgstr ""
 
-#: src/neirapinuela/config.py:27 src/neirapinuela/config.py:32
+#: config.py:27 config.py:32
 msgid "hijo"
 msgstr ""
 
-#: src/neirapinuela/config.py:39
+#: config.py:39
 msgid "Mecanografía"
 msgstr ""
 
-#: src/neirapinuela/config.py:43
+#: config.py:43
 msgid "Aplicación para practicar mecanografía"
 msgstr ""
 
-#: src/neirapinuela/config.py:46
+#: config.py:46
 msgid "Geografía"
 msgstr ""
 
-#: src/neirapinuela/config.py:50
+#: config.py:50
 msgid "Aplicación para practicar geografia"
 msgstr ""
 
-#: src/neirapinuela/config.py:57
+#: config.py:57
 msgid "Panel de monitorización y métricas"
 msgstr ""
 
-#: src/neirapinuela/config.py:60 src/neirapinuela/templates/apps/quiz.html:6
+#: config.py:60 templates/apps/quiz.html:6
 msgid "Quiz"
 msgstr ""
 
-#: src/neirapinuela/config.py:64
+#: config.py:64
 msgid "Repaso de capitales, verbos y más"
 msgstr ""
 
-#: src/neirapinuela/config.py:67
+#: config.py:67
 msgid "Gas"
 msgstr ""
 
-#: src/neirapinuela/config.py:71
+#: config.py:71
 msgid "Conversor de unidades de gas"
 msgstr ""
 
-#: src/neirapinuela/config.py:74
+#: config.py:74
 msgid "Euro Coin Game"
 msgstr ""
 
-#: src/neirapinuela/config.py:78
+#: config.py:78
 msgid "Aprende a usar las monedas de euro"
 msgstr ""
 
-#: src/neirapinuela/config.py:81
-#: src/neirapinuela/templates/apps/measurements.html:4
-#: src/neirapinuela/templates/apps/measurements.html:8
+#: config.py:81 templates/apps/measurements.html:4
+#: templates/apps/measurements.html:8
 msgid "Conversor de Unidades"
 msgstr ""
 
-#: src/neirapinuela/config.py:85
+#: config.py:85
 msgid "Practica la conversión de unidades"
 msgstr ""
 
-#: src/neirapinuela/config.py:88
+#: config.py:88
 msgid "Multiplicaciones"
 msgstr ""
 
-#: src/neirapinuela/config.py:92
+#: config.py:92
 msgid "Practica las tablas de multiplicar"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:3
-#: src/neirapinuela/templates/base.html:40
-#: src/neirapinuela/templates/index.html:42
+#: templates/about.html:3 templates/base.html:40 templates/index.html:42
 msgid "About"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:9
+#: templates/about.html:9
 msgid "About neirapinuela.es"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:13
+#: templates/about.html:13
 msgid "Our Website"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:15
+#: templates/about.html:15
 msgid ""
 "Welcome to the Neira Pinuela family website! This is our personal space "
 "on the internet where we share our projects, applications, and family "
 "moments."
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:22
+#: templates/about.html:22
 msgid "Technology Stack"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:36
+#: templates/about.html:36
 msgid "Family Applications"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:38
+#: templates/about.html:38
 msgid ""
 "Our website hosts various applications that different family members have"
 " created or use. Some are public and accessible to everyone, while others"
 " require authentication for security."
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:48
+#: templates/about.html:48
 msgid "Used by:"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:62
+#: templates/about.html:62
 msgid "Contact"
 msgstr ""
 
-#: src/neirapinuela/templates/about.html:64
+#: templates/about.html:64
 msgid ""
 "This website is maintained by the Neira Pinuela family. Built with love "
 "and modern web technologies."
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:31
+#: templates/base.html:31
 msgid "Home"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:34
-#: src/neirapinuela/templates/family.html:3
-#: src/neirapinuela/templates/index.html:16
+#: templates/base.html:34 templates/family.html:3 templates/index.html:16
 msgid "Family"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:3
-#: src/neirapinuela/templates/apps/index.html:8
-#: src/neirapinuela/templates/base.html:37
-#: src/neirapinuela/templates/index.html:29
+#: templates/apps/index.html:3 templates/apps/index.html:8
+#: templates/base.html:37 templates/index.html:29
 msgid "Applications"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:52
+#: templates/base.html:52
 msgid "Logout"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:50
-#: src/neirapinuela/templates/auth/login.html:3
-#: src/neirapinuela/templates/base.html:57
-#: src/neirapinuela/templates/errors/401.html:22
-#: src/neirapinuela/templates/errors/403.html:37
+#: templates/apps/index.html:50 templates/auth/login.html:3
+#: templates/base.html:57 templates/errors/401.html:22
+#: templates/errors/403.html:37
 msgid "Login"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:106
+#: templates/base.html:106
 msgid "Made with"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:106
+#: templates/base.html:106
 msgid "by the Neira Pinuela family"
 msgstr ""
 
-#: src/neirapinuela/templates/family.html:8
+#: templates/family.html:8
 msgid "The Neira Pinuela Family"
 msgstr ""
 
-#: src/neirapinuela/templates/family.html:9
+#: templates/family.html:9
 msgid "Meet our family members"
 msgstr ""
 
-#: src/neirapinuela/templates/family.html:23
+#: templates/family.html:23
 msgid "Applications:"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:7
+#: templates/index.html:7
 msgid "Welcome to our family website"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:17
+#: templates/index.html:17
 msgid "Meet the Neira Pinuela family"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:30
+#: templates/index.html:30
 msgid "Explore our collection of apps"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:43
+#: templates/index.html:43
 msgid "Learn more about this website"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:55
+#: templates/index.html:55
 msgid "Featured Applications"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:22
-#: src/neirapinuela/templates/index.html:64
+#: templates/apps/index.html:22 templates/index.html:64
 msgid "Available to:"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:71
+#: templates/index.html:71
 msgid "Access Granted"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:29
-#: src/neirapinuela/templates/index.html:73
+#: templates/apps/index.html:29 templates/index.html:73
 msgid "Login Required"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:31
-#: src/neirapinuela/templates/index.html:76
+#: templates/apps/index.html:31 templates/index.html:76
 msgid "Public Access"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:82
+#: templates/index.html:82
 msgid "Login to Access"
 msgstr ""
 
-#: src/neirapinuela/templates/index.html:86
+#: templates/index.html:86
 msgid "Open App"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:3
-#: src/neirapinuela/templates/apps/euro_coin_game.html:111
+#: templates/apps/euro_coin_game.html:3 templates/apps/euro_coin_game.html:111
 msgid "Juego de Monedas Euro"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:112
+#: templates/apps/euro_coin_game.html:112
 msgid "Aprende a contar dinero con Pablo y Carlitos!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:127
+#: templates/apps/euro_coin_game.html:127
 msgid "Cantidad objetivo"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:131
+#: templates/apps/euro_coin_game.html:131
 msgid "Rango de cantidades"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:151
+#: templates/apps/euro_coin_game.html:151
 msgid "Siguiente"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:160
-#: src/neirapinuela/templates/apps/geografia.html:134
-#: src/neirapinuela/templates/apps/measurements.html:106
+#: templates/apps/euro_coin_game.html:160 templates/apps/geografia.html:156
+#: templates/apps/measurements.html:106
 msgid "Comprobar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:169
+#: templates/apps/euro_coin_game.html:169
 msgid "Deshacer"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:181
-#: src/neirapinuela/templates/apps/gas.html:45
-#: src/neirapinuela/templates/apps/geografia.html:133
+#: templates/apps/euro_coin_game.html:181 templates/apps/gas.html:45
+#: templates/apps/geografia.html:155
 msgid "Reiniciar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:188
+#: templates/apps/euro_coin_game.html:188
 msgid "Monedas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:199
+#: templates/apps/euro_coin_game.html:199
 msgid "Billetes"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:233
+#: templates/apps/euro_coin_game.html:233
 msgid "¡Muy bien!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:234
+#: templates/apps/euro_coin_game.html:234
 msgid "Cantidad correcta"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:235
+#: templates/apps/euro_coin_game.html:235
 msgid "¡Ops!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/euro_coin_game.html:236
+#: templates/apps/euro_coin_game.html:236
 msgid "Inténtalo de nuevo"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:4
+#: templates/apps/gas.html:4
 msgid "Conversor de Gas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:11
+#: templates/apps/gas.html:11
 msgid "Precios del Gas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:16
+#: templates/apps/gas.html:16
 msgid "Cargamentos de Gas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:26
+#: templates/apps/gas.html:26
 msgid "Datos Forex"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:30
+#: templates/apps/gas.html:30
 msgid "Dólares"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:32
+#: templates/apps/gas.html:32
 msgid "Libras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:46
+#: templates/apps/gas.html:46
 msgid "Conversión de Unidades de Gas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/gas.html:72
+#: templates/apps/gas.html:72
 msgid "En construcción"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:3
+#: templates/apps/geografia.html:3
 msgid "Repaso de Geografía · neirapinuela.es"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:131
+#: templates/apps/geografia.html:153
 msgid "Repaso de Geografía"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:135
+#: templates/apps/geografia.html:157
 msgid "Mostrar soluciones"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:136
+#: templates/apps/geografia.html:158
 msgid "Descargar PNG"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:157
+#: templates/apps/geografia.html:181
+msgid "Acercar"
+msgstr ""
+
+#: templates/apps/geografia.html:182
+msgid "Restablecer vista"
+msgstr ""
+
+#: templates/apps/geografia.html:183
+msgid "Alejar"
+msgstr ""
+
+#: templates/apps/geografia.html:188
 msgid "Modo autor:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:157
+#: templates/apps/geografia.html:188
 msgid "para capturar un punto"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:158
+#: templates/apps/geografia.html:189
 msgid "para múltiples puntos (ríos, cordilleras)"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:176
+#: templates/apps/geografia.html:207
 msgid "Mapa"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:179
+#: templates/apps/geografia.html:210
 msgid "Europa"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:180
+#: templates/apps/geografia.html:211
 msgid "América del Norte"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:181
+#: templates/apps/geografia.html:212
 msgid "América del Sur"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:185
+#: templates/apps/geografia.html:216
 msgid "Conjunto"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:193
+#: templates/apps/geografia.html:224
 msgid "Ocultar nombres"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:202
+#: templates/apps/geografia.html:233
 msgid "Aciertos:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:205
+#: templates/apps/geografia.html:236
 msgid "Quitar marcadores"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:209
+#: templates/apps/geografia.html:240
 msgid "Elementos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:231
+#: templates/apps/geografia.html:262
 msgid "Punto añadido"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:232
-#: src/neirapinuela/templates/apps/multiplications.html:174
+#: templates/apps/geografia.html:263 templates/apps/multiplications.html:174
 msgid "Total"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:233
+#: templates/apps/geografia.html:264
 msgid "Copiado"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:9
+#: templates/apps/index.html:9
 msgid "Our collection of family applications"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:36
+#: templates/apps/index.html:36
 msgid "Open Application"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:47
+#: templates/apps/index.html:47
 msgid "No applications available"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/index.html:48
+#: templates/apps/index.html:48
 msgid "Please log in to see more applications or check back later."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:12
+#: templates/apps/measurements.html:12
 msgid "Selecciona el tipo de unidad:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:60
+#: templates/apps/measurements.html:60
 #, python-format
 msgid "Convierte %(qty)s %(orig_unit)s a %(dest_unit)s"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:71
+#: templates/apps/measurements.html:71
 msgid "Tu respuesta"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:85
+#: templates/apps/measurements.html:85
 msgid "Nueva conversión"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:96
+#: templates/apps/measurements.html:96
 msgid "Reiniciar tabla"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:135
+#: templates/apps/measurements.html:135
 msgid "¡Respuesta Correcta!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:136
+#: templates/apps/measurements.html:136
 msgid "¡Muy bien! Has realizado la conversión correctamente."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:137
+#: templates/apps/measurements.html:137
 msgid "Respuesta Incorrecta"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/measurements.html:138
+#: templates/apps/measurements.html:138
 msgid "La respuesta no es correcta. Inténtalo de nuevo."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:3
-#: src/neirapinuela/templates/apps/mecanografia.html:286
+#: templates/apps/mecanografia.html:3 templates/apps/mecanografia.html:286
 msgid "Typing Practice"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:287
+#: templates/apps/mecanografia.html:287
 msgid "Improve your typing skills with Pablo and Carlitos!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:292
+#: templates/apps/mecanografia.html:292
 msgid "Select a Lesson"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:304
+#: templates/apps/mecanografia.html:304
 msgid "Accuracy"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:308
+#: templates/apps/mecanografia.html:308
 msgid "WPM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:312
-#: src/neirapinuela/templates/apps/quiz.html:29
+#: templates/apps/mecanografia.html:312 templates/apps/quiz.html:29
 msgid "Errors"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:316
+#: templates/apps/mecanografia.html:316
 msgid "Time"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:333
+#: templates/apps/mecanografia.html:333
 msgid "Start typing here..."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:345
+#: templates/apps/mecanografia.html:345
 msgid "Restart"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:346
+#: templates/apps/mecanografia.html:346
 msgid "Back to Lessons"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:357
+#: templates/apps/mecanografia.html:357
 msgid "Lesson Completed!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:359
+#: templates/apps/mecanografia.html:359
 msgid "Next Lesson"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:360
+#: templates/apps/mecanografia.html:360
 msgid "Retry Lesson"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:366
+#: templates/apps/mecanografia.html:366
 msgid "Achievement Unlocked!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:395
+#: templates/apps/mecanografia.html:395
 msgid "Fila Base 1: ASDF"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:396
+#: templates/apps/mecanografia.html:396
 msgid "Mano izquierda - Teclas básicas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:401
+#: templates/apps/mecanografia.html:401
 msgid "Fila Base 2: JKLÑ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:402
+#: templates/apps/mecanografia.html:402
 msgid "Mano derecha - Teclas básicas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:407
+#: templates/apps/mecanografia.html:407
 msgid "Fila Base 3: GH"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:408
+#: templates/apps/mecanografia.html:408
 msgid "Índices - Teclas centrales"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:413
+#: templates/apps/mecanografia.html:413
 msgid "Fila Base 4: Combinaciones"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:414
-#: src/neirapinuela/templates/apps/mecanografia.html:422
+#: templates/apps/mecanografia.html:414 templates/apps/mecanografia.html:422
 msgid "Todas las teclas de la fila base"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:421
+#: templates/apps/mecanografia.html:421
 msgid "Fila Base 5: Palabras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:433
+#: templates/apps/mecanografia.html:433
 msgid "Fila Superior 1: QA"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:434
+#: templates/apps/mecanografia.html:434
 msgid "Meñique mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:450
+#: templates/apps/mecanografia.html:450
 msgid "Fila Superior 2: WS"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:451
+#: templates/apps/mecanografia.html:451
 msgid "Anular mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:464
+#: templates/apps/mecanografia.html:464
 msgid "Fila Superior 3: ED"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:465
+#: templates/apps/mecanografia.html:465
 msgid "Corazón mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:478
+#: templates/apps/mecanografia.html:478
 msgid "Fila Superior 4: FRGT"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:479
+#: templates/apps/mecanografia.html:479
 msgid "Índice mano izquierda - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:492
+#: templates/apps/mecanografia.html:492
 msgid "Fila Superior 5: QWERT"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:493
+#: templates/apps/mecanografia.html:493
 msgid "Mano izquierda - Fila superior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:499
+#: templates/apps/mecanografia.html:499
 msgid "Combinación ASDF y QWERT"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:500
+#: templates/apps/mecanografia.html:500
 msgid "Mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:518
+#: templates/apps/mecanografia.html:518
 msgid "Fila Superior 6: ÑP"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:519
+#: templates/apps/mecanografia.html:519
 msgid "Meñique Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:530
+#: templates/apps/mecanografia.html:530
 msgid "Fila Superior 7: OL"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:531
+#: templates/apps/mecanografia.html:531
 msgid "Anular Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:542
+#: templates/apps/mecanografia.html:542
 msgid "Fila Superior 8: IK"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:543
+#: templates/apps/mecanografia.html:543
 msgid "Corazón Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:554
+#: templates/apps/mecanografia.html:554
 msgid "Fila Superior 9: UYHJ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:555
+#: templates/apps/mecanografia.html:555
 msgid "Índice Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:567
+#: templates/apps/mecanografia.html:567
 msgid "Fila Superior 10: YUIOP"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:568
-#: src/neirapinuela/templates/apps/mecanografia.html:574
+#: templates/apps/mecanografia.html:568 templates/apps/mecanografia.html:574
 msgid "Mano derecha - Fila superior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:573
+#: templates/apps/mecanografia.html:573
 msgid "Fila Superior 11: YUIOPHJKLÑ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:582
+#: templates/apps/mecanografia.html:582
 msgid "Fila Superior 12: Mezcla Sup+Base"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:583
+#: templates/apps/mecanografia.html:583
 msgid "Combina fila superior con base"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:595
+#: templates/apps/mecanografia.html:595
 msgid "Fila Inferior 1: AZ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:596
+#: templates/apps/mecanografia.html:596
 msgid "Meñique Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:608
+#: templates/apps/mecanografia.html:608
 msgid "Fila Inferior 2: SX"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:609
+#: templates/apps/mecanografia.html:609
 msgid "Anular Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:620
+#: templates/apps/mecanografia.html:620
 msgid "Fila Inferior 3: DC"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:621
+#: templates/apps/mecanografia.html:621
 msgid "Corazón Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:632
+#: templates/apps/mecanografia.html:632
 msgid "Fila Inferior 4: FGVB"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:633
+#: templates/apps/mecanografia.html:633
 msgid "Índice Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:646
+#: templates/apps/mecanografia.html:646
 msgid "Fila Inferior 5: ZXCV"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:647
+#: templates/apps/mecanografia.html:647
 msgid "Mano izquierda - Fila inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:653
+#: templates/apps/mecanografia.html:653
 msgid "Fila Inferior 6: ASDFGZXCV"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:654
+#: templates/apps/mecanografia.html:654
 msgid "Mano Izquierda - Fila Inferior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:670
+#: templates/apps/mecanografia.html:670
 msgid "Fila Inferior 7: KM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:671
+#: templates/apps/mecanografia.html:671
 msgid "Corazón Derecho - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:682
+#: templates/apps/mecanografia.html:682
 msgid "Fila Inferior 8: JHBN"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:683
+#: templates/apps/mecanografia.html:683
 msgid "Índice Derecho - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:697
+#: templates/apps/mecanografia.html:697
 msgid "Fila Inferior 9: BNM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:698
+#: templates/apps/mecanografia.html:698
 msgid "Mano derecha - Fila inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:705
+#: templates/apps/mecanografia.html:705
 msgid "Todas las filas 1"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:706
+#: templates/apps/mecanografia.html:706
 msgid "Superior + Base + Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:713
+#: templates/apps/mecanografia.html:713
 msgid "Palabras 1: Dos letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:714
+#: templates/apps/mecanografia.html:714
 msgid "Palabras de 2 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:719
+#: templates/apps/mecanografia.html:719
 msgid "Palabras 2: Tres letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:720
+#: templates/apps/mecanografia.html:720
 msgid "Palabras de 3 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:725
+#: templates/apps/mecanografia.html:725
 msgid "Palabras 3: Cuatro letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:726
+#: templates/apps/mecanografia.html:726
 msgid "Palabras de 4 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:733
+#: templates/apps/mecanografia.html:733
 msgid "Números 1: 1-5"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:734
+#: templates/apps/mecanografia.html:734
 msgid "Números con mano izquierda"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:739
+#: templates/apps/mecanografia.html:739
 msgid "Números 2: 6-0"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:740
+#: templates/apps/mecanografia.html:740
 msgid "Números con mano derecha"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:745
+#: templates/apps/mecanografia.html:745
 msgid "Números 3: Todos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:746
+#: templates/apps/mecanografia.html:746
 msgid "Todos los números"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:753
+#: templates/apps/mecanografia.html:753
 msgid "Símbolos 1: Básicos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:754
+#: templates/apps/mecanografia.html:754
 msgid "Puntuación básica"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:759
+#: templates/apps/mecanografia.html:759
 msgid "Símbolos 2: Interrogación"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:760
+#: templates/apps/mecanografia.html:760
 msgid "Signos de interrogación"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:767
+#: templates/apps/mecanografia.html:767
 msgid "Palabras Complejas 1"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:768
+#: templates/apps/mecanografia.html:768
 msgid "Palabras largas frecuentes"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:773
+#: templates/apps/mecanografia.html:773
 msgid "Palabras Españolas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:774
+#: templates/apps/mecanografia.html:774
 msgid "Palabras con ñ y acentos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:781
+#: templates/apps/mecanografia.html:781
 msgid "Oraciones Simples"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:782
+#: templates/apps/mecanografia.html:782
 msgid "Frases cortas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:787
+#: templates/apps/mecanografia.html:787
 msgid "Oraciones Complejas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:788
+#: templates/apps/mecanografia.html:788
 msgid "Frases largas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:795
+#: templates/apps/mecanografia.html:795
 msgid "Tecnología"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:796
+#: templates/apps/mecanografia.html:796
 msgid "Vocabulario técnico"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:801
+#: templates/apps/mecanografia.html:801
 msgid "Nivel Maestro"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:802
+#: templates/apps/mecanografia.html:802
 msgid "Desafío final"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:811
+#: templates/apps/mecanografia.html:811
 msgid "Keep your wrists straight and fingers curved."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:812
+#: templates/apps/mecanografia.html:812
 msgid "Look at the screen, not at your fingers."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:813
+#: templates/apps/mecanografia.html:813
 msgid "Use all ten fingers, not just your index fingers."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:814
+#: templates/apps/mecanografia.html:814
 msgid "Practice regularly for better results."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:815
+#: templates/apps/mecanografia.html:815
 msgid "Accuracy is more important than speed."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:816
+#: templates/apps/mecanografia.html:816
 msgid "Take breaks to avoid fatigue."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:817
+#: templates/apps/mecanografia.html:817
 msgid "Maintain good posture while typing."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:848
+#: templates/apps/mecanografia.html:848
 msgid "Words:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:849
+#: templates/apps/mecanografia.html:849
 msgid "Keys:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1083
+#: templates/apps/mecanografia.html:1083
 msgid "Lesson"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1083
+#: templates/apps/mecanografia.html:1083
 msgid "completed!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1088
+#: templates/apps/mecanografia.html:1088
 msgid "Accuracy:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1089
+#: templates/apps/mecanografia.html:1089
 msgid "Speed:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1090
+#: templates/apps/mecanografia.html:1090
 msgid "Time:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1127
+#: templates/apps/mecanografia.html:1127
 msgid "Perfect accuracy!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1132
+#: templates/apps/mecanografia.html:1132
 msgid "Speed demon! 40+ WPM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1137
+#: templates/apps/mecanografia.html:1137
 msgid "Persistent learner!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1150
+#: templates/apps/mecanografia.html:1150
 msgid "Tip:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:3
-#: src/neirapinuela/templates/apps/multiplications.html:116
+#: templates/apps/multiplications.html:3
+#: templates/apps/multiplications.html:116
 msgid "Multiplications"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:117
+#: templates/apps/multiplications.html:117
 msgid "Practice your multiplication tables!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:125
+#: templates/apps/multiplications.html:125
 msgid "Progress Grid"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:164
+#: templates/apps/multiplications.html:164
 msgid "Check Answer"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:170
+#: templates/apps/multiplications.html:170
 msgid "Correct"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:179
+#: templates/apps/multiplications.html:179
 msgid "Avg Time"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:180
+#: templates/apps/multiplications.html:180
 msgid "Last Time"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:192
-#: src/neirapinuela/templates/apps/quiz.html:72
+#: templates/apps/multiplications.html:192 templates/apps/quiz.html:72
 msgid "Correct!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:198
+#: templates/apps/multiplications.html:198
 msgid "Great job! Keep going!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:200
+#: templates/apps/multiplications.html:200
 msgid "Correct, but try to be faster!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:204
-#: src/neirapinuela/templates/apps/quiz.html:47
-#: src/neirapinuela/templates/apps/quiz.html:75
+#: templates/apps/multiplications.html:204 templates/apps/quiz.html:47
+#: templates/apps/quiz.html:75
 msgid "Next"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:214
+#: templates/apps/multiplications.html:214
 msgid "Incorrect"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:220
+#: templates/apps/multiplications.html:220
 msgid "Don't worry, try again!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/multiplications.html:223
+#: templates/apps/multiplications.html:223
 msgid "Try Again"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:9
+#: templates/apps/quiz.html:9
 msgid "European Capitals"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:10
+#: templates/apps/quiz.html:10
 msgid "Irregular Verbs"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:13
-#: src/neirapinuela/templates/apps/quiz.html:84
+#: templates/apps/quiz.html:13 templates/apps/quiz.html:84
 msgid "Random"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:26
+#: templates/apps/quiz.html:26
 msgid "Score"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:46
-#: src/neirapinuela/templates/apps/quiz.html:74
+#: templates/apps/quiz.html:46 templates/apps/quiz.html:74
 msgid "Check"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:56
+#: templates/apps/quiz.html:56
 msgid "Activity Log"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:73
+#: templates/apps/quiz.html:73
 msgid "Incorrect. The answer was:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:77
+#: templates/apps/quiz.html:77
 msgid "Country"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:78
+#: templates/apps/quiz.html:78
 msgid "Capital"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:79
+#: templates/apps/quiz.html:79
 msgid "Infinitive"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:80
+#: templates/apps/quiz.html:80
 msgid "Past"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:81
+#: templates/apps/quiz.html:81
 msgid "Participle"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/quiz.html:82
+#: templates/apps/quiz.html:82
 msgid "Definition"
 msgstr ""
 
-#: src/neirapinuela/templates/auth/setup_totp.html:3
+#: templates/auth/setup_totp.html:3
 msgid "TOTP Setup"
 msgstr ""
 
-#: src/neirapinuela/templates/auth/setup_totp.html:11
+#: templates/auth/setup_totp.html:11
 msgid "Setup Two-Factor Authentication"
 msgstr ""
 
-#: src/neirapinuela/templates/auth/setup_totp.html:15
+#: templates/auth/setup_totp.html:15
 msgid "Scan this QR code with your authenticator app:"
 msgstr ""
 
-#: src/neirapinuela/templates/auth/setup_totp.html:20
+#: templates/auth/setup_totp.html:20
 msgid "Manual entry:"
 msgstr ""
 
-#: src/neirapinuela/templates/auth/setup_totp.html:38
+#: templates/auth/setup_totp.html:38
 msgid "Enter the 6-digit code from your authenticator app"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/401.html:3
-#: src/neirapinuela/templates/errors/401.html:10
-#: src/neirapinuela/templates/errors/403.html:3
-#: src/neirapinuela/templates/errors/403.html:10
-#: src/neirapinuela/templates/errors/500.html:10
-#: src/neirapinuela/templates/errors/502.html:10
-#: src/neirapinuela/templates/errors/503.html:10
-#: src/neirapinuela/templates/errors/504.html:10
+#: templates/errors/401.html:3 templates/errors/401.html:10
+#: templates/errors/403.html:3 templates/errors/403.html:10
+#: templates/errors/500.html:10 templates/errors/502.html:10
+#: templates/errors/503.html:10 templates/errors/504.html:10
 msgid "Error"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/401.html:11
+#: templates/errors/401.html:11
 msgid "Unauthorized"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/401.html:13
+#: templates/errors/401.html:13
 msgid "You must be logged in to access this resource."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/401.html:16
-#: src/neirapinuela/templates/errors/403.html:17
-#: src/neirapinuela/templates/errors/502.html:19
-#: src/neirapinuela/templates/errors/503.html:17
-#: src/neirapinuela/templates/errors/504.html:16
+#: templates/errors/401.html:16 templates/errors/403.html:17
+#: templates/errors/502.html:19 templates/errors/503.html:17
+#: templates/errors/504.html:16
 msgid "We apologize for the inconvenience."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/401.html:25
-#: src/neirapinuela/templates/errors/403.html:30
-#: src/neirapinuela/templates/errors/403.html:40
-#: src/neirapinuela/templates/errors/404.html:19
+#: templates/errors/401.html:25 templates/errors/403.html:30
+#: templates/errors/403.html:40 templates/errors/404.html:19
+#: templates/errors/405.html:19
 msgid "Go Home"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:11
+#: templates/errors/403.html:11
 msgid "Access Forbidden"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:13
+#: templates/errors/403.html:13
 msgid ""
 "You don't have permission to access this resource. This application is "
 "restricted to specific\n"
 "                    family members."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:22
+#: templates/errors/403.html:22
 msgid "Access Restricted"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:23
+#: templates/errors/403.html:23
 msgid ""
 "This application is only available to certain family members. Please log "
 "in with an authorized\n"
 "                account."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:33
+#: templates/errors/403.html:33
 msgid "Switch Account"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:47
+#: templates/errors/403.html:47
 msgid "Available Options"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:51
+#: templates/errors/403.html:51
 msgid ""
 "Log in with your\n"
 "                                account"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:56
+#: templates/errors/403.html:56
 msgid ""
 "See available\n"
 "                                applications"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:61
+#: templates/errors/403.html:61
 msgid ""
 "Learn about our\n"
 "                                family"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/403.html:66
-#: src/neirapinuela/templates/errors/500.html:43
+#: templates/errors/403.html:66 templates/errors/500.html:43
 msgid ""
 "Return to\n"
 "                                homepage"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:3
-#: src/neirapinuela/templates/errors/404.html:11
+#: templates/errors/404.html:3 templates/errors/404.html:11
 msgid "Page Not Found"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:13
+#: templates/errors/404.html:13
 msgid ""
 "The page you are looking for might have been removed, had its name "
 "changed, or is temporarily unavailable."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:22
-#: src/neirapinuela/templates/errors/500.html:26
-#: src/neirapinuela/templates/errors/502.html:25
-#: src/neirapinuela/templates/errors/503.html:23
-#: src/neirapinuela/templates/errors/504.html:22
+#: templates/errors/404.html:22 templates/errors/405.html:22
+#: templates/errors/500.html:26 templates/errors/502.html:25
+#: templates/errors/503.html:23 templates/errors/504.html:22
 msgid "Go Back"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:28
-#: src/neirapinuela/templates/errors/500.html:35
+#: templates/errors/404.html:28 templates/errors/405.html:28
+#: templates/errors/500.html:35
 msgid "What can you do?"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:32
+#: templates/errors/404.html:32
 msgid "Visit our homepage"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:36
+#: templates/errors/404.html:36 templates/errors/405.html:37
 msgid "Meet our family"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:40
+#: templates/errors/404.html:40
 msgid "Explore our applications"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/404.html:44
+#: templates/errors/404.html:44
 msgid "Learn about this website"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:3
-#: src/neirapinuela/templates/errors/500.html:11
+#: templates/errors/405.html:3 templates/errors/405.html:11
+msgid "Method Not Allowed"
+msgstr ""
+
+#: templates/errors/405.html:13
+msgid "The method is not allowed for the requested URL."
+msgstr ""
+
+#: templates/errors/405.html:32
+msgid ""
+"Visit our\n"
+"                                homepage"
+msgstr ""
+
+#: templates/errors/405.html:42
+msgid ""
+"Explore our\n"
+"                                applications"
+msgstr ""
+
+#: templates/errors/405.html:47
+msgid ""
+"Learn about this\n"
+"                                website"
+msgstr ""
+
+#: templates/errors/500.html:3 templates/errors/500.html:11
 msgid "Internal Server Error"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:13
+#: templates/errors/500.html:13
 msgid ""
 "Something went wrong on our end. We apologize for the inconvenience and "
 "are working to fix the\n"
 "                    issue."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:19
+#: templates/errors/500.html:19
 msgid "What happened?"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:20
+#: templates/errors/500.html:20
 msgid ""
 "Our server encountered an unexpected error while processing your request."
 " The issue has been\n"
 "                logged and our team will investigate it."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:29
-#: src/neirapinuela/templates/errors/502.html:28
-#: src/neirapinuela/templates/errors/503.html:26
-#: src/neirapinuela/templates/errors/504.html:25
+#: templates/errors/500.html:29 templates/errors/502.html:28
+#: templates/errors/503.html:26 templates/errors/504.html:25
 msgid "Refresh"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:39
+#: templates/errors/500.html:39
 msgid "Wait a few minutes and try again"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:48
+#: templates/errors/500.html:48
 msgid ""
 "Try other\n"
 "                                applications"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/500.html:53
+#: templates/errors/500.html:53
 msgid "Contact us if the problem persists"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/502.html:3
-#: src/neirapinuela/templates/errors/502.html:11
+#: templates/errors/502.html:3 templates/errors/502.html:11
 msgid "Bad Gateway"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/502.html:13
+#: templates/errors/502.html:13
 msgid "The server received an invalid response from the upstream server."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/502.html:16
+#: templates/errors/502.html:16
 msgid "It is possible that the service is not started."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/503.html:3
-#: src/neirapinuela/templates/errors/503.html:11
+#: templates/errors/503.html:3 templates/errors/503.html:11
 msgid "Service Unavailable"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/503.html:13
+#: templates/errors/503.html:13
 msgid ""
 "The server is temporarily unable to handle your request due to "
 "maintenance or capacity issues.\n"
 "                    Please try again later."
 msgstr ""
 
-#: src/neirapinuela/templates/errors/504.html:3
-#: src/neirapinuela/templates/errors/504.html:11
+#: templates/errors/504.html:3 templates/errors/504.html:11
 msgid "Gateway Timeout"
 msgstr ""
 
-#: src/neirapinuela/templates/errors/504.html:13
+#: templates/errors/504.html:13
 msgid "The server did not receive a timely response from the upstream server."
 msgstr ""
 

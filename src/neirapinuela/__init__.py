@@ -2,9 +2,10 @@ from flask import Flask
 from flask_babel import Babel
 from flask_login import LoginManager
 from .config import Config
+from flask import request, jsonify, render_template
+
 
 def render_error(error_code, message=None, template=None, return_code=None):
-    from flask import request, jsonify, render_template
     
     if request.accept_mimetypes.best_match(['application/json', 'text/html']) != 'text/html':
         response = {
@@ -12,6 +13,17 @@ def render_error(error_code, message=None, template=None, return_code=None):
             'code': error_code
         }
         return jsonify(response), return_code or error_code
+
+    # This version forces english messages in JSON responses. JSON responses
+    # could be used by other applications that are not in english, so it's
+    # better to not to force english messages.
+    # from flask_babel import force_locale, gettext
+    # with force_locale('en'):
+    #     response = {
+    #         'error': gettext(message or 'Error'),
+    #         'code': error_code
+    #     }
+    #     return jsonify(response), return_code or error_code
         
     template = template or f'errors/{error_code}.html'
     return render_template(template), return_code or error_code
@@ -75,6 +87,10 @@ def create_app(config_class=Config):
     @app.errorhandler(404)
     def not_found_error(error):
         return render_error(404, 'Not Found')
+    
+    @app.errorhandler(405)
+    def method_not_allowed_error(error):
+        return render_error(405, 'Method Not Allowed')
     
     @app.errorhandler(500)
     def internal_error(error):
