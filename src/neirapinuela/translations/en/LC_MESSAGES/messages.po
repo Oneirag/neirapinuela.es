@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-12-07 08:07+0100\n"
+"POT-Creation-Date: 2025-12-07 08:36+0100\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,6 +17,112 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: __init__.py:13 templates/errors/401.html:11
+msgid "Unauthorized"
+msgstr ""
+
+#: __init__.py:14 templates/errors/401.html:13
+msgid "You must be logged in to access this resource."
+msgstr ""
+
+#: __init__.py:15
+msgid "Log in with your account"
+msgstr ""
+
+#: __init__.py:18
+msgid "Forbidden"
+msgstr ""
+
+#: __init__.py:19
+msgid ""
+"You don't have permission to access this resource. This application is "
+"restricted to specific family members."
+msgstr ""
+
+#: __init__.py:20
+msgid "Log in with an authorized account"
+msgstr ""
+
+#: __init__.py:23
+msgid "Not Found"
+msgstr ""
+
+#: __init__.py:24 templates/errors/404.html:13
+msgid ""
+"The page you are looking for might have been removed, had its name "
+"changed, or is temporarily unavailable."
+msgstr ""
+
+#: __init__.py:25 __init__.py:30 templates/errors/404.html:32
+msgid "Visit our homepage"
+msgstr ""
+
+#: __init__.py:28 templates/errors/405.html:3 templates/errors/405.html:11
+msgid "Method Not Allowed"
+msgstr ""
+
+#: __init__.py:29 templates/errors/405.html:13
+msgid "The method is not allowed for the requested URL."
+msgstr ""
+
+#: __init__.py:33 templates/errors/500.html:3 templates/errors/500.html:11
+msgid "Internal Server Error"
+msgstr ""
+
+#: __init__.py:34
+msgid ""
+"Our server encountered an unexpected error while processing your request."
+" The issue has been logged and our team will investigate it."
+msgstr ""
+
+#: __init__.py:35 templates/errors/500.html:39
+msgid "Wait a few minutes and try again"
+msgstr ""
+
+#: __init__.py:38 templates/errors/502.html:3 templates/errors/502.html:11
+msgid "Bad Gateway"
+msgstr ""
+
+#: __init__.py:39 templates/errors/502.html:13
+msgid "The server received an invalid response from the upstream server."
+msgstr ""
+
+#: __init__.py:40 __init__.py:45 __init__.py:50 templates/errors/500.html:29
+#: templates/errors/502.html:28 templates/errors/503.html:26
+#: templates/errors/504.html:25
+msgid "Refresh"
+msgstr ""
+
+#: __init__.py:43 templates/errors/503.html:3 templates/errors/503.html:11
+msgid "Service Unavailable"
+msgstr ""
+
+#: __init__.py:44
+msgid ""
+"The server is temporarily unable to handle your request due to "
+"maintenance or capacity issues. Please try again later."
+msgstr ""
+
+#: __init__.py:48 templates/errors/504.html:3 templates/errors/504.html:11
+msgid "Gateway Timeout"
+msgstr ""
+
+#: __init__.py:49 templates/errors/504.html:13
+msgid "The server did not receive a timely response from the upstream server."
+msgstr ""
+
+#: __init__.py:57
+msgid "Invalid credentials"
+msgstr ""
+
+#: __init__.py:58
+msgid "The credentials provided are invalid."
+msgstr ""
+
+#: __init__.py:59
+msgid "Try again"
+msgstr ""
 
 #: apps.py:46
 msgid "Longitud"
@@ -1097,14 +1203,6 @@ msgstr ""
 msgid "Error"
 msgstr "Errors"
 
-#: templates/errors/401.html:11
-msgid "Unauthorized"
-msgstr ""
-
-#: templates/errors/401.html:13
-msgid "You must be logged in to access this resource."
-msgstr ""
-
 #: templates/errors/401.html:16 templates/errors/403.html:17
 #: templates/errors/502.html:19 templates/errors/503.html:17
 #: templates/errors/504.html:16
@@ -1175,12 +1273,6 @@ msgstr ""
 msgid "Page Not Found"
 msgstr ""
 
-#: templates/errors/404.html:13
-msgid ""
-"The page you are looking for might have been removed, had its name "
-"changed, or is temporarily unavailable."
-msgstr ""
-
 #: templates/errors/404.html:22 templates/errors/405.html:22
 #: templates/errors/500.html:26 templates/errors/502.html:25
 #: templates/errors/503.html:23 templates/errors/504.html:22
@@ -1190,10 +1282,6 @@ msgstr ""
 #: templates/errors/404.html:28 templates/errors/405.html:28
 #: templates/errors/500.html:35
 msgid "What can you do?"
-msgstr ""
-
-#: templates/errors/404.html:32
-msgid "Visit our homepage"
 msgstr ""
 
 #: templates/errors/404.html:36 templates/errors/405.html:37
@@ -1206,14 +1294,6 @@ msgstr ""
 
 #: templates/errors/404.html:44
 msgid "Learn about this website"
-msgstr ""
-
-#: templates/errors/405.html:3 templates/errors/405.html:11
-msgid "Method Not Allowed"
-msgstr ""
-
-#: templates/errors/405.html:13
-msgid "The method is not allowed for the requested URL."
 msgstr ""
 
 #: templates/errors/405.html:32
@@ -1234,10 +1314,6 @@ msgid ""
 "                                website"
 msgstr ""
 
-#: templates/errors/500.html:3 templates/errors/500.html:11
-msgid "Internal Server Error"
-msgstr ""
-
 #: templates/errors/500.html:13
 msgid ""
 "Something went wrong on our end. We apologize for the inconvenience and "
@@ -1256,15 +1332,6 @@ msgid ""
 "                logged and our team will investigate it."
 msgstr ""
 
-#: templates/errors/500.html:29 templates/errors/502.html:28
-#: templates/errors/503.html:26 templates/errors/504.html:25
-msgid "Refresh"
-msgstr ""
-
-#: templates/errors/500.html:39
-msgid "Wait a few minutes and try again"
-msgstr ""
-
 #: templates/errors/500.html:48
 msgid ""
 "Try other\n"
@@ -1275,20 +1342,8 @@ msgstr ""
 msgid "Contact us if the problem persists"
 msgstr ""
 
-#: templates/errors/502.html:3 templates/errors/502.html:11
-msgid "Bad Gateway"
-msgstr ""
-
-#: templates/errors/502.html:13
-msgid "The server received an invalid response from the upstream server."
-msgstr ""
-
 #: templates/errors/502.html:16
 msgid "It is possible that the service is not started."
-msgstr ""
-
-#: templates/errors/503.html:3 templates/errors/503.html:11
-msgid "Service Unavailable"
 msgstr ""
 
 #: templates/errors/503.html:13
@@ -1296,14 +1351,6 @@ msgid ""
 "The server is temporarily unable to handle your request due to "
 "maintenance or capacity issues.\n"
 "                    Please try again later."
-msgstr ""
-
-#: templates/errors/504.html:3 templates/errors/504.html:11
-msgid "Gateway Timeout"
-msgstr ""
-
-#: templates/errors/504.html:13
-msgid "The server did not receive a timely response from the upstream server."
 msgstr ""
 
 #~ msgid "Username"

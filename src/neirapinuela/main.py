@@ -6,7 +6,8 @@ from . import render_error
 bp = Blueprint('main', __name__)
 
 
-@bp.route('/error/<int:code>.html')
+@bp.route('/error/<int:code>.html', 
+           methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD' ])
 def error_test(code):
     from flask import abort
     if code in [401, 403, 404, 405, 500, 502, 503, 504]:
