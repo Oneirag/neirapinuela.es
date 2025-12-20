@@ -3,32 +3,452 @@
     "set": "geografia 1 eso",
     "items": [
         {
-            "id": "andes_mountains",
-            "num": 1,
+            "id": "estrecho_magallanes",
+            "num": 8,
+            "name": {
+                "es": "Estrecho de Magallanes",
+                "en": "Magellan Strait"
+            },
+            "type": "mares y océanos",
+            "solution": {
+                "xPct": 38.76,
+                "yPct": 89.64
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "malvines",
+            "num": 18,
+            "name": {
+                "es": "Islas Malvinas",
+                "en": "Malvinas Islands"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 50.59,
+                "yPct": 88.4
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "islas_galapagos",
+            "num": 20,
+            "name": {
+                "es": "Islas Galápagos",
+                "en": "Galápagos Islands"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 0.31,
+                "yPct": 33.29
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "cape_horn",
+            "num": 34,
+            "name": {
+                "es": "Cabo Hornos",
+                "en": "Cape Horn"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 44.35,
+                "yPct": 92.28
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "cordillera_andes",
+            "num": 47,
             "name": {
                 "es": "Cordillera de los Andes",
                 "en": "Andes Mountains"
             },
             "type": "relieve",
-            "solution": {
-                "xPct": 30.0,
-                "yPct": 50.0
+            "solution": [
+                {
+                    "xPct": 24.01,
+                    "yPct": 20.57
+                },
+                {
+                    "xPct": 22.04,
+                    "yPct": 25.19
+                },
+                {
+                    "xPct": 18.65,
+                    "yPct": 28.75
+                },
+                {
+                    "xPct": 17.52,
+                    "yPct": 32.79
+                },
+                {
+                    "xPct": 19.07,
+                    "yPct": 37.79
+                },
+                {
+                    "xPct": 22.6,
+                    "yPct": 40.97
+                },
+                {
+                    "xPct": 26.41,
+                    "yPct": 44.05
+                },
+                {
+                    "xPct": 30.5,
+                    "yPct": 46.93
+                },
+                {
+                    "xPct": 35.3,
+                    "yPct": 47.7
+                },
+                {
+                    "xPct": 38.55,
+                    "yPct": 50.01
+                },
+                {
+                    "xPct": 35.87,
+                    "yPct": 52.13
+                },
+                {
+                    "xPct": 40.66,
+                    "yPct": 53.86
+                },
+                {
+                    "xPct": 36.71,
+                    "yPct": 55.78
+                },
+                {
+                    "xPct": 39.96,
+                    "yPct": 58.57
+                },
+                {
+                    "xPct": 35.87,
+                    "yPct": 60.69
+                },
+                {
+                    "xPct": 35.58,
+                    "yPct": 65.12
+                },
+                {
+                    "xPct": 36.01,
+                    "yPct": 68.1
+                },
+                {
+                    "xPct": 35.73,
+                    "yPct": 71.08
+                },
+                {
+                    "xPct": 34.6,
+                    "yPct": 73.68
+                },
+                {
+                    "xPct": 34.6,
+                    "yPct": 77.72
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "monte_aconcagua",
+            "num": 48,
+            "name": {
+                "es": "Monte Aconcagua",
+                "en": "Mount Aconcagua"
             },
-            "tol": 5.0
+            "type": "relieve",
+            "solution": {
+                "xPct": 36.57,
+                "yPct": 61.56
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "meseta_matto_grosso",
+            "num": 49,
+            "name": {
+                "es": "Meseta Matto Grosso",
+                "en": "Matto Grosso Plateau"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 60.14,
+                    "yPct": 47.99
+                },
+                {
+                    "xPct": 60,
+                    "yPct": 51.65
+                },
+                {
+                    "xPct": 63.81,
+                    "yPct": 53.76
+                },
+                {
+                    "xPct": 69.31,
+                    "yPct": 51.17
+                },
+                {
+                    "xPct": 69.59,
+                    "yPct": 45.39
+                },
+                {
+                    "xPct": 63.53,
+                    "yPct": 48.57
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "la_pampa",
+            "num": 50,
+            "name": {
+                "es": "La Pampa",
+                "en": "La Pampa"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 53.65,
+                    "yPct": 65.69
+                },
+                {
+                    "xPct": 48.29,
+                    "yPct": 64.54
+                },
+                {
+                    "xPct": 43.91,
+                    "yPct": 66.85
+                },
+                {
+                    "xPct": 44.33,
+                    "yPct": 70.5
+                },
+                {
+                    "xPct": 49.56,
+                    "yPct": 70.98
+                },
+                {
+                    "xPct": 48.29,
+                    "yPct": 67.81
+                },
+                {
+                    "xPct": 52.24,
+                    "yPct": 69.64
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "orinoco",
+            "num": 58,
+            "name": {
+                "es": "Río Orinoco",
+                "en": "Orinoco River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 47.34,
+                    "yPct": 18.28
+                },
+                {
+                    "xPct": 45.22,
+                    "yPct": 18.5
+                },
+                {
+                    "xPct": 43.04,
+                    "yPct": 18.98
+                },
+                {
+                    "xPct": 40.76,
+                    "yPct": 19.39
+                },
+                {
+                    "xPct": 38.8,
+                    "yPct": 19.73
+                },
+                {
+                    "xPct": 37.44,
+                    "yPct": 20.36
+                },
+                {
+                    "xPct": 36.79,
+                    "yPct": 21.43
+                },
+                {
+                    "xPct": 36.08,
+                    "yPct": 22.66
+                },
+                {
+                    "xPct": 36.62,
+                    "yPct": 23.7
+                },
+                {
+                    "xPct": 38.36,
+                    "yPct": 24.55
+                },
+                {
+                    "xPct": 40.49,
+                    "yPct": 24.96
+                },
+                {
+                    "xPct": 42.12,
+                    "yPct": 25.7
+                },
+                {
+                    "xPct": 43.42,
+                    "yPct": 25.66
+                }
+            ],
+            "tol": 3.0
         },
         {
             "id": "amazon_river",
-            "num": 2,
+            "num": 59,
             "name": {
                 "es": "Río Amazonas",
                 "en": "Amazon River"
             },
-            "type": "rio",
-            "solution": {
-                "xPct": 60.0,
-                "yPct": 30.0
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 63.28,
+                    "yPct": 30.32
+                },
+                {
+                    "xPct": 59.68,
+                    "yPct": 31.19
+                },
+                {
+                    "xPct": 55.65,
+                    "yPct": 31.34
+                },
+                {
+                    "xPct": 52.04,
+                    "yPct": 31.99
+                },
+                {
+                    "xPct": 47.17,
+                    "yPct": 32.49
+                },
+                {
+                    "xPct": 43.77,
+                    "yPct": 32.13
+                },
+                {
+                    "xPct": 41.76,
+                    "yPct": 31.99
+                },
+                {
+                    "xPct": 38.47,
+                    "yPct": 30.54
+                },
+                {
+                    "xPct": 33.49,
+                    "yPct": 30.54
+                },
+                {
+                    "xPct": 29.57,
+                    "yPct": 29.82
+                },
+                {
+                    "xPct": 25.86,
+                    "yPct": 29.17
+                },
+                {
+                    "xPct": 23.21,
+                    "yPct": 28.23
+                },
+                {
+                    "xPct": 20.77,
+                    "yPct": 27.51
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "paraná",
+            "num": 60,
+            "name": {
+                "es": "Río Paraná",
+                "en": "Paraná River"
             },
-            "tol": 5.0
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 51.29,
+                    "yPct": 67.81
+                },
+                {
+                    "xPct": 49.05,
+                    "yPct": 66.57
+                },
+                {
+                    "xPct": 49.92,
+                    "yPct": 64.67
+                },
+                {
+                    "xPct": 50.7,
+                    "yPct": 62.46
+                },
+                {
+                    "xPct": 51.75,
+                    "yPct": 60.53
+                },
+                {
+                    "xPct": 55.17,
+                    "yPct": 60.34
+                },
+                {
+                    "xPct": 58.41,
+                    "yPct": 58.75
+                },
+                {
+                    "xPct": 59.33,
+                    "yPct": 56.26
+                },
+                {
+                    "xPct": 61.02,
+                    "yPct": 54.61
+                },
+                {
+                    "xPct": 63.39,
+                    "yPct": 52.96
+                },
+                {
+                    "xPct": 64.71,
+                    "yPct": 51.47
+                },
+                {
+                    "xPct": 67.45,
+                    "yPct": 50.26
+                },
+                {
+                    "xPct": 70.65,
+                    "yPct": 50.19
+                },
+                {
+                    "xPct": 72.16,
+                    "yPct": 51.16
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "lago_titicaca",
+            "num": 70,
+            "name": {
+                "es": "Lago Titicaca",
+                "en": "Lake Titicaca"
+            },
+            "type": "lagos",
+            "solution": {
+                "xPct": 34.35,
+                "yPct": 47.02
+            },
+            "tol": 3.0
         }
     ]
 }
