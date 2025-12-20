@@ -3,45 +3,971 @@
     "set": "geografia 1 eso",
     "items": [
         {
-            "id": "rocky_mountains",
+            "id": "artic_ocean",
             "num": 1,
+            "name": {
+                "es": "Océano Ártico",
+                "en": "Artic Ocean"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 33.01,
+                    "yPct": 11.43
+                },
+                {
+                    "xPct": 34.97,
+                    "yPct": 15.04
+                },
+                {
+                    "xPct": 41.37,
+                    "yPct": 13.39
+                },
+                {
+                    "xPct": 47.88,
+                    "yPct": 8.34
+                },
+                {
+                    "xPct": 40.75,
+                    "yPct": 7.42
+                },
+                {
+                    "xPct": 39.2,
+                    "yPct": 11.64
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "atlantic_ocean",
+            "num": 2,
+            "name": {
+                "es": "Océano Atlántico",
+                "en": "Atlantic Ocean"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 79.24,
+                    "yPct": 12.4
+                },
+                {
+                    "xPct": 91.23,
+                    "yPct": 13.4
+                },
+                {
+                    "xPct": 97.73,
+                    "yPct": 19.54
+                },
+                {
+                    "xPct": 90.23,
+                    "yPct": 19.54
+                },
+                {
+                    "xPct": 84.9,
+                    "yPct": 20.7
+                },
+                {
+                    "xPct": 77.91,
+                    "yPct": 26.02
+                },
+                {
+                    "xPct": 79.91,
+                    "yPct": 29.34
+                },
+                {
+                    "xPct": 89.57,
+                    "yPct": 31.99
+                },
+                {
+                    "xPct": 96.06,
+                    "yPct": 38.47
+                },
+                {
+                    "xPct": 88.9,
+                    "yPct": 40.13
+                },
+                {
+                    "xPct": 84.74,
+                    "yPct": 46.28
+                },
+                {
+                    "xPct": 91.4,
+                    "yPct": 47.44
+                },
+                {
+                    "xPct": 97.73,
+                    "yPct": 47.6
+                },
+                {
+                    "xPct": 96.73,
+                    "yPct": 54.41
+                },
+                {
+                    "xPct": 90.23,
+                    "yPct": 54.91
+                },
+                {
+                    "xPct": 84.57,
+                    "yPct": 54.41
+                },
+                {
+                    "xPct": 78.07,
+                    "yPct": 54.08
+                },
+                {
+                    "xPct": 78.24,
+                    "yPct": 59.06
+                },
+                {
+                    "xPct": 84.74,
+                    "yPct": 60.06
+                },
+                {
+                    "xPct": 91.73,
+                    "yPct": 59.23
+                },
+                {
+                    "xPct": 97.89,
+                    "yPct": 60.72
+                },
+                {
+                    "xPct": 96.89,
+                    "yPct": 67.53
+                },
+                {
+                    "xPct": 91.56,
+                    "yPct": 66.87
+                },
+                {
+                    "xPct": 83.24,
+                    "yPct": 66.04
+                },
+                {
+                    "xPct": 76.41,
+                    "yPct": 66.53
+                },
+                {
+                    "xPct": 88.07,
+                    "yPct": 71.85
+                },
+                {
+                    "xPct": 98.06,
+                    "yPct": 73.67
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "pacific_ocean",
+            "num": 3,
+            "name": {
+                "es": "Océano Pacífico",
+                "en": "Pacific Ocean"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 2.1,
+                    "yPct": 28.38
+                },
+                {
+                    "xPct": 9.12,
+                    "yPct": 29.41
+                },
+                {
+                    "xPct": 19.66,
+                    "yPct": 29.62
+                },
+                {
+                    "xPct": 24,
+                    "yPct": 36.42
+                },
+                {
+                    "xPct": 16.35,
+                    "yPct": 39.71
+                },
+                {
+                    "xPct": 8.29,
+                    "yPct": 40.13
+                },
+                {
+                    "xPct": 2.92,
+                    "yPct": 45.48
+                },
+                {
+                    "xPct": 12.01,
+                    "yPct": 49.6
+                },
+                {
+                    "xPct": 22.14,
+                    "yPct": 53.31
+                },
+                {
+                    "xPct": 12.22,
+                    "yPct": 56.81
+                },
+                {
+                    "xPct": 4.78,
+                    "yPct": 62.79
+                },
+                {
+                    "xPct": 17.59,
+                    "yPct": 62.38
+                },
+                {
+                    "xPct": 26.68,
+                    "yPct": 68.76
+                },
+                {
+                    "xPct": 18,
+                    "yPct": 70.62
+                },
+                {
+                    "xPct": 11.6,
+                    "yPct": 68.97
+                },
+                {
+                    "xPct": 3.75,
+                    "yPct": 69.17
+                },
+                {
+                    "xPct": 3.96,
+                    "yPct": 80.5
+                },
+                {
+                    "xPct": 16.97,
+                    "yPct": 79.06
+                },
+                {
+                    "xPct": 29.99,
+                    "yPct": 80.09
+                },
+                {
+                    "xPct": 38.87,
+                    "yPct": 84.42
+                },
+                {
+                    "xPct": 33.09,
+                    "yPct": 88.13
+                },
+                {
+                    "xPct": 23.79,
+                    "yPct": 89.36
+                },
+                {
+                    "xPct": 13.25,
+                    "yPct": 89.16
+                },
+                {
+                    "xPct": 4.99,
+                    "yPct": 88.33
+                },
+                {
+                    "xPct": 4.58,
+                    "yPct": 94.72
+                },
+                {
+                    "xPct": 21.52,
+                    "yPct": 95.13
+                },
+                {
+                    "xPct": 34.74,
+                    "yPct": 95.34
+                },
+                {
+                    "xPct": 46.93,
+                    "yPct": 95.75
+                },
+                {
+                    "xPct": 57.26,
+                    "yPct": 97.4
+                },
+                {
+                    "xPct": 67.39,
+                    "yPct": 96.57
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "caribbean_sea",
+            "num": 4,
+            "name": {
+                "es": "Mar Caribe",
+                "en": "Caribbean Sea"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 66.45,
+                    "yPct": 84.11
+                },
+                {
+                    "xPct": 69.83,
+                    "yPct": 81.09
+                },
+                {
+                    "xPct": 73.45,
+                    "yPct": 83.88
+                },
+                {
+                    "xPct": 73.22,
+                    "yPct": 88.3
+                },
+                {
+                    "xPct": 78.35,
+                    "yPct": 87.95
+                },
+                {
+                    "xPct": 79.98,
+                    "yPct": 83.88
+                },
+                {
+                    "xPct": 83.13,
+                    "yPct": 82.6
+                },
+                {
+                    "xPct": 87.91,
+                    "yPct": 81.67
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "greenland",
+            "num": 5,
+            "name": {
+                "es": "Groenlandia",
+                "en": "Greenland"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 59.88,
+                    "yPct": 8
+                },
+                {
+                    "xPct": 61.12,
+                    "yPct": 10.18
+                },
+                {
+                    "xPct": 65.23,
+                    "yPct": 9.36
+                },
+                {
+                    "xPct": 66.05,
+                    "yPct": 6.08
+                },
+                {
+                    "xPct": 66.05,
+                    "yPct": 13.05
+                },
+                {
+                    "xPct": 69.06,
+                    "yPct": 10.86
+                },
+                {
+                    "xPct": 69.2,
+                    "yPct": 15.64
+                },
+                {
+                    "xPct": 72.76,
+                    "yPct": 13.05
+                },
+                {
+                    "xPct": 73.03,
+                    "yPct": 16.74
+                },
+                {
+                    "xPct": 76.05,
+                    "yPct": 20.15
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "cuba",
+            "num": 13,
+            "name": {
+                "es": "Cuba",
+                "en": "Cuba"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 69.96,
+                    "yPct": 77.45
+                },
+                {
+                    "xPct": 75.59,
+                    "yPct": 77.77
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "jamaica",
+            "num": 14,
+            "name": {
+                "es": "Jamaica",
+                "en": "Jamaica"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 76.56,
+                "yPct": 81.62
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "la_espanola",
+            "num": 15,
+            "name": {
+                "es": "La Española",
+                "en": "La Española"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 83.4,
+                "yPct": 78.41
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "puerto_rico",
+            "num": 16,
+            "name": {
+                "es": "Puerto Rico",
+                "en": "Puerto Rico"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 88.71,
+                "yPct": 77.29
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "hudson_bay",
+            "num": 23,
+            "name": {
+                "es": "Bahía Hudson",
+                "en": "Hudson Bay"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 56.6,
+                    "yPct": 31.64
+                },
+                {
+                    "xPct": 55.96,
+                    "yPct": 34.44
+                },
+                {
+                    "xPct": 59.26,
+                    "yPct": 36.77
+                },
+                {
+                    "xPct": 62.72,
+                    "yPct": 37.33
+                },
+                {
+                    "xPct": 61.51,
+                    "yPct": 34.77
+                },
+                {
+                    "xPct": 60.95,
+                    "yPct": 32.44
+                },
+                {
+                    "xPct": 58.86,
+                    "yPct": 34.12
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "labrador_peninsula",
+            "num": 25,
+            "name": {
+                "es": "Península de Labrador",
+                "en": "Labrador Peninsula"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 65.94,
+                    "yPct": 33.24
+                },
+                {
+                    "xPct": 67.31,
+                    "yPct": 36.69
+                },
+                {
+                    "xPct": 67.55,
+                    "yPct": 40.14
+                },
+                {
+                    "xPct": 71.09,
+                    "yPct": 42.07
+                },
+                {
+                    "xPct": 75.19,
+                    "yPct": 39.1
+                },
+                {
+                    "xPct": 78.57,
+                    "yPct": 36.45
+                },
+                {
+                    "xPct": 73.26,
+                    "yPct": 33.8
+                },
+                {
+                    "xPct": 70.77,
+                    "yPct": 37.09
+                },
+                {
+                    "xPct": 68.51,
+                    "yPct": 33.48
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "florida_peninsula",
+            "num": 29,
+            "name": {
+                "es": "Península de Florida",
+                "en": "Florida Peninsula"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 69.72,
+                "yPct": 71.19
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "mexican_gulf",
+            "num": 30,
+            "name": {
+                "es": "Golfo de México",
+                "en": "Mexican Gulf"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 56.14,
+                    "yPct": 75.02
+                },
+                {
+                    "xPct": 63.64,
+                    "yPct": 73.45
+                },
+                {
+                    "xPct": 68.24,
+                    "yPct": 75.55
+                },
+                {
+                    "xPct": 63.9,
+                    "yPct": 77.64
+                },
+                {
+                    "xPct": 56.14,
+                    "yPct": 80.27
+                },
+                {
+                    "xPct": 60.22,
+                    "yPct": 75.55
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "yucatan_peninsula",
+            "num": 31,
+            "name": {
+                "es": "Península de Yucatán",
+                "en": "Yucatán Peninsula"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 62.69,
+                "yPct": 82.93
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "californian_gulf",
+            "num": 36,
+            "name": {
+                "es": "Golfo de California",
+                "en": "California Gulf"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 35.73,
+                    "yPct": 69.85
+                },
+                {
+                    "xPct": 38.84,
+                    "yPct": 74.91
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "californian_peninsula",
+            "num": 37,
+            "name": {
+                "es": "Península de California",
+                "en": "California Peninsula"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 34.18,
+                    "yPct": 70.13
+                },
+                {
+                    "xPct": 36.86,
+                    "yPct": 74.91
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "alaskan_gulf",
+            "num": 38,
+            "name": {
+                "es": "Golfo de Alaska",
+                "en": "Alaskan Gulf"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 21.48,
+                    "yPct": 26.79
+                },
+                {
+                    "xPct": 24.73,
+                    "yPct": 30.17
+                },
+                {
+                    "xPct": 22.47,
+                    "yPct": 29.6
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "alaskan_peninsula",
+            "num": 39,
+            "name": {
+                "es": "Península de Alaska",
+                "en": "Alaskan Peninsula"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 16.8,
+                "yPct": 24.47
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "rocky_mountains",
+            "num": 40,
             "name": {
                 "es": "Montañas Rocosas",
                 "en": "Rocky Mountains"
             },
             "type": "relieve",
-            "solution": {
-                "xPct": 30.0,
-                "yPct": 40.0
-            },
-            "tol": 5.0
+            "solution": [
+                {
+                    "xPct": 27.29,
+                    "yPct": 24.25
+                },
+                {
+                    "xPct": 28.69,
+                    "yPct": 29.67
+                },
+                {
+                    "xPct": 30.4,
+                    "yPct": 33.54
+                },
+                {
+                    "xPct": 31.64,
+                    "yPct": 38.96
+                },
+                {
+                    "xPct": 35.99,
+                    "yPct": 44.68
+                },
+                {
+                    "xPct": 32.11,
+                    "yPct": 49.94
+                },
+                {
+                    "xPct": 38.78,
+                    "yPct": 51.18
+                },
+                {
+                    "xPct": 31.17,
+                    "yPct": 53.35
+                },
+                {
+                    "xPct": 41.11,
+                    "yPct": 54.12
+                },
+                {
+                    "xPct": 32.57,
+                    "yPct": 56.75
+                },
+                {
+                    "xPct": 37.23,
+                    "yPct": 57.22
+                },
+                {
+                    "xPct": 43.13,
+                    "yPct": 59.54
+                },
+                {
+                    "xPct": 36.3,
+                    "yPct": 60.01
+                },
+                {
+                    "xPct": 33.81,
+                    "yPct": 64.03
+                },
+                {
+                    "xPct": 42.66,
+                    "yPct": 63.41
+                }
+            ],
+            "tol": 3.0
         },
         {
             "id": "appalachian_mountains",
-            "num": 2,
+            "num": 42,
             "name": {
                 "es": "Montes Apalaches",
                 "en": "Appalachian Mountains"
             },
             "type": "relieve",
-            "solution": {
-                "xPct": 70.0,
-                "yPct": 50.0
+            "solution": [
+                {
+                    "xPct": 66.5,
+                    "yPct": 61.83
+                },
+                {
+                    "xPct": 68.8,
+                    "yPct": 59.23
+                },
+                {
+                    "xPct": 70.57,
+                    "yPct": 55.89
+                },
+                {
+                    "xPct": 72.25,
+                    "yPct": 52.25
+                },
+                {
+                    "xPct": 72.25,
+                    "yPct": 49.75
+                },
+                {
+                    "xPct": 74.34,
+                    "yPct": 47.04
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "cordillera_sierra_madre",
+            "num": 44,
+            "name": {
+                "es": "Cordillera Sierra Madre",
+                "en": "Sierra Madre Range"
             },
-            "tol": 5.0
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 38.38,
+                    "yPct": 67.88
+                },
+                {
+                    "xPct": 41.48,
+                    "yPct": 70.56
+                },
+                {
+                    "xPct": 43.85,
+                    "yPct": 75.61
+                },
+                {
+                    "xPct": 47.16,
+                    "yPct": 79.52
+                },
+                {
+                    "xPct": 50.88,
+                    "yPct": 83.64
+                },
+                {
+                    "xPct": 54.18,
+                    "yPct": 85.6
+                },
+                {
+                    "xPct": 57.7,
+                    "yPct": 86.63
+                },
+                {
+                    "xPct": 63.48,
+                    "yPct": 87.45
+                },
+                {
+                    "xPct": 66.06,
+                    "yPct": 89.51
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "yukon_river",
+            "num": 51,
+            "name": {
+                "es": "Río Yukon",
+                "en": "Yukon River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 20.51,
+                    "yPct": 19.16
+                },
+                {
+                    "xPct": 25.05,
+                    "yPct": 18.33
+                },
+                {
+                    "xPct": 28.36,
+                    "yPct": 20.19
+                },
+                {
+                    "xPct": 30.22,
+                    "yPct": 23.9
+                },
+                {
+                    "xPct": 30.73,
+                    "yPct": 27.61
+                },
+                {
+                    "xPct": 31.56,
+                    "yPct": 32.03
+                },
+                {
+                    "xPct": 32.39,
+                    "yPct": 34.09
+                }
+            ],
+            "tol": 3.0
         },
         {
             "id": "mississippi_river",
-            "num": 3,
+            "num": 54,
             "name": {
                 "es": "Río Misisipi",
                 "en": "Mississippi River"
             },
             "type": "rio",
-            "solution": {
-                "xPct": 55.0,
-                "yPct": 60.0
+            "solution": [
+                {
+                    "xPct": 40.65,
+                    "yPct": 51.61
+                },
+                {
+                    "xPct": 41.06,
+                    "yPct": 49.03
+                },
+                {
+                    "xPct": 45.3,
+                    "yPct": 49.13
+                },
+                {
+                    "xPct": 49.23,
+                    "yPct": 50.27
+                },
+                {
+                    "xPct": 51.08,
+                    "yPct": 54.7
+                },
+                {
+                    "xPct": 53.87,
+                    "yPct": 57.68
+                },
+                {
+                    "xPct": 56.77,
+                    "yPct": 59.74
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "rio_bravo_o_grande",
+            "num": 57,
+            "name": {
+                "es": "Río Bravo o Grande",
+                "en": "River Bravo or Grande"
             },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 44.27,
+                    "yPct": 62.21
+                },
+                {
+                    "xPct": 43.13,
+                    "yPct": 65.72
+                },
+                {
+                    "xPct": 44.16,
+                    "yPct": 69.53
+                },
+                {
+                    "xPct": 47.57,
+                    "yPct": 71.69
+                },
+                {
+                    "xPct": 50.98,
+                    "yPct": 74.27
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "great_lakes",
+            "num": 6468,
+            "name": {
+                "es": "Grandes Lagos",
+                "en": "Great Lakes"
+            },
+            "type": "lagos",
+            "solution": [
+                {
+                    "xPct": 60.38,
+                    "yPct": 48.31
+                },
+                {
+                    "xPct": 61.21,
+                    "yPct": 53.25
+                },
+                {
+                    "xPct": 64.62,
+                    "yPct": 50.99
+                }
+            ],
             "tol": 5.0
         }
     ]
