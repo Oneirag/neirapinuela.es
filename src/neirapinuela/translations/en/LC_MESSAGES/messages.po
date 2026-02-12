@@ -515,10 +515,14 @@ msgid "Europa"
 msgstr "Europe"
 
 #: templates/apps/geografia.html:211
+msgid "África"
+msgstr "Africa"
+
+#: templates/apps/geografia.html:212
 msgid "América del Norte"
 msgstr "North America"
 
-#: templates/apps/geografia.html:212
+#: templates/apps/geografia.html:213
 msgid "América del Sur"
 msgstr "South America"
 

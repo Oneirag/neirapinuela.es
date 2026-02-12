@@ -1,0 +1,682 @@
+{
+    "map": "africa",
+    "set": "gegrafia 1 eso",
+    "items": [
+        {
+            "id": "madagascar",
+            "num": 1,
+            "name": {
+                "es": "Madagascar",
+                "en": "Madagascar"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 88.65,
+                    "yPct": 71.79
+                },
+                {
+                    "xPct": 86.76,
+                    "yPct": 75.46
+                },
+                {
+                    "xPct": 84.87,
+                    "yPct": 78.63
+                },
+                {
+                    "xPct": 83.76,
+                    "yPct": 82.63
+                },
+                {
+                    "xPct": 83.92,
+                    "yPct": 74.79
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "kilimanjaro",
+            "num": 2,
+            "name": {
+                "es": "Kilimanjaro",
+                "en": "Kilimanjaro"
+            },
+            "type": "relieve",
+            "solution": {
+                "xPct": 75.91,
+                "yPct": 54.88
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "rio_nilo",
+            "num": 3,
+            "name": {
+                "es": "Río Nilo",
+                "en": "Nile River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 66.36,
+                    "yPct": 10.51
+                },
+                {
+                    "xPct": 66.56,
+                    "yPct": 13.79
+                },
+                {
+                    "xPct": 68.12,
+                    "yPct": 16.42
+                },
+                {
+                    "xPct": 69.05,
+                    "yPct": 19.82
+                },
+                {
+                    "xPct": 67.49,
+                    "yPct": 22.88
+                },
+                {
+                    "xPct": 67.39,
+                    "yPct": 27.26
+                },
+                {
+                    "xPct": 70.08,
+                    "yPct": 25.07
+                },
+                {
+                    "xPct": 71.32,
+                    "yPct": 28.25
+                },
+                {
+                    "xPct": 69.77,
+                    "yPct": 30.33
+                },
+                {
+                    "xPct": 70.29,
+                    "yPct": 34.82
+                },
+                {
+                    "xPct": 69.05,
+                    "yPct": 38.43
+                },
+                {
+                    "xPct": 68.63,
+                    "yPct": 42.37
+                },
+                {
+                    "xPct": 69.36,
+                    "yPct": 46.31
+                },
+                {
+                    "xPct": 71.73,
+                    "yPct": 48.17
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "rio_congo",
+            "num": 4,
+            "name": {
+                "es": "Río Congo",
+                "en": "Congo River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 45.88,
+                    "yPct": 59.01
+                },
+                {
+                    "xPct": 48.36,
+                    "yPct": 57.37
+                },
+                {
+                    "xPct": 50.22,
+                    "yPct": 54.85
+                },
+                {
+                    "xPct": 52.29,
+                    "yPct": 51.68
+                },
+                {
+                    "xPct": 54.67,
+                    "yPct": 48.83
+                },
+                {
+                    "xPct": 58.7,
+                    "yPct": 48.61
+                },
+                {
+                    "xPct": 61.91,
+                    "yPct": 51.79
+                },
+                {
+                    "xPct": 62.12,
+                    "yPct": 55.4
+                },
+                {
+                    "xPct": 63.36,
+                    "yPct": 58.36
+                },
+                {
+                    "xPct": 63.15,
+                    "yPct": 60.98
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "rio_niger",
+            "num": 5,
+            "name": {
+                "es": "Río Níger",
+                "en": "Niger River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 38.23,
+                    "yPct": 44.23
+                },
+                {
+                    "xPct": 38.85,
+                    "yPct": 40.84
+                },
+                {
+                    "xPct": 36.68,
+                    "yPct": 38.87
+                },
+                {
+                    "xPct": 35.02,
+                    "yPct": 35.58
+                },
+                {
+                    "xPct": 32.75,
+                    "yPct": 32.52
+                },
+                {
+                    "xPct": 30.78,
+                    "yPct": 29.56
+                },
+                {
+                    "xPct": 27.78,
+                    "yPct": 28.58
+                },
+                {
+                    "xPct": 25.92,
+                    "yPct": 30.98
+                },
+                {
+                    "xPct": 22.61,
+                    "yPct": 32.95
+                },
+                {
+                    "xPct": 20.44,
+                    "yPct": 34.82
+                },
+                {
+                    "xPct": 18.17,
+                    "yPct": 36.9
+                },
+                {
+                    "xPct": 17.44,
+                    "yPct": 38.65
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "rio_zambezi",
+            "num": 6,
+            "name": {
+                "es": "Río Zambeze",
+                "en": "Zambezi River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 73.83,
+                    "yPct": 75.66
+                },
+                {
+                    "xPct": 71.68,
+                    "yPct": 73.46
+                },
+                {
+                    "xPct": 69.29,
+                    "yPct": 71.69
+                },
+                {
+                    "xPct": 65.94,
+                    "yPct": 71.52
+                },
+                {
+                    "xPct": 64.75,
+                    "yPct": 73.13
+                },
+                {
+                    "xPct": 61.72,
+                    "yPct": 74.31
+                },
+                {
+                    "xPct": 58.93,
+                    "yPct": 72.28
+                },
+                {
+                    "xPct": 58.45,
+                    "yPct": 69.16
+                },
+                {
+                    "xPct": 59.09,
+                    "yPct": 66.04
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "rio_orange",
+            "num": 7,
+            "name": {
+                "es": "Río Orange",
+                "en": "Orange River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 50.49,
+                    "yPct": 87.97
+                },
+                {
+                    "xPct": 52.4,
+                    "yPct": 88.31
+                },
+                {
+                    "xPct": 54.79,
+                    "yPct": 88.14
+                },
+                {
+                    "xPct": 56.62,
+                    "yPct": 88.56
+                },
+                {
+                    "xPct": 58.45,
+                    "yPct": 89.23
+                },
+                {
+                    "xPct": 60.05,
+                    "yPct": 90.25
+                },
+                {
+                    "xPct": 62.52,
+                    "yPct": 90.42
+                },
+                {
+                    "xPct": 64.35,
+                    "yPct": 90.08
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "rio_limpopo",
+            "num": 8,
+            "name": {
+                "es": "Río Limpopo",
+                "en": "Limpopo River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 70.08,
+                    "yPct": 84.09
+                },
+                {
+                    "xPct": 68.89,
+                    "yPct": 81.9
+                },
+                {
+                    "xPct": 67.46,
+                    "yPct": 80.55
+                },
+                {
+                    "xPct": 64.99,
+                    "yPct": 80.21
+                },
+                {
+                    "xPct": 62.76,
+                    "yPct": 81.64
+                },
+                {
+                    "xPct": 61.72,
+                    "yPct": 84.01
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "rio_senegal",
+            "num": 9,
+            "name": {
+                "es": "Río Senegal",
+                "en": "Senegal River"
+            },
+            "type": "ríos",
+            "solution": [
+                {
+                    "xPct": 11.85,
+                    "yPct": 28.68
+                },
+                {
+                    "xPct": 13.85,
+                    "yPct": 28.68
+                },
+                {
+                    "xPct": 15.52,
+                    "yPct": 30.28
+                },
+                {
+                    "xPct": 16.95,
+                    "yPct": 31.46
+                },
+                {
+                    "xPct": 17.83,
+                    "yPct": 32.64
+                },
+                {
+                    "xPct": 18.31,
+                    "yPct": 34.08
+                },
+                {
+                    "xPct": 16.95,
+                    "yPct": 35.85
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "cabo_blanco",
+            "num": 10,
+            "name": {
+                "es": "Cabo Blanco",
+                "en": "Cape Blanc"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 11.95,
+                "yPct": 22.47
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "cabo_verde",
+            "num": 11,
+            "name": {
+                "es": "Cabo Verde",
+                "en": "Cape Verde"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 10.4,
+                "yPct": 31.19
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "cabo_buena_esperanza",
+            "num": 12,
+            "name": {
+                "es": "Cabo de Buena Esperanza",
+                "en": "Cape of Good Hope"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 53.04,
+                "yPct": 95.41
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "cabo_guardafui",
+            "num": 13,
+            "name": {
+                "es": "Cabo Guardafui",
+                "en": "Cape Guardafui"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 91.89,
+                "yPct": 34.98
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "golfo_guinea",
+            "num": 14,
+            "name": {
+                "es": "Golfo de Guinea",
+                "en": "Gulf of Guinea"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 33.56,
+                    "yPct": 45.14
+                },
+                {
+                    "xPct": 36.27,
+                    "yPct": 46.88
+                },
+                {
+                    "xPct": 40.05,
+                    "yPct": 48.11
+                },
+                {
+                    "xPct": 39.28,
+                    "yPct": 50.78
+                },
+                {
+                    "xPct": 36.27,
+                    "yPct": 48.93
+                },
+                {
+                    "xPct": 33.27,
+                    "yPct": 47.5
+                },
+                {
+                    "xPct": 31.62,
+                    "yPct": 45.45
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "golfo_aden",
+            "num": 15,
+            "name": {
+                "es": "Golfo de Adén",
+                "en": "Gulf of Aden"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 85.01,
+                    "yPct": 35.39
+                },
+                {
+                    "xPct": 87.24,
+                    "yPct": 34.26
+                },
+                {
+                    "xPct": 91.02,
+                    "yPct": 32.83
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "golfo_gabes",
+            "num": 16,
+            "name": {
+                "es": "Golfo de Gabés",
+                "en": "Gulf of Gabes"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 45.75,
+                "yPct": 6.84
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "golfo_sirte",
+            "num": 17,
+            "name": {
+                "es": "Golfo de Sirte",
+                "en": "Gulf of Sidra"
+            },
+            "type": "costas",
+            "solution": {
+                "xPct": 52.64,
+                "yPct": 10.19
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "cordillera_atlas",
+            "num": 18,
+            "name": {
+                "es": "Cordillera del Atlas",
+                "en": "Atlas Mountains"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 23.45,
+                    "yPct": 10.32
+                },
+                {
+                    "xPct": 25.86,
+                    "yPct": 9.4
+                },
+                {
+                    "xPct": 28.76,
+                    "yPct": 7.98
+                },
+                {
+                    "xPct": 31.65,
+                    "yPct": 7.16
+                },
+                {
+                    "xPct": 35.12,
+                    "yPct": 6.04
+                },
+                {
+                    "xPct": 38.88,
+                    "yPct": 4.91
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "montes_drakensberg",
+            "num": 19,
+            "name": {
+                "es": "Montes Drakensberg",
+                "en": "Drakensberg"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 55.17,
+                    "yPct": 94.16
+                },
+                {
+                    "xPct": 58.87,
+                    "yPct": 93.03
+                },
+                {
+                    "xPct": 61.99,
+                    "yPct": 92.1
+                },
+                {
+                    "xPct": 64.13,
+                    "yPct": 90.45
+                },
+                {
+                    "xPct": 66.86,
+                    "yPct": 87.97
+                },
+                {
+                    "xPct": 67.54,
+                    "yPct": 85.5
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "macizo_ahaggar",
+            "num": 20,
+            "name": {
+                "es": "Macizo del Ahaggar",
+                "en": "Ahaggar Mountains"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 36.86,
+                    "yPct": 18.58
+                },
+                {
+                    "xPct": 40.46,
+                    "yPct": 18.06
+                },
+                {
+                    "xPct": 39.29,
+                    "yPct": 20.02
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "macizo_tibesti",
+            "num": 21,
+            "name": {
+                "es": "Macizo de Tibesti",
+                "en": "Tibesti Mountains"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 50.59,
+                    "yPct": 23.43
+                },
+                {
+                    "xPct": 54.19,
+                    "yPct": 22.29
+                },
+                {
+                    "xPct": 52.83,
+                    "yPct": 24.97
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "monte_kenya",
+            "num": 22,
+            "name": {
+                "es": "Monte Kenia",
+                "en": "Mount Kenya"
+            },
+            "type": "relieve",
+            "solution": {
+                "xPct": 75.33,
+                "yPct": 50.96
+            },
+            "tol": 3.0
+        }
+    ]
+}
