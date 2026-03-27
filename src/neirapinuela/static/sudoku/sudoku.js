@@ -767,14 +767,42 @@ class SudokuApp {
                         for (let [dr, dc] of dirs) {
                             let nr = cr + dr, nc = cc + dc;
                             if (nr >=0 && nr < 9 && nc >= 0 && nc < 9 && !visited[nr][nc]) {
-                                visited[nr][nc] = true;
-                                cells.push([nr, nc]);
-                                cr = nr; cc = nc;
-                                added = true;
-                                break;
+                                let val = this.solution[nr][nc];
+                                let hasDuplicate = cells.some(([cx, cy]) => this.solution[cx][cy] === val);
+                                
+                                if (!hasDuplicate) {
+                                    visited[nr][nc] = true;
+                                    cells.push([nr, nc]);
+                                    cr = nr; cc = nc;
+                                    added = true;
+                                    break;
+                                }
                             }
                         }
-                        if (!added) break;
+                        if (!added) {
+                            // Try branching from another cell previously added to the cage
+                            for (let [prevR, prevC] of cells) {
+                                let subAdded = false;
+                                let subDirs = [[0,1], [1,0], [0,-1], [-1,0]].sort(() => Math.random() - 0.5);
+                                for (let [sdr, sdc] of subDirs) {
+                                    let snr = prevR + sdr, snc = prevC + sdc;
+                                    if (snr >=0 && snr < 9 && snc >= 0 && snc < 9 && !visited[snr][snc]) {
+                                        let sVal = this.solution[snr][snc];
+                                        let sHasDuplicate = cells.some(([cx, cy]) => this.solution[cx][cy] === sVal);
+                                        if (!sHasDuplicate) {
+                                            visited[snr][snc] = true;
+                                            cells.push([snr, snc]);
+                                            cr = snr; cc = snc;
+                                            subAdded = true;
+                                            added = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (subAdded) break;
+                            }
+                            if (!added) break; // still unable to expand
+                        }
                     }
                     
                     let sum = cells.reduce((acc, [cr, cc]) => acc + this.solution[cr][cc], 0);
