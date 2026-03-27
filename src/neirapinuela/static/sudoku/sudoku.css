@@ -109,8 +109,8 @@
 /* Candidates */
 .sudoku-candidates {
     position: absolute;
-    top: 2px;
-    left: 2px;
+    top: 25%;
+    left: 15%;
     right: 2px;
     bottom: 2px;
     display: grid;
@@ -128,14 +128,16 @@
     line-height: 1;
 }
 
-/* Prevent overlap with killer hint */
-.has-killer-hint .sudoku-candidates {
-    top: 25%;
-    left: 15%;
-}
-
 .samurai-grid .candidate-num {
     font-size: calc(var(--samurai-cell-size) * 0.25);
+}
+
+#status-bar {
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
 }
 
 /* Killer Sudoku Cages */

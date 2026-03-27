@@ -170,13 +170,10 @@ class SudokuApp {
             }
         }
         
-        if (this.selectedCells.length === 0) {
-            if (this.mode === 'killer') {
-                statusEl.classList.remove('d-none');
-                statusEl.innerText = 'Selecciona una celda o activa "Sumar Áreas"';
-            } else {
-                statusEl.classList.add('d-none');
-            }
+        if (this.selectedCells.length <= 1) {
+            statusEl.classList.add('d-none');
+            // Clear message
+            statusEl.innerText = '';
             return;
         }
         
@@ -191,7 +188,7 @@ class SudokuApp {
             }
         });
         
-        if (this.selectedCells.length > 1 || this.mode === 'killer') {
+        if (this.selectedCells.length > 1) {
             statusEl.classList.remove('d-none');
             statusEl.innerText = `Suma marcada: ${sum} (en ${this.selectedCells.length} celdas)${complete ? '' : ' - Faltan casillas por rellenar'}`;
         } else {
@@ -724,18 +721,34 @@ class SudokuApp {
         this.grid = this.solution.map(r => [...r]);
         this.givenMask = Array(9).fill().map(() => Array(9).fill(true));
         
-        // Remove numbers to make it difficult (e.g. keep 25-30 given)
-        let removals = 50 + Math.floor(Math.random() * 8); 
-        while (removals > 0) {
-            let r = Math.floor(Math.random() * 9);
-            let c = Math.floor(Math.random() * 9);
+        // Remove numbers ensuring a unique solution and set target clues to ~38 for an easy-medium difficulty
+        let cells = [];
+        for (let r = 0; r < 9; r++) {
+            for (let c = 0; c < 9; c++) {
+                cells.push([r, c]);
+            }
+        }
+        cells.sort(() => Math.random() - 0.5);
+        
+        let currentClues = 81;
+        let targetClues = 38; 
+        
+        for (let [r, c] of cells) {
+            if (currentClues <= targetClues) break;
+            
             if (this.grid[r][c] !== 0) {
+                let backup = this.grid[r][c];
                 this.grid[r][c] = 0;
-                this.givenMask[r][c] = false;
-                // typically symmetric
-                this.grid[8-r][8-c] = 0;
-                this.givenMask[8-r][8-c] = false;
-                removals -= 2;
+                
+                let copy = this.grid.map(row => [...row]);
+                let solutions = this.countSolutions(copy);
+                
+                if (solutions === 1) {
+                    this.givenMask[r][c] = false;
+                    currentClues--;
+                } else {
+                    this.grid[r][c] = backup;
+                }
             }
         }
     }
@@ -756,7 +769,7 @@ class SudokuApp {
         for (let r = 0; r < 9; r++) {
             for (let c = 0; c < 9; c++) {
                 if (!visited[r][c]) {
-                    let size = 2 + Math.floor(Math.random() * 3); // 2 to 4 cells
+                    let size = 1 + Math.floor(Math.random() * 3); // 1 to 3 cells = easier logic
                     let cells = [[r, c]];
                     visited[r][c] = true;
                     
@@ -842,8 +855,8 @@ class SudokuApp {
         for (let r = 0; r < 21; r++) {
             for (let c = 0; c < 21; c++) {
                 if (this.isValidSamuraiCell(r, c)) {
-                    // Random drop 60% of numbers
-                    if (Math.random() < 0.4) {
+                    // Random drop 50% of numbers for easier Samurai that retains enough logic without requiring exhaustive backtracking
+                    if (Math.random() < 0.5) {
                         this.givenMask[r][c] = true;
                     } else {
                         this.grid[r][c] = 0;
@@ -854,6 +867,33 @@ class SudokuApp {
     }
     
     // --- Solvers ---
+    
+    countSolutions(grid, limit = 2) {
+        let empty = null;
+        for (let r = 0; r < 9; r++) {
+            for (let c = 0; c < 9; c++) {
+                if (grid[r][c] === 0) {
+                    empty = [r, c];
+                    break;
+                }
+            }
+            if (empty) break;
+        }
+        
+        if (!empty) return 1;
+        
+        let solutions = 0;
+        let [r, c] = empty;
+        for (let num = 1; num <= 9; num++) {
+            if (this.isValidMove(grid, r, c, num, 9)) {
+                grid[r][c] = num;
+                solutions += this.countSolutions(grid, limit);
+                grid[r][c] = 0;
+                if (solutions >= limit) return solutions;
+            }
+        }
+        return solutions;
+    }
     
     solveSudoku(grid, size, r=0, c=0) {
         if (r === size) return true;
