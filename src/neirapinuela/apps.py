@@ -74,6 +74,15 @@ def grafana():
     return redirect('https://grafana.neirapinuela.es')
 
 
+@bp.route('/sudoku')
+#@login_required
+def sudoku():
+    app_config = current_app.config['APPLICATIONS']['sudoku']
+    #if current_user.username not in app_config['members']:
+    #    abort(403)
+    return render_template('apps/sudoku.html')
+
+
 @bp.route('/')
 def apps_index():
     apps = current_app.config['APPLICATIONS']

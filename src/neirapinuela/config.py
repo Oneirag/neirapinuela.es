@@ -90,6 +90,13 @@ class Config:
             'requires_login': False,
             'members': ['pablo', 'carlitos'],
             'description': _l('Practica las tablas de multiplicar')
+        },
+        'sudoku': {
+            'name': _l('Sudoku Avanzado'),
+            'url': '/apps/sudoku',
+            'requires_login': True,
+            'members': ['oscar'],
+            'description': _l('Juega al Sudoku Difícil, Samurai o Killer')
         }
     }
 
