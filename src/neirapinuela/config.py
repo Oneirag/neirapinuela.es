@@ -97,6 +97,13 @@ class Config:
             'requires_login': True,
             'members': ['oscar'],
             'description': _l('Juega al Sudoku Difícil, Samurai o Killer')
+        },
+        'wordle': {
+            'name': _l('Wordle ES'),
+            'url': '/apps/wordle',
+            'requires_login': False,
+            'members': ['oscar', 'eva', 'pablo', 'carlitos'],
+            'description': _l('Adivina la palabra oculta en 6 intentos')
         }
     }
 

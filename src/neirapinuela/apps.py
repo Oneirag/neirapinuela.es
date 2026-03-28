@@ -83,6 +83,11 @@ def sudoku():
     return render_template('apps/sudoku.html')
 
 
+@bp.route('/wordle')
+def wordle():
+    return render_template('apps/wordle.html')
+
+
 @bp.route('/')
 def apps_index():
     apps = current_app.config['APPLICATIONS']
