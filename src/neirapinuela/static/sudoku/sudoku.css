@@ -109,27 +109,29 @@
 /* Candidates */
 .sudoku-candidates {
     position: absolute;
-    top: 25%;
-    left: 15%;
-    right: 2px;
-    bottom: 2px;
+    top: 29%;
+    left: 14%;
+    right: 14%;
+    height: calc(var(--sudoku-cell-size) * 0.62);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     pointer-events: none;
+    overflow: hidden;
 }
 
 .candidate-num {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: calc(var(--sudoku-cell-size) * 0.22);
+    font-size: calc(var(--sudoku-cell-size) * 0.20);
     color: var(--sudoku-text-candidate);
     line-height: 1;
+    padding: 0;
 }
 
 .samurai-grid .candidate-num {
-    font-size: calc(var(--samurai-cell-size) * 0.25);
+    font-size: calc(var(--samurai-cell-size) * 0.22);
 }
 
 #status-bar {

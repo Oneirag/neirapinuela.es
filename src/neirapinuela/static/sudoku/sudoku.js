@@ -12,7 +12,6 @@ class SudokuApp {
         this.checkingStatus = false;
         
         this.selectedCells = [];
-        this.multiSelectMode = false;
         
         this.areaSumMode = false;
         this.selectedCages = [];
@@ -43,6 +42,9 @@ class SudokuApp {
             
             let num = parseInt(e.key);
             if (num >= 1 && num <= 9) {
+                const btn = document.querySelector(`.numpad-btn[data-val="${num}"]`);
+                if (btn && btn.disabled && !this.notesMode) return; // Prevent input if number is exhausted
+                
                 if (this.notesMode) {
                     this.toggleCandidateNote(num);
                 } else {
@@ -61,14 +63,6 @@ class SudokuApp {
                 // Skip empty spaces in Samurai
                 if (this.mode === 'samurai' && !this.isValidSamuraiCell(nr, nc)) {
                     return; // simple block, ideally we'd jump over it
-                }
-                
-                // When moving via keyboard, auto-disable multi-select to avoid accidental huge selections
-                this.multiSelectMode = false;
-                const btnM = document.getElementById('btn-multi-select');
-                if (btnM) {
-                    btnM.classList.remove('btn-primary', 'text-white');
-                    btnM.classList.add('btn-outline-secondary');
                 }
                 
                 this.selectCell(nr, nc);
@@ -94,24 +88,7 @@ class SudokuApp {
         btn.blur(); // Remove browser focus so it doesn't look artificially checked
     }
     
-    toggleMultiSelect() {
-        this.multiSelectMode = !this.multiSelectMode;
-        const btn = document.getElementById('btn-multi-select');
-        if (this.multiSelectMode) {
-            btn.classList.add('btn-primary', 'text-white');
-            btn.classList.remove('btn-outline-secondary');
-        } else {
-            btn.classList.remove('btn-primary', 'text-white');
-            btn.classList.add('btn-outline-secondary');
-            // Retain only the first selected cell if toggled off
-            if (this.selectedCells.length > 1) {
-                this.selectedCells = [this.selectedCells[this.selectedCells.length - 1]];
-            }
-        }
-        btn.blur();
-        this.updateBoardUI();
-        this.updateSumStatus();
-    }
+
     
     toggleAreaSumMode() {
         if (this.mode !== 'killer') return;
@@ -123,7 +100,6 @@ class SudokuApp {
             btn.classList.remove('btn-outline-danger');
             
             // Disable other modes
-            if (this.multiSelectMode) this.toggleMultiSelect();
             if (this.notesMode) this.toggleNotesMode();
             
             this.selectedCells = [];
@@ -158,42 +134,10 @@ class SudokuApp {
             return;
         }
         
-        // Reset status to blue for normal mode
-        statusEl.classList.add('alert-info');
+        // Hide status bar in all non-area-sum modes
+        statusEl.classList.add('d-none', 'alert-info');
         statusEl.classList.remove('alert-danger');
-        
-        if (this.multiSelectMode) {
-            statusEl.classList.remove('d-none');
-            if (this.selectedCells.length === 0) {
-                statusEl.innerText = 'Selección múltiple activada: haz clic para marcar múltiples celdas';
-                return;
-            }
-        }
-        
-        if (this.selectedCells.length <= 1) {
-            statusEl.classList.add('d-none');
-            // Clear message
-            statusEl.innerText = '';
-            return;
-        }
-        
-        let sum = 0;
-        let complete = true;
-        this.selectedCells.forEach(([r, c]) => {
-            const val = this.grid[r][c];
-            if (val !== 0) {
-                sum += val;
-            } else {
-                complete = false;
-            }
-        });
-        
-        if (this.selectedCells.length > 1) {
-            statusEl.classList.remove('d-none');
-            statusEl.innerText = `Suma marcada: ${sum} (en ${this.selectedCells.length} celdas)${complete ? '' : ' - Faltan casillas por rellenar'}`;
-        } else {
-            statusEl.classList.add('d-none');
-        }
+        statusEl.innerText = '';
     }
     
     getKillerCombinations(targetSum, length, current = [], start = 1) {
@@ -561,6 +505,30 @@ class SudokuApp {
                 }
             }
         }
+
+        // Disable numpad buttons when a number is fully used
+        let counts = Array(10).fill(0);
+        let maxCount = this.mode === 'samurai' ? 45 : 9;
+        for (let r = 0; r < this.size; r++) {
+            for (let c = 0; c < this.size; c++) {
+                if (this.mode === 'samurai' && !this.isValidSamuraiCell(r, c)) continue;
+                if (this.grid[r][c] !== 0) {
+                    counts[this.grid[r][c]]++;
+                }
+            }
+        }
+        for (let num = 1; num <= 9; num++) {
+            const btn = document.querySelector(`.numpad-btn[data-val="${num}"]`);
+            if (btn) {
+                if (counts[num] >= maxCount) {
+                    btn.disabled = true;
+                    btn.classList.add('opacity-50');
+                } else {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-50');
+                }
+            }
+        }
     }
     
     selectCell(r, c) {
@@ -583,15 +551,7 @@ class SudokuApp {
         
         const existingIdx = this.selectedCells.findIndex(cell => cell[0] === r && cell[1] === c);
         
-        if (this.multiSelectMode) {
-            if (existingIdx >= 0) {
-                this.selectedCells.splice(existingIdx, 1);
-            } else {
-                this.selectedCells.push([r, c]);
-            }
-        } else {
-            this.selectedCells = [[r, c]];
-        }
+        this.selectedCells = [[r, c]];
         
         const val = this.grid[r][c];
         if (val !== 0) {
