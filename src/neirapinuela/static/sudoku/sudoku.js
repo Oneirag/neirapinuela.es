@@ -28,8 +28,8 @@ class SudokuApp {
         
         this.initEvents();
         
-        // We will start generating on next tick to allow UI to render spinner
-        setTimeout(() => this.startNewGame(), 100);
+        // Try to restore a saved game, or generate a new one
+        setTimeout(() => this.tryLoadOrStartGame(), 100);
     }
     
     initEvents() {
@@ -72,7 +72,7 @@ class SudokuApp {
     
     changeMode() {
         this.mode = this.modeSelect.value;
-        this.startNewGame();
+        this.tryLoadOrStartGame();
     }
     
     toggleNotesMode() {
@@ -247,6 +247,7 @@ class SudokuApp {
             }
         });
         this.updateBoardUI();
+        this.saveState();
     }
     
     autoFillCandidates() {
@@ -265,12 +266,8 @@ class SudokuApp {
         this.updateBoardUI();
     }
     
-    startNewGame() {
-        this.overlayEl.classList.remove('d-none');
-        this.statusEl.classList.add('d-none');
-        this.selectedCells = [];
-        this.highlightedNumber = null;
-        
+    // ── Mode UI helpers ───────────────────────────────────────────────────────
+    setupModeUI() {
         if (this.checkingStatus) {
             this.checkingStatus = false;
             const btnCheck = document.getElementById('btn-check');
@@ -279,11 +276,8 @@ class SudokuApp {
                 btnCheck.classList.remove('btn-success', 'text-white');
             }
         }
-        
-        if (this.areaSumMode) {
-            this.toggleAreaSumMode();
-        }
-        
+        if (this.areaSumMode) this.toggleAreaSumMode();
+
         if (this.mode === 'killer') {
             this.btnCandidates.disabled = true;
             this.btnCandidates.classList.add('disabled', 'opacity-50');
@@ -295,6 +289,70 @@ class SudokuApp {
             document.getElementById('btn-combinations').style.display = 'none';
             document.getElementById('btn-area-sum').style.display = 'none';
         }
+    }
+
+    // ── Persistence ───────────────────────────────────────────────────────────
+    saveState() {
+        try {
+            const notesArr = this.notesGrid.map(row => row.map(cell => [...cell]));
+            const state = {
+                mode: this.mode,
+                size: this.size,
+                grid: this.grid,
+                solution: this.solution,
+                givenMask: this.givenMask,
+                notesGrid: notesArr,
+                cages: this.cages || [],
+            };
+            localStorage.setItem(`sudoku_state_${this.mode}`, JSON.stringify(state));
+        } catch (e) { console.warn('saveState failed', e); }
+    }
+
+    loadState() {
+        try {
+            const raw = localStorage.getItem(`sudoku_state_${this.mode}`);
+            if (!raw) return false;
+            const state = JSON.parse(raw);
+            if (!state || state.mode !== this.mode) return false;
+
+            this.size     = state.size;
+            this.grid     = state.grid;
+            this.solution = state.solution;
+            this.givenMask = state.givenMask;
+            this.notesGrid = state.notesGrid.map(row => row.map(cell => new Set(cell)));
+            this.cages    = state.cages || [];
+            return true;
+        } catch (e) { return false; }
+    }
+
+    clearSavedState() {
+        try { localStorage.removeItem(`sudoku_state_${this.mode}`); } catch (e) { }
+    }
+
+    tryLoadOrStartGame() {
+        this.overlayEl.classList.remove('d-none');
+        this.statusEl.classList.add('d-none');
+        this.selectedCells = [];
+        this.highlightedNumber = null;
+        this.setupModeUI();
+
+        if (this.loadState()) {
+            this.renderGrid();
+            this.overlayEl.classList.add('d-none');
+            this.showStatus('Partida restaurada ✓', 'success');
+            setTimeout(() => this.statusEl.classList.add('d-none'), 2000);
+        } else {
+            this.startNewGame();
+        }
+    }
+
+    startNewGame() {
+        this.clearSavedState();
+        this.overlayEl.classList.remove('d-none');
+        this.statusEl.classList.add('d-none');
+        this.selectedCells = [];
+        this.highlightedNumber = null;
+        this.setupModeUI();
         
         setTimeout(() => {
             try {
@@ -321,7 +379,7 @@ class SudokuApp {
                 this.showStatus('Error generando el tablero. Intenta de nuevo.', 'danger');
                 this.overlayEl.classList.add('d-none');
             }
-        }, 50); // Small delay to let UI show overlay
+        }, 50);
     }
     
     showStatus(msg, type='info') {
@@ -597,6 +655,7 @@ class SudokuApp {
         
         this.updateBoardUI();
         this.updateSumStatus();
+        this.saveState();
         if (shouldCheckWin) this.checkWinCondition();
     }
     
