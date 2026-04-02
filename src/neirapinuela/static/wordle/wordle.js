@@ -191,11 +191,35 @@ class WordleApp {
 
     typeLetter(letter) {
         if (this.currentCol >= this.WORD_LENGTH) return;
-        this.guesses[this.currentRow][this.currentCol] = letter;
-        const tile = this.tiles[this.currentRow][this.currentCol];
+        
+        // Find empty position or position with different letter
+        let targetCol = -1;
+        
+        // First, find empty slot
+        for (let c = 0; c < this.WORD_LENGTH; c++) {
+            if (this.guesses[this.currentRow][c] === '') {
+                targetCol = c;
+                break;
+            }
+        }
+        
+        // If no empty slot, find slot with different letter (for replacement)
+        if (targetCol === -1) {
+            for (let c = 0; c < this.WORD_LENGTH; c++) {
+                if (this.guesses[this.currentRow][c] !== letter) {
+                    targetCol = c;
+                    break;
+                }
+            }
+        }
+        
+        if (targetCol === -1) return;
+        
+        this.guesses[this.currentRow][targetCol] = letter;
+        const tile = this.tiles[this.currentRow][targetCol];
         tile.textContent = letter;
         tile.dataset.letter = letter;
-        this.currentCol++;
+        this.currentCol = targetCol + 1;
     }
 
     deleteLetter() {
@@ -216,9 +240,8 @@ class WordleApp {
 
         const guess = this.guesses[this.currentRow].join('');
 
-        // Validate — accept if it's a known word OR if we relax validation
-        // We accept any 5-letter combination for better UX
-        const isValid = VALID_WORDS.has(guess) || ANSWERS.includes(guess) || true; // relaxed
+        // Validate — must be a known word
+        const isValid = VALID_WORDS.has(guess) || ANSWERS.includes(guess);
         if (!isValid) {
             this.shakeRow(this.currentRow);
             this.showToast('Palabra no encontrada');

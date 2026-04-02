@@ -60,6 +60,7 @@ const ANSWER_WORDS = [
     'trigo', 'trotar', 'tumor', 'tunel', 'turba', 'ultra', 'usada', 'vagón',
     'vapor', 'vasos', 'velar', 'veloz', 'veraz', 'vocal', 'volco', 'vulto',
     'yacer', 'yegua', 'yerno', 'yodad', 'zahon', 'zambo', 'zanja', 'zarco',
+    'balon', 'cesio', 'plata', 'foton', 'boton', 'moneda'
 ];
 
 const VALID_WORDS_EXTRA = [
@@ -108,4 +109,29 @@ const VALID_WORDS_EXTRA = [
     'tocar', 'toldo', 'tomar', 'toque', 'torpe', 'tumor', 'tunel', 'turba',
     'usada', 'vasos', 'velar', 'veloz', 'veraz', 'yacer', 'yegua', 'yerno',
     'zanja', 'zarco',
+    // Más palabras comunes
+    'abaco', 'abaja', 'abate', 'abajo', 'abdom', 'abeja', 'abuso', 'acaso',
+    'aceite', 'acero', 'acido', 'acoge', 'acorta', 'actor', 'adios', 'afano',
+    'afina', 'aforo', 'agita', 'agita', 'agote', 'aguante', 'agua', 'agudo',
+    'aires', 'ajeno', 'ajo', 'alado', 'alamo', 'albor', 'alcaz', 'alerta',
+    'algo', 'algui', 'altura', 'alzar', 'amar', 'amara', 'amarga', 'amargo',
+    'amasar', 'amateur', 'amenaz', 'amigo', 'amora', 'amparo', 'amplia',
+    'ancho', 'andar', 'ancora', 'andro', 'aneja', 'aniño', 'anillo',
+    'animar', 'anoche', 'anota', 'antes', 'anular', 'anunciar', 'apaga',
+    'aparte', 'apelo', 'apena', 'aperar', 'apio', 'aplast', 'apoyo', 'aquejar',
+    'arbol', 'arcos', 'ardid', 'ardo', 'arepa', 'areta', 'argo', 'arida',
+    'arieles', 'arma', 'aroma', 'arroba', 'arruinar', 'asado', 'asear',
+    'asfalto', 'asilo', 'asomo', 'aspa', 'aspirar', 'asta', 'astre', 'asunto',
+    'atajo', 'ataque', 'atasco', 'atentado', 'aterriz', 'atizon', 'atomo',
+    'atras', 'atrev', 'atributo', 'avara', 'avaro', 'avell', 'aventura', 'avión',
+    'aviso', 'avivar', 'ayerno', 'ayuda', 'azado', 'azafata', 'azar', 'azote',
+    'azucar', 'baba', 'abaco', 'abajo', 'abandon', 'abapor', 'abasco', 'abasto',
+    'baba', 'babi', 'badal', 'bacon', 'bajar', 'bajar', 'baleo', 'ballena',
+    'balon', 'balsa', 'bambito', 'banal', 'banco', 'banda', 'bandero', 'banca',
+    'bando', 'banana', 'banco', 'bando', 'bano', 'bancal', 'bandola', 'bandurria',
+    'banqu', 'banquete', 'banyo', 'barba', 'barca', 'barco', 'barda', 'barla',
+    'barno', 'barro', 'barroco', 'bartola', 'basco', 'basico', 'basta', 'batir',
+    'batuc', 'baton', 'batral', 'batuta', 'bazar', 'beber', 'beca', 'becerro',
+    'bedel', 'befo', 'beige', 'beldad', 'bello', 'bendec', 'benevo', 'benigno',
+    'beodo', 'beodo', 'beodo', 'beodo', 'beodo', 'beodo',
 ];
