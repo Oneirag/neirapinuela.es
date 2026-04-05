@@ -78,7 +78,7 @@ def grafana():
 
 
 @bp.route("/sudoku")
-# @login_required
+@login_required
 def sudoku():
     app_config = current_app.config["APPLICATIONS"]["sudoku"]
     # if current_user.username not in app_config['members']:
@@ -87,11 +87,13 @@ def sudoku():
 
 
 @bp.route("/wordle")
+@login_required
 def wordle():
     return render_template("apps/wordle.html")
 
 
 @bp.route("/sopas")
+@login_required
 def sopas():
     from .config import SOPAS_CATEGORIES, SOPAS_DEFAULTS
 
@@ -108,19 +110,15 @@ def apps_index():
     available_apps = []
 
     for app_id, app_config in apps.items():
-        if not app_config["requires_login"] or (
-            current_user.is_authenticated
-            and current_user.username in app_config["members"]
-        ):
-            available_apps.append(
-                {
-                    "id": app_id,
-                    "name": app_config["name"],
-                    "url": app_config["url"],
-                    "description": app_config["description"],
-                    "members": app_config["members"],
-                    "requires_login": app_config["requires_login"],
-                }
-            )
+        available_apps.append(
+            {
+                "id": app_id,
+                "name": app_config["name"],
+                "url": app_config["url"],
+                "description": app_config["description"],
+                "members": app_config["members"],
+                "requires_login": app_config["requires_login"],
+            }
+        )
 
     return render_template("apps/index.html", apps=available_apps)

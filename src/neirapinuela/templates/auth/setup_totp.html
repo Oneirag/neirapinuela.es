@@ -26,7 +26,7 @@
                         
                         <div class="mb-3">
                             {{ form.totp_token.label(class="form-label") }}
-                            {{ form.totp_token(class="form-control text-center", placeholder="123456", style="font-size: 1.5rem; letter-spacing: 0.5rem;") }}
+                            {{ form.totp_token(class="form-control text-center", placeholder="123456", style="font-size: 1.5rem; letter-spacing: 0.5rem;", autocomplete="one-time-code") }}
                             {% if form.totp_token.errors %}
                                 <div class="text-danger">
                                     {% for error in form.totp_token.errors %}

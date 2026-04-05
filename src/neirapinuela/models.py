@@ -5,12 +5,11 @@ import os
 
 
 class User(UserMixin):
-    def __init__(self, id, username, password_hash, totp_secret=None, is_active=True):
+    def __init__(self, id, username, password_hash, totp_secret=None):
         self.id = id
         self.username = username
         self.password_hash = password_hash
         self.totp_secret = totp_secret
-        self.is_active = is_active
     
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)

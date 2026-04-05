@@ -85,14 +85,14 @@ class Config:
         "wordle": {
             "name": _l("Wordle ES"),
             "url": "/apps/wordle",
-            "requires_login": False,
+            "requires_login": True,
             "members": ["oscar", "eva", "pablo", "carlitos"],
             "description": _l("Adivina la palabra oculta en 6 intentos"),
         },
         "sopas": {
             "name": _l("Sopas de Letras"),
             "url": "/apps/sopas",
-            "requires_login": False,
+            "requires_login": True,
             "members": ["oscar", "eva", "pablo", "carlitos"],
             "description": _l("Encuentra las palabras ocultas en la cuadrícula"),
         },
