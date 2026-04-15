@@ -211,6 +211,7 @@
               <option value="africa">{{_('África')}}</option>
               <option value="north_america">{{_('América del Norte')}}</option>
               <option value="south_america">{{_('América del Sur')}}</option>
+              <option value="asia">{{_('Asia')}}</option>
               <!--<option value="world">Mundo</option> -->
             </select>
 
@@ -273,6 +274,7 @@
           africa: "{{ url_for('static', filename='maps/africa.jpg') }}",
           north_america: "{{ url_for('static', filename='maps/north_america.jpg') }}",
           south_america: "{{ url_for('static', filename='maps/south_america.jpg') }}",
+          asia: "{{ url_for('static', filename='maps/asia.jpg') }}",
           world: "{{ url_for('static', filename='maps/world.svg') }}"
         },
         dataByMapAndSet: {
@@ -290,6 +292,9 @@
           },
           south_america: {
             puntos: "{{ url_for('static', filename='data/south_america_puntos.json') }}"
+          },
+          asia: {
+            puntos: "{{ url_for('static', filename='data/asia_puntos.json') }}"
           },
           world: {
             puntos: "{{ url_for('static', filename='data/world_puntos.json') }}"

@@ -544,6 +544,10 @@ msgstr "América del Norte"
 msgid "América del Sur"
 msgstr "América del Sur"
 
+#: templates/apps/geografia.html:214
+msgid "Asia"
+msgstr "Asia"
+
 #: templates/apps/geografia.html:216
 msgid "Conjunto"
 msgstr ""

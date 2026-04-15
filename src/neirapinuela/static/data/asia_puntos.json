@@ -1,0 +1,2429 @@
+{
+    "map": "asia",
+    "set": "geografia 1 eso",
+    "items": [
+        {
+            "id": "arctic_ocean",
+            "num": 1,
+            "name": {
+                "es": "Océano Glacial Ártico",
+                "en": "Arctic Ocean"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 25.67,
+                    "yPct": 0.93
+                },
+                {
+                    "xPct": 29.6,
+                    "yPct": 3.49
+                },
+                {
+                    "xPct": 33.42,
+                    "yPct": 1.39
+                },
+                {
+                    "xPct": 35.18,
+                    "yPct": 6.04
+                },
+                {
+                    "xPct": 36.73,
+                    "yPct": 10.92
+                },
+                {
+                    "xPct": 39.82,
+                    "yPct": 6.86
+                },
+                {
+                    "xPct": 42.51,
+                    "yPct": 1.98
+                },
+                {
+                    "xPct": 44.89,
+                    "yPct": 10.57
+                },
+                {
+                    "xPct": 45.92,
+                    "yPct": 5.69
+                },
+                {
+                    "xPct": 47.26,
+                    "yPct": 1.51
+                },
+                {
+                    "xPct": 53.25,
+                    "yPct": 3.14
+                },
+                {
+                    "xPct": 53.67,
+                    "yPct": 8.02
+                },
+                {
+                    "xPct": 57.28,
+                    "yPct": 11.97
+                },
+                {
+                    "xPct": 60.18,
+                    "yPct": 6.74
+                },
+                {
+                    "xPct": 60.69,
+                    "yPct": 2.44
+                },
+                {
+                    "xPct": 64.62,
+                    "yPct": 7.2
+                },
+                {
+                    "xPct": 66.99,
+                    "yPct": 1.74
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "pacific_ocean",
+            "num": 2,
+            "name": {
+                "es": "Pacífico",
+                "en": "Pacific Ocean"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 78.15,
+                    "yPct": 2.9
+                },
+                {
+                    "xPct": 84.14,
+                    "yPct": 4.18
+                },
+                {
+                    "xPct": 89.41,
+                    "yPct": 3.02
+                },
+                {
+                    "xPct": 95.92,
+                    "yPct": 3.6
+                },
+                {
+                    "xPct": 79.39,
+                    "yPct": 7.79
+                },
+                {
+                    "xPct": 83.21,
+                    "yPct": 7.9
+                },
+                {
+                    "xPct": 89.2,
+                    "yPct": 8.71
+                },
+                {
+                    "xPct": 95.09,
+                    "yPct": 8.83
+                },
+                {
+                    "xPct": 96.33,
+                    "yPct": 14.18
+                },
+                {
+                    "xPct": 93.65,
+                    "yPct": 13.83
+                },
+                {
+                    "xPct": 89.82,
+                    "yPct": 14.06
+                },
+                {
+                    "xPct": 85.28,
+                    "yPct": 14.06
+                },
+                {
+                    "xPct": 80.73,
+                    "yPct": 14.29
+                },
+                {
+                    "xPct": 81.56,
+                    "yPct": 18.47
+                },
+                {
+                    "xPct": 86.31,
+                    "yPct": 19.64
+                },
+                {
+                    "xPct": 92.61,
+                    "yPct": 20.92
+                },
+                {
+                    "xPct": 96.54,
+                    "yPct": 21.38
+                },
+                {
+                    "xPct": 97.26,
+                    "yPct": 27.54
+                },
+                {
+                    "xPct": 93.13,
+                    "yPct": 27.77
+                },
+                {
+                    "xPct": 88.58,
+                    "yPct": 28.24
+                },
+                {
+                    "xPct": 84.56,
+                    "yPct": 28.24
+                },
+                {
+                    "xPct": 81.25,
+                    "yPct": 28.82
+                },
+                {
+                    "xPct": 83.01,
+                    "yPct": 34.28
+                },
+                {
+                    "xPct": 87.55,
+                    "yPct": 36.14
+                },
+                {
+                    "xPct": 92.72,
+                    "yPct": 36.6
+                },
+                {
+                    "xPct": 96.33,
+                    "yPct": 39.16
+                },
+                {
+                    "xPct": 96.54,
+                    "yPct": 43.57
+                },
+                {
+                    "xPct": 93.85,
+                    "yPct": 43.57
+                },
+                {
+                    "xPct": 90.75,
+                    "yPct": 43.57
+                },
+                {
+                    "xPct": 86.62,
+                    "yPct": 44.5
+                },
+                {
+                    "xPct": 83.42,
+                    "yPct": 46.83
+                },
+                {
+                    "xPct": 81.35,
+                    "yPct": 52.29
+                },
+                {
+                    "xPct": 86.83,
+                    "yPct": 52.52
+                },
+                {
+                    "xPct": 91.99,
+                    "yPct": 51.71
+                },
+                {
+                    "xPct": 97.16,
+                    "yPct": 52.17
+                },
+                {
+                    "xPct": 97.47,
+                    "yPct": 56.01
+                },
+                {
+                    "xPct": 93.44,
+                    "yPct": 56.59
+                },
+                {
+                    "xPct": 89.62,
+                    "yPct": 56.59
+                },
+                {
+                    "xPct": 86.52,
+                    "yPct": 56.7
+                },
+                {
+                    "xPct": 82.18,
+                    "yPct": 57.05
+                },
+                {
+                    "xPct": 77.84,
+                    "yPct": 56.94
+                },
+                {
+                    "xPct": 75.26,
+                    "yPct": 61.23
+                },
+                {
+                    "xPct": 82.9,
+                    "yPct": 63.33
+                },
+                {
+                    "xPct": 91.06,
+                    "yPct": 62.63
+                },
+                {
+                    "xPct": 96.54,
+                    "yPct": 60.65
+                },
+                {
+                    "xPct": 97.06,
+                    "yPct": 65.88
+                },
+                {
+                    "xPct": 93.03,
+                    "yPct": 66.81
+                },
+                {
+                    "xPct": 87.04,
+                    "yPct": 67.74
+                },
+                {
+                    "xPct": 81.04,
+                    "yPct": 67.86
+                },
+                {
+                    "xPct": 76.91,
+                    "yPct": 68.32
+                },
+                {
+                    "xPct": 77.22,
+                    "yPct": 66.7
+                },
+                {
+                    "xPct": 81.97,
+                    "yPct": 67.86
+                },
+                {
+                    "xPct": 88.48,
+                    "yPct": 67.04
+                },
+                {
+                    "xPct": 95.2,
+                    "yPct": 69.25
+                },
+                {
+                    "xPct": 97.37,
+                    "yPct": 73.32
+                },
+                {
+                    "xPct": 91.89,
+                    "yPct": 74.71
+                },
+                {
+                    "xPct": 86.52,
+                    "yPct": 76.22
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "sea_of_japan",
+            "num": 3,
+            "name": {
+                "es": "Mar del Japón",
+                "en": "Sea of Japan"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 77.01,
+                    "yPct": 37.53
+                },
+                {
+                    "xPct": 75.77,
+                    "yPct": 41.48
+                },
+                {
+                    "xPct": 78.56,
+                    "yPct": 43.69
+                },
+                {
+                    "xPct": 75.05,
+                    "yPct": 45.66
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "yellow_sea",
+            "num": 4,
+            "name": {
+                "es": "Mar Amarillo",
+                "en": "Yellow Sea"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 68.03,
+                    "yPct": 49.03
+                },
+                {
+                    "xPct": 70.4,
+                    "yPct": 48.8
+                },
+                {
+                    "xPct": 72.26,
+                    "yPct": 50.66
+                },
+                {
+                    "xPct": 70.61,
+                    "yPct": 53.22
+                },
+                {
+                    "xPct": 70.3,
+                    "yPct": 51.24
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "indian_ocean",
+            "num": 8,
+            "name": {
+                "es": "Océano Índico",
+                "en": "Indian Ocean"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 2.94,
+                    "yPct": 79.59
+                },
+                {
+                    "xPct": 6.04,
+                    "yPct": 84.01
+                },
+                {
+                    "xPct": 7.7,
+                    "yPct": 88.54
+                },
+                {
+                    "xPct": 9.04,
+                    "yPct": 93.19
+                },
+                {
+                    "xPct": 11.83,
+                    "yPct": 96.91
+                },
+                {
+                    "xPct": 16.37,
+                    "yPct": 94.12
+                },
+                {
+                    "xPct": 15.75,
+                    "yPct": 87.61
+                },
+                {
+                    "xPct": 14.51,
+                    "yPct": 82.03
+                },
+                {
+                    "xPct": 16.48,
+                    "yPct": 77.5
+                },
+                {
+                    "xPct": 21.13,
+                    "yPct": 77.62
+                },
+                {
+                    "xPct": 24.12,
+                    "yPct": 80.06
+                },
+                {
+                    "xPct": 25.67,
+                    "yPct": 84.71
+                },
+                {
+                    "xPct": 25.98,
+                    "yPct": 90.17
+                },
+                {
+                    "xPct": 28.15,
+                    "yPct": 96.33
+                },
+                {
+                    "xPct": 34.87,
+                    "yPct": 96.33
+                },
+                {
+                    "xPct": 34.14,
+                    "yPct": 92.37
+                },
+                {
+                    "xPct": 33.83,
+                    "yPct": 87.15
+                },
+                {
+                    "xPct": 38.79,
+                    "yPct": 86.91
+                },
+                {
+                    "xPct": 39.51,
+                    "yPct": 91.56
+                },
+                {
+                    "xPct": 40.65,
+                    "yPct": 96.91
+                },
+                {
+                    "xPct": 45.4,
+                    "yPct": 97.25
+                },
+                {
+                    "xPct": 44.27,
+                    "yPct": 92.03
+                },
+                {
+                    "xPct": 43.23,
+                    "yPct": 87.15
+                },
+                {
+                    "xPct": 42.72,
+                    "yPct": 81.68
+                },
+                {
+                    "xPct": 43.23,
+                    "yPct": 78.32
+                },
+                {
+                    "xPct": 44.16,
+                    "yPct": 74.48
+                },
+                {
+                    "xPct": 47.57,
+                    "yPct": 78.2
+                },
+                {
+                    "xPct": 47.78,
+                    "yPct": 83.78
+                },
+                {
+                    "xPct": 49.12,
+                    "yPct": 90.75
+                },
+                {
+                    "xPct": 51.5,
+                    "yPct": 94.93
+                },
+                {
+                    "xPct": 56.66,
+                    "yPct": 97.95
+                },
+                {
+                    "xPct": 49.95,
+                    "yPct": 97.6
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "arabian_sea",
+            "num": 9,
+            "name": {
+                "es": "Mar Arábigo",
+                "en": "Arabian Sea"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 14.93,
+                    "yPct": 72.04
+                },
+                {
+                    "xPct": 18.23,
+                    "yPct": 75.88
+                },
+                {
+                    "xPct": 18.54,
+                    "yPct": 71.92
+                },
+                {
+                    "xPct": 18.96,
+                    "yPct": 66.7
+                },
+                {
+                    "xPct": 22.78,
+                    "yPct": 63.21
+                },
+                {
+                    "xPct": 23.3,
+                    "yPct": 66.81
+                },
+                {
+                    "xPct": 23.5,
+                    "yPct": 71.34
+                },
+                {
+                    "xPct": 23.71,
+                    "yPct": 74.71
+                },
+                {
+                    "xPct": 28.98,
+                    "yPct": 75.18
+                },
+                {
+                    "xPct": 27.94,
+                    "yPct": 69.48
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "red_sea",
+            "num": 10,
+            "name": {
+                "es": "Mar Rojo",
+                "en": "Red Sea"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 4.49,
+                    "yPct": 45.66
+                },
+                {
+                    "xPct": 4.29,
+                    "yPct": 49.85
+                },
+                {
+                    "xPct": 3.87,
+                    "yPct": 54.26
+                },
+                {
+                    "xPct": 3.87,
+                    "yPct": 58.45
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "mediterranean_sea",
+            "num": 11,
+            "name": {
+                "es": "Mar Mediterráneo",
+                "en": "Mediterranean Sea"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 7.59,
+                    "yPct": 36.95
+                },
+                {
+                    "xPct": 6.04,
+                    "yPct": 34.74
+                },
+                {
+                    "xPct": 3.98,
+                    "yPct": 31.49
+                },
+                {
+                    "xPct": 2.43,
+                    "yPct": 26.84
+                },
+                {
+                    "xPct": 3.05,
+                    "yPct": 23.7
+                },
+                {
+                    "xPct": 1.19,
+                    "yPct": 21.03
+                },
+                {
+                    "xPct": 3.77,
+                    "yPct": 17.43
+                },
+                {
+                    "xPct": 5.84,
+                    "yPct": 12.78
+                },
+                {
+                    "xPct": 3.87,
+                    "yPct": 10.57
+                },
+                {
+                    "xPct": 1.19,
+                    "yPct": 12.43
+                },
+                {
+                    "xPct": 7.7,
+                    "yPct": 18.01
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "black_sea",
+            "num": 12,
+            "name": {
+                "es": "Mar Negro",
+                "en": "Black Sea"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 12.14,
+                    "yPct": 27.89
+                },
+                {
+                    "xPct": 14.31,
+                    "yPct": 29.86
+                },
+                {
+                    "xPct": 15.86,
+                    "yPct": 32.88
+                },
+                {
+                    "xPct": 14,
+                    "yPct": 26.61
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "caspian_sea",
+            "num": 13,
+            "name": {
+                "es": "Mar Caspio",
+                "en": "Caspian Sea"
+            },
+            "type": "mares y océanos",
+            "solution": [
+                {
+                    "xPct": 23.5,
+                    "yPct": 35.79
+                },
+                {
+                    "xPct": 21.75,
+                    "yPct": 35.79
+                },
+                {
+                    "xPct": 21.64,
+                    "yPct": 38.11
+                },
+                {
+                    "xPct": 21.13,
+                    "yPct": 40.44
+                },
+                {
+                    "xPct": 21.02,
+                    "yPct": 41.95
+                },
+                {
+                    "xPct": 20.09,
+                    "yPct": 42.99
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "aral_sea",
+            "num": 14,
+            "name": {
+                "es": "Mar Aral",
+                "en": "Aral Sea"
+            },
+            "type": "mares y océanos",
+            "solution": {
+                "xPct": 28.9,
+                "yPct": 38.72
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "lake_baikal",
+            "num": 15,
+            "name": {
+                "es": "Lago Baikal",
+                "en": "Lake Baikal"
+            },
+            "type": "lagos",
+            "solution": [
+                {
+                    "xPct": 55.94,
+                    "yPct": 38
+                },
+                {
+                    "xPct": 57.28,
+                    "yPct": 36.02
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "kuril_islands",
+            "num": 16,
+            "name": {
+                "es": "Kuriles",
+                "en": "Kuril Islands"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 81.25,
+                    "yPct": 25.21
+                },
+                {
+                    "xPct": 81.87,
+                    "yPct": 27.65
+                },
+                {
+                    "xPct": 81.97,
+                    "yPct": 29.98
+                },
+                {
+                    "xPct": 81.35,
+                    "yPct": 32.3
+                },
+                {
+                    "xPct": 80.84,
+                    "yPct": 33.93
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "sakhalin",
+            "num": 17,
+            "name": {
+                "es": "Sajalín",
+                "en": "Sakhalin"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 74.43,
+                    "yPct": 28.24
+                },
+                {
+                    "xPct": 75.88,
+                    "yPct": 30.21
+                },
+                {
+                    "xPct": 77.22,
+                    "yPct": 32.88
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "moluccas",
+            "num": 24,
+            "name": {
+                "es": "Molucas",
+                "en": "Maluku Islands (Moluccas)"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 82.7,
+                "yPct": 87.38
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "borneo",
+            "num": 26,
+            "name": {
+                "es": "Borneo",
+                "en": "Borneo"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 71.02,
+                    "yPct": 84.12
+                },
+                {
+                    "xPct": 72.06,
+                    "yPct": 87.03
+                },
+                {
+                    "xPct": 68.75,
+                    "yPct": 85.75
+                },
+                {
+                    "xPct": 70.71,
+                    "yPct": 88.54
+                },
+                {
+                    "xPct": 66.89,
+                    "yPct": 88.08
+                },
+                {
+                    "xPct": 67.92,
+                    "yPct": 90.86
+                },
+                {
+                    "xPct": 65.13,
+                    "yPct": 89.24
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "sumatra",
+            "num": 27,
+            "name": {
+                "es": "Sumatra",
+                "en": "Sumatra"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 53.46,
+                    "yPct": 87.84
+                },
+                {
+                    "xPct": 55.63,
+                    "yPct": 89.24
+                },
+                {
+                    "xPct": 57.08,
+                    "yPct": 90.98
+                },
+                {
+                    "xPct": 58.73,
+                    "yPct": 92.72
+                },
+                {
+                    "xPct": 60.28,
+                    "yPct": 94.12
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "java",
+            "num": 28,
+            "name": {
+                "es": "Java",
+                "en": "Java"
+            },
+            "type": "islas",
+            "solution": [
+                {
+                    "xPct": 62.86,
+                    "yPct": 96.21
+                },
+                {
+                    "xPct": 65.75,
+                    "yPct": 96.21
+                },
+                {
+                    "xPct": 69.37,
+                    "yPct": 95.86
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "timor",
+            "num": 29,
+            "name": {
+                "es": "Timor",
+                "en": "Timor"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 80.84,
+                "yPct": 93.65
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "ceylon",
+            "num": 30,
+            "name": {
+                "es": "Ceilán",
+                "en": "Ceylon (Sri Lanka)"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 36.21,
+                "yPct": 82.5
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "cyprus",
+            "num": 31,
+            "name": {
+                "es": "Chipre",
+                "en": "Cyprus"
+            },
+            "type": "islas",
+            "solution": {
+                "xPct": 8.32,
+                "yPct": 35.79
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "kamchatka_peninsula",
+            "num": 32,
+            "name": {
+                "es": "Península de Kamchatka",
+                "en": "Kamchatka Peninsula"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 79.39,
+                    "yPct": 21.03
+                },
+                {
+                    "xPct": 78.46,
+                    "yPct": 19.64
+                },
+                {
+                    "xPct": 77.32,
+                    "yPct": 17.43
+                },
+                {
+                    "xPct": 76.08,
+                    "yPct": 15.45
+                },
+                {
+                    "xPct": 75.67,
+                    "yPct": 14.29
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "korean_peninsula",
+            "num": 33,
+            "name": {
+                "es": "Península de Korea",
+                "en": "Korean Peninsula"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 73.61,
+                    "yPct": 48.57
+                },
+                {
+                    "xPct": 72.16,
+                    "yPct": 46.94
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "gulf_of_thailand",
+            "num": 34,
+            "name": {
+                "es": "Golfo de Tailandia",
+                "en": "Gulf of Thailand"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 55.11,
+                    "yPct": 78.32
+                },
+                {
+                    "xPct": 57.28,
+                    "yPct": 80.06
+                },
+                {
+                    "xPct": 54.8,
+                    "yPct": 80.76
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "indochina_peninsula",
+            "num": 35,
+            "name": {
+                "es": "Península de Indochina",
+                "en": "Indochina Peninsula"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 59.97,
+                    "yPct": 79.36
+                },
+                {
+                    "xPct": 61.62,
+                    "yPct": 76.69
+                },
+                {
+                    "xPct": 57.28,
+                    "yPct": 77.27
+                },
+                {
+                    "xPct": 59.87,
+                    "yPct": 74.6
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "bay_of_bengal",
+            "num": 37,
+            "name": {
+                "es": "Golfo de Bengala",
+                "en": "Bay of Bengal"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 42.2,
+                    "yPct": 71.46
+                },
+                {
+                    "xPct": 45.2,
+                    "yPct": 70.07
+                },
+                {
+                    "xPct": 47.68,
+                    "yPct": 70.88
+                },
+                {
+                    "xPct": 48.61,
+                    "yPct": 72.62
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "indian_subcontinent",
+            "num": 38,
+            "name": {
+                "es": "Península del Indostán",
+                "en": "Indian Subcontinent"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 32.7,
+                    "yPct": 79.71
+                },
+                {
+                    "xPct": 31.77,
+                    "yPct": 76.34
+                },
+                {
+                    "xPct": 35.18,
+                    "yPct": 76.8
+                },
+                {
+                    "xPct": 36.31,
+                    "yPct": 74.25
+                },
+                {
+                    "xPct": 33.73,
+                    "yPct": 72.74
+                },
+                {
+                    "xPct": 31.77,
+                    "yPct": 72.39
+                },
+                {
+                    "xPct": 30.84,
+                    "yPct": 69.37
+                },
+                {
+                    "xPct": 33.94,
+                    "yPct": 69.72
+                },
+                {
+                    "xPct": 37.14,
+                    "yPct": 70.41
+                },
+                {
+                    "xPct": 39.51,
+                    "yPct": 70.65
+                },
+                {
+                    "xPct": 42.51,
+                    "yPct": 69.25
+                },
+                {
+                    "xPct": 40.03,
+                    "yPct": 67.97
+                },
+                {
+                    "xPct": 37.45,
+                    "yPct": 66.7
+                },
+                {
+                    "xPct": 34.35,
+                    "yPct": 65.65
+                },
+                {
+                    "xPct": 31.87,
+                    "yPct": 65.07
+                },
+                {
+                    "xPct": 29.49,
+                    "yPct": 64.6
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "gulf_of_oman",
+            "num": 39,
+            "name": {
+                "es": "Golfo de Omán",
+                "en": "Gulf of Oman"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 19.37,
+                    "yPct": 58.33
+                },
+                {
+                    "xPct": 21.64,
+                    "yPct": 60.54
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "persian_gulf",
+            "num": 40,
+            "name": {
+                "es": "Golfo Pérsico",
+                "en": "Persian Gulf"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 15.03,
+                    "yPct": 51.13
+                },
+                {
+                    "xPct": 15.34,
+                    "yPct": 53.22
+                },
+                {
+                    "xPct": 16.68,
+                    "yPct": 55.66
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "arabian_peninsula",
+            "num": 41,
+            "name": {
+                "es": "Península Arábiga",
+                "en": "Arabian Peninsula"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 17.72,
+                    "yPct": 61.12
+                },
+                {
+                    "xPct": 15.34,
+                    "yPct": 61.82
+                },
+                {
+                    "xPct": 12.34,
+                    "yPct": 62.16
+                },
+                {
+                    "xPct": 9.35,
+                    "yPct": 61.58
+                },
+                {
+                    "xPct": 6.25,
+                    "yPct": 60.54
+                },
+                {
+                    "xPct": 6.25,
+                    "yPct": 56.47
+                },
+                {
+                    "xPct": 9.35,
+                    "yPct": 57.63
+                },
+                {
+                    "xPct": 12.65,
+                    "yPct": 58.68
+                },
+                {
+                    "xPct": 16.27,
+                    "yPct": 58.21
+                },
+                {
+                    "xPct": 13.89,
+                    "yPct": 55.19
+                },
+                {
+                    "xPct": 11.31,
+                    "yPct": 54.61
+                },
+                {
+                    "xPct": 9.14,
+                    "yPct": 54.03
+                },
+                {
+                    "xPct": 6.35,
+                    "yPct": 53.33
+                },
+                {
+                    "xPct": 6.04,
+                    "yPct": 49.03
+                },
+                {
+                    "xPct": 9.14,
+                    "yPct": 49.73
+                },
+                {
+                    "xPct": 12.14,
+                    "yPct": 49.73
+                },
+                {
+                    "xPct": 13.69,
+                    "yPct": 47.76
+                },
+                {
+                    "xPct": 10.9,
+                    "yPct": 45.32
+                },
+                {
+                    "xPct": 8.01,
+                    "yPct": 44.04
+                },
+                {
+                    "xPct": 6.15,
+                    "yPct": 43.22
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "anatolian_peninsula",
+            "num": 44,
+            "name": {
+                "es": "Península de Anatolia",
+                "en": "Anatolian Peninsula"
+            },
+            "type": "costas",
+            "solution": [
+                {
+                    "xPct": 8.32,
+                    "yPct": 31.6
+                },
+                {
+                    "xPct": 9.87,
+                    "yPct": 29.86
+                },
+                {
+                    "xPct": 10.18,
+                    "yPct": 34.28
+                },
+                {
+                    "xPct": 11.31,
+                    "yPct": 31.72
+                },
+                {
+                    "xPct": 11.62,
+                    "yPct": 35.09
+                },
+                {
+                    "xPct": 13.48,
+                    "yPct": 34.16
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "ural_mountains",
+            "num": 45,
+            "name": {
+                "es": "Montes Urales",
+                "en": "Ural Mountains"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 29.8,
+                    "yPct": 34.05
+                },
+                {
+                    "xPct": 31.04,
+                    "yPct": 30.91
+                },
+                {
+                    "xPct": 32.9,
+                    "yPct": 27.77
+                },
+                {
+                    "xPct": 34.56,
+                    "yPct": 24.75
+                },
+                {
+                    "xPct": 36,
+                    "yPct": 22.77
+                },
+                {
+                    "xPct": 38.38,
+                    "yPct": 21.15
+                },
+                {
+                    "xPct": 40.24,
+                    "yPct": 19.87
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "siberia",
+            "num": 46,
+            "name": {
+                "es": "Siberia",
+                "en": "Siberia"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 40.13,
+                    "yPct": 23.12
+                },
+                {
+                    "xPct": 40.13,
+                    "yPct": 25.45
+                },
+                {
+                    "xPct": 40.24,
+                    "yPct": 28.35
+                },
+                {
+                    "xPct": 41.06,
+                    "yPct": 32.07
+                },
+                {
+                    "xPct": 42.61,
+                    "yPct": 34.16
+                },
+                {
+                    "xPct": 44.47,
+                    "yPct": 31.84
+                },
+                {
+                    "xPct": 43.65,
+                    "yPct": 28.7
+                },
+                {
+                    "xPct": 42.92,
+                    "yPct": 25.68
+                },
+                {
+                    "xPct": 42.72,
+                    "yPct": 23.47
+                },
+                {
+                    "xPct": 44.89,
+                    "yPct": 23.01
+                },
+                {
+                    "xPct": 45.61,
+                    "yPct": 26.72
+                },
+                {
+                    "xPct": 46.02,
+                    "yPct": 29.86
+                },
+                {
+                    "xPct": 45.61,
+                    "yPct": 32.42
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "altai_mountains",
+            "num": 47,
+            "name": {
+                "es": "Montes Altai",
+                "en": "Altai Mountains"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 44.16,
+                    "yPct": 40.32
+                },
+                {
+                    "xPct": 46.75,
+                    "yPct": 41.95
+                },
+                {
+                    "xPct": 48.81,
+                    "yPct": 44.39
+                },
+                {
+                    "xPct": 46.64,
+                    "yPct": 39.27
+                },
+                {
+                    "xPct": 49.43,
+                    "yPct": 38.81
+                },
+                {
+                    "xPct": 49.95,
+                    "yPct": 42.29
+                },
+                {
+                    "xPct": 51.08,
+                    "yPct": 44.15
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "gobi_desert",
+            "num": 48,
+            "name": {
+                "es": "Desierto de Gobi",
+                "en": "Gobi Desert"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 53.98,
+                    "yPct": 49.85
+                },
+                {
+                    "xPct": 54.8,
+                    "yPct": 46.48
+                },
+                {
+                    "xPct": 57.08,
+                    "yPct": 49.03
+                },
+                {
+                    "xPct": 57.08,
+                    "yPct": 45.08
+                },
+                {
+                    "xPct": 59.76,
+                    "yPct": 47.29
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "caucasus",
+            "num": 49,
+            "name": {
+                "es": "Cáucaso",
+                "en": "Caucasus"
+            },
+            "solution": [
+                {
+                    "xPct": 17.2,
+                    "yPct": 32.88
+                },
+                {
+                    "xPct": 17.92,
+                    "yPct": 34.86
+                },
+                {
+                    "xPct": 18.85,
+                    "yPct": 36.6
+                },
+                {
+                    "xPct": 19.58,
+                    "yPct": 38.58
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "arabian_desert",
+            "num": 50,
+            "name": {
+                "es": "Desierto de Arabia",
+                "en": "Arabian Desert"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 11.11,
+                    "yPct": 61.12
+                },
+                {
+                    "xPct": 8.63,
+                    "yPct": 59.49
+                },
+                {
+                    "xPct": 10.18,
+                    "yPct": 56.59
+                },
+                {
+                    "xPct": 13.17,
+                    "yPct": 57.75
+                },
+                {
+                    "xPct": 11.73,
+                    "yPct": 59.14
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "zagros_mountains",
+            "num": 51,
+            "name": {
+                "es": "Montes Zagros",
+                "en": "Zagros Mountains"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 18.44,
+                    "yPct": 53.68
+                },
+                {
+                    "xPct": 17.61,
+                    "yPct": 51.01
+                },
+                {
+                    "xPct": 16.99,
+                    "yPct": 47.87
+                },
+                {
+                    "xPct": 16.27,
+                    "yPct": 43.57
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "iranian_plateau",
+            "num": 52,
+            "name": {
+                "es": "Meseta de Irán",
+                "en": "Iranian Plateau"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 21.64,
+                    "yPct": 48.34
+                },
+                {
+                    "xPct": 21.95,
+                    "yPct": 51.24
+                },
+                {
+                    "xPct": 24.33,
+                    "yPct": 54.5
+                },
+                {
+                    "xPct": 27.63,
+                    "yPct": 54.96
+                },
+                {
+                    "xPct": 26.19,
+                    "yPct": 51.71
+                },
+                {
+                    "xPct": 24.23,
+                    "yPct": 48.69
+                },
+                {
+                    "xPct": 21.75,
+                    "yPct": 46.71
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "himalayas",
+            "num": 54,
+            "name": {
+                "es": "Himalaya",
+                "en": "Himalayas"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 34.35,
+                    "yPct": 52.87
+                },
+                {
+                    "xPct": 36,
+                    "yPct": 56.35
+                },
+                {
+                    "xPct": 37.24,
+                    "yPct": 58.79
+                },
+                {
+                    "xPct": 39.51,
+                    "yPct": 60.89
+                },
+                {
+                    "xPct": 42.2,
+                    "yPct": 62.75
+                },
+                {
+                    "xPct": 46.64,
+                    "yPct": 63.79
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "everest",
+            "num": 55,
+            "name": {
+                "es": "Everest",
+                "en": "Mount Everest"
+            },
+            "type": "relieve",
+            "solution": {
+                "xPct": 40.24,
+                "yPct": 61.93
+            },
+            "tol": 3.0
+        },
+        {
+            "id": "tibetan_plateau",
+            "num": 56,
+            "name": {
+                "es": "Meseta del Tíbet",
+                "en": "Tibetan Plateau"
+            },
+            "type": "relieve",
+            "solution": [
+                {
+                    "xPct": 39.31,
+                    "yPct": 56.24
+                },
+                {
+                    "xPct": 40.75,
+                    "yPct": 58.68
+                },
+                {
+                    "xPct": 42.82,
+                    "yPct": 59.84
+                },
+                {
+                    "xPct": 46.64,
+                    "yPct": 59.96
+                },
+                {
+                    "xPct": 49.95,
+                    "yPct": 59.72
+                },
+                {
+                    "xPct": 50.36,
+                    "yPct": 56.7
+                },
+                {
+                    "xPct": 47.57,
+                    "yPct": 56.94
+                },
+                {
+                    "xPct": 44.37,
+                    "yPct": 56.47
+                },
+                {
+                    "xPct": 41.58,
+                    "yPct": 56.01
+                },
+                {
+                    "xPct": 39.93,
+                    "yPct": 54.5
+                },
+                {
+                    "xPct": 43.34,
+                    "yPct": 53.45
+                },
+                {
+                    "xPct": 46.33,
+                    "yPct": 54.38
+                },
+                {
+                    "xPct": 49.74,
+                    "yPct": 55.66
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "ob_river",
+            "num": 57,
+            "name": {
+                "es": "Obi",
+                "en": "Ob River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 44.37,
+                    "yPct": 37.65
+                },
+                {
+                    "xPct": 43.03,
+                    "yPct": 35.67
+                },
+                {
+                    "xPct": 44.27,
+                    "yPct": 33.81
+                },
+                {
+                    "xPct": 44.16,
+                    "yPct": 31.14
+                },
+                {
+                    "xPct": 42.51,
+                    "yPct": 28.93
+                },
+                {
+                    "xPct": 40.75,
+                    "yPct": 27.42
+                },
+                {
+                    "xPct": 39.31,
+                    "yPct": 26.72
+                },
+                {
+                    "xPct": 38.48,
+                    "yPct": 24.63
+                },
+                {
+                    "xPct": 39,
+                    "yPct": 21.96
+                },
+                {
+                    "xPct": 41.06,
+                    "yPct": 21.5
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "yenisei_river",
+            "num": 58,
+            "name": {
+                "es": "Yenisei",
+                "en": "Yenisei River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 52.53,
+                    "yPct": 39.27
+                },
+                {
+                    "xPct": 50.88,
+                    "yPct": 39.04
+                },
+                {
+                    "xPct": 49.12,
+                    "yPct": 38.58
+                },
+                {
+                    "xPct": 47.99,
+                    "yPct": 36.49
+                },
+                {
+                    "xPct": 48.71,
+                    "yPct": 34.39
+                },
+                {
+                    "xPct": 49.02,
+                    "yPct": 32.53
+                },
+                {
+                    "xPct": 47.88,
+                    "yPct": 29.86
+                },
+                {
+                    "xPct": 47.37,
+                    "yPct": 27.19
+                },
+                {
+                    "xPct": 47.37,
+                    "yPct": 24.05
+                },
+                {
+                    "xPct": 47.06,
+                    "yPct": 21.73
+                },
+                {
+                    "xPct": 46.44,
+                    "yPct": 19.75
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "lena_river",
+            "num": 59,
+            "name": {
+                "es": "Lena",
+                "en": "Lena River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 56.77,
+                    "yPct": 35.9
+                },
+                {
+                    "xPct": 55.42,
+                    "yPct": 34.97
+                },
+                {
+                    "xPct": 56.04,
+                    "yPct": 32.65
+                },
+                {
+                    "xPct": 57.08,
+                    "yPct": 30.91
+                },
+                {
+                    "xPct": 58.32,
+                    "yPct": 29.4
+                },
+                {
+                    "xPct": 59.56,
+                    "yPct": 28.12
+                },
+                {
+                    "xPct": 61.42,
+                    "yPct": 27.31
+                },
+                {
+                    "xPct": 62.86,
+                    "yPct": 26.38
+                },
+                {
+                    "xPct": 64,
+                    "yPct": 24.75
+                },
+                {
+                    "xPct": 64,
+                    "yPct": 23.12
+                },
+                {
+                    "xPct": 62.04,
+                    "yPct": 22.19
+                },
+                {
+                    "xPct": 60.28,
+                    "yPct": 20.45
+                },
+                {
+                    "xPct": 59.45,
+                    "yPct": 17.78
+                },
+                {
+                    "xPct": 58.83,
+                    "yPct": 15.34
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "yellow_river",
+            "num": 60,
+            "name": {
+                "es": "Huang-ho (amarillo)",
+                "en": "Yellow River (Huang He)"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 67.1,
+                    "yPct": 50.66
+                },
+                {
+                    "xPct": 66.06,
+                    "yPct": 52.06
+                },
+                {
+                    "xPct": 64.93,
+                    "yPct": 53.33
+                },
+                {
+                    "xPct": 63.17,
+                    "yPct": 54.03
+                },
+                {
+                    "xPct": 62.24,
+                    "yPct": 54.38
+                },
+                {
+                    "xPct": 61.52,
+                    "yPct": 53.57
+                },
+                {
+                    "xPct": 61.31,
+                    "yPct": 51.59
+                },
+                {
+                    "xPct": 61.42,
+                    "yPct": 49.62
+                },
+                {
+                    "xPct": 59.35,
+                    "yPct": 49.38
+                },
+                {
+                    "xPct": 58.21,
+                    "yPct": 50.78
+                },
+                {
+                    "xPct": 57.59,
+                    "yPct": 53.22
+                },
+                {
+                    "xPct": 56.25,
+                    "yPct": 54.5
+                },
+                {
+                    "xPct": 54.7,
+                    "yPct": 54.5
+                },
+                {
+                    "xPct": 53.98,
+                    "yPct": 55.42
+                },
+                {
+                    "xPct": 55.32,
+                    "yPct": 56.82
+                },
+                {
+                    "xPct": 53.25,
+                    "yPct": 57.05
+                },
+                {
+                    "xPct": 51.29,
+                    "yPct": 56.12
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "yangtze_river",
+            "num": 61,
+            "name": {
+                "es": "Yangtse-kiang (azul)",
+                "en": "Yangtze River (Chang Jiang)"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 70.51,
+                    "yPct": 55.89
+                },
+                {
+                    "xPct": 69.27,
+                    "yPct": 55.77
+                },
+                {
+                    "xPct": 68.13,
+                    "yPct": 57.52
+                },
+                {
+                    "xPct": 66.68,
+                    "yPct": 59.03
+                },
+                {
+                    "xPct": 65.55,
+                    "yPct": 58.56
+                },
+                {
+                    "xPct": 64.82,
+                    "yPct": 59.38
+                },
+                {
+                    "xPct": 62.65,
+                    "yPct": 58.91
+                },
+                {
+                    "xPct": 60.9,
+                    "yPct": 59.14
+                },
+                {
+                    "xPct": 59.45,
+                    "yPct": 60.65
+                },
+                {
+                    "xPct": 57.8,
+                    "yPct": 61.93
+                },
+                {
+                    "xPct": 56.35,
+                    "yPct": 63.91
+                },
+                {
+                    "xPct": 53.98,
+                    "yPct": 63.56
+                },
+                {
+                    "xPct": 53.56,
+                    "yPct": 62.51
+                },
+                {
+                    "xPct": 53.15,
+                    "yPct": 60.89
+                },
+                {
+                    "xPct": 52.53,
+                    "yPct": 59.26
+                },
+                {
+                    "xPct": 51.6,
+                    "yPct": 57.98
+                },
+                {
+                    "xPct": 50.36,
+                    "yPct": 56.94
+                },
+                {
+                    "xPct": 49.33,
+                    "yPct": 56.47
+                },
+                {
+                    "xPct": 47.47,
+                    "yPct": 56.35
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "mekong_river",
+            "num": 63,
+            "name": {
+                "es": "Mekong",
+                "en": "Mekong River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 60.9,
+                    "yPct": 80.17
+                },
+                {
+                    "xPct": 59.56,
+                    "yPct": 78.78
+                },
+                {
+                    "xPct": 60.49,
+                    "yPct": 76.57
+                },
+                {
+                    "xPct": 59.25,
+                    "yPct": 74.25
+                },
+                {
+                    "xPct": 58.21,
+                    "yPct": 72.74
+                },
+                {
+                    "xPct": 56.46,
+                    "yPct": 72.51
+                },
+                {
+                    "xPct": 55.53,
+                    "yPct": 71.46
+                },
+                {
+                    "xPct": 55.11,
+                    "yPct": 69.25
+                },
+                {
+                    "xPct": 54.49,
+                    "yPct": 66
+                },
+                {
+                    "xPct": 53.46,
+                    "yPct": 64.14
+                },
+                {
+                    "xPct": 52.63,
+                    "yPct": 62.16
+                },
+                {
+                    "xPct": 50.88,
+                    "yPct": 60.31
+                },
+                {
+                    "xPct": 49.23,
+                    "yPct": 59.84
+                },
+                {
+                    "xPct": 47.47,
+                    "yPct": 59.26
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "brahmaputra_river",
+            "num": 64,
+            "name": {
+                "es": "Brahamaputra",
+                "en": "Brahmaputra River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 46.13,
+                    "yPct": 68.67
+                },
+                {
+                    "xPct": 45.61,
+                    "yPct": 67.28
+                },
+                {
+                    "xPct": 45.61,
+                    "yPct": 65.19
+                },
+                {
+                    "xPct": 48.4,
+                    "yPct": 64.26
+                },
+                {
+                    "xPct": 49.95,
+                    "yPct": 62.63
+                },
+                {
+                    "xPct": 50.36,
+                    "yPct": 61.35
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "ganges_river",
+            "num": 65,
+            "name": {
+                "es": "Ganges",
+                "en": "Ganges River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 44.99,
+                    "yPct": 68.67
+                },
+                {
+                    "xPct": 44.16,
+                    "yPct": 66.93
+                },
+                {
+                    "xPct": 42.82,
+                    "yPct": 65.65
+                },
+                {
+                    "xPct": 40.34,
+                    "yPct": 64.6
+                },
+                {
+                    "xPct": 38.27,
+                    "yPct": 63.91
+                },
+                {
+                    "xPct": 36.73,
+                    "yPct": 61.47
+                },
+                {
+                    "xPct": 36.31,
+                    "yPct": 59.72
+                },
+                {
+                    "xPct": 37.96,
+                    "yPct": 59.38
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "indus_river",
+            "num": 66,
+            "name": {
+                "es": "Indo",
+                "en": "Indus River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 26.91,
+                    "yPct": 62.75
+                },
+                {
+                    "xPct": 27.53,
+                    "yPct": 61.23
+                },
+                {
+                    "xPct": 28.05,
+                    "yPct": 59.72
+                },
+                {
+                    "xPct": 29.08,
+                    "yPct": 59.14
+                },
+                {
+                    "xPct": 30.32,
+                    "yPct": 57.86
+                },
+                {
+                    "xPct": 31.25,
+                    "yPct": 56.12
+                },
+                {
+                    "xPct": 31.87,
+                    "yPct": 55.08
+                },
+                {
+                    "xPct": 32.8,
+                    "yPct": 53.91
+                },
+                {
+                    "xPct": 34.66,
+                    "yPct": 53.22
+                },
+                {
+                    "xPct": 36.21,
+                    "yPct": 54.03
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "tigris_river",
+            "num": 67,
+            "name": {
+                "es": "Tigris",
+                "en": "Tigris River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 14.93,
+                    "yPct": 48.1
+                },
+                {
+                    "xPct": 14.41,
+                    "yPct": 46.01
+                },
+                {
+                    "xPct": 14,
+                    "yPct": 44.27
+                },
+                {
+                    "xPct": 14,
+                    "yPct": 42.88
+                },
+                {
+                    "xPct": 14.31,
+                    "yPct": 40.67
+                },
+                {
+                    "xPct": 14.31,
+                    "yPct": 38.93
+                },
+                {
+                    "xPct": 14,
+                    "yPct": 37.41
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "euphrates_river",
+            "num": 68,
+            "name": {
+                "es": "Éufrates",
+                "en": "Euphrates River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 14.51,
+                    "yPct": 47.99
+                },
+                {
+                    "xPct": 13.17,
+                    "yPct": 46.71
+                },
+                {
+                    "xPct": 12.86,
+                    "yPct": 44.85
+                },
+                {
+                    "xPct": 12.76,
+                    "yPct": 42.41
+                },
+                {
+                    "xPct": 12.45,
+                    "yPct": 40.09
+                },
+                {
+                    "xPct": 12.04,
+                    "yPct": 38.11
+                },
+                {
+                    "xPct": 12.34,
+                    "yPct": 36.72
+                }
+            ],
+            "tol": 3.0
+        },
+        {
+            "id": "ural_river",
+            "num": 70,
+            "name": {
+                "es": "Ural",
+                "en": "Ural River"
+            },
+            "type": "rio",
+            "solution": [
+                {
+                    "xPct": 24.84,
+                    "yPct": 34.74
+                },
+                {
+                    "xPct": 25.67,
+                    "yPct": 33.23
+                },
+                {
+                    "xPct": 26.29,
+                    "yPct": 31.72
+                },
+                {
+                    "xPct": 27.94,
+                    "yPct": 31.95
+                },
+                {
+                    "xPct": 29.29,
+                    "yPct": 33.12
+                },
+                {
+                    "xPct": 30.73,
+                    "yPct": 32.42
+                },
+                {
+                    "xPct": 32.18,
+                    "yPct": 30.68
+                }
+            ],
+            "tol": 3.0
+        }
+    ]
+}
