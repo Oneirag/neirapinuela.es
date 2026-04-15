@@ -10,6 +10,13 @@ class Config:
     LANGUAGES = ["es", "en"]
     BABEL_DEFAULT_LOCALE = "es"
     BABEL_DEFAULT_TIMEZONE = "UTC"
+    
+    # Session and Cookie Configuration
+    SESSION_COOKIE_DOMAIN = ".neirapinuela.es"
+    REMEMBER_COOKIE_DOMAIN = ".neirapinuela.es"
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = "Lax"
 
     FAMILY_MEMBERS = {
         "oscar": {"name": "Oscar", "role": _l("padre"), "color": "#198754"},
@@ -18,82 +25,88 @@ class Config:
         "carlitos": {"name": "Carlitos", "role": _l("hijo"), "color": "#198754"},
     }
 
+    # OIDC Configuration
+    AUTHELIA_OIDC_CLIENT_ID = os.environ.get("AUTHELIA_OIDC_CLIENT_ID")
+    AUTHELIA_OIDC_CLIENT_SECRET = os.environ.get("AUTHELIA_OIDC_CLIENT_SECRET")
+    AUTHELIA_OIDC_ISSUER = os.environ.get("AUTHELIA_OIDC_ISSUER", "https://auth.neirapinuela.es")
+    AUTHELIA_OIDC_CONF_URL = f"{AUTHELIA_OIDC_ISSUER.rstrip('/')}/.well-known/openid-configuration"
+
     APPLICATIONS = {
         "mecanografia": {
             "name": _l("Mecanografía"),
             "url": "/apps/mecanografia",
             "requires_login": False,
-            "members": ["pablo", "carlitos"],
+            "required_groups": [],
             "description": _l("Aplicación para practicar mecanografía"),
         },
         "geografia": {
             "name": _l("Geografía"),
             "url": "/apps/geografia",
             "requires_login": False,
-            "members": ["pablo", "carlitos"],
+            "required_groups": [],
             "description": _l("Aplicación para practicar geografia"),
         },
         "grafana": {
             "name": "Grafana",
             "url": "https://grafana.neirapinuela.es",
             "requires_login": True,
-            "members": ["oscar"],
+            "required_groups": ["admins"],
             "description": _l("Panel de monitorización y métricas"),
         },
         "quiz": {
             "name": _l("Quiz"),
             "url": "/apps/quiz",
             "requires_login": False,
-            "members": ["pablo", "carlitos"],
+            "required_groups": [],
             "description": _l("Repaso de capitales, verbos y más"),
         },
         "gas": {
             "name": _l("Gas"),
             "url": "/apps/gas",
             "requires_login": False,
-            "members": ["oscar"],
+            "required_groups": [],
             "description": _l("Conversor de unidades de gas"),
         },
         "euro_coin_game": {
             "name": _l("Euro Coin Game"),
             "url": "/apps/euro_coin_game",
             "requires_login": False,
-            "members": ["pablo", "carlitos"],
+            "required_groups": [],
             "description": _l("Aprende a usar las monedas de euro"),
         },
         "measurements": {
             "name": _l("Conversor de Unidades"),
             "url": "/apps/measurements",
             "requires_login": False,
-            "members": ["pablo", "carlitos"],
+            "required_groups": [],
             "description": _l("Practica la conversión de unidades"),
         },
         "multiplications": {
             "name": _l("Multiplicaciones"),
             "url": "/apps/multiplications",
             "requires_login": False,
-            "members": ["pablo", "carlitos"],
+            "required_groups": [],
             "description": _l("Practica las tablas de multiplicar"),
         },
         "sudoku": {
             "name": _l("Sudoku Avanzado"),
             "url": "/apps/sudoku",
             "requires_login": True,
-            "members": ["oscar"],
+            "required_groups": ["admins", "family"],
             "description": _l("Juega al Sudoku Difícil, Samurai o Killer"),
         },
         "wordle": {
             "name": _l("Wordle ES"),
             "url": "/apps/wordle",
             "requires_login": True,
-            "members": ["oscar", "eva", "pablo", "carlitos"],
+            "required_groups": ["admins", "family"],
             "description": _l("Adivina la palabra oculta en 6 intentos"),
         },
         "sopas": {
             "name": _l("Sopas de Letras"),
             "url": "/apps/sopas",
             "requires_login": True,
-            "members": ["oscar", "eva", "pablo", "carlitos"],
+            "required_groups": ["admins", "family"],
             "description": _l("Encuentra las palabras ocultas en la cuadrícula"),
         },
     }

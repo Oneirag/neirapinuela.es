@@ -63,32 +63,61 @@
                         <div class="card-body">
                             <h5 class="card-title text-primary">{{ app_config.name }}</h5>
                             <p class="card-text">{{ app_config.description }}</p>
-                            <div class="mb-2">
-                                <small class="text-muted">{{ _('Available to:') }}</small>
-                                {% for member in app_config.members %}
-                                <span class="badge bg-primary ms-1">{{ FAMILY_MEMBERS[member].name }}</span>
+                             <div class="mb-2">
+                                <small class="text-muted">{{ _('Available to groups:') }}</small>
+                                {% for group in app_config.required_groups %}
+                                <span class="badge bg-info ms-1">{{ group }}</span>
                                 {% endfor %}
                             </div>
                             {% if app_config.requires_login %}
-                            {% if current_user.is_authenticated and current_user.username in app_config.members %}
-                            <span class="badge bg-success">{{ _('Access Granted') }}</span>
+                                {% if current_user.is_authenticated %}
+                                    {% set ns = namespace(has_group=false) %}
+                                    {% for group in app_config.required_groups %}
+                                        {% if group in current_user.groups %}
+                                            {% set ns.has_group = true %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    
+                                    {% if ns.has_group %}
+                                        <span class="badge bg-success">{{ _('Access Granted') }}</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">{{ _('Missing Permission') }}</span>
+                                    {% endif %}
+                                {% else %}
+                                    <span class="badge bg-secondary">{{ _('Login Required') }}</span>
+                                {% endif %}
                             {% else %}
-                            <span class="badge bg-secondary">{{ _('Login Required') }}</span>
-                            {% endif %}
-                            {% else %}
-                            <span class="badge bg-info">{{ _('Public Access') }}</span>
+                                <span class="badge bg-success">{{ _('Public Access') }}</span>
                             {% endif %}
                         </div>
                         <div class="card-footer">
-                            {% if app_config.requires_login and not (current_user.is_authenticated and
-                            current_user.username in app_config.members) %}
-                            <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary btn-sm">
-                                {{ _('Login to Access') }}
-                            </a>
+                            {% if app_config.requires_login %}
+                                {% if current_user.is_authenticated %}
+                                    {% set ns = namespace(has_group=false) %}
+                                    {% for group in app_config.required_groups %}
+                                        {% if group in current_user.groups %}
+                                            {% set ns.has_group = true %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    
+                                    {% if ns.has_group %}
+                                        <a href="{{ app_config.url }}" class="btn btn-primary btn-sm">
+                                            {{ _('Open App') }}
+                                        </a>
+                                    {% else %}
+                                        <button class="btn btn-outline-danger btn-sm" disabled>
+                                            {{ _('Access Denied') }}
+                                        </button>
+                                    {% endif %}
+                                {% else %}
+                                    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary btn-sm">
+                                        {{ _('Login to Access') }}
+                                    </a>
+                                {% endif %}
                             {% else %}
-                            <a href="{{ app_config.url }}" class="btn btn-outline-primary btn-sm">
-                                {{ _('Open App') }}
-                            </a>
+                                <a href="{{ app_config.url }}" class="btn btn-primary btn-sm">
+                                    {{ _('Open App') }}
+                                </a>
                             {% endif %}
                         </div>
                     </div>

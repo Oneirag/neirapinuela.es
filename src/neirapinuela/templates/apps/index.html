@@ -18,17 +18,34 @@
                     <h5 class="card-title text-primary">{{ app.name }}</h5>
                     <p class="card-text">{{ app.description }}</p>
 
+                    {% if app.required_groups %}
                     <div class="mb-3">
-                        <small class="text-muted">{{ _('Available to:') }}</small><br>
-                        {% for member in app.members %}
-                        <span class="badge bg-primary me-1">{{ FAMILY_MEMBERS[member].name }}</span>
+                        <small class="text-muted">{{ _('Available to groups:') }}</small><br>
+                        {% for group in app.required_groups %}
+                        <span class="badge bg-info me-1">{{ group }}</span>
                         {% endfor %}
                     </div>
+                    {% endif %}
 
                     {% if app.requires_login %}
-                    <span class="badge bg-secondary mb-2">{{ _('Login Required') }}</span>
+                        {% if current_user.is_authenticated %}
+                            {% set ns = namespace(has_group=false) %}
+                            {% for group in app.required_groups %}
+                                {% if group in current_user.groups %}
+                                    {% set ns.has_group = true %}
+                                {% endif %}
+                            {% endfor %}
+                            
+                            {% if ns.has_group %}
+                                <span class="badge bg-success mb-2">{{ _('Access Granted') }}</span>
+                            {% else %}
+                                <span class="badge bg-danger mb-2">{{ _('Missing Permission') }}</span>
+                            {% endif %}
+                        {% else %}
+                            <span class="badge bg-secondary mb-2">{{ _('Login Required') }}</span>
+                        {% endif %}
                     {% else %}
-                    <span class="badge bg-success mb-2">{{ _('Public Access') }}</span>
+                        <span class="badge bg-success mb-2">{{ _('Public Access') }}</span>
                     {% endif %}
                 </div>
                 <div class="card-footer">

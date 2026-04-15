@@ -72,7 +72,8 @@ def grafana():
     from flask import redirect
 
     app_config = current_app.config["APPLICATIONS"]["grafana"]
-    if current_user.username not in app_config["members"]:
+    # Check if user has required group
+    if not any(group in current_user.groups for group in app_config["required_groups"]):
         abort(403)
     return redirect("https://grafana.neirapinuela.es")
 
@@ -81,14 +82,17 @@ def grafana():
 @login_required
 def sudoku():
     app_config = current_app.config["APPLICATIONS"]["sudoku"]
-    # if current_user.username not in app_config['members']:
-    #    abort(403)
+    if not any(group in current_user.groups for group in app_config["required_groups"]):
+        abort(403)
     return render_template("apps/sudoku.html")
 
 
 @bp.route("/wordle")
 @login_required
 def wordle():
+    app_config = current_app.config["APPLICATIONS"]["wordle"]
+    if not any(group in current_user.groups for group in app_config["required_groups"]):
+        abort(403)
     return render_template("apps/wordle.html")
 
 
@@ -96,6 +100,10 @@ def wordle():
 @login_required
 def sopas():
     from .config import SOPAS_CATEGORIES, SOPAS_DEFAULTS
+
+    app_config = current_app.config["APPLICATIONS"]["sopas"]
+    if not any(group in current_user.groups for group in app_config["required_groups"]):
+        abort(403)
 
     return render_template(
         "apps/sopas.html",
@@ -116,7 +124,7 @@ def apps_index():
                 "name": app_config["name"],
                 "url": app_config["url"],
                 "description": app_config["description"],
-                "members": app_config["members"],
+                "required_groups": app_config["required_groups"],
                 "requires_login": app_config["requires_login"],
             }
         )

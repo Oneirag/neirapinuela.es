@@ -66,14 +66,7 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
    # Editar .env con tus valores
    ```
 
-5. **Generar secretos TOTP:**
-   ```python
-   import pyotp
-   print("OSCAR_TOTP_SECRET:", pyotp.random_base32())
-   print("EVA_TOTP_SECRET:", pyotp.random_base32())
-   ```
-
-6. **Compilar traducciones:**
+5. **Compilar traducciones:**
    ```bash
    source venv/bin/activate
    pybabel compile -d src/neirapinuela/translations

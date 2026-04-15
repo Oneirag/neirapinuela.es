@@ -23,7 +23,7 @@
                     <ul class="list-unstyled">
                         <li><strong>Backend:</strong> Flask (Python)</li>
                         <li><strong>Frontend:</strong> Bootstrap 5</li>
-                        <li><strong>Authentication:</strong> Google Authenticator (TOTP)</li>
+                        <li><strong>Authentication:</strong> Authelia (OIDC 1.0)</li>
                         <li><strong>Server:</strong> Gunicorn with Gevent</li>
                         <li><strong>Web Server:</strong> Nginx</li>
                         <li><strong>Languages:</strong> Spanish & English</li>
@@ -44,10 +44,10 @@
                                 <div class="border rounded p-3">
                                     <h5 class="text-primary">{{ app_config.name }}</h5>
                                     <p class="small">{{ app_config.description }}</p>
-                                    <div>
-                                        <small class="text-muted">{{ _('Used by:') }}</small>
-                                        {% for member in app_config.members %}
-                                            <span class="badge bg-primary ms-1">{{ FAMILY_MEMBERS[member].name }}</span>
+                                     <div>
+                                        <small class="text-muted">{{ _('Available to groups:') }}</small>
+                                        {% for group in app_config.required_groups %}
+                                            <span class="badge bg-info ms-1">{{ group }}</span>
                                         {% endfor %}
                                     </div>
                                 </div>

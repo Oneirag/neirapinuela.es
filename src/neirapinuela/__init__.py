@@ -1,8 +1,17 @@
-from flask import Flask
+from flask import Flask, request, jsonify, render_template
 from flask_babel import Babel, gettext
 from flask_login import LoginManager
+from authlib.integrations.flask_client import OAuth
 from .config import Config
-from flask import request, jsonify, render_template
+
+oauth = OAuth()
+
+
+def get_locale():
+    from flask import request, session
+    if "language" in session:
+        return session["language"]
+    return request.accept_languages.best_match(["es", "en"]) or "es"
 
 
 def render_error(error_code, message=None, template=None, return_code=None):
@@ -101,14 +110,19 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
 
-    def get_locale():
-        from flask import request, session
-
-        if "language" in session:
-            return session["language"]
-        return request.accept_languages.best_match(["es", "en"]) or "es"
-
     babel = Babel(app, locale_selector=get_locale)
+
+    oauth.init_app(app)
+    oauth.register(
+        name="authelia",
+        client_id=app.config.get("AUTHELIA_OIDC_CLIENT_ID"),
+        client_secret=app.config.get("AUTHELIA_OIDC_CLIENT_SECRET"),
+        server_metadata_url=app.config.get("AUTHELIA_OIDC_CONF_URL"),
+        client_kwargs={
+            "scope": "openid profile groups",
+            "token_endpoint_auth_method": "client_secret_post",
+        },
+    )
 
     login_manager = LoginManager()
     login_manager.init_app(app)
@@ -127,7 +141,7 @@ def create_app(config_class=Config):
 
     from .auth import bp as auth_bp
 
-    app.register_blueprint(auth_bp, url_prefix="/auth")
+    app.register_blueprint(auth_bp, url_prefix="/oauth")
 
     from .apps import bp as apps_bp
 

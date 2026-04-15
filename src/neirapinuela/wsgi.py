@@ -1,3 +1,6 @@
+import gevent.monkey
+gevent.monkey.patch_all()
+
 import os
 from werkzeug.middleware.proxy_fix import ProxyFix
 from . import create_app
