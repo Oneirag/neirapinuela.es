@@ -17,6 +17,7 @@ const GeoApp = (() => {
     itemsListEl: null,
     score: { correct: 0, total: 0 },
     showNames: true,
+    selectedItemId: null,
     transform: { k: 1, x: 0, y: 0 } // Zoom/Pan state
   };
 
@@ -197,6 +198,22 @@ const GeoApp = (() => {
       wrap.appendChild(name);
       state.itemsListEl.appendChild(wrap);
 
+      // Click para seleccionar (mejor para touch)
+      label.addEventListener('click', () => {
+        if (state.selectedItemId === it.id) {
+          state.selectedItemId = null;
+          label.classList.remove('selected');
+        } else {
+          // Deseleccionar anterior
+          if (state.selectedItemId) {
+            const prev = state.itemsListEl.querySelector(`.draggable-label[data-id="${state.selectedItemId}"]`);
+            if (prev) prev.classList.remove('selected');
+          }
+          state.selectedItemId = it.id;
+          label.classList.add('selected');
+        }
+      });
+
       // dragstart - Personalizar imagen de arrastre
       label.addEventListener('dragstart', (ev) => {
         ev.dataTransfer.setData('text/plain', JSON.stringify({ id: it.id, num }));
@@ -239,13 +256,34 @@ const GeoApp = (() => {
       if (!dt) return;
       const { id, num } = JSON.parse(dt);
 
-      // CAMBIO: Usar coordenadas SVG directamente
       const pt = clientToSvg(ev.clientX, ev.clientY);
       const vb = state.overlay.viewBox.baseVal;
       const xPct = ((pt.x - vb.x) / vb.width) * 100;
       const yPct = ((pt.y - vb.y) / vb.height) * 100;
 
       placeMarker({ id, num, xPct, yPct });
+    });
+
+    // Click para colocar elemento seleccionado (Touch support)
+    state.stageEl.addEventListener('click', (ev) => {
+      // Si estamos arrastrando el mapa o un marcador, no colocar
+      if (state.isInteracting) return;
+
+      if (state.selectedItemId) {
+        const item = state.items.find(it => it.id === state.selectedItemId);
+        if (item) {
+          const pt = clientToSvg(ev.clientX, ev.clientY);
+          const vb = state.overlay.viewBox.baseVal;
+          const xPct = ((pt.x - vb.x) / vb.width) * 100;
+          const yPct = ((pt.y - vb.y) / vb.height) * 100;
+          placeMarker({ id: item.id, num: item.num, xPct, yPct });
+
+          // Deseleccionar
+          const label = state.itemsListEl.querySelector(`.draggable-label[data-id="${state.selectedItemId}"]`);
+          if (label) label.classList.remove('selected');
+          state.selectedItemId = null;
+        }
+      }
     });
   }
 
@@ -527,30 +565,40 @@ const GeoApp = (() => {
     let start = { x: 0, y: 0 };
     let startTrans = { x: 0, y: 0 };
 
-    state.stageEl.addEventListener('mousedown', (e) => {
+    state.stageEl.addEventListener('pointerdown', (e) => {
       // Avoid panning when dragging a marker or label
       if (e.target.closest('.draggable-label') || e.target.closest('.marker')) return;
 
       isPanning = true;
+      state.isInteracting = false; // Reset interaction flag
       state.stageEl.style.cursor = 'grabbing';
       start = { x: e.clientX, y: e.clientY };
       startTrans = { ...state.transform };
+      state.stageEl.setPointerCapture(e.pointerId);
     });
 
-    window.addEventListener('mousemove', (e) => {
+    state.stageEl.addEventListener('pointermove', (e) => {
       if (!isPanning) return;
-      e.preventDefault();
       const dx = e.clientX - start.x;
       const dy = e.clientY - start.y;
+
+      // Si hay movimiento real, marcar como interacción para evitar "clics" accidentales
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+        state.isInteracting = true;
+      }
+
       state.transform.x = startTrans.x + dx;
       state.transform.y = startTrans.y + dy;
       updateTransform();
     });
 
-    window.addEventListener('mouseup', () => {
+    state.stageEl.addEventListener('pointerup', (e) => {
       if (isPanning) {
         isPanning = false;
         state.stageEl.style.cursor = '';
+        state.stageEl.releasePointerCapture(e.pointerId);
+        // Delay resetting isInteracting to allow 'click' event to see it
+        setTimeout(() => { state.isInteracting = false; }, 50);
       }
     });
   }
