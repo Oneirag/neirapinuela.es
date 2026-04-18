@@ -26,10 +26,11 @@ class Config:
     }
 
     # OIDC Configuration
-    AUTHELIA_OIDC_CLIENT_ID = os.environ.get("AUTHELIA_OIDC_CLIENT_ID")
-    AUTHELIA_OIDC_CLIENT_SECRET = os.environ.get("AUTHELIA_OIDC_CLIENT_SECRET")
-    AUTHELIA_OIDC_ISSUER = os.environ.get("AUTHELIA_OIDC_ISSUER", "https://auth.neirapinuela.es")
-    AUTHELIA_OIDC_CONF_URL = f"{AUTHELIA_OIDC_ISSUER.rstrip('/')}/.well-known/openid-configuration"
+    AUTH_OIDC_CLIENT_ID = os.environ.get("AUTH_OIDC_CLIENT_ID")
+    AUTH_OIDC_CLIENT_SECRET = os.environ.get("AUTH_OIDC_CLIENT_SECRET")
+    AUTH_OIDC_ISSUER = os.environ.get("AUTH_OIDC_ISSUER", "https://auth.neirapinuela.es")
+    AUTH_OIDC_CONF_URL = f"{AUTH_OIDC_ISSUER.rstrip('/')}/.well-known/openid-configuration"
+    AUTH_OIDC_LOGOUT_URL = os.environ.get("AUTH_OIDC_LOGOUT_URL")
 
     APPLICATIONS = {
         "mecanografia": {

@@ -115,9 +115,9 @@ def create_app(config_class=Config):
     oauth.init_app(app)
     oauth.register(
         name="authelia",
-        client_id=app.config.get("AUTHELIA_OIDC_CLIENT_ID"),
-        client_secret=app.config.get("AUTHELIA_OIDC_CLIENT_SECRET"),
-        server_metadata_url=app.config.get("AUTHELIA_OIDC_CONF_URL"),
+        client_id=app.config.get("AUTH_OIDC_CLIENT_ID"),
+        client_secret=app.config.get("AUTH_OIDC_CLIENT_SECRET"),
+        server_metadata_url=app.config.get("AUTH_OIDC_CONF_URL"),
         client_kwargs={
             "scope": "openid profile groups",
             "token_endpoint_auth_method": "client_secret_post",

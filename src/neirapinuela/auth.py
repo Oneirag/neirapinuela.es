@@ -59,7 +59,12 @@ def logout():
     logout_user()
     session.clear()
     
-    # Redirect to Authelia logout
+    # Redirect to OIDC logout
     from flask import current_app
-    authelia_issuer = current_app.config.get('AUTHELIA_OIDC_ISSUER', 'https://auth.neirapinuela.es').rstrip('/')
-    return redirect(f"{authelia_issuer}/logout?rd={url_for('main.index', _external=True)}")
+    logout_url = current_app.config.get('AUTH_OIDC_LOGOUT_URL')
+    if logout_url:
+        return redirect(f"{logout_url.rstrip('/')}/?rd={url_for('main.index', _external=True)}")
+    
+    # Fallback if not configured
+    auth_issuer = current_app.config.get('AUTH_OIDC_ISSUER', 'https://auth.neirapinuela.es').rstrip('/')
+    return redirect(f"{auth_issuer}/logout?rd={url_for('main.index', _external=True)}")
