@@ -10,7 +10,7 @@ class Config:
     LANGUAGES = ["es", "en"]
     BABEL_DEFAULT_LOCALE = "es"
     BABEL_DEFAULT_TIMEZONE = "UTC"
-    
+
     # Session and Cookie Configuration
     SESSION_COOKIE_DOMAIN = ".neirapinuela.es"
     REMEMBER_COOKIE_DOMAIN = ".neirapinuela.es"
@@ -28,8 +28,12 @@ class Config:
     # OIDC Configuration
     AUTH_OIDC_CLIENT_ID = os.environ.get("AUTH_OIDC_CLIENT_ID")
     AUTH_OIDC_CLIENT_SECRET = os.environ.get("AUTH_OIDC_CLIENT_SECRET")
-    AUTH_OIDC_ISSUER = os.environ.get("AUTH_OIDC_ISSUER", "https://auth.neirapinuela.es")
-    AUTH_OIDC_CONF_URL = f"{AUTH_OIDC_ISSUER.rstrip('/')}/.well-known/openid-configuration"
+    AUTH_OIDC_ISSUER = os.environ.get(
+        "AUTH_OIDC_ISSUER", "https://auth.neirapinuela.es"
+    )
+    AUTH_OIDC_CONF_URL = (
+        f"{AUTH_OIDC_ISSUER.rstrip('/')}/.well-known/openid-configuration"
+    )
     AUTH_OIDC_LOGOUT_URL = os.environ.get("AUTH_OIDC_LOGOUT_URL")
 
     APPLICATIONS = {
@@ -109,6 +113,13 @@ class Config:
             "requires_login": True,
             "required_groups": ["admins", "family"],
             "description": _l("Encuentra las palabras ocultas en la cuadrícula"),
+        },
+        "ecuaciones": {
+            "name": "Ecuaciones",
+            "url": "/apps/ecuaciones",
+            "requires_login": False,
+            "required_groups": ["pablo"],
+            "description": _l("Practica ecuaciones de primer grado paso a paso"),
         },
     }
 

@@ -112,6 +112,7 @@ gunicorn -c gunicorn_config.py src.neirapinuela.wsgi:app
 - **Euro Coin Game** (`/apps/euro_coin_game`) - Aprende a usar las monedas de euro
 - **Conversor de Unidades** (`/apps/measurements`) - Practica la conversión de unidades
 - **Multiplicaciones** (`/apps/multiplications`) - Practica las tablas de multiplicar
+- **Ecuaciones** (`/apps/ecuaciones`) - Practica ecuaciones de primer grado paso a paso (para Pablo)
 - **Grafana** (`https://grafana.neirapinuela.es`) - Panel de monitorización (requiere login)
 
 ## Autenticación MFA

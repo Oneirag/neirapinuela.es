@@ -9,6 +9,7 @@ oauth = OAuth()
 
 def get_locale():
     from flask import request, session
+
     if "language" in session:
         return session["language"]
     return request.accept_languages.best_match(["es", "en"]) or "es"
@@ -146,6 +147,10 @@ def create_app(config_class=Config):
     from .apps import bp as apps_bp
 
     app.register_blueprint(apps_bp, url_prefix="/apps")
+
+    from .ecuaciones import bp as ecuaciones_bp
+
+    app.register_blueprint(ecuaciones_bp, url_prefix="/apps/ecuaciones")
 
     # Context processor for all templates
     @app.context_processor

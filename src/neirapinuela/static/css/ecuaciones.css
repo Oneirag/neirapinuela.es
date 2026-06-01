@@ -1,0 +1,189 @@
+/* === Practica Ecuaciones - estilos especificos === */
+
+/* Chuleta del metodo en home */
+.cheatsheet-list {
+    padding-left: 1.2rem;
+    margin-bottom: 0;
+}
+.cheatsheet-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+/* Enunciado de la ecuacion */
+.equation-card {
+    border-left: 6px solid var(--primary-color);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.equation-statement {
+    font-size: 1.5rem;
+    font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+    font-weight: 600;
+    color: #212529;
+    text-align: center;
+    padding: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+/* Contenedores KaTeX (renderizados por JS) */
+.math {
+    display: inline-block;
+}
+
+.math-display {
+    display: block;
+    margin: 0.4rem auto;
+    text-align: center;
+}
+
+.math-display.equation-statement-large {
+    font-size: 1.6rem;
+}
+
+.math-display.equation-statement-large .katex {
+    font-size: 1.6rem;
+}
+
+.equation-statement .katex,
+.equation-statement .math {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .math-display.equation-statement-large .katex {
+        font-size: 1.25rem;
+    }
+    .equation-statement .katex,
+    .equation-statement .math {
+        font-size: 1.05rem;
+    }
+}
+
+.equation-statement-large {
+    font-size: 2.4rem;
+    font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    letter-spacing: 0.02em;
+    word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+    .equation-statement-large {
+        font-size: 1.8rem;
+    }
+    .equation-statement {
+        font-size: 1.2rem;
+    }
+}
+
+/* Tarjetas de ejercicios en la lista del bloque */
+.exercise-card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.exercise-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.exercise-card.border-success {
+    border-left: 4px solid var(--primary-color);
+}
+
+.exercise-status {
+    font-size: 1.25rem;
+}
+
+/* Tarjetas de cada paso */
+.step-card {
+    border-left: 4px solid #dee2e6;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.step-card.is-pending {
+    opacity: 0.55;
+}
+.step-card.is-active {
+    border-left-color: var(--primary-color);
+    background-color: #f0f9f4;
+}
+.step-card.is-correct {
+    border-left-color: #198754;
+    background-color: #d1e7dd;
+}
+.step-card.is-wrong {
+    border-left-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+.step-label {
+    color: #495057;
+    font-size: 1rem;
+}
+
+.step-input {
+    font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+    font-size: 1.1rem;
+}
+.step-input:disabled {
+    background-color: #f8f9fa;
+}
+
+.step-status {
+    background-color: #f8f9fa;
+    width: 42px;
+    justify-content: center;
+}
+.step-card.is-correct .step-status {
+    background-color: #198754;
+    color: #fff;
+}
+.step-card.is-wrong .step-status {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.check-btn:disabled {
+    opacity: 0.4;
+}
+
+.step-feedback:empty {
+    display: none;
+}
+.step-feedback.is-ok {
+    color: #0f5132;
+}
+.step-feedback.is-error {
+    color: #721c24;
+}
+
+/* Checklist */
+.checklist-card {
+    border: 2px solid var(--primary-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Solucion paso a paso */
+.solution-list {
+    font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+    line-height: 1.7;
+}
+.solution-list li {
+    margin-bottom: 0.4rem;
+}
+
+/* Acordeon recordatorio */
+.accordion-button:not(.collapsed) {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+/* Navbar brand con icono */
+.navbar-brand i {
+    color: var(--primary-color);
+}
