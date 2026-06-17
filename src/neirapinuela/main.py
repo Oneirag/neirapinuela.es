@@ -33,6 +33,24 @@ def set_language(language):
     return redirect(request.referrer or url_for("main.index"))
 
 
+@bp.route("/set_theme/<theme>", methods=["POST"])
+def set_theme(theme):
+    if theme in ["light", "dark"]:
+        session["theme"] = theme
+        if (
+            request.accept_mimetypes.best_match(["application/json", "text/html"])
+            == "application/json"
+        ):
+            return {"theme": theme, "status": "ok"}, 200
+        return "", 204
+    if (
+        request.accept_mimetypes.best_match(["application/json", "text/html"])
+        == "application/json"
+    ):
+        return {"error": "Invalid theme", "status": "error"}, 400
+    return "", 400
+
+
 @bp.route("/about")
 def about():
     return render_template("about.html")

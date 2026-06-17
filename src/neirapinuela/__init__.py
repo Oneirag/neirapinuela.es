@@ -155,10 +155,13 @@ def create_app(config_class=Config):
     # Context processor for all templates
     @app.context_processor
     def inject_conf_vars():
-        from flask import current_app
+        from flask import current_app, session, request
         from flask_babel import get_locale
         from .config import SOPAS_CATEGORIES, SOPAS_DEFAULTS
 
+        theme = session.get("theme")
+        if theme not in ("light", "dark"):
+            theme = "light"
         return {
             "LANGUAGES": current_app.config["LANGUAGES"],
             "CURRENT_LANGUAGE": str(get_locale()),
@@ -167,6 +170,8 @@ def create_app(config_class=Config):
             "IS_PRODUCTION": not current_app.debug,
             "SOPAS_CATEGORIES": SOPAS_CATEGORIES,
             "SOPAS_DEFAULTS": SOPAS_DEFAULTS,
+            "current_theme": theme,
+            "APP_VERSION": current_app.config.get("APP_VERSION", "0.0.0"),
         }
 
     # Error handlers

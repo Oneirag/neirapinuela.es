@@ -1,8 +1,26 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from flask_babel import lazy_gettext as _l
 
 load_dotenv()
+
+
+def _read_pyproject_version(default: str = "0.0.0") -> str:
+    try:
+        import tomllib
+    except ImportError:
+        try:
+            import tomli as tomllib  # type: ignore
+        except ImportError:
+            return default
+    pyproject = Path(__file__).resolve().parents[2] / "pyproject.toml"
+    try:
+        with open(pyproject, "rb") as f:
+            data = tomllib.load(f)
+        return data.get("project", {}).get("version", default)
+    except (OSError, KeyError):
+        return default
 
 
 class Config:
@@ -10,6 +28,7 @@ class Config:
     LANGUAGES = ["es", "en"]
     BABEL_DEFAULT_LOCALE = "es"
     BABEL_DEFAULT_TIMEZONE = "UTC"
+    APP_VERSION = _read_pyproject_version()
 
     # Session and Cookie Configuration
     SESSION_COOKIE_DOMAIN = ".neirapinuela.es"

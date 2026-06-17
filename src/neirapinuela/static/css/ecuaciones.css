@@ -1,5 +1,83 @@
 /* === Practica Ecuaciones - estilos especificos === */
 
+/* Dark mode overrides for ecuaciones */
+[data-theme="dark"] .equation-card {
+    background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+}
+
+[data-theme="dark"] .equation-statement {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .step-card {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .step-card.is-active {
+    background-color: #0f2a1c;
+}
+
+[data-theme="dark"] .step-card.is-correct {
+    background-color: #0f3a23;
+    border-left-color: #2ecc71;
+}
+
+[data-theme="dark"] .step-card.is-wrong {
+    background-color: #3a0f12;
+    border-left-color: #f5a3a8;
+}
+
+[data-theme="dark"] .step-label {
+    color: var(--muted-text);
+}
+
+[data-theme="dark"] .step-input:disabled {
+    background-color: #1c2128;
+    color: var(--muted-text);
+}
+
+[data-theme="dark"] .step-status {
+    background-color: #1c2128;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .step-feedback.is-ok {
+    color: #7ee2a8;
+}
+
+[data-theme="dark"] .step-feedback.is-error {
+    color: #f5a3a8;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+    background-color: #0f3a23;
+    color: #7ee2a8;
+}
+
+[data-theme="dark"] .accordion-button {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .accordion-button.collapsed {
+    background-color: var(--card-header-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .accordion-body {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .equation-statement-large {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .katex {
+    color: var(--text-color);
+}
+
+
 /* Chuleta del metodo en home */
 .cheatsheet-list {
     padding-left: 1.2rem;

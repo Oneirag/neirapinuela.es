@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-01 12:28+0200\n"
+"POT-Creation-Date: 2026-06-17 06:23+0200\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -160,112 +160,112 @@ msgstr ""
 msgid "Authentication failed"
 msgstr ""
 
-#: src/neirapinuela/config.py:22
+#: src/neirapinuela/config.py:41
 msgid "padre"
 msgstr "father"
 
-#: src/neirapinuela/config.py:23
+#: src/neirapinuela/config.py:42
 msgid "madre"
 msgstr "mother"
 
-#: src/neirapinuela/config.py:24 src/neirapinuela/config.py:25
+#: src/neirapinuela/config.py:43 src/neirapinuela/config.py:44
 msgid "hijo"
 msgstr "son"
 
-#: src/neirapinuela/config.py:41
+#: src/neirapinuela/config.py:60
 msgid "Mecanografía"
 msgstr "Typing"
 
-#: src/neirapinuela/config.py:45
+#: src/neirapinuela/config.py:64
 msgid "Aplicación para practicar mecanografía"
 msgstr "Application to practice typing"
 
-#: src/neirapinuela/config.py:48
+#: src/neirapinuela/config.py:67
 msgid "Geografía"
 msgstr "Geography"
 
-#: src/neirapinuela/config.py:52
+#: src/neirapinuela/config.py:71
 msgid "Aplicación para practicar geografia"
 msgstr "Application to practice geography"
 
-#: src/neirapinuela/config.py:59
+#: src/neirapinuela/config.py:78
 msgid "Panel de monitorización y métricas"
 msgstr "Monitoring and metrics dashboard"
 
-#: src/neirapinuela/config.py:62 src/neirapinuela/templates/apps/quiz.html:6
+#: src/neirapinuela/config.py:81 src/neirapinuela/templates/apps/quiz.html:6
 msgid "Quiz"
 msgstr "Quiz"
 
-#: src/neirapinuela/config.py:66
+#: src/neirapinuela/config.py:85
 msgid "Repaso de capitales, verbos y más"
 msgstr "Review capitals, verbs and more"
 
-#: src/neirapinuela/config.py:69
+#: src/neirapinuela/config.py:88
 msgid "Gas"
 msgstr ""
 
-#: src/neirapinuela/config.py:73
+#: src/neirapinuela/config.py:92
 msgid "Conversor de unidades de gas"
 msgstr "Gas unit converter"
 
-#: src/neirapinuela/config.py:76
+#: src/neirapinuela/config.py:95
 msgid "Euro Coin Game"
 msgstr ""
 
-#: src/neirapinuela/config.py:80
+#: src/neirapinuela/config.py:99
 msgid "Aprende a usar las monedas de euro"
 msgstr "Learn the use of euro coins and banknotes"
 
-#: src/neirapinuela/config.py:83
+#: src/neirapinuela/config.py:102
 #: src/neirapinuela/templates/apps/measurements.html:4
 #: src/neirapinuela/templates/apps/measurements.html:8
 msgid "Conversor de Unidades"
 msgstr "Unit Converter"
 
-#: src/neirapinuela/config.py:87
+#: src/neirapinuela/config.py:106
 msgid "Practica la conversión de unidades"
 msgstr "Practice unit conversion"
 
-#: src/neirapinuela/config.py:90
+#: src/neirapinuela/config.py:109
 msgid "Multiplicaciones"
 msgstr ""
 
-#: src/neirapinuela/config.py:94
+#: src/neirapinuela/config.py:113
 msgid "Practica las tablas de multiplicar"
 msgstr ""
 
-#: src/neirapinuela/config.py:97 src/neirapinuela/templates/apps/sudoku.html:3
+#: src/neirapinuela/config.py:116 src/neirapinuela/templates/apps/sudoku.html:3
 #: src/neirapinuela/templates/apps/sudoku.html:12
 msgid "Sudoku Avanzado"
 msgstr ""
 
-#: src/neirapinuela/config.py:101
+#: src/neirapinuela/config.py:120
 msgid "Juega al Sudoku Difícil, Samurai o Killer"
 msgstr ""
 
-#: src/neirapinuela/config.py:104
+#: src/neirapinuela/config.py:123
 msgid "Wordle ES"
 msgstr ""
 
-#: src/neirapinuela/config.py:108
+#: src/neirapinuela/config.py:127
 msgid "Adivina la palabra oculta en 6 intentos"
 msgstr ""
 
-#: src/neirapinuela/config.py:111
+#: src/neirapinuela/config.py:130
 #, fuzzy
 msgid "Sopas de Letras"
 msgstr "4-letter words"
 
-#: src/neirapinuela/config.py:115
+#: src/neirapinuela/config.py:134
 msgid "Encuentra las palabras ocultas en la cuadrícula"
 msgstr ""
 
-#: src/neirapinuela/config.py:122
+#: src/neirapinuela/config.py:141
 msgid "Practica ecuaciones de primer grado paso a paso"
 msgstr ""
 
 #: src/neirapinuela/templates/about.html:3
-#: src/neirapinuela/templates/base.html:40
+#: src/neirapinuela/templates/base.html:60
 #: src/neirapinuela/templates/index.html:45
 msgid "About"
 msgstr ""
@@ -316,11 +316,11 @@ msgid ""
 "and modern web technologies."
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:31
+#: src/neirapinuela/templates/base.html:51
 msgid "Home"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:34
+#: src/neirapinuela/templates/base.html:54
 #: src/neirapinuela/templates/family.html:3
 #: src/neirapinuela/templates/index.html:17
 msgid "Family"
@@ -328,27 +328,46 @@ msgstr ""
 
 #: src/neirapinuela/templates/apps/index.html:3
 #: src/neirapinuela/templates/apps/index.html:8
-#: src/neirapinuela/templates/base.html:37
+#: src/neirapinuela/templates/base.html:57
 #: src/neirapinuela/templates/index.html:31
 msgid "Applications"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:52
+#: src/neirapinuela/templates/base.html:72
 msgid "Logout"
 msgstr ""
 
 #: src/neirapinuela/templates/apps/index.html:67
-#: src/neirapinuela/templates/base.html:57
+#: src/neirapinuela/templates/base.html:77
 #: src/neirapinuela/templates/errors/401.html:22
 #: src/neirapinuela/templates/errors/403.html:37
 msgid "Login"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:106
+#: src/neirapinuela/templates/base.html:85
+#: src/neirapinuela/templates/base.html:87
+msgid "Switch to light mode"
+msgstr "Switch to light mode"
+
+#: src/neirapinuela/templates/base.html:86
+#: src/neirapinuela/templates/base.html:88
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+#: src/neirapinuela/templates/base.html:89
+#: src/neirapinuela/templates/base.html:90
+msgid "Toggle dark mode"
+msgstr "Toggle dark mode"
+
+#: src/neirapinuela/templates/base.html:137
+msgid "Version"
+msgstr "Version"
+
+#: src/neirapinuela/templates/base.html:140
 msgid "Made with"
 msgstr ""
 
-#: src/neirapinuela/templates/base.html:106
+#: src/neirapinuela/templates/base.html:140
 msgid "by the Neira Pinuela family"
 msgstr ""
 
@@ -436,7 +455,7 @@ msgstr "Next"
 
 #: src/neirapinuela/templates/apps/ecuaciones/exercise.html:77
 #: src/neirapinuela/templates/apps/euro_coin_game.html:160
-#: src/neirapinuela/templates/apps/geografia.html:165
+#: src/neirapinuela/templates/apps/geografia.html:180
 #: src/neirapinuela/templates/apps/measurements.html:106
 msgid "Comprobar"
 msgstr "Check"
@@ -447,7 +466,7 @@ msgstr "Undo"
 
 #: src/neirapinuela/templates/apps/euro_coin_game.html:181
 #: src/neirapinuela/templates/apps/gas.html:45
-#: src/neirapinuela/templates/apps/geografia.html:164
+#: src/neirapinuela/templates/apps/geografia.html:179
 msgid "Reiniciar"
 msgstr "Restart"
 
@@ -511,97 +530,97 @@ msgstr "Work in Progress"
 msgid "Repaso de Geografía · neirapinuela.es"
 msgstr "Geography review · neirapinuela.es"
 
-#: src/neirapinuela/templates/apps/geografia.html:162
+#: src/neirapinuela/templates/apps/geografia.html:177
 msgid "Repaso de Geografía"
 msgstr "Geography review"
 
-#: src/neirapinuela/templates/apps/geografia.html:166
+#: src/neirapinuela/templates/apps/geografia.html:181
 msgid "Mostrar soluciones"
 msgstr "Show answers"
 
-#: src/neirapinuela/templates/apps/geografia.html:167
+#: src/neirapinuela/templates/apps/geografia.html:182
 msgid "Descargar PNG"
 msgstr "Download PNG"
 
-#: src/neirapinuela/templates/apps/geografia.html:190
+#: src/neirapinuela/templates/apps/geografia.html:205
 msgid "Acercar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:191
+#: src/neirapinuela/templates/apps/geografia.html:206
 msgid "Restablecer vista"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:192
+#: src/neirapinuela/templates/apps/geografia.html:207
 msgid "Alejar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/geografia.html:197
+#: src/neirapinuela/templates/apps/geografia.html:212
 msgid "Modo autor:"
 msgstr "Author mode:"
 
-#: src/neirapinuela/templates/apps/geografia.html:197
+#: src/neirapinuela/templates/apps/geografia.html:212
 msgid "para capturar un punto"
 msgstr "to capture a point"
 
-#: src/neirapinuela/templates/apps/geografia.html:198
+#: src/neirapinuela/templates/apps/geografia.html:213
 msgid "para múltiples puntos (ríos, cordilleras)"
 msgstr "for multiple points (rivers, mountain ranges)"
 
-#: src/neirapinuela/templates/apps/geografia.html:216
+#: src/neirapinuela/templates/apps/geografia.html:231
 msgid "Mapa"
 msgstr "Map"
 
-#: src/neirapinuela/templates/apps/geografia.html:219
+#: src/neirapinuela/templates/apps/geografia.html:234
 msgid "Europa"
 msgstr "Europe"
 
-#: src/neirapinuela/templates/apps/geografia.html:220
+#: src/neirapinuela/templates/apps/geografia.html:235
 msgid "África"
 msgstr "Africa"
 
-#: src/neirapinuela/templates/apps/geografia.html:221
+#: src/neirapinuela/templates/apps/geografia.html:236
 msgid "América del Norte"
 msgstr "North America"
 
-#: src/neirapinuela/templates/apps/geografia.html:222
+#: src/neirapinuela/templates/apps/geografia.html:237
 msgid "América del Sur"
 msgstr "South America"
 
-#: src/neirapinuela/templates/apps/geografia.html:223
+#: src/neirapinuela/templates/apps/geografia.html:238
 #, fuzzy
 msgid "Asia"
 msgstr "Mass"
 
-#: src/neirapinuela/templates/apps/geografia.html:227
+#: src/neirapinuela/templates/apps/geografia.html:242
 msgid "Conjunto"
 msgstr "Set"
 
-#: src/neirapinuela/templates/apps/geografia.html:235
+#: src/neirapinuela/templates/apps/geografia.html:250
 msgid "Ocultar nombres"
 msgstr "Hide names"
 
-#: src/neirapinuela/templates/apps/geografia.html:244
+#: src/neirapinuela/templates/apps/geografia.html:259
 msgid "Aciertos:"
 msgstr "Score:"
 
-#: src/neirapinuela/templates/apps/geografia.html:247
+#: src/neirapinuela/templates/apps/geografia.html:262
 msgid "Quitar marcadores"
 msgstr "Clear markers"
 
-#: src/neirapinuela/templates/apps/geografia.html:251
+#: src/neirapinuela/templates/apps/geografia.html:266
 msgid "Elementos"
 msgstr "Items"
 
-#: src/neirapinuela/templates/apps/geografia.html:273
+#: src/neirapinuela/templates/apps/geografia.html:288
 msgid "Punto añadido"
 msgstr "Point added"
 
-#: src/neirapinuela/templates/apps/geografia.html:274
+#: src/neirapinuela/templates/apps/geografia.html:289
 #: src/neirapinuela/templates/apps/multiplications.html:174
 msgid "Total"
 msgstr "Total"
 
-#: src/neirapinuela/templates/apps/geografia.html:275
+#: src/neirapinuela/templates/apps/geografia.html:290
 msgid "Copiado"
 msgstr "Copied"
 
