@@ -136,6 +136,22 @@ def create_app(config_class=Config):
     def load_user(user_id):
         return User.get(user_id)
 
+    # Database (SQLite) — create instance dir and tables
+    import os as _os
+
+    _os.makedirs(app.instance_path, exist_ok=True)
+
+    from .db import db
+
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
+
+    # CLI commands (also fixes the pyproject.toml console script entry point)
+    from .cli import typing_cli
+
+    app.cli.add_command(typing_cli)
+
     from .main import bp as main_bp
 
     app.register_blueprint(main_bp)

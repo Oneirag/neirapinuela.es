@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, current_app, abort
+from flask import Blueprint, render_template, current_app, abort, jsonify, request
 from flask_login import login_required, current_user
 from flask_babel import _
 
@@ -8,6 +8,87 @@ bp = Blueprint("apps", __name__)
 @bp.route("/mecanografia")
 def mecanografia():
     return render_template("apps/mecanografia.html")
+
+
+@bp.route("/mecanografia/progreso", methods=["GET"])
+@login_required
+def mecanografia_progreso():
+    """Devuelve lecciones completadas, mejores stats y logros del usuario."""
+    from .models import TypingCompletion, TypingAchievement
+
+    username = current_user.username
+    completions = TypingCompletion.query.filter_by(username=username).all()
+    completed = sorted({c.lesson_index for c in completions})
+    best = {}
+    for c in completions:
+        li = c.lesson_index
+        cur = best.get(li)
+        if cur is None or c.wpm > cur["wpm"]:
+            best[li] = {"wpm": c.wpm, "accuracy": c.accuracy}
+    achievements = [
+        a.achievement_id
+        for a in TypingAchievement.query.filter_by(username=username).all()
+    ]
+    return jsonify(
+        completed_lessons=completed,
+        achievements=achievements,
+        best_stats=best,
+    )
+
+
+@bp.route("/mecanografia/progreso", methods=["POST"])
+@login_required
+def mecanografia_guardar():
+    """Guarda una completación de lección con sus estadísticas."""
+    from .models import TypingCompletion
+    from .db import db
+
+    data = request.get_json(silent=True) or {}
+    li = data.get("lesson_index")
+    if li is None or not isinstance(li, int) or li < 0:
+        return jsonify(ok=False, error="lesson_index inválido"), 400
+    try:
+        record = TypingCompletion(
+            username=current_user.username,
+            lesson_index=li,
+            wpm=int(data.get("wpm", 0)),
+            accuracy=float(data.get("accuracy", 0)),
+            errors=int(data.get("errors", 0)),
+            time_seconds=float(data.get("time_seconds", 0)),
+        )
+        db.session.add(record)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        return jsonify(ok=False, error=str(e)), 500
+    return jsonify(ok=True)
+
+
+@bp.route("/mecanografia/logro", methods=["POST"])
+@login_required
+def mecanografia_logro():
+    """Guarda un logro desbloqueado (idempotente)."""
+    from .models import TypingAchievement
+    from .db import db
+
+    data = request.get_json(silent=True) or {}
+    aid = data.get("achievement_id")
+    if aid not in ("perfect", "speed40", "persistent"):
+        return jsonify(ok=False, error="achievement_id inválido"), 400
+    try:
+        exists = TypingAchievement.query.filter_by(
+            username=current_user.username, achievement_id=aid
+        ).first()
+        if exists:
+            return jsonify(ok=True, already=True)
+        db.session.add(
+            TypingAchievement(username=current_user.username, achievement_id=aid)
+        )
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        return jsonify(ok=False, error=str(e)), 500
+    return jsonify(ok=True)
 
 
 @bp.route("/geografia")

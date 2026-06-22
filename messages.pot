@@ -8,21 +8,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-17 06:23+0200\n"
+"POT-Creation-Date: 2026-06-22 23:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.10.3\n"
 
 #: src/neirapinuela/__init__.py:26
 #: src/neirapinuela/templates/errors/401.html:11
 msgid "Unauthorized"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:28
+#: src/neirapinuela/__init__.py:27
 #: src/neirapinuela/templates/errors/401.html:13
 msgid "You must be logged in to access this resource."
 msgstr ""
@@ -35,7 +35,7 @@ msgstr ""
 msgid "Forbidden"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:35
+#: src/neirapinuela/__init__.py:34
 msgid ""
 "You don't have permission to access this resource. This application is "
 "restricted to specific family members."
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Not Found"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:42
+#: src/neirapinuela/__init__.py:41
 #: src/neirapinuela/templates/errors/404.html:13
 msgid ""
 "The page you are looking for might have been removed, had its name "
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Method Not Allowed"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:49
+#: src/neirapinuela/__init__.py:48
 #: src/neirapinuela/templates/errors/405.html:13
 msgid "The method is not allowed for the requested URL."
 msgstr ""
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Internal Server Error"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:56
+#: src/neirapinuela/__init__.py:55
 msgid ""
 "Our server encountered an unexpected error while processing your request."
 " The issue has been logged and our team will investigate it."
@@ -92,7 +92,7 @@ msgstr ""
 msgid "Bad Gateway"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:63
+#: src/neirapinuela/__init__.py:62
 #: src/neirapinuela/templates/errors/502.html:13
 msgid "The server received an invalid response from the upstream server."
 msgstr ""
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Service Unavailable"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:70
+#: src/neirapinuela/__init__.py:69
 msgid ""
 "The server is temporarily unable to handle your request due to "
 "maintenance or capacity issues. Please try again later."
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Gateway Timeout"
 msgstr ""
 
-#: src/neirapinuela/__init__.py:77
+#: src/neirapinuela/__init__.py:76
 #: src/neirapinuela/templates/errors/504.html:13
 msgid "The server did not receive a timely response from the upstream server."
 msgstr ""
@@ -157,109 +157,6 @@ msgstr ""
 
 #: src/neirapinuela/auth.py:51
 msgid "Authentication failed"
-msgstr ""
-
-#: src/neirapinuela/config.py:41
-msgid "padre"
-msgstr ""
-
-#: src/neirapinuela/config.py:42
-msgid "madre"
-msgstr ""
-
-#: src/neirapinuela/config.py:43 src/neirapinuela/config.py:44
-msgid "hijo"
-msgstr ""
-
-#: src/neirapinuela/config.py:60
-msgid "Mecanografía"
-msgstr ""
-
-#: src/neirapinuela/config.py:64
-msgid "Aplicación para practicar mecanografía"
-msgstr ""
-
-#: src/neirapinuela/config.py:67
-msgid "Geografía"
-msgstr ""
-
-#: src/neirapinuela/config.py:71
-msgid "Aplicación para practicar geografia"
-msgstr ""
-
-#: src/neirapinuela/config.py:78
-msgid "Panel de monitorización y métricas"
-msgstr ""
-
-#: src/neirapinuela/config.py:81 src/neirapinuela/templates/apps/quiz.html:6
-msgid "Quiz"
-msgstr ""
-
-#: src/neirapinuela/config.py:85
-msgid "Repaso de capitales, verbos y más"
-msgstr ""
-
-#: src/neirapinuela/config.py:88
-msgid "Gas"
-msgstr ""
-
-#: src/neirapinuela/config.py:92
-msgid "Conversor de unidades de gas"
-msgstr ""
-
-#: src/neirapinuela/config.py:95
-msgid "Euro Coin Game"
-msgstr ""
-
-#: src/neirapinuela/config.py:99
-msgid "Aprende a usar las monedas de euro"
-msgstr ""
-
-#: src/neirapinuela/config.py:102
-#: src/neirapinuela/templates/apps/measurements.html:4
-#: src/neirapinuela/templates/apps/measurements.html:8
-msgid "Conversor de Unidades"
-msgstr ""
-
-#: src/neirapinuela/config.py:106
-msgid "Practica la conversión de unidades"
-msgstr ""
-
-#: src/neirapinuela/config.py:109
-msgid "Multiplicaciones"
-msgstr ""
-
-#: src/neirapinuela/config.py:113
-msgid "Practica las tablas de multiplicar"
-msgstr ""
-
-#: src/neirapinuela/config.py:116 src/neirapinuela/templates/apps/sudoku.html:3
-#: src/neirapinuela/templates/apps/sudoku.html:12
-msgid "Sudoku Avanzado"
-msgstr ""
-
-#: src/neirapinuela/config.py:120
-msgid "Juega al Sudoku Difícil, Samurai o Killer"
-msgstr ""
-
-#: src/neirapinuela/config.py:123
-msgid "Wordle ES"
-msgstr ""
-
-#: src/neirapinuela/config.py:127
-msgid "Adivina la palabra oculta en 6 intentos"
-msgstr ""
-
-#: src/neirapinuela/config.py:130
-msgid "Sopas de Letras"
-msgstr ""
-
-#: src/neirapinuela/config.py:134
-msgid "Encuentra las palabras ocultas en la cuadrícula"
-msgstr ""
-
-#: src/neirapinuela/config.py:141
-msgid "Practica ecuaciones de primer grado paso a paso"
 msgstr ""
 
 #: src/neirapinuela/templates/about.html:3
@@ -637,6 +534,11 @@ msgstr ""
 msgid "Please log in to see more applications or check back later."
 msgstr ""
 
+#: src/neirapinuela/templates/apps/measurements.html:4
+#: src/neirapinuela/templates/apps/measurements.html:8
+msgid "Conversor de Unidades"
+msgstr ""
+
 #: src/neirapinuela/templates/apps/measurements.html:12
 msgid "Selecciona el tipo de unidad:"
 msgstr ""
@@ -974,163 +876,267 @@ msgstr ""
 msgid "Palabras de 4 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:733
+#: src/neirapinuela/templates/apps/mecanografia.html:731
+msgid "Palabras 4: Cinco letras"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:732
+msgid "Palabras frecuentes de 5 letras"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:737
+msgid "Palabras 5: Seis letras"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:738
+msgid "Palabras frecuentes de 6 letras"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:743
+msgid "Palabras 6: Siete letras"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:744
+msgid "Palabras frecuentes de 7 letras"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:751
 msgid "Números 1: 1-5"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:734
+#: src/neirapinuela/templates/apps/mecanografia.html:752
 msgid "Números con mano izquierda"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:739
+#: src/neirapinuela/templates/apps/mecanografia.html:757
 msgid "Números 2: 6-0"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:740
+#: src/neirapinuela/templates/apps/mecanografia.html:758
 msgid "Números con mano derecha"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:745
+#: src/neirapinuela/templates/apps/mecanografia.html:763
 msgid "Números 3: Todos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:746
+#: src/neirapinuela/templates/apps/mecanografia.html:764
 msgid "Todos los números"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:753
+#: src/neirapinuela/templates/apps/mecanografia.html:771
 msgid "Símbolos 1: Básicos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:754
+#: src/neirapinuela/templates/apps/mecanografia.html:772
 msgid "Puntuación básica"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:759
+#: src/neirapinuela/templates/apps/mecanografia.html:777
 msgid "Símbolos 2: Interrogación"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:760
+#: src/neirapinuela/templates/apps/mecanografia.html:778
 msgid "Signos de interrogación"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:767
+#: src/neirapinuela/templates/apps/mecanografia.html:785
 msgid "Palabras Complejas 1"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:768
+#: src/neirapinuela/templates/apps/mecanografia.html:786
 msgid "Palabras largas frecuentes"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:773
+#: src/neirapinuela/templates/apps/mecanografia.html:791
 msgid "Palabras Españolas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:774
+#: src/neirapinuela/templates/apps/mecanografia.html:792
 msgid "Palabras con ñ y acentos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:781
+#: src/neirapinuela/templates/apps/mecanografia.html:799
 msgid "Oraciones Simples"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:782
+#: src/neirapinuela/templates/apps/mecanografia.html:800
 msgid "Frases cortas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:787
+#: src/neirapinuela/templates/apps/mecanografia.html:805
 msgid "Oraciones Complejas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:788
+#: src/neirapinuela/templates/apps/mecanografia.html:806
 msgid "Frases largas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:795
+#: src/neirapinuela/templates/apps/mecanografia.html:813
 msgid "Tecnología"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:796
+#: src/neirapinuela/templates/apps/mecanografia.html:814
 msgid "Vocabulario técnico"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:801
+#: src/neirapinuela/templates/apps/mecanografia.html:819
 msgid "Nivel Maestro"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:802
+#: src/neirapinuela/templates/apps/mecanografia.html:820
 msgid "Desafío final"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:811
+#: src/neirapinuela/templates/apps/mecanografia.html:827
+msgid "Saludos y presentaciones"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:828
+msgid "Frases para saludar y presentarse"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:833
+msgid "Preguntas cotidianas"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:834
+msgid "Preguntas frecuentes del día a día"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:839
+msgid "Frases del día a día"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:840
+msgid "Frases útiles para la vida diaria"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:845
+msgid "La familia"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:846
+msgid "Oraciones sobre la familia"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:851
+msgid "Escuela y trabajo"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:852
+msgid "Frases sobre el estudio y el trabajo"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:859
+msgid "Párrafo 1: Una mañana"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:860
+msgid "Texto narrativo para practicar"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:865
+msgid "Párrafo 2: La ciudad"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:866
+msgid "Descripción de un lugar"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:871
+msgid "Párrafo 3: Una carta a un amigo"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:872
+msgid "Texto epistolar"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:877
+msgid "Párrafo 4: El deporte"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:878
+msgid "Texto expositivo sobre el deporte"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:883
+msgid "Párrafo 5: Un cuento corto"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:884
+msgid "Narración breve para practicar"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/mecanografia.html:893
 msgid "Keep your wrists straight and fingers curved."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:812
+#: src/neirapinuela/templates/apps/mecanografia.html:894
 msgid "Look at the screen, not at your fingers."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:813
+#: src/neirapinuela/templates/apps/mecanografia.html:895
 msgid "Use all ten fingers, not just your index fingers."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:814
+#: src/neirapinuela/templates/apps/mecanografia.html:896
 msgid "Practice regularly for better results."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:815
+#: src/neirapinuela/templates/apps/mecanografia.html:897
 msgid "Accuracy is more important than speed."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:816
+#: src/neirapinuela/templates/apps/mecanografia.html:898
 msgid "Take breaks to avoid fatigue."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:817
+#: src/neirapinuela/templates/apps/mecanografia.html:899
 msgid "Maintain good posture while typing."
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:848
+#: src/neirapinuela/templates/apps/mecanografia.html:930
 msgid "Words:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:849
+#: src/neirapinuela/templates/apps/mecanografia.html:931
 msgid "Keys:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1083
+#: src/neirapinuela/templates/apps/mecanografia.html:1165
 msgid "Lesson"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1083
+#: src/neirapinuela/templates/apps/mecanografia.html:1165
 msgid "completed!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1088
+#: src/neirapinuela/templates/apps/mecanografia.html:1170
 msgid "Accuracy:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1089
+#: src/neirapinuela/templates/apps/mecanografia.html:1171
 msgid "Speed:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1090
+#: src/neirapinuela/templates/apps/mecanografia.html:1172
 msgid "Time:"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1127
+#: src/neirapinuela/templates/apps/mecanografia.html:1209
 msgid "Perfect accuracy!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1132
+#: src/neirapinuela/templates/apps/mecanografia.html:1214
 msgid "Speed demon! 40+ WPM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1137
+#: src/neirapinuela/templates/apps/mecanografia.html:1219
 msgid "Persistent learner!"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1150
+#: src/neirapinuela/templates/apps/mecanografia.html:1232
 msgid "Tip:"
 msgstr ""
 
@@ -1194,6 +1200,10 @@ msgstr ""
 msgid "Try Again"
 msgstr ""
 
+#: src/neirapinuela/templates/apps/quiz.html:6
+msgid "Quiz"
+msgstr ""
+
 #: src/neirapinuela/templates/apps/quiz.html:9
 msgid "European Capitals"
 msgstr ""
@@ -1250,6 +1260,11 @@ msgstr ""
 
 #: src/neirapinuela/templates/apps/sopas.html:3
 msgid " - neirapinuela.es"
+msgstr ""
+
+#: src/neirapinuela/templates/apps/sudoku.html:3
+#: src/neirapinuela/templates/apps/sudoku.html:12
+msgid "Sudoku Avanzado"
 msgstr ""
 
 #: src/neirapinuela/templates/apps/sudoku.html:13

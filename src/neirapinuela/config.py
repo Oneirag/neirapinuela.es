@@ -30,6 +30,12 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
     APP_VERSION = _read_pyproject_version()
 
+    # Database (SQLite by default; file placed under app.instance_path)
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL", "sqlite:///neirapinuela.db"
+    )
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
     # Session and Cookie Configuration
     SESSION_COOKIE_DOMAIN = ".neirapinuela.es"
     REMEMBER_COOKIE_DOMAIN = ".neirapinuela.es"

@@ -1,6 +1,7 @@
 Flask>=2.3.0
 Flask-Babel>=3.1.0
 Flask-Login>=0.6.0
+Flask-SQLAlchemy>=3.1.0
 Flask-WTF>=1.1.0
 WTForms>=3.0.0
 pyotp>=2.8.0
