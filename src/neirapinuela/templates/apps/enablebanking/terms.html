@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Terms of Service') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-5 text-primary text-center mb-4">{{ _('Terms of Service') }}</h1>
+
+            <p class="text-muted text-center mb-4">
+                <small>{{ _('Last updated') }}: 2026-07-13</small>
+            </p>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Scope') }}</h3>
+                    <p class="card-text">
+                        {{ _('This is a private, non-commercial tool used only by the Neira Pinuela household (Oscar and Eva). It is not available to the public.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('No warranty') }}</h3>
+                    <p class="card-text">
+                        {{ _('This service is provided "as is" and "as available," without any warranty of any kind.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('User responsibilities') }}</h3>
+                    <p class="card-text">
+                        {{ _('Only authorized household members may connect a bank account. You are responsible for keeping your login credentials secure.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Third-party services') }}</h3>
+                    <p class="card-text">
+                        {{ _('Bank data is retrieved through Enable Banking, a third-party API provider. Their terms of service also apply to your use of their platform.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Limitation of liability') }}</h3>
+                    <p class="card-text">
+                        {{ _('The owners of this application are not liable for any damages arising from the use or inability to use this service.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Changes') }}</h3>
+                    <p class="card-text">
+                        {{ _('We may update these terms at any time. Continued use constitutes acceptance.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-primary">{{ _('Contact') }}</h3>
+                    <p class="card-text">
+                        <a href="mailto:oscar@neirapinuela.es">oscar@neirapinuela.es</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

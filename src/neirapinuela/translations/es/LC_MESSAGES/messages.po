@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-06-22 23:11+0200\n"
+"POT-Creation-Date: 2026-07-13 05:29+0200\n"
 "PO-Revision-Date: 2025-06-17 04:29+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -149,15 +149,15 @@ msgstr "Las credenciales proporcionadas son inválidas."
 msgid "Try again"
 msgstr "Inténtalo de nuevo"
 
-#: src/neirapinuela/apps.py:46
+#: src/neirapinuela/apps.py:127
 msgid "Longitud"
 msgstr ""
 
-#: src/neirapinuela/apps.py:47
+#: src/neirapinuela/apps.py:128
 msgid "Masa"
 msgstr ""
 
-#: src/neirapinuela/apps.py:48
+#: src/neirapinuela/apps.py:129
 msgid "Capacidad"
 msgstr ""
 
@@ -219,6 +219,8 @@ msgid "Available to groups:"
 msgstr "Disponible para:"
 
 #: src/neirapinuela/templates/about.html:62
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:73
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:71
 msgid "Contact"
 msgstr "Contacto"
 
@@ -654,509 +656,509 @@ msgstr "Repetir Lección"
 msgid "Achievement Unlocked!"
 msgstr "¡Logro Desbloqueado!"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:395
+#: src/neirapinuela/templates/apps/mecanografia.html:403
 msgid "Fila Base 1: ASDF"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:396
+#: src/neirapinuela/templates/apps/mecanografia.html:404
 msgid "Mano izquierda - Teclas básicas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:401
+#: src/neirapinuela/templates/apps/mecanografia.html:409
 msgid "Fila Base 2: JKLÑ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:402
+#: src/neirapinuela/templates/apps/mecanografia.html:410
 msgid "Mano derecha - Teclas básicas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:407
+#: src/neirapinuela/templates/apps/mecanografia.html:415
 msgid "Fila Base 3: GH"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:408
+#: src/neirapinuela/templates/apps/mecanografia.html:416
 msgid "Índices - Teclas centrales"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:413
+#: src/neirapinuela/templates/apps/mecanografia.html:421
 msgid "Fila Base 4: Combinaciones"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:414
 #: src/neirapinuela/templates/apps/mecanografia.html:422
+#: src/neirapinuela/templates/apps/mecanografia.html:430
 msgid "Todas las teclas de la fila base"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:421
+#: src/neirapinuela/templates/apps/mecanografia.html:429
 msgid "Fila Base 5: Palabras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:433
+#: src/neirapinuela/templates/apps/mecanografia.html:441
 msgid "Fila Superior 1: QA"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:434
+#: src/neirapinuela/templates/apps/mecanografia.html:442
 msgid "Meñique mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:450
+#: src/neirapinuela/templates/apps/mecanografia.html:458
 msgid "Fila Superior 2: WS"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:451
+#: src/neirapinuela/templates/apps/mecanografia.html:459
 msgid "Anular mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:464
+#: src/neirapinuela/templates/apps/mecanografia.html:472
 msgid "Fila Superior 3: ED"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:465
+#: src/neirapinuela/templates/apps/mecanografia.html:473
 msgid "Corazón mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:478
+#: src/neirapinuela/templates/apps/mecanografia.html:486
 msgid "Fila Superior 4: FRGT"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:479
+#: src/neirapinuela/templates/apps/mecanografia.html:487
 msgid "Índice mano izquierda - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:492
+#: src/neirapinuela/templates/apps/mecanografia.html:500
 msgid "Fila Superior 5: QWERT"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:493
+#: src/neirapinuela/templates/apps/mecanografia.html:501
 msgid "Mano izquierda - Fila superior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:499
+#: src/neirapinuela/templates/apps/mecanografia.html:507
 msgid "Combinación ASDF y QWERT"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:500
+#: src/neirapinuela/templates/apps/mecanografia.html:508
 msgid "Mano izquierda - Fila superior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:518
+#: src/neirapinuela/templates/apps/mecanografia.html:526
 msgid "Fila Superior 6: ÑP"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:519
+#: src/neirapinuela/templates/apps/mecanografia.html:527
 msgid "Meñique Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:530
+#: src/neirapinuela/templates/apps/mecanografia.html:538
 msgid "Fila Superior 7: OL"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:531
+#: src/neirapinuela/templates/apps/mecanografia.html:539
 msgid "Anular Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:542
+#: src/neirapinuela/templates/apps/mecanografia.html:550
 msgid "Fila Superior 8: IK"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:543
+#: src/neirapinuela/templates/apps/mecanografia.html:551
 msgid "Corazón Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:554
+#: src/neirapinuela/templates/apps/mecanografia.html:562
 msgid "Fila Superior 9: UYHJ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:555
+#: src/neirapinuela/templates/apps/mecanografia.html:563
 msgid "Índice Derecho - Filas Superior y Central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:567
+#: src/neirapinuela/templates/apps/mecanografia.html:575
 msgid "Fila Superior 10: YUIOP"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:568
-#: src/neirapinuela/templates/apps/mecanografia.html:574
+#: src/neirapinuela/templates/apps/mecanografia.html:576
+#: src/neirapinuela/templates/apps/mecanografia.html:582
 msgid "Mano derecha - Fila superior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:573
+#: src/neirapinuela/templates/apps/mecanografia.html:581
 msgid "Fila Superior 11: YUIOPHJKLÑ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:582
+#: src/neirapinuela/templates/apps/mecanografia.html:590
 msgid "Fila Superior 12: Mezcla Sup+Base"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:583
+#: src/neirapinuela/templates/apps/mecanografia.html:591
 msgid "Combina fila superior con base"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:595
+#: src/neirapinuela/templates/apps/mecanografia.html:603
 msgid "Fila Inferior 1: AZ"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:596
+#: src/neirapinuela/templates/apps/mecanografia.html:604
 msgid "Meñique Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:608
+#: src/neirapinuela/templates/apps/mecanografia.html:616
 msgid "Fila Inferior 2: SX"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:609
+#: src/neirapinuela/templates/apps/mecanografia.html:617
 msgid "Anular Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:620
+#: src/neirapinuela/templates/apps/mecanografia.html:628
 msgid "Fila Inferior 3: DC"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:621
+#: src/neirapinuela/templates/apps/mecanografia.html:629
 msgid "Corazón Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:632
+#: src/neirapinuela/templates/apps/mecanografia.html:640
 msgid "Fila Inferior 4: FGVB"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:633
+#: src/neirapinuela/templates/apps/mecanografia.html:641
 msgid "Índice Izquierdo - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:646
+#: src/neirapinuela/templates/apps/mecanografia.html:654
 msgid "Fila Inferior 5: ZXCV"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:647
+#: src/neirapinuela/templates/apps/mecanografia.html:655
 msgid "Mano izquierda - Fila inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:653
+#: src/neirapinuela/templates/apps/mecanografia.html:661
 msgid "Fila Inferior 6: ASDFGZXCV"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:654
+#: src/neirapinuela/templates/apps/mecanografia.html:662
 msgid "Mano Izquierda - Fila Inferior y central"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:670
+#: src/neirapinuela/templates/apps/mecanografia.html:678
 msgid "Fila Inferior 7: KM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:671
+#: src/neirapinuela/templates/apps/mecanografia.html:679
 msgid "Corazón Derecho - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:682
+#: src/neirapinuela/templates/apps/mecanografia.html:690
 msgid "Fila Inferior 8: JHBN"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:683
+#: src/neirapinuela/templates/apps/mecanografia.html:691
 msgid "Índice Derecho - Fila Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:697
+#: src/neirapinuela/templates/apps/mecanografia.html:705
 msgid "Fila Inferior 9: BNM"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:698
+#: src/neirapinuela/templates/apps/mecanografia.html:706
 msgid "Mano derecha - Fila inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:705
+#: src/neirapinuela/templates/apps/mecanografia.html:713
 msgid "Todas las filas 1"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:706
+#: src/neirapinuela/templates/apps/mecanografia.html:714
 msgid "Superior + Base + Inferior"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:713
+#: src/neirapinuela/templates/apps/mecanografia.html:721
 msgid "Palabras 1: Dos letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:714
+#: src/neirapinuela/templates/apps/mecanografia.html:722
 msgid "Palabras de 2 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:719
+#: src/neirapinuela/templates/apps/mecanografia.html:727
 msgid "Palabras 2: Tres letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:720
+#: src/neirapinuela/templates/apps/mecanografia.html:728
 msgid "Palabras de 3 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:725
+#: src/neirapinuela/templates/apps/mecanografia.html:733
 msgid "Palabras 3: Cuatro letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:726
+#: src/neirapinuela/templates/apps/mecanografia.html:734
 msgid "Palabras de 4 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:731
+#: src/neirapinuela/templates/apps/mecanografia.html:739
 msgid "Palabras 4: Cinco letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:732
+#: src/neirapinuela/templates/apps/mecanografia.html:740
 msgid "Palabras frecuentes de 5 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:737
+#: src/neirapinuela/templates/apps/mecanografia.html:745
 msgid "Palabras 5: Seis letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:738
+#: src/neirapinuela/templates/apps/mecanografia.html:746
 msgid "Palabras frecuentes de 6 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:743
+#: src/neirapinuela/templates/apps/mecanografia.html:751
 msgid "Palabras 6: Siete letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:744
+#: src/neirapinuela/templates/apps/mecanografia.html:752
 msgid "Palabras frecuentes de 7 letras"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:751
+#: src/neirapinuela/templates/apps/mecanografia.html:759
 msgid "Números 1: 1-5"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:752
+#: src/neirapinuela/templates/apps/mecanografia.html:760
 msgid "Números con mano izquierda"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:757
+#: src/neirapinuela/templates/apps/mecanografia.html:765
 msgid "Números 2: 6-0"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:758
+#: src/neirapinuela/templates/apps/mecanografia.html:766
 msgid "Números con mano derecha"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:763
+#: src/neirapinuela/templates/apps/mecanografia.html:771
 msgid "Números 3: Todos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:764
+#: src/neirapinuela/templates/apps/mecanografia.html:772
 msgid "Todos los números"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:771
+#: src/neirapinuela/templates/apps/mecanografia.html:779
 msgid "Símbolos 1: Básicos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:772
+#: src/neirapinuela/templates/apps/mecanografia.html:780
 msgid "Puntuación básica"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:777
+#: src/neirapinuela/templates/apps/mecanografia.html:785
 msgid "Símbolos 2: Interrogación"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:778
+#: src/neirapinuela/templates/apps/mecanografia.html:786
 msgid "Signos de interrogación"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:785
+#: src/neirapinuela/templates/apps/mecanografia.html:793
 msgid "Palabras Complejas 1"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:786
+#: src/neirapinuela/templates/apps/mecanografia.html:794
 msgid "Palabras largas frecuentes"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:791
+#: src/neirapinuela/templates/apps/mecanografia.html:799
 msgid "Palabras Españolas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:792
+#: src/neirapinuela/templates/apps/mecanografia.html:800
 msgid "Palabras con ñ y acentos"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:799
+#: src/neirapinuela/templates/apps/mecanografia.html:807
 msgid "Oraciones Simples"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:800
+#: src/neirapinuela/templates/apps/mecanografia.html:808
 msgid "Frases cortas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:805
+#: src/neirapinuela/templates/apps/mecanografia.html:813
 msgid "Oraciones Complejas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:806
+#: src/neirapinuela/templates/apps/mecanografia.html:814
 msgid "Frases largas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:813
+#: src/neirapinuela/templates/apps/mecanografia.html:821
 msgid "Tecnología"
 msgstr "Tecnología"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:814
+#: src/neirapinuela/templates/apps/mecanografia.html:822
 msgid "Vocabulario técnico"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:819
+#: src/neirapinuela/templates/apps/mecanografia.html:827
 msgid "Nivel Maestro"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:820
+#: src/neirapinuela/templates/apps/mecanografia.html:828
 msgid "Desafío final"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:827
+#: src/neirapinuela/templates/apps/mecanografia.html:835
 msgid "Saludos y presentaciones"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:828
+#: src/neirapinuela/templates/apps/mecanografia.html:836
 msgid "Frases para saludar y presentarse"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:833
+#: src/neirapinuela/templates/apps/mecanografia.html:841
 msgid "Preguntas cotidianas"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:834
+#: src/neirapinuela/templates/apps/mecanografia.html:842
 msgid "Preguntas frecuentes del día a día"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:839
+#: src/neirapinuela/templates/apps/mecanografia.html:847
 msgid "Frases del día a día"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:840
+#: src/neirapinuela/templates/apps/mecanografia.html:848
 msgid "Frases útiles para la vida diaria"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:845
+#: src/neirapinuela/templates/apps/mecanografia.html:853
 msgid "La familia"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:846
+#: src/neirapinuela/templates/apps/mecanografia.html:854
 msgid "Oraciones sobre la familia"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:851
+#: src/neirapinuela/templates/apps/mecanografia.html:859
 msgid "Escuela y trabajo"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:852
+#: src/neirapinuela/templates/apps/mecanografia.html:860
 msgid "Frases sobre el estudio y el trabajo"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:859
+#: src/neirapinuela/templates/apps/mecanografia.html:867
 msgid "Párrafo 1: Una mañana"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:860
+#: src/neirapinuela/templates/apps/mecanografia.html:868
 msgid "Texto narrativo para practicar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:865
+#: src/neirapinuela/templates/apps/mecanografia.html:873
 msgid "Párrafo 2: La ciudad"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:866
+#: src/neirapinuela/templates/apps/mecanografia.html:874
 msgid "Descripción de un lugar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:871
+#: src/neirapinuela/templates/apps/mecanografia.html:879
 msgid "Párrafo 3: Una carta a un amigo"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:872
+#: src/neirapinuela/templates/apps/mecanografia.html:880
 msgid "Texto epistolar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:877
+#: src/neirapinuela/templates/apps/mecanografia.html:885
 msgid "Párrafo 4: El deporte"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:878
+#: src/neirapinuela/templates/apps/mecanografia.html:886
 msgid "Texto expositivo sobre el deporte"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:883
+#: src/neirapinuela/templates/apps/mecanografia.html:891
 msgid "Párrafo 5: Un cuento corto"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:884
+#: src/neirapinuela/templates/apps/mecanografia.html:892
 msgid "Narración breve para practicar"
 msgstr ""
 
-#: src/neirapinuela/templates/apps/mecanografia.html:893
+#: src/neirapinuela/templates/apps/mecanografia.html:901
 msgid "Keep your wrists straight and fingers curved."
 msgstr "Mantén las muñecas rectas y los dedos curvados."
 
-#: src/neirapinuela/templates/apps/mecanografia.html:894
+#: src/neirapinuela/templates/apps/mecanografia.html:902
 msgid "Look at the screen, not at your fingers."
 msgstr "Mira la pantalla, no tus dedos."
 
-#: src/neirapinuela/templates/apps/mecanografia.html:895
+#: src/neirapinuela/templates/apps/mecanografia.html:903
 msgid "Use all ten fingers, not just your index fingers."
 msgstr "Usa los diez dedos, no solo los índices."
 
-#: src/neirapinuela/templates/apps/mecanografia.html:896
+#: src/neirapinuela/templates/apps/mecanografia.html:904
 msgid "Practice regularly for better results."
 msgstr "Practica regularmente para mejores resultados."
 
-#: src/neirapinuela/templates/apps/mecanografia.html:897
+#: src/neirapinuela/templates/apps/mecanografia.html:905
 msgid "Accuracy is more important than speed."
 msgstr "La precisión es más importante que la velocidad."
 
-#: src/neirapinuela/templates/apps/mecanografia.html:898
+#: src/neirapinuela/templates/apps/mecanografia.html:906
 msgid "Take breaks to avoid fatigue."
 msgstr "Toma descansos para evitar la fatiga."
 
-#: src/neirapinuela/templates/apps/mecanografia.html:899
+#: src/neirapinuela/templates/apps/mecanografia.html:907
 msgid "Maintain good posture while typing."
 msgstr "Mantén una buena postura al escribir."
 
-#: src/neirapinuela/templates/apps/mecanografia.html:930
+#: src/neirapinuela/templates/apps/mecanografia.html:951
 msgid "Words:"
 msgstr "Palabras:"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:931
+#: src/neirapinuela/templates/apps/mecanografia.html:952
 msgid "Keys:"
 msgstr "Teclas:"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1165
+#: src/neirapinuela/templates/apps/mecanografia.html:1190
 msgid "Lesson"
 msgstr "Lección"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1165
+#: src/neirapinuela/templates/apps/mecanografia.html:1190
 msgid "completed!"
 msgstr "completada!"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1170
+#: src/neirapinuela/templates/apps/mecanografia.html:1210
 msgid "Accuracy:"
 msgstr "Precisión:"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1171
+#: src/neirapinuela/templates/apps/mecanografia.html:1211
 msgid "Speed:"
 msgstr "Velocidad:"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1172
+#: src/neirapinuela/templates/apps/mecanografia.html:1212
 msgid "Time:"
 msgstr "Tiempo:"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1209
+#: src/neirapinuela/templates/apps/mecanografia.html:1251
 msgid "Perfect accuracy!"
 msgstr "¡Precisión perfecta!"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1214
+#: src/neirapinuela/templates/apps/mecanografia.html:1257
 msgid "Speed demon! 40+ WPM"
 msgstr "¡Demonio de la velocidad! +40 PPM"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1219
+#: src/neirapinuela/templates/apps/mecanografia.html:1263
 msgid "Persistent learner!"
 msgstr "¡Aprendiz persistente!"
 
-#: src/neirapinuela/templates/apps/mecanografia.html:1232
+#: src/neirapinuela/templates/apps/mecanografia.html:1287
 msgid "Tip:"
 msgstr "Consejo:"
 
@@ -1539,6 +1541,175 @@ msgid ""
 msgstr ""
 "No tienes que hacerlo rapido ni perfecto. Solo tienes que seguir los "
 "mismos pasos en el mismo orden."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:3
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:9
+msgid "Privacy Policy"
+msgstr "Política de Privacidad"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:12
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:12
+msgid "Last updated"
+msgstr "Última actualización"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:17
+msgid "Introduction"
+msgstr "Introducción"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:19
+msgid ""
+"This is a personal, non-commercial application used exclusively by the "
+"Neira Pinuela household. It connects to a bank account via the Enable "
+"Banking API solely to view account information and balances."
+msgstr ""
+"Esta es una aplicación personal y no comercial utilizada exclusivamente "
+"por el hogar Neira Pinuela. Se conecta a una cuenta bancaria mediante la "
+"API de Enable Banking únicamente para ver información de la cuenta y "
+"saldos."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:26
+msgid "Data we access"
+msgstr "Datos a los que accedemos"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:28
+msgid ""
+"We request read-only access to your bank account information (account "
+"list, balances, and transaction metadata) through the Enable Banking API."
+msgstr ""
+"Solicitamos acceso de solo lectura a la información de tu cuenta bancaria "
+"(lista de cuentas, saldos y metadatos de transacciones) a través de la "
+"API de Enable Banking."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:35
+msgid "What we do not do"
+msgstr "Lo que no hacemos"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:37
+msgid "We do not store bank credentials."
+msgstr "No almacenamos credenciales bancarias."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:38
+msgid "We do not sell, share, or transfer your financial data to any third party."
+msgstr "No vendemos, compartimos ni transferimos tus datos financieros a terceros."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:39
+msgid "We do not use your data for advertising or marketing."
+msgstr "No usamos tus datos para publicidad ni marketing."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:46
+msgid "Data storage"
+msgstr "Almacenamiento de datos"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:48
+msgid ""
+"Access tokens are stored in a local SQLite database on our self-hosted "
+"server. They are never transmitted to any external service other than "
+"Enable Banking."
+msgstr ""
+"Los tokens de acceso se almacenan en una base de datos SQLite local en "
+"nuestro servidor autoalojado. Nunca se transmiten a ningún servicio "
+"externo que no sea Enable Banking."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:55
+msgid "Purpose"
+msgstr "Propósito"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:57
+msgid "Personal finance visualization and household budgeting."
+msgstr "Visualización de finanzas personales y presupuesto del hogar."
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:64
+msgid "Your rights"
+msgstr "Tus derechos"
+
+#: src/neirapinuela/templates/apps/enablebanking/privacy.html:66
+msgid ""
+"You can revoke access at any time through your bank's online banking "
+"portal or by contacting us."
+msgstr ""
+"Puedes revocar el acceso en cualquier momento a través del portal de "
+"banca online de tu banco o contactando con nosotros."
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:3
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:9
+msgid "Terms of Service"
+msgstr "Términos del Servicio"
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:17
+msgid "Scope"
+msgstr "Alcance"
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:19
+msgid ""
+"This is a private, non-commercial tool used only by the Neira Pinuela "
+"household (Oscar and Eva). It is not available to the public."
+msgstr ""
+"Esta es una herramienta privada y no comercial utilizada únicamente por "
+"el hogar Neira Pinuela (Oscar y Eva). No está disponible para el "
+"público."
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:26
+msgid "No warranty"
+msgstr "Sin garantía"
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:28
+msgid ""
+"This service is provided \"as is\" and \"as available,\" without any "
+"warranty of any kind."
+msgstr ""
+"Este servicio se proporciona \"tal cual\" y \"según disponibilidad\", "
+"sin garantía de ningún tipo."
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:35
+msgid "User responsibilities"
+msgstr "Responsabilidades del usuario"
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:37
+msgid ""
+"Only authorized household members may connect a bank account. You are "
+"responsible for keeping your login credentials secure."
+msgstr ""
+"Solo los miembros autorizados del hogar pueden conectar una cuenta "
+"bancaria. Eres responsable de mantener seguras tus credenciales de "
+"acceso."
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:44
+msgid "Third-party services"
+msgstr "Servicios de terceros"
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:46
+msgid ""
+"Bank data is retrieved through Enable Banking, a third-party API "
+"provider. Their terms of service also apply to your use of their "
+"platform."
+msgstr ""
+"Los datos bancarios se obtienen a través de Enable Banking, un proveedor "
+"de API de terceros. Sus términos de servicio también se aplican al uso "
+"que hagas de su plataforma."
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:53
+msgid "Limitation of liability"
+msgstr "Limitación de responsabilidad"
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:55
+msgid ""
+"The owners of this application are not liable for any damages arising "
+"from the use or inability to use this service."
+msgstr ""
+"Los propietarios de esta aplicación no son responsables de ningún daño "
+"derivado del uso o la imposibilidad de usar este servicio."
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:62
+msgid "Changes"
+msgstr "Cambios"
+
+#: src/neirapinuela/templates/apps/enablebanking/terms.html:64
+msgid ""
+"We may update these terms at any time. Continued use constitutes "
+"acceptance."
+msgstr ""
+"Podemos actualizar estos términos en cualquier momento. El uso continuo "
+"constituye la aceptación de los mismos."
 
 #: src/neirapinuela/templates/errors/401.html:3
 #: src/neirapinuela/templates/errors/401.html:10

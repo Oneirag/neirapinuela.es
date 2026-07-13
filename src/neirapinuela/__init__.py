@@ -12,7 +12,7 @@ def get_locale():
 
     if "language" in session:
         return session["language"]
-    return request.accept_languages.best_match(["es", "en"]) or "es"
+    return request.accept_languages.best_match(["en", "es"]) or "en"
 
 
 def render_error(error_code, message=None, template=None, return_code=None):
@@ -167,6 +167,10 @@ def create_app(config_class=Config):
     from .ecuaciones import bp as ecuaciones_bp
 
     app.register_blueprint(ecuaciones_bp, url_prefix="/apps/ecuaciones")
+
+    from .enablebanking import bp as enablebanking_bp
+
+    app.register_blueprint(enablebanking_bp, url_prefix="/enablebanking")
 
     # Context processor for all templates
     @app.context_processor

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Privacy Policy') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-5 text-primary text-center mb-4">{{ _('Privacy Policy') }}</h1>
+
+            <p class="text-muted text-center mb-4">
+                <small>{{ _('Last updated') }}: 2026-07-13</small>
+            </p>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Introduction') }}</h3>
+                    <p class="card-text">
+                        {{ _("This is a personal, non-commercial application used exclusively by the Neira Pinuela household. It connects to a bank account via the Enable Banking API solely to view account information and balances.") }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Data we access') }}</h3>
+                    <p class="card-text">
+                        {{ _('We request read-only access to your bank account information (account list, balances, and transaction metadata) through the Enable Banking API.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('What we do not do') }}</h3>
+                    <ul>
+                        <li>{{ _('We do not store bank credentials.') }}</li>
+                        <li>{{ _('We do not sell, share, or transfer your financial data to any third party.') }}</li>
+                        <li>{{ _('We do not use your data for advertising or marketing.') }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Data storage') }}</h3>
+                    <p class="card-text">
+                        {{ _('Access tokens are stored in a local SQLite database on our self-hosted server. They are never transmitted to any external service other than Enable Banking.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Purpose') }}</h3>
+                    <p class="card-text">
+                        {{ _('Personal finance visualization and household budgeting.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">{{ _('Your rights') }}</h3>
+                    <p class="card-text">
+                        {{ _('You can revoke access at any time through your bank\'s online banking portal or by contacting us.') }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-primary">{{ _('Contact') }}</h3>
+                    <p class="card-text">
+                        <a href="mailto:oscar@neirapinuela.es">oscar@neirapinuela.es</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
