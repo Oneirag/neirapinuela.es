@@ -26,7 +26,7 @@ def _read_pyproject_version(default: str = "0.0.0") -> str:
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY") or "dev-secret-key-change-in-production"
     LANGUAGES = ["es", "en"]
-    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_LOCALE = "es"
     BABEL_DEFAULT_TIMEZONE = "UTC"
     APP_VERSION = _read_pyproject_version()
 

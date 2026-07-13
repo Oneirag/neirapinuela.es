@@ -12,7 +12,7 @@ def get_locale():
 
     if "language" in session:
         return session["language"]
-    return request.accept_languages.best_match(["en", "es"]) or "en"
+    return request.accept_languages.best_match(["es", "en"]) or "es"
 
 
 def render_error(error_code, message=None, template=None, return_code=None):
