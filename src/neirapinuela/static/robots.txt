@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /
+
+# Only the homepage may be crawled.
+Allow: /$
+
+Sitemap: https://neirapinuela.es/sitemap.xml

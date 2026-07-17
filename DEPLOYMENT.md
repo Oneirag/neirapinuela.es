@@ -147,7 +147,7 @@ server {
     }
     
     location /robots.txt {
-        alias /home/neirapinuela/neirapinuela-app/robots.txt;
+        alias /home/neirapinuela/neirapinuela-app/src/neirapinuela/static/robots.txt;
     }
     
     # Configuración de seguridad
