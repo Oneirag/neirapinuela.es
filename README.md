@@ -8,6 +8,7 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
 - ✅ Autenticación MFA con Google Authenticator
 - ✅ Soporte multiidioma (Español/Inglés)
 - ✅ Sistema de aplicaciones familiares
+- ✅ Seguimiento de progreso de mecanografía en SQLite con CLI de administración
 - ✅ Diseño responsivo y minimalista
 - ✅ Configuración de producción con Gunicorn/Gevent
 - ✅ Configuración de Nginx con caché estático
@@ -16,10 +17,12 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
 ## Estructura del Proyecto
 
 ```
-├── src/neirapinuela.es/          # Código fuente de la aplicación
+├── src/neirapinuela/             # Código fuente de la aplicación
 │   ├── __init__.py               # Factory de la aplicación Flask
 │   ├── config.py                 # Configuración de la aplicación
-│   ├── models.py                 # Modelos de usuario
+│   ├── models.py                 # Modelos de usuario y progreso
+│   ├── db.py                     # Instancia de SQLAlchemy (SQLite)
+│   ├── cli.py                    # Comandos CLI (progreso de mecanografía)
 │   ├── main.py                   # Blueprint principal
 │   ├── auth.py                   # Blueprint de autenticación
 │   ├── apps.py                   # Blueprint de aplicaciones
@@ -43,7 +46,7 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Oneirag/neirapinuela.es
    cd neirapinuela.es
    ```
 
@@ -66,17 +69,10 @@ Sitio web personal y familiar de la familia Neira Pinuela. Una aplicación web m
    # Editar .env con tus valores
    ```
 
-5. **Generar secretos TOTP:**
-   ```python
-   import pyotp
-   print("OSCAR_TOTP_SECRET:", pyotp.random_base32())
-   print("EVA_TOTP_SECRET:", pyotp.random_base32())
-   ```
-
-6. **Compilar traducciones:**
+5. **Compilar traducciones:**
    ```bash
    source venv/bin/activate
-   pybabel compile -d src/neirapinuela.es/translations
+   pybabel compile -d src/neirapinuela/translations
    ```
 
 ## Ejecución
@@ -94,6 +90,62 @@ gunicorn -c gunicorn_config.py 'neirapinuela:create_app()'
 # O usando el módulo WSGI
 gunicorn -c gunicorn_config.py src.neirapinuela.wsgi:app
 ```
+
+## CLI de Administración
+
+La aplicación incluye comandos CLI para consultar el progreso de mecanografía de los usuarios logueados. El progreso se guarda en una base de datos SQLite (`instance/neirapinuela.db`) que se crea automáticamente al arrancar la app.
+
+### Comandos disponibles
+
+**Resumen global de todos los usuarios:**
+```bash
+flask --app neirapinuela typing stats
+# o con el console script:
+neirapinuela typing stats
+```
+Salida de ejemplo:
+```
+Usuario              Lecciones      Mejor PPM    Logros
+------------------------------------------------------------
+carlitos             1/55         25           0
+pablo                2/55         40           1
+```
+
+**Detalle de un usuario (mejores estadísticas por lección):**
+```bash
+flask --app neirapinuela typing user pablo
+```
+Salida de ejemplo:
+```
+Usuario: pablo
+Lecciones completadas: 2/55
+Mejor PPM: 40
+Logros: Precisión perfecta (100%)
+
+Lección    Mejor PPM    Precisión    Errores    Última vez
+----------------------------------------------------------------
+#0         35           98%         2          2026-06-22 21:38
+#1         40           100%         0          2026-06-22 21:38
+```
+
+**Historial completo cronológico de sesiones:**
+```bash
+flask --app neirapinuela typing history carlitos
+```
+Salida de ejemplo:
+```
+Usuario: carlitos - Historial de sesiones
+
+Fecha                  Lección    PPM      Precisión    Errores    Tiempo
+------------------------------------------------------------------------
+2026-06-22 21:38       #0         25       95%         4          1:00
+```
+
+### Notas
+- Los comandos requieren estar en el entorno virtual activado (`source venv/bin/activate`) o usar el intérprete del venv directamente.
+- `flask --app neirapinuela` carga la configuración por defecto (`Config`). Para usar configuración de desarrollo/producción, exporta `FLASK_ENV=development|production` antes de invocar el comando.
+- La base de datos SQLite se crea automáticamente en `instance/neirapinuela.db` al arrancar la aplicación (`db.create_all()`). No requiere migraciones manuales.
+- Para reiniciar el progreso de un usuario, basta con borrar sus filas de las tablas `typing_completion` y `typing_achievement` (p. ej. con `sqlite3 instance/neirapinuela.db`).
 
 ## Configuración de Nginx
 
@@ -113,6 +165,13 @@ gunicorn -c gunicorn_config.py src.neirapinuela.wsgi:app
 
 ### Aplicaciones Actuales
 - **Mecanografía** (`/apps/mecanografia`) - Aplicación pública para práctica de escritura
+- **Geografía** (`/apps/geografia`) - Aplicación para practicar geografía
+- **Quiz** (`/apps/quiz`) - Repaso de capitales, verbos y más
+- **Gas** (`/apps/gas`) - Conversor de unidades de gas
+- **Euro Coin Game** (`/apps/euro_coin_game`) - Aprende a usar las monedas de euro
+- **Conversor de Unidades** (`/apps/measurements`) - Practica la conversión de unidades
+- **Multiplicaciones** (`/apps/multiplications`) - Practica las tablas de multiplicar
+- **Ecuaciones** (`/apps/ecuaciones`) - Practica ecuaciones de primer grado paso a paso (para Pablo)
 - **Grafana** (`https://grafana.neirapinuela.es`) - Panel de monitorización (requiere login)
 
 ## Autenticación MFA
@@ -130,8 +189,8 @@ El sitio soporta español e inglés:
 
 - **Añadir nuevas cadenas:** Usar `{{ _('Texto') }}` en plantillas y `_('Texto')` en Python
 - **Extraer cadenas:** `pybabel extract -F babel.cfg -k _l -o messages.pot src/`
-- **Actualizar traducciones:** `pybabel update -i messages.pot -d src/neirapinuela.es/translations`
-- **Compilar:** `pybabel compile -d src/neirapinuela.es/translations`
+- **Actualizar traducciones:** `pybabel update -i messages.pot -d src/neirapinuela/translations`
+- **Compilar:** `pybabel compile -d src/neirapinuela/translations`
 
 ## Añadir Nuevas Aplicaciones
 

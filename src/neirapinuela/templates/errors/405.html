@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Method Not Allowed') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <div class="mb-4">
+                <h1 class="display-1 text-primary">405</h1>
+                <h2 class="mb-3">{{ _('Method Not Allowed') }}</h2>
+                <p class="lead text-muted">
+                    {{ _('The method is not allowed for the requested URL.') }}
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <a href="{{ url_for('main.index') }}" class="btn btn-primary me-2">
+                    {{ _('Go Home') }}
+                </a>
+                <a href="javascript:history.back()" class="btn btn-outline-primary">
+                    {{ _('Go Back') }}
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ _('What can you do?') }}</h5>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2">
+                            <i class="text-primary">🏠</i>
+                            <a href="{{ url_for('main.index') }}" class="text-decoration-none">{{ _('Visit our
+                                homepage') }}</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="text-primary">👨‍👩‍👧‍👦</i>
+                            <a href="{{ url_for('main.family') }}" class="text-decoration-none">{{ _('Meet our family')
+                                }}</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="text-primary">🚀</i>
+                            <a href="{{ url_for('apps.apps_index') }}" class="text-decoration-none">{{ _('Explore our
+                                applications') }}</a>
+                        </li>
+                        <li>
+                            <i class="text-primary">ℹ️</i>
+                            <a href="{{ url_for('main.about') }}" class="text-decoration-none">{{ _('Learn about this
+                                website') }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

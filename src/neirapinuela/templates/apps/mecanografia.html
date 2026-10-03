@@ -373,6 +373,14 @@
 
 
 <script>
+    // Server-side progress endpoints (only relevant when logged in)
+    window.CURRENT_USER = {{ current_user.username|tojson if current_user.is_authenticated else 'null' }};
+    window.PROGRESO_URL = {{ url_for('apps.mecanografia_progreso')|tojson }};
+    window.GUARDAR_URL = {{ url_for('apps.mecanografia_guardar')|tojson }};
+    window.LOGRO_URL = {{ url_for('apps.mecanografia_logro')|tojson }};
+</script>
+
+<script>
     // Game State
     let currentLesson = 0;
     let currentWordIndex = 0;
@@ -727,6 +735,24 @@
             keys: [],
             words: ['casa', 'vida', 'mesa', 'agua', 'hijo', 'pasa', 'peso', 'boca', 'mano', 'cosa', 'tema', 'hora', 'zona', 'tipo', 'dato', 'este', 'otro', 'lado', 'modo', 'alto', 'bajo', 'poco', 'todo', 'solo', 'cada', 'algo', 'nada', 'obra', 'forma', 'idea']
         },
+        {
+            title: "{{ _('Palabras 4: Cinco letras') }}",
+            description: "{{ _('Palabras frecuentes de 5 letras') }}",
+            keys: [],
+            words: ['perro', 'libro', 'silla', 'gente', 'parte', 'antes', 'clase', 'grupo', 'punto', 'turno', 'medio', 'llave', 'verde', 'costo', 'valor', 'norte', 'lugar', 'mundo', 'campo', 'banco', 'entre', 'hacia', 'donde', 'nunca', 'luego', 'tanto', 'tarde', 'lunes', 'cinco', 'listo']
+        },
+        {
+            title: "{{ _('Palabras 5: Seis letras') }}",
+            description: "{{ _('Palabras frecuentes de 6 letras') }}",
+            keys: [],
+            words: ['amigos', 'camino', 'ciudad', 'tiempo', 'cuenta', 'manera', 'motivo', 'estado', 'precio', 'método', 'número', 'sueldo', 'origen', 'verano', 'mañana', 'martes', 'juntos', 'fuerte', 'rápido', 'simple', 'pronto', 'cambio', 'dentro', 'centro', 'cierto', 'visita', 'blanco', 'semana', 'pueda', 'quiera']
+        },
+        {
+            title: "{{ _('Palabras 6: Siete letras') }}",
+            description: "{{ _('Palabras frecuentes de 7 letras') }}",
+            keys: [],
+            words: ['persona', 'sistema', 'control', 'palabra', 'deporte', 'momento', 'respeto', 'decorar', 'naranja', 'natural', 'noticia', 'edición', 'reunión', 'sección', 'corazón', 'canción', 'botella', 'ventaja', 'ventana', 'caminar', 'aprende', 'cuchara', 'invitar', 'pintura', 'mirando', 'esperar', 'querido', 'cansado', 'callado', 'sentado']
+        },
 
         // FASE 5: NÚMEROS Y SÍMBOLOS
         {
@@ -802,6 +828,70 @@
             description: "{{ _('Desafío final') }}",
             keys: [],
             words: ['felicitaciones', 'extraordinario', 'logro', 'fenomenal', 'sobresaliente', 'magnífico', 'excelente', 'impresionante', 'espectacular', 'increíble', 'maravilloso', 'excepcional', 'fantástico', 'admirable', 'notable', 'sensacional', 'formidable', 'estupendo', 'brillante', 'genial', 'perfeccionamiento', 'profesional', 'especialización', 'competencia']
+        },
+
+        // FASE 10: ORACIONES TEMÁTICAS
+        {
+            title: "{{ _('Saludos y presentaciones') }}",
+            description: "{{ _('Frases para saludar y presentarse') }}",
+            keys: [],
+            words: ['Hola, ¿cómo estás?', 'Bien, gracias. ¿Y tú?', 'Me llamo Pablo.', 'Mucho gusto en conocerte.', 'Encantado de verte.', 'Bienvenido a casa.', 'Buenos días.', 'Buenas tardes.', 'Buenas noches.', 'Hasta luego.', 'Hasta mañana.', 'Nos vemos pronto.']
+        },
+        {
+            title: "{{ _('Preguntas cotidianas') }}",
+            description: "{{ _('Preguntas frecuentes del día a día') }}",
+            keys: [],
+            words: ['¿Qué hora es?', '¿Dónde está el baño?', '¿Cómo te llamas?', '¿Cuánto cuesta?', '¿Puedes ayudarme?', '¿Qué día es hoy?', '¿Dónde vives?', '¿Tienes un minuto?', '¿Qué haces?', '¿Cómo se dice en español?', '¿Cuándo es la reunión?', '¿Por qué no vienes?']
+        },
+        {
+            title: "{{ _('Frases del día a día') }}",
+            description: "{{ _('Frases útiles para la vida diaria') }}",
+            keys: [],
+            words: ['Voy a la escuela.', 'Hoy hace mucho frío.', 'Tengo hambre.', 'Me gusta el café.', 'Necesito dormir.', 'Estoy cansado.', 'Quiero comer pizza.', 'Mañana voy al médico.', 'Hoy es mi cumpleaños.', 'Mi perro es pequeño.', 'El autobús llega tarde.', 'Voy a comer con mis amigos.']
+        },
+        {
+            title: "{{ _('La familia') }}",
+            description: "{{ _('Oraciones sobre la familia') }}",
+            keys: [],
+            words: ['Mi hermano es mayor.', 'Mis padres trabajan mucho.', 'Tengo dos hermanas.', 'Vamos de vacaciones.', 'Mi abuela cocina muy bien.', 'Nos reunimos los domingos.', 'Mi prima vive en Madrid.', 'Tenemos dos gatos.', 'Mi tío es profesor.', 'Celebramos la Navidad juntos.', 'Mi sobrino es muy travieso.', 'Vamos a visitar a los abuelos.']
+        },
+        {
+            title: "{{ _('Escuela y trabajo') }}",
+            description: "{{ _('Frases sobre el estudio y el trabajo') }}",
+            keys: [],
+            words: ['Tengo una reunión mañana.', 'El examen fue difícil.', 'Trabajo desde casa.', 'La clase empieza a las nueve.', 'Debo terminar el informe.', 'Mi profesor explica muy bien.', 'Tenemos muchos deberes.', 'El proyecto va bien.', 'Mañana tengo un examen.', 'Llego temprano al trabajo.', 'Estudio español los lunes.', 'Necesito un descanso.']
+        },
+
+        // FASE 11: PÁRRAFOS Y TEXTOS LARGOS
+        {
+            title: "{{ _('Párrafo 1: Una mañana') }}",
+            description: "{{ _('Texto narrativo para practicar') }}",
+            keys: [],
+            words: ['Esta mañana me desperté temprano.', 'El sol brillaba por la ventana.', 'Preparé un café bien caliente.', 'Después me di una ducha rápida.', 'Salí de casa con mi mochila.', 'El camino estaba tranquilo.', 'Llegué al trabajo a las ocho.', 'Empezó un día lleno de tareas.', 'Esperaba que todo saliera bien.', 'Al final volví contento a casa.']
+        },
+        {
+            title: "{{ _('Párrafo 2: La ciudad') }}",
+            description: "{{ _('Descripción de un lugar') }}",
+            keys: [],
+            words: ['La ciudad nunca duerme del todo.', 'Por la mañana suenan los coches.', 'Las tiendas abren sus puertas.', 'La gente camina con prisa.', 'En el parque cantan los pájaros.', 'Los niños juegan en el patio.', 'El olor del café llena el aire.', 'Al mediodía todos comen juntos.', 'Por la tarde las calles se llenan.', 'De noche las luces encienden la ciudad.']
+        },
+        {
+            title: "{{ _('Párrafo 3: Una carta a un amigo') }}",
+            description: "{{ _('Texto epistolar') }}",
+            keys: [],
+            words: ['Querido amigo, cómo estás?', 'Espero que todo te vaya bien.', 'Aquí estamos todos sanos.', 'Hace tiempo que no escribo.', 'He estado muy ocupado últimamente.', 'Pero no me he olvidado de ti.', 'Me acordé de aquellos veranos.', 'Cuando íbamos al río juntos.', 'Espero verte muy pronto.', 'Un abrazo fuerte para ti.']
+        },
+        {
+            title: "{{ _('Párrafo 4: El deporte') }}",
+            description: "{{ _('Texto expositivo sobre el deporte') }}",
+            keys: [],
+            words: ['El deporte es muy importante.', 'Mantiene el cuerpo sano.', 'Mejora también la mente.', 'Correr es una buena opción.', 'Nadar ejercita todo el cuerpo.', 'El fútbol se juega en equipo.', 'El baloncesto requiere saltar.', 'Hay que entrenar cada día.', 'Beber agua es imprescindible.', 'Descansar también es necesario.']
+        },
+        {
+            title: "{{ _('Párrafo 5: Un cuento corto') }}",
+            description: "{{ _('Narración breve para practicar') }}",
+            keys: [],
+            words: ['Había una vez un gato pequeño.', 'Vivía en una vieja casa.', 'Le gustaba dormir al sol.', 'Un día vio un ratón gris.', 'El ratón corría muy rápido.', 'El gato lo persiguió un rato.', 'Pero pronto se cansó del juego.', 'Volvió a echarse sobre la alfombra.', 'Y soñó con peces de colores.', 'Así acabó aquel día tranquilo.']
         }
     ];
 
@@ -818,7 +908,20 @@
     ];
 
     // Initialize the application
-    function initApp() {
+    async function initApp() {
+        if (window.CURRENT_USER) {
+            try {
+                const resp = await fetch(window.PROGRESO_URL);
+                if (resp.ok) {
+                    const data = await resp.json();
+                    gameStats.completedLessons = data.completed_lessons || [];
+                    gameStats.achievements = data.achievements || [];
+                    gameStats.bestStats = data.best_stats || {};
+                }
+            } catch (e) {
+                console.error('Error cargando progreso del servidor:', e);
+            }
+        }
         renderLessonSelection();
         generateKeyboard();
         bindEvents();
@@ -1076,11 +1179,30 @@
     function completeLesson() {
         isLessonActive = false;
 
+        const wpm = parseInt(document.getElementById('speed').textContent) || 0;
+        const accuracy = parseInt(document.getElementById('accuracy').textContent) || 0;
+        const timeSeconds = startTime ? (new Date() - startTime) / 1000 : 0;
+
         // Save completion
         if (!gameStats.completedLessons.includes(currentLesson)) {
             gameStats.completedLessons.push(currentLesson);
             localStorage.setItem('typingCompletedLessons', JSON.stringify(gameStats.completedLessons));
             showAchievement(`{{ _('Lesson') }} ${currentLesson + 1} {{ _('completed!') }}`);
+        }
+
+        // Persist to server when logged in
+        if (window.CURRENT_USER) {
+            fetch(window.GUARDAR_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    lesson_index: currentLesson,
+                    wpm: wpm,
+                    accuracy: accuracy,
+                    errors: totalErrors,
+                    time_seconds: timeSeconds
+                })
+            }).catch(e => console.error('Error guardando progreso:', e));
         }
 
         // Show completion screen
@@ -1121,23 +1243,38 @@
     function checkAchievements() {
         const accuracy = parseInt(document.getElementById('accuracy').textContent);
         const speed = parseInt(document.getElementById('speed').textContent);
+        const newAchievements = [];
 
         if (accuracy === 100 && !gameStats.achievements.includes('perfect')) {
             gameStats.achievements.push('perfect');
+            newAchievements.push('perfect');
             showAchievement('{{ _("Perfect accuracy!") }}');
         }
 
         if (speed >= 40 && !gameStats.achievements.includes('speed40')) {
             gameStats.achievements.push('speed40');
+            newAchievements.push('speed40');
             showAchievement('{{ _("Speed demon! 40+ WPM") }}');
         }
 
         if (gameStats.completedLessons.length >= 5 && !gameStats.achievements.includes('persistent')) {
             gameStats.achievements.push('persistent');
+            newAchievements.push('persistent');
             showAchievement('{{ _("Persistent learner!") }}');
         }
 
         localStorage.setItem('typingAchievements', JSON.stringify(gameStats.achievements));
+
+        // Persist new achievements to server when logged in
+        if (window.CURRENT_USER && newAchievements.length > 0) {
+            newAchievements.forEach(id => {
+                fetch(window.LOGRO_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ achievement_id: id })
+                }).catch(e => console.error('Error guardando logro:', e));
+            });
+        }
     }
 
     // Show random tip

@@ -1,61 +1,70 @@
 {% extends "base.html" %}
 
-{% block title %}{{ _('Access Forbidden') }} - neirapinuela.es{% endblock %}
+{% block title %}{{ _('Error') }} 403 - neirapinuela.es{% endblock %}
 
 {% block content %}
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
             <div class="mb-4">
-                <h1 class="display-1 text-primary">403</h1>
+                <h1 class="display-1 text-primary">{{ _('Error') }} 403</h1>
                 <h2 class="mb-3">{{ _('Access Forbidden') }}</h2>
                 <p class="lead text-muted">
-                    {{ _('You don\'t have permission to access this resource. This application is restricted to specific family members.') }}
+                    {{ _('You don\'t have permission to access this resource. This application is restricted to specific
+                    family members.') }}
+                </p>
+                <p class="text-muted">
+                    {{ _('We apologize for the inconvenience.') }}
                 </p>
             </div>
-            
+
             <div class="alert alert-info">
                 <strong>{{ _('Access Restricted') }}</strong><br>
-                {{ _('This application is only available to certain family members. Please log in with an authorized account.') }}
+                {{ _('This application is only available to certain family members. Please log in with an authorized
+                account.') }}
             </div>
-            
+
             <div class="mb-4">
                 {% if current_user.is_authenticated %}
-                    <a href="{{ url_for('main.index') }}" class="btn btn-primary me-2">
-                        {{ _('Go Home') }}
-                    </a>
-                    <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-primary">
-                        {{ _('Switch Account') }}
-                    </a>
+                <a href="{{ url_for('main.index') }}" class="btn btn-primary me-2">
+                    {{ _('Go Home') }}
+                </a>
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-primary">
+                    {{ _('Switch Account') }}
+                </a>
                 {% else %}
-                    <a href="{{ url_for('auth.login') }}" class="btn btn-primary me-2">
-                        {{ _('Login') }}
-                    </a>
-                    <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary">
-                        {{ _('Go Home') }}
-                    </a>
+                <a href="{{ url_for('auth.login') }}" class="btn btn-primary me-2">
+                    {{ _('Login') }}
+                </a>
+                <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary">
+                    {{ _('Go Home') }}
+                </a>
                 {% endif %}
             </div>
-            
+
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title text-primary">{{ _('Available Options') }}</h5>
                     <ul class="list-unstyled text-start">
                         <li class="mb-2">
-                            <i class="text-primary">🔑</i> 
-                            <a href="{{ url_for('auth.login') }}" class="text-decoration-none">{{ _('Log in with your account') }}</a>
+                            <i class="text-primary">🔑</i>
+                            <a href="{{ url_for('auth.login') }}" class="text-decoration-none">{{ _('Log in with your
+                                account') }}</a>
                         </li>
                         <li class="mb-2">
-                            <i class="text-primary">🚀</i> 
-                            <a href="{{ url_for('apps.apps_index') }}" class="text-decoration-none">{{ _('See available applications') }}</a>
+                            <i class="text-primary">🚀</i>
+                            <a href="{{ url_for('apps.apps_index') }}" class="text-decoration-none">{{ _('See available
+                                applications') }}</a>
                         </li>
                         <li class="mb-2">
-                            <i class="text-primary">👨‍👩‍👧‍👦</i> 
-                            <a href="{{ url_for('main.family') }}" class="text-decoration-none">{{ _('Learn about our family') }}</a>
+                            <i class="text-primary">👨‍👩‍👧‍👦</i>
+                            <a href="{{ url_for('main.family') }}" class="text-decoration-none">{{ _('Learn about our
+                                family') }}</a>
                         </li>
                         <li>
-                            <i class="text-primary">🏠</i> 
-                            <a href="{{ url_for('main.index') }}" class="text-decoration-none">{{ _('Return to homepage') }}</a>
+                            <i class="text-primary">🏠</i>
+                            <a href="{{ url_for('main.index') }}" class="text-decoration-none">{{ _('Return to
+                                homepage') }}</a>
                         </li>
                     </ul>
                 </div>

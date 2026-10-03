@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Error') }} 401 - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <div class="mb-4">
+                <h1 class="display-1 text-primary">{{ _('Error') }} 401</h1>
+                <h2 class="mb-3">{{ _('Unauthorized') }}</h2>
+                <p class="lead text-muted">
+                    {{ _('You must be logged in to access this resource.') }}
+                </p>
+                <p class="text-muted">
+                    {{ _('We apologize for the inconvenience.') }}
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-primary me-2">
+                    {{ _('Login') }}
+                </a>
+                <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary">
+                    {{ _('Go Home') }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

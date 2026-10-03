@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Bad Gateway') }} - neirapinuela.es{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <div class="mb-4">
+                <h1 class="display-1 text-primary">{{ _('Error') }} 502</h1>
+                <h2 class="mb-3">{{ _('Bad Gateway') }}</h2>
+                <p class="lead text-muted">
+                    {{ _('The server received an invalid response from the upstream server.') }}
+                </p>
+                <p class="text-muted">
+                    {{ _('It is possible that the service is not started.') }}
+                </p>
+                <p class="text-muted">
+                    {{ _('We apologize for the inconvenience.') }}
+                </p>
+            </div>
+
+            <div class="mb-4">
+                <a href="javascript:history.back()" class="btn btn-primary me-2">
+                    {{ _('Go Back') }}
+                </a>
+                <a href="javascript:location.reload()" class="btn btn-outline-primary">
+                    {{ _('Refresh') }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

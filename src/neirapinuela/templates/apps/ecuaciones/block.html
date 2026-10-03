@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.title }} - {{ _('Practica Ecuaciones') }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ecuaciones.css') }}">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+      integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
+      crossorigin="anonymous">
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+        integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+        crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('ecuaciones.index') }}">{{ _('Inicio') }}</a></li>
+            <li class="breadcrumb-item active">{{ _('Bloque') }} {{ block.id }}</li>
+        </ol>
+    </nav>
+
+    <div class="d-flex align-items-center mb-3">
+        <i class="bi {{ block.icon }} text-{{ block.color }} fs-1 me-3"></i>
+        <div>
+            <h1 class="mb-1">{{ block.title }}</h1>
+            <p class="text-muted mb-0">{{ block.description }}</p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+        <h4 class="mb-0">
+            <i class="bi bi-list-ol me-1"></i>
+            {{ _('Ejercicios del bloque') }}
+        </h4>
+        <span class="badge bg-{{ block.color }} fs-6">
+            <span id="completed-count">0</span> / {{ exercises|length }} {{ _('completados') }}
+        </span>
+    </div>
+
+    <div class="row g-3" id="exercises-list">
+        {% for eq in exercises %}
+        <div class="col-md-6">
+            <div class="card exercise-card h-100" data-exercise-id="{{ eq.id }}">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <span class="badge bg-secondary">{{ _('Ejercicio') }} {{ eq.id }}</span>
+                        <span class="exercise-status" id="status-{{ eq.id }}">
+                            <i class="bi bi-circle text-muted"></i>
+                        </span>
+                    </div>
+                    <div class="equation-statement mb-2">
+                        <span class="math" data-latex="{{ eq.statement_latex }}"></span>
+                    </div>
+                    {% if eq.tip %}
+                    <p class="small text-muted mb-2">
+                        <i class="bi bi-info-circle"></i> {{ eq.tip }}
+                    </p>
+                    {% endif %}
+                    <a href="{{ url_for('ecuaciones.exercise', eq_id=eq.id) }}" class="btn btn-outline-{{ block.color }} btn-sm">
+                        <span class="btn-label-default">{{ _('Empezar') }} <i class="bi bi-arrow-right"></i></span>
+                        <span class="btn-label-done d-none">{{ _('Repetir') }} <i class="bi bi-arrow-repeat"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-4 d-flex justify-content-between">
+        {% if block.id > 1 %}
+        <a href="{{ url_for('ecuaciones.block', n=block.id - 1) }}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> {{ _('Bloque') }} {{ block.id - 1 }}
+        </a>
+        {% else %}
+        <span></span>
+        {% endif %}
+        {% if block.id < 3 %}
+        <a href="{{ url_for('ecuaciones.block', n=block.id + 1) }}" class="btn btn-outline-{{ block.color }}">
+            {{ _('Bloque') }} {{ block.id + 1 }} <i class="bi bi-arrow-right"></i>
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/ecuaciones.js') }}"></script>
+<script>
+    // Marca los ejercicios ya completados leyendo localStorage.
+    (function () {
+        var blockId = {{ block.id }};
+        var storageKey = 'ec:done';
+        var done;
+        try {
+            done = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        } catch (e) {
+            done = [];
+        }
+        var count = 0;
+        document.querySelectorAll('.exercise-card').forEach(function (card) {
+            var id = parseInt(card.getAttribute('data-exercise-id'), 10);
+            var status = document.getElementById('status-' + id);
+            var btn = card.querySelector('a');
+            if (done.indexOf(id) !== -1) {
+                count++;
+                status.innerHTML = '<i class="bi bi-check-circle-fill text-success fs-5"></i>';
+                card.classList.add('border-success');
+                card.querySelector('.btn-label-default').classList.add('d-none');
+                card.querySelector('.btn-label-done').classList.remove('d-none');
+            }
+        });
+        var counter = document.getElementById('completed-count');
+        if (counter) counter.textContent = count;
+    })();
+</script>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Practica Ecuaciones') }} - neirapinuela.es{% endblock %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ecuaciones.css') }}">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+      integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
+      crossorigin="anonymous">
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+        integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+        crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">{{ _('Practica ecuaciones') }}</h1>
+        <p class="hero-subtitle">
+            {{ _('Sigue siempre los mismos pasos, en el mismo orden.') }}<br>
+            {{ _('Un solo metodo. Sin prisas.') }}
+        </p>
+    </div>
+</section>
+
+<div class="container py-4">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <h2 class="mb-3">{{ _('Elige un bloque') }}</h2>
+            <p class="text-muted">
+                {{ _('Cada bloque tiene 7-8 ecuaciones curadas, ordenadas de menor a mayor dificultad.') }}
+                {{ _('Puedes repetir las que quieras.') }}
+            </p>
+
+            <div class="row g-3 mt-2">
+                {% for b in blocks %}
+                <div class="col-md-4">
+                    <div class="card app-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi {{ b.icon }} text-{{ b.color }} fs-3 me-2"></i>
+                                <h5 class="card-title mb-0">{{ _('Bloque') }} {{ b.id }}</h5>
+                            </div>
+                            <h6 class="text-muted mb-2" style="font-size: 0.9rem;">{{ b.title.split('·', 1)[1].strip() }}</h6>
+                            <p class="card-text small text-muted flex-grow-1">{{ b.description }}</p>
+                            <a href="{{ url_for('ecuaciones.block', n=b.id) }}" class="btn btn-{{ b.color }} mt-2">
+                                {{ _('Empezar') }} <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card cheatsheet-card sticky-top" style="top: 1rem;">
+                <div class="card-header bg-primary text-white">
+                    <i class="bi bi-bookmark-star-fill me-1"></i>
+                    {{ _('Tu metodo unico') }}
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-2">
+                        {{ _('Pasos que vas a repetir SIEMPRE, en este orden:') }}
+                    </p>
+                    <ol class="cheatsheet-list">
+                        {% for step in cheatsheet %}
+                        <li>{{ step }}</li>
+                        {% endfor %}
+                    </ol>
+                    <hr>
+                    <p class="small text-muted mb-0">
+                        <i class="bi bi-lightbulb"></i>
+                        {{ _('No tienes que hacerlo rapido ni perfecto. Solo tienes que seguir los mismos pasos en el mismo orden.') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

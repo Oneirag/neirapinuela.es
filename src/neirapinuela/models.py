@@ -1,57 +1,88 @@
+from datetime import datetime, timezone
+
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
 import pyotp
 import os
 
+from .db import db
+
 
 class User(UserMixin):
-    def __init__(self, id, username, password_hash, totp_secret=None, is_active=True):
+    def __init__(self, id, username, groups=None):
         self.id = id
         self.username = username
-        self.password_hash = password_hash
-        self.totp_secret = totp_secret
-        self.is_active = is_active
-    
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
-    
-    def verify_totp(self, token):
-        if not self.totp_secret:
-            return False
-        totp = pyotp.TOTP(self.totp_secret)
-        return totp.verify(token)
-    
-    def get_totp_uri(self, issuer_name='neirapinuela.es'):
-        if not self.totp_secret:
-            return None
-        totp = pyotp.TOTP(self.totp_secret)
-        return totp.provisioning_uri(
-            name=self.username,
-            issuer_name=issuer_name
-        )
-    
+        self.groups = groups or []
+
+    def get_role(self):
+        from flask import current_app
+
+        family = current_app.config.get("FAMILY_MEMBERS", {})
+        if self.username in family:
+            return family[self.username].get("role", "")
+        return ""
+
+    def get_color(self):
+        from flask import current_app
+
+        family = current_app.config.get("FAMILY_MEMBERS", {})
+        if self.username in family:
+            return family[self.username].get("color", "#6c757d")
+        return "#6c757d"
+
     @staticmethod
     def get(user_id):
-        users = {
-            '1': User(
-                id='1',
-                username='oscar',
-                password_hash=generate_password_hash(os.environ.get('OSCAR_PASSWORD', 'change_me')),
-                totp_secret=os.environ.get('OSCAR_TOTP_SECRET')
-            ),
-            '2': User(
-                id='2',
-                username='eva',
-                password_hash=generate_password_hash(os.environ.get('EVA_PASSWORD', 'change_me')),
-                totp_secret=os.environ.get('EVA_TOTP_SECRET')
-            )
-        }
-        return users.get(user_id)
-    
+        # In OIDC, we can use the username or sub as ID
+        # Since we don't have a DB, we'll just reconstruct the user
+        # This is called by flask-login's user_loader if using session
+        # But we'll mostly use the one from the token
+        if not user_id:
+            return None
+
+        # We might want to store groups in session to avoid fetching every time
+        # For now, let's assume session stores minimal info
+        from flask import session
+
+        groups = session.get("user_groups", [])
+        return User(id=user_id, username=user_id, groups=groups)
+
     @staticmethod
-    def get_by_username(username):
-        users = {
-            'oscar': User.get('1'),
-            'eva': User.get('2')
-        }
-        return users.get(username)
+    def get_by_username(username, groups=None):
+        return User(id=username, username=username, groups=groups)
+
+
+class TypingCompletion(db.Model):
+    __tablename__ = "typing_completion"
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), nullable=False, index=True)
+    lesson_index = db.Column(db.Integer, nullable=False)
+    wpm = db.Column(db.Integer, default=0)
+    accuracy = db.Column(db.Float, default=0.0)
+    errors = db.Column(db.Integer, default=0)
+    time_seconds = db.Column(db.Float, default=0.0)
+    completed_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+
+    __table_args__ = (db.Index("ix_typing_user_lesson", "username", "lesson_index"),)
+
+    def __repr__(self):
+        return (
+            f"<TypingCompletion {self.username} L{self.lesson_index} "
+            f"{self.wpm}wpm {self.accuracy}%>"
+        )
+
+
+class TypingAchievement(db.Model):
+    __tablename__ = "typing_achievement"
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), nullable=False, index=True)
+    achievement_id = db.Column(db.String(50), nullable=False)
+    unlocked_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+
+    __table_args__ = (
+        db.UniqueConstraint(
+            "username", "achievement_id", name="uq_typing_user_achievement"
+        ),
+    )
+
+    def __repr__(self):
+        return f"<TypingAchievement {self.username} {self.achievement_id}>"

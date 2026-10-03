@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-11-24 22:02+0100\n"
+"POT-Creation-Date: 2025-12-07 08:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,112 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: __init__.py:13 templates/errors/401.html:11
+msgid "Unauthorized"
+msgstr ""
+
+#: __init__.py:14 templates/errors/401.html:13
+msgid "You must be logged in to access this resource."
+msgstr ""
+
+#: __init__.py:15
+msgid "Log in with your account"
+msgstr ""
+
+#: __init__.py:18
+msgid "Forbidden"
+msgstr ""
+
+#: __init__.py:19
+msgid ""
+"You don't have permission to access this resource. This application is "
+"restricted to specific family members."
+msgstr ""
+
+#: __init__.py:20
+msgid "Log in with an authorized account"
+msgstr ""
+
+#: __init__.py:23
+msgid "Not Found"
+msgstr ""
+
+#: __init__.py:24 templates/errors/404.html:13
+msgid ""
+"The page you are looking for might have been removed, had its name "
+"changed, or is temporarily unavailable."
+msgstr ""
+
+#: __init__.py:25 __init__.py:30 templates/errors/404.html:32
+msgid "Visit our homepage"
+msgstr ""
+
+#: __init__.py:28 templates/errors/405.html:3 templates/errors/405.html:11
+msgid "Method Not Allowed"
+msgstr ""
+
+#: __init__.py:29 templates/errors/405.html:13
+msgid "The method is not allowed for the requested URL."
+msgstr ""
+
+#: __init__.py:33 templates/errors/500.html:3 templates/errors/500.html:11
+msgid "Internal Server Error"
+msgstr ""
+
+#: __init__.py:34
+msgid ""
+"Our server encountered an unexpected error while processing your request."
+" The issue has been logged and our team will investigate it."
+msgstr ""
+
+#: __init__.py:35 templates/errors/500.html:39
+msgid "Wait a few minutes and try again"
+msgstr ""
+
+#: __init__.py:38 templates/errors/502.html:3 templates/errors/502.html:11
+msgid "Bad Gateway"
+msgstr ""
+
+#: __init__.py:39 templates/errors/502.html:13
+msgid "The server received an invalid response from the upstream server."
+msgstr ""
+
+#: __init__.py:40 __init__.py:45 __init__.py:50 templates/errors/500.html:29
+#: templates/errors/502.html:28 templates/errors/503.html:26
+#: templates/errors/504.html:25
+msgid "Refresh"
+msgstr ""
+
+#: __init__.py:43 templates/errors/503.html:3 templates/errors/503.html:11
+msgid "Service Unavailable"
+msgstr ""
+
+#: __init__.py:44
+msgid ""
+"The server is temporarily unable to handle your request due to "
+"maintenance or capacity issues. Please try again later."
+msgstr ""
+
+#: __init__.py:48 templates/errors/504.html:3 templates/errors/504.html:11
+msgid "Gateway Timeout"
+msgstr ""
+
+#: __init__.py:49 templates/errors/504.html:13
+msgid "The server did not receive a timely response from the upstream server."
+msgstr ""
+
+#: __init__.py:57
+msgid "Invalid credentials"
+msgstr ""
+
+#: __init__.py:58
+msgid "The credentials provided are invalid."
+msgstr ""
+
+#: __init__.py:59
+msgid "Try again"
+msgstr ""
 
 #: apps.py:46
 msgid "Longitud"
@@ -126,7 +232,15 @@ msgstr ""
 msgid "Practica la conversión de unidades"
 msgstr ""
 
-#: templates/about.html:3 templates/base.html:36 templates/index.html:42
+#: config.py:88
+msgid "Multiplicaciones"
+msgstr ""
+
+#: config.py:92
+msgid "Practica las tablas de multiplicar"
+msgstr ""
+
+#: templates/about.html:3 templates/base.html:40 templates/index.html:42
 msgid "About"
 msgstr ""
 
@@ -174,33 +288,34 @@ msgid ""
 "and modern web technologies."
 msgstr ""
 
-#: templates/base.html:27
+#: templates/base.html:31
 msgid "Home"
 msgstr ""
 
-#: templates/base.html:30 templates/family.html:3 templates/index.html:16
+#: templates/base.html:34 templates/family.html:3 templates/index.html:16
 msgid "Family"
 msgstr ""
 
 #: templates/apps/index.html:3 templates/apps/index.html:8
-#: templates/base.html:33 templates/index.html:29
+#: templates/base.html:37 templates/index.html:29
 msgid "Applications"
 msgstr ""
 
-#: templates/base.html:48
+#: templates/base.html:52
 msgid "Logout"
 msgstr ""
 
 #: templates/apps/index.html:50 templates/auth/login.html:3
-#: templates/base.html:53 templates/errors/403.html:32
+#: templates/base.html:57 templates/errors/401.html:22
+#: templates/errors/403.html:37
 msgid "Login"
 msgstr ""
 
-#: templates/base.html:101
+#: templates/base.html:106
 msgid "Made with"
 msgstr ""
 
-#: templates/base.html:101
+#: templates/base.html:106
 msgid "by the Neira Pinuela family"
 msgstr ""
 
@@ -280,7 +395,7 @@ msgstr ""
 msgid "Siguiente"
 msgstr ""
 
-#: templates/apps/euro_coin_game.html:160 templates/apps/geografia.html:134
+#: templates/apps/euro_coin_game.html:160 templates/apps/geografia.html:156
 #: templates/apps/measurements.html:106
 msgid "Comprobar"
 msgstr ""
@@ -290,7 +405,7 @@ msgid "Deshacer"
 msgstr ""
 
 #: templates/apps/euro_coin_game.html:181 templates/apps/gas.html:45
-#: templates/apps/geografia.html:133
+#: templates/apps/geografia.html:155
 msgid "Reiniciar"
 msgstr ""
 
@@ -354,67 +469,87 @@ msgstr ""
 msgid "Repaso de Geografía · neirapinuela.es"
 msgstr ""
 
-#: templates/apps/geografia.html:131
+#: templates/apps/geografia.html:153
 msgid "Repaso de Geografía"
 msgstr ""
 
-#: templates/apps/geografia.html:135
+#: templates/apps/geografia.html:157
 msgid "Mostrar soluciones"
 msgstr ""
 
-#: templates/apps/geografia.html:136
+#: templates/apps/geografia.html:158
 msgid "Descargar PNG"
 msgstr ""
 
-#: templates/apps/geografia.html:157
-msgid "Modo autor:"
+#: templates/apps/geografia.html:181
+msgid "Acercar"
 msgstr ""
 
-#: templates/apps/geografia.html:157
-msgid "para capturar un punto"
-msgstr ""
-
-#: templates/apps/geografia.html:158
-msgid "para múltiples puntos (ríos, cordilleras)"
-msgstr ""
-
-#: templates/apps/geografia.html:176
-msgid "Mapa"
-msgstr ""
-
-#: templates/apps/geografia.html:179
-msgid "Europa"
+#: templates/apps/geografia.html:182
+msgid "Restablecer vista"
 msgstr ""
 
 #: templates/apps/geografia.html:183
-msgid "Conjunto"
+msgid "Alejar"
 msgstr ""
 
-#: templates/apps/geografia.html:191
-msgid "Ocultar nombres"
+#: templates/apps/geografia.html:188
+msgid "Modo autor:"
 msgstr ""
 
-#: templates/apps/geografia.html:200
-msgid "Aciertos:"
+#: templates/apps/geografia.html:188
+msgid "para capturar un punto"
 msgstr ""
 
-#: templates/apps/geografia.html:203
-msgid "Quitar marcadores"
+#: templates/apps/geografia.html:189
+msgid "para múltiples puntos (ríos, cordilleras)"
 msgstr ""
 
 #: templates/apps/geografia.html:207
+msgid "Mapa"
+msgstr ""
+
+#: templates/apps/geografia.html:210
+msgid "Europa"
+msgstr ""
+
+#: templates/apps/geografia.html:211
+msgid "América del Norte"
+msgstr ""
+
+#: templates/apps/geografia.html:212
+msgid "América del Sur"
+msgstr ""
+
+#: templates/apps/geografia.html:216
+msgid "Conjunto"
+msgstr ""
+
+#: templates/apps/geografia.html:224
+msgid "Ocultar nombres"
+msgstr ""
+
+#: templates/apps/geografia.html:233
+msgid "Aciertos:"
+msgstr ""
+
+#: templates/apps/geografia.html:236
+msgid "Quitar marcadores"
+msgstr ""
+
+#: templates/apps/geografia.html:240
 msgid "Elementos"
 msgstr ""
 
-#: templates/apps/geografia.html:229
+#: templates/apps/geografia.html:262
 msgid "Punto añadido"
 msgstr ""
 
-#: templates/apps/geografia.html:230 templates/apps/multiplications.html:174
+#: templates/apps/geografia.html:263 templates/apps/multiplications.html:174
 msgid "Total"
 msgstr ""
 
-#: templates/apps/geografia.html:231
+#: templates/apps/geografia.html:264
 msgid "Copiado"
 msgstr ""
 
@@ -981,7 +1116,7 @@ msgstr ""
 msgid "Don't worry, try again!"
 msgstr ""
 
-#: templates/apps/multiplications.html:223 templates/errors/500.html:27
+#: templates/apps/multiplications.html:223
 msgid "Try Again"
 msgstr ""
 
@@ -1057,78 +1192,95 @@ msgstr ""
 msgid "Enter the 6-digit code from your authenticator app"
 msgstr ""
 
-#: templates/errors/403.html:3 templates/errors/403.html:11
+#: templates/errors/401.html:3 templates/errors/401.html:10
+#: templates/errors/403.html:3 templates/errors/403.html:10
+#: templates/errors/500.html:10 templates/errors/502.html:10
+#: templates/errors/503.html:10 templates/errors/504.html:10
+msgid "Error"
+msgstr ""
+
+#: templates/errors/401.html:16 templates/errors/403.html:17
+#: templates/errors/502.html:19 templates/errors/503.html:17
+#: templates/errors/504.html:16
+msgid "We apologize for the inconvenience."
+msgstr ""
+
+#: templates/errors/401.html:25 templates/errors/403.html:30
+#: templates/errors/403.html:40 templates/errors/404.html:19
+#: templates/errors/405.html:19
+msgid "Go Home"
+msgstr ""
+
+#: templates/errors/403.html:11
 msgid "Access Forbidden"
 msgstr ""
 
 #: templates/errors/403.html:13
 msgid ""
 "You don't have permission to access this resource. This application is "
-"restricted to specific family members."
+"restricted to specific\n"
+"                    family members."
 msgstr ""
 
-#: templates/errors/403.html:18
+#: templates/errors/403.html:22
 msgid "Access Restricted"
 msgstr ""
 
-#: templates/errors/403.html:19
+#: templates/errors/403.html:23
 msgid ""
 "This application is only available to certain family members. Please log "
-"in with an authorized account."
+"in with an authorized\n"
+"                account."
 msgstr ""
 
-#: templates/errors/403.html:25 templates/errors/403.html:35
-#: templates/errors/404.html:19 templates/errors/500.html:24
-msgid "Go Home"
-msgstr ""
-
-#: templates/errors/403.html:28
+#: templates/errors/403.html:33
 msgid "Switch Account"
 msgstr ""
 
-#: templates/errors/403.html:42
+#: templates/errors/403.html:47
 msgid "Available Options"
 msgstr ""
 
-#: templates/errors/403.html:46
-msgid "Log in with your account"
+#: templates/errors/403.html:51
+msgid ""
+"Log in with your\n"
+"                                account"
 msgstr ""
 
-#: templates/errors/403.html:50
-msgid "See available applications"
+#: templates/errors/403.html:56
+msgid ""
+"See available\n"
+"                                applications"
 msgstr ""
 
-#: templates/errors/403.html:54
-msgid "Learn about our family"
+#: templates/errors/403.html:61
+msgid ""
+"Learn about our\n"
+"                                family"
 msgstr ""
 
-#: templates/errors/403.html:58 templates/errors/500.html:41
-msgid "Return to homepage"
+#: templates/errors/403.html:66 templates/errors/500.html:43
+msgid ""
+"Return to\n"
+"                                homepage"
 msgstr ""
 
 #: templates/errors/404.html:3 templates/errors/404.html:11
 msgid "Page Not Found"
 msgstr ""
 
-#: templates/errors/404.html:13
-msgid ""
-"The page you are looking for might have been removed, had its name "
-"changed, or is temporarily unavailable."
-msgstr ""
-
-#: templates/errors/404.html:22
+#: templates/errors/404.html:22 templates/errors/405.html:22
+#: templates/errors/500.html:26 templates/errors/502.html:25
+#: templates/errors/503.html:23 templates/errors/504.html:22
 msgid "Go Back"
 msgstr ""
 
-#: templates/errors/404.html:28 templates/errors/500.html:33
+#: templates/errors/404.html:28 templates/errors/405.html:28
+#: templates/errors/500.html:35
 msgid "What can you do?"
 msgstr ""
 
-#: templates/errors/404.html:32
-msgid "Visit our homepage"
-msgstr ""
-
-#: templates/errors/404.html:36
+#: templates/errors/404.html:36 templates/errors/405.html:37
 msgid "Meet our family"
 msgstr ""
 
@@ -1140,35 +1292,60 @@ msgstr ""
 msgid "Learn about this website"
 msgstr ""
 
-#: templates/errors/500.html:3 templates/errors/500.html:11
-msgid "Internal Server Error"
+#: templates/errors/405.html:32
+msgid ""
+"Visit our\n"
+"                                homepage"
+msgstr ""
+
+#: templates/errors/405.html:42
+msgid ""
+"Explore our\n"
+"                                applications"
+msgstr ""
+
+#: templates/errors/405.html:47
+msgid ""
+"Learn about this\n"
+"                                website"
 msgstr ""
 
 #: templates/errors/500.html:13
 msgid ""
 "Something went wrong on our end. We apologize for the inconvenience and "
-"are working to fix the issue."
-msgstr ""
-
-#: templates/errors/500.html:18
-msgid "What happened?"
+"are working to fix the\n"
+"                    issue."
 msgstr ""
 
 #: templates/errors/500.html:19
+msgid "What happened?"
+msgstr ""
+
+#: templates/errors/500.html:20
 msgid ""
 "Our server encountered an unexpected error while processing your request."
-" The issue has been logged and our team will investigate it."
+" The issue has been\n"
+"                logged and our team will investigate it."
 msgstr ""
 
-#: templates/errors/500.html:37
-msgid "Wait a few minutes and try again"
+#: templates/errors/500.html:48
+msgid ""
+"Try other\n"
+"                                applications"
 msgstr ""
 
-#: templates/errors/500.html:45
-msgid "Try other applications"
-msgstr ""
-
-#: templates/errors/500.html:49
+#: templates/errors/500.html:53
 msgid "Contact us if the problem persists"
+msgstr ""
+
+#: templates/errors/502.html:16
+msgid "It is possible that the service is not started."
+msgstr ""
+
+#: templates/errors/503.html:13
+msgid ""
+"The server is temporarily unable to handle your request due to "
+"maintenance or capacity issues.\n"
+"                    Please try again later."
 msgstr ""
 

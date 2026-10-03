@@ -6,4 +6,4 @@ export FLASK_ENV="development"
 export PORT=5005
 
 # 2️⃣  Lanza el servidor
-python run_server.py
+python3 run_server.py
