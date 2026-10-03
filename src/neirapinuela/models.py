@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -60,7 +60,7 @@ class TypingCompletion(db.Model):
     accuracy = db.Column(db.Float, default=0.0)
     errors = db.Column(db.Integer, default=0)
     time_seconds = db.Column(db.Float, default=0.0)
-    completed_at = db.Column(db.DateTime, default=datetime.utcnow)
+    completed_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
     __table_args__ = (db.Index("ix_typing_user_lesson", "username", "lesson_index"),)
 
@@ -76,7 +76,7 @@ class TypingAchievement(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), nullable=False, index=True)
     achievement_id = db.Column(db.String(50), nullable=False)
-    unlocked_at = db.Column(db.DateTime, default=datetime.utcnow)
+    unlocked_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
     __table_args__ = (
         db.UniqueConstraint(
